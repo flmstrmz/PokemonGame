@@ -1,5 +1,8 @@
 .set LOCALID_BRINEY, 11
 .set LOCALID_WANDAS_BF_OUTSIDE, 21
+.set LOCALID_SARAH, 23
+.set LOCALID_DAWSON, 24
+
 
 Route116_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route116_OnTransition
@@ -230,22 +233,17 @@ Route116_Movement_GlassesManExitEast:
 	step_end
 
 Route116_EventScript_Joey::
-	trainerbattle_single TRAINER_JOEY, Route116_Text_JoeyIntro, Route116_Text_JoeyDefeat
+	trainerbattle_single TRAINER_JOEY, Route116_Text_JoeyIntro, Route116_Text_JoeyDefeat, Route116_Script_WinCount
 	msgbox Route116_Text_JoeyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route116_EventScript_Jose::
-	trainerbattle_single TRAINER_JOSE, Route116_Text_JoseIntro, Route116_Text_JoseDefeat
+	trainerbattle_single TRAINER_JOSE, Route116_Text_JoseIntro, Route116_Text_JoseDefeat, Route116_Script_WinCount
 	msgbox Route116_Text_JosePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route116_EventScript_Jerry::
-	trainerbattle_single TRAINER_JERRY_1, Route116_Text_JerryIntro, Route116_Text_JerryDefeat, Route116_EventScript_TryRegisterJerryAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route116_EventScript_RematchJerry
-	setvar VAR_0x8004, TRAINER_JERRY_1
-	specialvar VAR_RESULT, IsTrainerRegistered
-	goto_if_eq VAR_RESULT, FALSE, Route116_EventScript_TryRegisterJerry
+	trainerbattle_single TRAINER_JERRY_1, Route116_Text_JerryIntro, Route116_Text_JerryDefeat, Route116_Script_WinCount
 	msgbox Route116_Text_JerryPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -281,22 +279,17 @@ Route116_EventScript_RematchJerry::
 	end
 
 Route116_EventScript_Clark::
-	trainerbattle_single TRAINER_CLARK, Route116_Text_ClarkIntro, Route116_Text_ClarkDefeat
+	trainerbattle_single TRAINER_CLARK, Route116_Text_ClarkIntro, Route116_Text_ClarkDefeat, Route116_Script_WinCount
 	msgbox Route116_Text_ClarkPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route116_EventScript_Janice::
-	trainerbattle_single TRAINER_JANICE, Route116_Text_JaniceIntro, Route116_Text_JaniceDefeat
+	trainerbattle_single TRAINER_JANICE, Route116_Text_JaniceIntro, Route116_Text_JaniceDefeat, Route116_Script_WinCount
 	msgbox Route116_Text_JanicePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route116_EventScript_Karen::
-	trainerbattle_single TRAINER_KAREN_1, Route116_Text_KarenIntro, Route116_Text_KarenDefeat, Route116_EventScript_TryRegisterKarenAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route116_EventScript_RematchKaren
-	setvar VAR_0x8004, TRAINER_KAREN_1
-	specialvar VAR_RESULT, IsTrainerRegistered
-	goto_if_eq VAR_RESULT, FALSE, Route116_EventScript_TryRegisterKaren
+	trainerbattle_single TRAINER_KAREN_1, Route116_Text_KarenIntro, Route116_Text_KarenDefeat, Route116_Script_WinCount
 	msgbox Route116_Text_KarenPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -331,6 +324,120 @@ Route116_EventScript_RematchKaren::
 	msgbox Route116_Text_KarenPostRematch, MSGBOX_AUTOCLOSE
 	end
 
+
+Route116_Script_WinCount::
+	addvar VAR_116_WIN_COUNT, 1
+	end
+
+Route116_EventScript_AceSarah::
+	goto_if_eq VAR_116_WIN_COUNT, 7, Route116_EventScript_AceSarahFight
+	goto_if_unset FLAG_BEAT_ACE116, Route116_Script_SarahWontFight 
+	msgbox Route116_Text_SarahDefeat, MSGBOX_AUTOCLOSE
+	end
+
+Route116_Script_SarahWontFight::
+	msgbox Route116_Text_SarahWontFight, MSGBOX_DEFAULT
+	closemessage
+	end
+
+
+Route116_EventScript_AceDawson::
+	goto_if_eq VAR_116_WIN_COUNT, 7, Route116_EventScript_AceDawsonFight
+	goto_if_unset FLAG_BEAT_ACE116, Route116_Script_DawsonWontFight
+	msgbox Route116_Text_DawsonDefeat, MSGBOX_AUTOCLOSE
+	end
+
+Route116_Script_DawsonWontFight::
+	msgbox Route116_Text_DawsonWontFight MSGBOX_DEFAULT
+	closemessage
+	end
+
+Route116_EventScript_AceSarahFight::
+	playbgm MUS_ENCOUNTER_FEMALE, FALSE
+	playse SE_PIN
+	applymovement LOCALID_SARAH, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox Route116_Text_AceSarahIntro, MSGBOX_DEFAULT
+	closemessage
+	playbgm MUS_ENCOUNTER_MALE, FALSE
+	playse SE_PIN
+	applymovement LOCALID_DAWSON Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_DAWSON, DawsonMoveDown
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	waitmovement 0
+	msgbox Route116_Text_AceDawsonIntro2, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_two_trainers TRAINER_SARAH, Route116_Text_BeatSarah, TRAINER_DAWSON, Route116_Text_BeatDawson
+	setflag FLAG_BEAT_ACE116
+	addvar VAR_116_WIN_COUNT, 1
+	msgbox Route116_Text_AceDawsonGift, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_SASSY_MINT
+	closemessage
+	giveitem ITEM_RELAXED_MINT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	waitmovement 0
+	msgbox Route116_Text_AceSarahGift, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_MAGNET
+	closemessage
+	end
+
+Route116_Text_AceDawsonGift:
+	.string "You won, fair and square. Here\n"
+	.string "take these.$"
+
+Route116_Text_AceSarahGift:
+	.string "I swear I was better on my own!\n"
+	.string "Whatever, here.$"
+
+Route116_EventScript_AceDawsonFight::
+	playbgm MUS_ENCOUNTER_MALE, FALSE
+	playse SE_PIN
+	applymovement LOCALID_DAWSON, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox Route116_Text_AceDawsonIntro, MSGBOX_DEFAULT
+	closemessage
+	playbgm MUS_ENCOUNTER_FEMALE, FALSE
+	playse SE_PIN
+	applymovement LOCALID_SARAH Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_SARAH, SarahMoveUp
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	waitmovement 0
+	msgbox Route116_Text_AceSarahIntro2, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_two_trainers TRAINER_SARAH, Route116_Text_BeatSarah, TRAINER_DAWSON, Route116_Text_BeatDawson
+	setflag FLAG_BEAT_ACE116
+	addvar VAR_116_WIN_COUNT, 1
+	msgbox Route116_Text_AceSarahGift, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_MAGNET
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	waitmovement 0
+	msgbox Route116_Text_AceDawsonGift, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_SASSY_MINT
+	closemessage
+	giveitem ITEM_RELAXED_MINT
+	closemessage
+	end
+
+DawsonMoveDown::
+delay_16
+walk_down
+step_end
+
+SarahMoveUp::
+delay_16
+walk_up
+step_end
+
 Route116_EventScript_Sarah::
 	trainerbattle_single TRAINER_SARAH, Route116_Text_SarahIntro, Route116_Text_SarahDefeat
 	msgbox Route116_Text_SarahPostBattle, MSGBOX_AUTOCLOSE
@@ -347,7 +454,7 @@ Route116_EventScript_Devan::
 	end
 
 Route116_EventScript_Johnson::
-	trainerbattle_single TRAINER_JOHNSON, Route116_Text_JohnsonIntro, Route116_Text_JohnsonDefeat
+	trainerbattle_single TRAINER_JOHNSON, Route116_Text_JohnsonIntro, Route116_Text_JohnsonDefeat, Route116_Script_WinCount
 	msgbox Route116_Text_JohnsonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -470,4 +577,38 @@ Route116_Text_TrainerTipsBagHasPockets:
 	.string "placed in the appropriate POCKETS.\p"
 	.string "No TRAINER can afford to be without\n"
 	.string "a BAG of their own.$"
+
+Route116_Text_AceSarahIntro:
+	.string "So you beat the gym too?\p"
+	.string "Think you have what it takes\n"
+	.string "to beat a real trainer?$"
+
+Route116_Text_AceSarahIntro2:
+	.string "AHEM, he means US...\p"
+	.string "Think you can take US on...$"
+
+Route116_Text_BeatSarah:
+	.string "Woah, you're way too strong!$"
+
+Route116_Text_SarahWontFight:
+	.string "You are no match for us, at\n"
+	.string "least go fight everyone else first.$"
+
+Route116_Text_AceDawsonIntro:
+	.string "Yo hotshot, I see your badge\n"
+	.string "think you can take me on!?$"
+
+Route116_Text_AceDawsonIntro2:
+	.string "Oho dont think you was in\n"
+	.string "a singles fight!\p"
+	.string "Prepare yourself!$"
+
+Route116_Text_BeatDawson:
+	.string "The hell? What is your team\n"
+	.string "even??$"
+
+Route116_Text_DawsonWontFight:
+	.string "Buddy you dont want this smoke.\p"
+	.string "go practice up on the other small\n"
+	.string "fries before your inevitable loss.$"
 

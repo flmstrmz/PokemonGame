@@ -1,4 +1,5 @@
 .set LOCALID_RIVAL, 2
+.set LOCALID_SAMIR, 21
 
 Route103_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route103_OnTransition
@@ -8,7 +9,12 @@ Route103_MapScripts::
 Route103_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	call ProfBirch_EventScript_UpdateLocation
+	call Route103_SetSamir
 	end
+
+Route103_SetSamir::
+	setvar VAR_OBJ_GFX_ID_3 OBJ_EVENT_GFX_SAMIR
+	return
 
 Route103_OnLoad:
 	call_if_set FLAG_SYS_GAME_CLEAR, Route103_EventScript_OpenAlteringCave
@@ -18,6 +24,124 @@ Route103_EventScript_OpenAlteringCave::
 	setmetatile 45, 5, METATILE_General_CaveEntrance_Top, TRUE
 	setmetatile 45, 6, METATILE_General_CaveEntrance_Bottom, FALSE
 	return
+
+Route103_Script_Samir1::
+	lockall
+	addvar VAR_SAMIR_TROLL, 1
+	applymovement LOCALID_SAMIR, Common_Movement_ExclamationMark
+	playse SE_PIN
+	waitmovement 0
+	applymovement LOCALID_SAMIR, Common_Movement_Delay48
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	waitmovement 0
+	msgbox Route103_Text_SamirTroll, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+Route103_Script_Samir2::
+	lockall
+	addvar VAR_SAMIR_TROLL, 1
+	playse SE_PIN
+	applymovement LOCALID_SAMIR, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_SAMIR, Route103_Samir_Move1
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	waitmovement 0
+	msgbox Route103_Text_SamirTroll, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_SAMIR, Route103_Samir_Return1
+	waitmovement 0
+	releaseall
+	end
+
+Route103_Script_Samir3::
+	lockall
+	addvar VAR_SAMIR_TROLL, 1
+	playse SE_PIN
+	applymovement LOCALID_SAMIR, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_SAMIR, Route103_Samir_Move2
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	waitmovement 0
+	msgbox Route103_Text_SamirTroll, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_SAMIR, Route103_Samir_Return2
+	waitmovement 0
+	releaseall
+	end
+
+
+Route103_Script_SamirBattle1::
+	addvar VAR_SAMIR_TROLL, 1
+	setflag FLAG_SAMIR_TROLL
+	applymovement LOCALID_SAMIR, Common_Movement_ExclamationMark
+	waitmovement 0
+	trainerbattle_single TRAINER_SAMIR_2, Route103_Text_SamirTrollBattle, Route103_Text_SamirLoss, Route103_Script_BeatSamir
+	end
+
+Route103_Script_SamirBattle2::
+	addvar VAR_SAMIR_TROLL, 1
+	setflag FLAG_SAMIR_TROLL
+	applymovement LOCALID_SAMIR, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_SAMIR, Route103_Samir_Move1
+	waitmovement 0
+	trainerbattle_single TRAINER_SAMIR_2, Route103_Text_SamirTrollBattle, Route103_Text_SamirLoss, Route103_Script_BeatSamir
+	end
+
+Route103_Script_SamirBattle3::
+	addvar VAR_SAMIR_TROLL, 1
+	setflag FLAG_SAMIR_TROLL
+	applymovement LOCALID_SAMIR, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_SAMIR, Route103_Samir_Move2
+	waitmovement 0
+	trainerbattle_single TRAINER_SAMIR_2, Route103_Text_SamirTrollBattle, Route103_Text_SamirLoss
+	goto Route103_Script_BeatSamir
+	end
+
+Route103_Script_BeatSamir::
+	applymovement LOCALID_SAMIR, Route103_Samir_Leave
+	waitmovement 0
+	setvar VAR_OBJ_GFX_ID_3, OBJ_EVENT_GFX_VAR_3
+	removeobject LOCALID_SAMIR
+	setflag FLAG_SAMIR_TROLL
+	setobjectxyperm LOCALID_SAMIR, 42, 19
+	end
+
+Route103_Samir_Move1::
+delay_16
+walk_left
+step_end
+
+Route103_Samir_Return1::
+walk_right
+face_left
+step_end
+
+Route103_Samir_Move2::
+delay_16
+walk_left
+walk_left
+step_end
+
+Route103_Samir_Return2::
+walk_right
+walk_right
+face_left
+step_end
+
+Route103_Samir_Leave::
+walk_down
+walk_down
+walk_down
+walk_down
+walk_down
+step_end
 
 Route103_EventScript_Rival::
 	lockall
@@ -144,6 +268,7 @@ Route103_EventScript_RivalEnd::
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_RIVAL
 	setflag FLAG_DEFEATED_RIVAL_ROUTE103
 	setvar VAR_OLDALE_RIVAL_STATE, 1
+	addvar VAR_SAMIR_TROLL, 1
 	clearflag FLAG_HIDE_OLDALE_TOWN_RIVAL
 	savebgm MUS_DUMMY
 	fadedefaultbgm
@@ -353,3 +478,13 @@ Route103_Text_RouteSign:
 	.string "ROUTE 103\n"
 	.string "{DOWN_ARROW} OLDALE TOWN$"
 
+Route103_Text_SamirTroll:
+	.string "owo?\p"
+	.string "What am I doing?\n"
+	.string "Yknow just hanging around..$"
+
+Route103_Text_SamirTrollBattle:
+	.string "Nyaaa gimme ur money right meow!$"
+
+Route103_Text_SamirLoss:
+	.string "HOW?$"

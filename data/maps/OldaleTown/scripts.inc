@@ -1,6 +1,7 @@
 .set LOCALID_MART_EMPLOYEE, 2
 .set LOCALID_FOOTPRINTS_MAN, 3
 .set LOCALID_RIVAL, 4
+.set LOCALID_TY, 5
 
 OldaleTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, OldaleTown_OnTransition
@@ -34,7 +35,15 @@ OldaleTown_EventScript_TownSign::
 	end
 
 OldaleTown_EventScript_Girl::
+	call_if_set FLAG_DEFEATED_RIVAL_ROUTE103, OldaleTown_Script_GirlTalk
+	call_if_unset FLAG_DEFEATED_RIVAL_ROUTE103, OldaleTown_Script_GirlTalk2
+
+OldaleTown_Script_GirlTalk::
 	msgbox OldaleTown_Text_SavingMyProgress, MSGBOX_NPC
+	end
+
+OldaleTown_Script_GirlTalk2::
+	msgbox OldaleTown_Text_Who, MSGBOX_NPC
 	end
 
 OldaleTown_EventScript_MartEmployee::
@@ -343,9 +352,22 @@ OldaleTown_Movement_ReturnToOriginalPosition:
 	walk_left
 	step_end
 
+
+
+OldaleTown_Script_Ty::
+	msgbox OldaleTown_Text_TySearching, MSGBOX_NPC
+	end
+
 OldaleTown_Text_SavingMyProgress:
-	.string "I want to take a rest, so I'm saving my\n"
-	.string "progress.$"
+	.string "Did you see that cursed sword\n"
+	.string "he ran off with??.\p"
+	.string "That he got from MY GRASS!?$"
+
+OldaleTown_Text_Who:
+	.string "This random guy barges in MY TOWN\n"
+	.string "Tells me to get off MY GRASS\p"
+	.string "And says I'M scaring off HIS POKéMON???\p"
+	.string "I hate this place....$"
 
 OldaleTown_Text_IWorkAtPokemonMart:
 	.string "Hi!\n"
@@ -367,23 +389,23 @@ OldaleTown_Text_PotionExplanation:
 
 OldaleTown_Text_WaitDontComeInHere:
 	.string "Aaaaah! Wait!\n"
-	.string "Please don't come in here.\p"
-	.string "I just discovered the footprints of\n"
-	.string "a rare POKéMON!\p"
-	.string "Wait until I finish sketching\n"
-	.string "them, okay?$"
+	.string "P- Please don't come in here.\p"
+	.string "I'm tracking the footprints of\n"
+	.string "a rare Goth Girl!\p"
+	.string "I cant have anyone ruin the path\n"
+	.string "right now!$"
 
 OldaleTown_Text_DiscoveredFootprints:
-	.string "I just discovered the footprints of\n"
-	.string "a rare POKéMON!\p"
-	.string "Wait until I finish sketching\n"
-	.string "them, okay?$"
+	.string "I'm tracking the footprints of\n"
+	.string "a rare Goth Girl!\p"
+	.string "I cant have anyone ruin the path\n"
+	.string "right now!$"
 
 OldaleTown_Text_FinishedSketchingFootprints:
-	.string "I finished sketching the footprints of\n"
-	.string "a rare POKéMON.\p"
-	.string "But it turns out they were only my\n"
-	.string "own footprints…$"
+	.string "Some Old guy pushed past\n"
+	.string "and I lost the tracks…\p"
+	.string "He told me to suck his left nut?\n"
+	.string "Like who even says that?$"
 
 OldaleTown_Text_MayLetsGoBack:
 	.string "MAY: {PLAYER}{KUN}!\n"
@@ -399,3 +421,6 @@ OldaleTown_Text_TownSign:
 	.string "OLDALE TOWN\n"
 	.string "“Where things start off scarce.”$"
 
+OldaleTown_Text_TySearching:
+	.string "Imma need you to step back boyo\n"
+	.string "about to get the rare catch in this mf$"

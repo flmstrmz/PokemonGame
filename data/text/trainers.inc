@@ -66,8 +66,11 @@ Route102_Text_TianaDefeated:
 	.string "I ended up furthering your career…$"
 
 Route102_Text_TianaPostBattle:
-	.string "To keep winning my way up, I see that\n"
-	.string "I have to catch more POKéMON.$"
+	.string "Hey you're pretty good!\p"
+	.string "You should challenge the\n"
+	.string "Ace trainer on this route.\p"
+	.string "He's standing next to the\n"
+	.string "berry trees to the right!$"
 
 Route103_Text_DaisyIntro:
 	.string "Did you feel the tug of our\n"
@@ -282,7 +285,7 @@ Route104_Text_MiaNotEnoughMons:
 
 Route104_Text_IvanIntro:
 	.string "Why keep it a secret?\n"
-	.string "I'm the WATER POKéMON expert!\p"
+	.string "I'm THE WATER POKéMON ACE!\p"
 	.string "Huh?\n"
 	.string "You don't know me?$"
 
@@ -291,8 +294,8 @@ Route104_Text_IvanDefeat:
 	.string "say so, but I guess not… Bleah…$"
 
 Route104_Text_IvanPostBattle:
-	.string "I got too into fishing.\n"
-	.string "I forgot I had to raise my POKéMON…$"
+	.string "Huh, you can't just win\n"
+	.string "with one type...$"
 
 Route104_Text_BillyIntro:
 	.string "Leaving footprints in the sand is\n"
@@ -382,15 +385,15 @@ Route104_Text_WinstonPostRematch:
 	.string "It's so deep, the world of POKéMON…$"
 
 Route104_Text_CindyIntro:
-	.string "We must have been fated to meet.\n"
-	.string "May I ask you for a battle?$"
+	.string "Hey! I'm a nurse so...\p"
+	.string "I'll heal your pokemon when you\n"
+	.string "lose!$"
 
 Route104_Text_CindyDefeat:
 	.string "Oh, my!$"
 
 Route104_Text_CindyPostBattle:
-	.string "“Hello” is the beginning of “good-bye.”\n"
-	.string "I hope we meet again.$"
+	.string "Ok, Ok.. I'll heal them for you.$"
 
 Route104_Text_CindyRegister1:
 	.string "Hello, we meet again.\p"
@@ -2294,7 +2297,7 @@ Route116_Text_SarahIntro:
 
 Route116_Text_SarahDefeat:
 	.string "Oh, my goodness.\n"
-	.string "This is a new experience for me.$"
+	.string "This is HIS fault...$"
 
 Route116_Text_SarahPostBattle:
 	.string "My life of luxury affords me all that\n"
@@ -2308,7 +2311,8 @@ Route116_Text_DawsonIntro:
 	.string "you helpless!$"
 
 Route116_Text_DawsonDefeat:
-	.string "Oh, baby, say it isn't so!$"
+	.string "Great she's gonna be mad at\n"
+	.string "me all day now. Sigh…$"
 
 Route116_Text_DawsonPostBattle:
 	.string "Oh, no, no, no!\n"

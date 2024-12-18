@@ -292,6 +292,21 @@ const u8 gTrainerBackPic_Steven[] = INCBIN_U8("graphics/trainers/back_pics/steve
 const u32 gTrainerBackPicPalette_Red[] = INCBIN_U32("graphics/trainers/back_pics/red.gbapal.lz");
 const u32 gTrainerBackPicPalette_Leaf[] = INCBIN_U32("graphics/trainers/back_pics/leaf.gbapal.lz");
 
+const u32 gTrainerFrontPic_Ty[] = INCBIN_U32("graphics/trainers/front_pics/ty_battle.4bpp.lz");
+const u32 gTrainerPalette_Ty[] = INCBIN_U32("graphics/trainers/front_pics/ty_battle.gbapal.lz");
+
+const u32 gTrainerFrontPic_Samir[] = INCBIN_U32("graphics/trainers/front_pics/samir_battle.4bpp.lz");
+const u32 gTrainerPalette_Samir[] = INCBIN_U32("graphics/trainers/front_pics/samir_battle.gbapal.lz");
+
+const u32 gTrainerFrontPic_Sugi[] = INCBIN_U32("graphics/trainers/front_pics/sugi_battle.4bpp.lz");
+const u32 gTrainerPalette_Sugi[] = INCBIN_U32("graphics/trainers/front_pics/sugi_battle.gbapal.lz");
+
+const u32 gTrainerFrontPic_Aabhash[] = INCBIN_U32("graphics/trainers/front_pics/Aabhash_battle.4bpp.lz");
+const u32 gTrainerPalette_Aabhash[] = INCBIN_U32("graphics/trainers/front_pics/Aabhash_battle.gbapal.lz");
+
+const u32 gTrainerFrontPic_Miro[] = INCBIN_U32("graphics/trainers/front_pics/Miro_battle.4bpp.lz");
+const u32 gTrainerPalette_Miro[] = INCBIN_U32("graphics/trainers/front_pics/Miro_battle.gbapal.lz");
+
 // The first two parameters invoke a front pic and palette by
 // calling a "TRAINER_PIC" constant (e.g. TRAINER_PIC_HIKER), and
 // gTrainerFrontPic/gTrainerPalette pointers, (e.g "gTrainerFrontPic_Hiker" and "gTrainerPalette_Hiker").
@@ -401,6 +416,11 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(LEAF, Leaf),
     TRAINER_SPRITE(RS_BRENDAN, RubySapphireBrendan),
     TRAINER_SPRITE(RS_MAY, RubySapphireMay),
+    TRAINER_SPRITE(TY, Ty),
+    TRAINER_SPRITE(SAMIR, Samir),
+    TRAINER_SPRITE(SUGI, Sugi),
+    TRAINER_SPRITE(AABHASH, Aabhash),
+    TRAINER_SPRITE(MIRO, Miro),
 };
 
 static const union AnimCmd sAnimCmd_Hoenn[] =

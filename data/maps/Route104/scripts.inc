@@ -846,23 +846,44 @@ Route104_Movement_BrineyExitBoat:
 	walk_in_place_faster_left
 	step_end
 
-Route104_EventScript_Ivan::
-	trainerbattle_single TRAINER_IVAN, Route104_Text_IvanIntro, Route104_Text_IvanDefeat
+testmiro::
+	trainerbattle_single TRAINER_MIRO2, TestmiroOopen, TestmiroClose
+	end
+
+Route104_Script_ACEScript::
+	goto_if_eq VAR_104_WIN_COUNT, 6, Route104_EventScript_Ivan
+	goto_if_eq VAR_104_WIN_COUNT, 7, Route104_EventScript_IvanLoss
+	msgbox Route104_Text_AceWontFight, MSGBOX_DEFAULT
+	end
+
+Route104_EventScript_IvanLoss::
 	msgbox Route104_Text_IvanPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route104_EventScript_Ivan::
+	trainerbattle_single TRAINER_IVAN, Route104_Text_IvanIntro, Route104_Text_IvanDefeat, Route104_Script_ACEBeaten
+	end
+
+Route104_Script_ACEBeaten::
+	addvar VAR_104_WIN_COUNT, 1
+	msgbox Route104_Text_ACEBeaten, MSGBOX_DEFAULT
+	giveitem ITEM_WATER_GEM
+	closemessage
+	giveitem ITEM_WISE_GLASSES
+	closemessage
+	end
+
 Route104_EventScript_Billy::
-	trainerbattle_single TRAINER_BILLY, Route104_Text_BillyIntro, Route104_Text_BillyDefeat
+	trainerbattle_single TRAINER_BILLY, Route104_Text_BillyIntro, Route104_Text_BillyDefeat, Route104_WinCount
 	msgbox Route104_Text_BillyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route104_WinCount::
+	addvar VAR_104_WIN_COUNT, 1
+	end
+
 Route104_EventScript_Haley::
-	trainerbattle_single TRAINER_HALEY_1, Route104_Text_HaleyIntro, Route104_Text_HaleyDefeat, Route104_EventScript_TryRegisterHaleyAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route104_EventScript_RematchHaley
-	setvar VAR_0x8004, TRAINER_HALEY_1
-	specialvar VAR_RESULT, IsTrainerRegistered
-	goto_if_eq VAR_RESULT, FALSE, Route104_EventScript_TryRegisterHaley
+	trainerbattle_single TRAINER_HALEY_1, Route104_Text_HaleyIntro, Route104_Text_HaleyDefeat, Route104_WinCount
 	msgbox Route104_Text_HaleyPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -898,12 +919,7 @@ Route104_EventScript_RematchHaley::
 	end
 
 Route104_EventScript_Winston::
-	trainerbattle_single TRAINER_WINSTON_1, Route104_Text_WinstonIntro, Route104_Text_WinstonDefeat, Route104_EventScript_TryRegisterWinstonAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route104_EventScript_RematchWinston
-	setvar VAR_0x8004, TRAINER_WINSTON_1
-	specialvar VAR_RESULT, IsTrainerRegistered
-	goto_if_eq VAR_RESULT, FALSE, Route104_EventScript_TryRegisterWinston
+	trainerbattle_single TRAINER_WINSTON_1, Route104_Text_WinstonIntro, Route104_Text_WinstonDefeat, Route104_WinCount
 	msgbox Route104_Text_WinstonPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -939,14 +955,10 @@ Route104_EventScript_RematchWinston::
 	end
 
 Route104_EventScript_Cindy::
-	trainerbattle_single TRAINER_CINDY_1, Route104_Text_CindyIntro, Route104_Text_CindyDefeat, Route104_EventScript_TryRegisterCindyAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route104_EventScript_RematchCindy
-	setvar VAR_0x8004, TRAINER_CINDY_1
-	specialvar VAR_RESULT, IsTrainerRegistered
-	goto_if_eq VAR_RESULT, FALSE, Route104_EventScript_TryRegisterCindy
+	trainerbattle_single TRAINER_CINDY_1, Route104_Text_CindyIntro, Route104_Text_CindyDefeat, Route104_WinCount
 	msgbox Route104_Text_CindyPostBattle, MSGBOX_DEFAULT
-	release
+	closemessage
+	call Common_EventScript_OutOfCenterPartyHeal
 	end
 
 Route104_EventScript_TryRegisterCindyAfterBattle::
@@ -980,21 +992,21 @@ Route104_EventScript_RematchCindy::
 	end
 
 Route104_EventScript_Gina::
-	trainerbattle_double TRAINER_GINA_AND_MIA_1, Route104_Text_GinaIntro, Route104_Text_GinaDefeat, Route104_Text_GinaNotEnoughMons
+	trainerbattle_double TRAINER_GINA_AND_MIA_1, Route104_Text_GinaIntro, Route104_Text_GinaDefeat, Route104_WinCount
 	special GetPlayerBigGuyGirlString
 	msgbox Route104_Text_GinaPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
 Route104_EventScript_Mia::
-	trainerbattle_double TRAINER_GINA_AND_MIA_1, Route104_Text_MiaIntro, Route104_Text_MiaDefeat, Route104_Text_MiaNotEnoughMons
+	trainerbattle_double TRAINER_GINA_AND_MIA_1, Route104_Text_MiaIntro, Route104_Text_MiaDefeat, Route104_WinCount
 	special GetPlayerBigGuyGirlString
 	msgbox Route104_Text_MiaPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
 Route104_EventScript_Darian::
-	trainerbattle_single TRAINER_DARIAN, Route104_Text_DarianIntro, Route104_Text_DarianDefeat
+	trainerbattle_single TRAINER_DARIAN, Route104_Text_DarianIntro, Route104_Text_DarianDefeat, Route104_WinCount
 	msgbox Route104_Text_DarianPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -1009,12 +1021,25 @@ Route104_Text_WhatsItLikeAtBottomOfSea:
 	.string "I wonder what it's like at the bottom\n"
 	.string "of the sea?$"
 
-Route104_Text_ThrowBallAtWeakenedPokemon:
-	.string "If you're going to throw a POKé BALL,\n"
-	.string "weaken the wild POKéMON first.\p"
-	.string "It will be easier to catch if it's been\n"
-	.string "poisoned, burned, or lulled to sleep.$"
+TestmiroOopen:
+	.string "Someone call an ambulance!\p"
+	.string "But not for me...$"
 
+TestmiroClose:
+	.string "Sticky one still$"
+
+Route104_Text_ACEBeaten:
+	.string "Ok, Ok, I know the drill...\p"
+	.string "hmm maybe these will help you\n"
+	.string "in the future$"
+
+Route104_Text_ThrowBallAtWeakenedPokemon:
+	.string "Did you see that old guy go past\n"
+	.string "just now?\p"
+	.string "He just ripped through all the trainers\n"
+	.string "here!\p"
+	.string "Talk about aura...$"
+	
 Route104_Text_OnlyThrowBallAtWildPokemon:
 	.string "You're a thief if you try to steal\n"
 	.string "someone else's POKéMON.\p"
@@ -1023,10 +1048,10 @@ Route104_Text_OnlyThrowBallAtWildPokemon:
 
 Route104_Text_ImNotATrainer:
 	.string "Oh, no, I'm not a TRAINER.\p"
-	.string "But that's right, if TRAINERS lock eyes,\n"
-	.string "it's a challenge to battle.\p"
-	.string "If you don't want to battle, stay out\n"
-	.string "of their sight.$"
+	.string "A few times thats been asked now,\n"
+	.string "though I'm glad im not!\p"
+	.string "I wouldn't want to mess with the guys\n"
+	.string "that just walked past.$"
 
 Route104_Text_LikeFillingMouthWithSeedsTakeThis:
 	.string "I like filling my mouth with seeds,\n"
@@ -1170,3 +1195,10 @@ Route104_Text_BrendanPostBattle:
 	.string "making POKéMON battle.\p"
 	.string "Like MR. BRINEY, it's important to\n"
 	.string "become friends with your POKéMON.$"
+
+Route104_Text_AceWontFight:
+	.string "I don't have time for a small time\n"
+	.string "TRAINER.\p"
+	.string "I'm the ace around here, go beat\p"
+	.string "the others first!$"
+

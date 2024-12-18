@@ -240,13 +240,18 @@
 #define OBJ_EVENT_GFX_LINK_RS_MAY                236
 #define OBJ_EVENT_GFX_LUGIA                      237
 #define OBJ_EVENT_GFX_HOOH                       238
-#define OBJ_EVENT_GFX_POKE_BALL                  239
-#define OBJ_EVENT_GFX_OW_MON                     240
+#define OBJ_EVENT_GFX_TY                         239
+#define OBJ_EVENT_GFX_SAMIR                      240
+#define OBJ_EVENT_GFX_SUGI                       241
+#define OBJ_EVENT_GFX_AABHASH                    243
+#define OBJ_EVENT_GFX_MIRO                       244
+#define OBJ_EVENT_GFX_POKE_BALL                  245
+#define OBJ_EVENT_GFX_OW_MON                     246
 
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        241
+#define NUM_OBJ_EVENT_GFX                        247
 
 
 // These are dynamic object gfx ids.
@@ -377,6 +382,11 @@
 #define OBJ_EVENT_PAL_TAG_RS_BRENDAN              0x1122
 #define OBJ_EVENT_PAL_TAG_RS_MAY                  0x1123
 #define OBJ_EVENT_PAL_TAG_DYNAMIC                 0x1124
+#define OBJ_EVENT_PAL_TAG_TY                      0x1125
+#define OBJ_EVENT_PAL_TAG_SAMIR                   0x1126
+#define OBJ_EVENT_PAL_TAG_SUGI                    0x1127
+#define OBJ_EVENT_PAL_TAG_AABHASH                 0x1128
+#define OBJ_EVENT_PAL_TAG_MIRO                    0x1129
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla

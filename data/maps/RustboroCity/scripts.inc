@@ -4,6 +4,7 @@
 .set LOCALID_GRUNT, 10
 .set LOCALID_RIVAL, 14
 .set LOCALID_SCIENTIST, 15
+.set LOCALID_SAMIR, 17
 
 RustboroCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, RustboroCity_OnTransition
@@ -13,9 +14,14 @@ RustboroCity_MapScripts::
 RustboroCity_OnTransition:
 	setflag FLAG_VISITED_RUSTBORO_CITY
 	call Common_EventScript_SetupRivalGfxId
+	call_if_eq VAR_RUSTBORO_CITY_STATE, 1, RustboroCity_Script_SetSamir
 	call_if_eq VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_HideMapNamePopup
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 	goto_if_eq VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_PositionScientistForExit
+	end
+
+RustboroCity_Script_SetSamir::
+	setvar VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_VAR_2
 	end
 
 RustboroCity_EventScript_PositionScientistForExit::
@@ -307,6 +313,15 @@ RustboroCity_EventScript_StolenGoodsScene::
 	removeobject LOCALID_DEVON_EMPLOYEE
 	setobjectxyperm LOCALID_DEVON_EMPLOYEE, 30, 10
 	clearflag FLAG_HIDE_RUSTBORO_CITY_DEVON_EMPLOYEE_1
+	setvar VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_SAMIR
+	addobject LOCALID_SAMIR
+	applymovement LOCALID_SAMIR, RustoboroCity_SamirMove
+	waitmovement 0
+	msgbox RustoboroCity_Text_Samir, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_SAMIR, RustoboroCity_SamirLeave
+	waitmovement 0
+	removeobject LOCALID_SAMIR
 	setflag FLAG_DEVON_GOODS_STOLEN
 	setvar VAR_RUSTBORO_CITY_STATE, 2
 	setvar VAR_RUSTURF_TUNNEL_STATE, 2
@@ -318,6 +333,41 @@ RustboroCity_EventScript_StolenGoodsScene::
 	setflag FLAG_HIDE_BRINEYS_HOUSE_PEEKO
 	releaseall
 	end
+
+RustoboroCity_SamirMove::
+	delay_16
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	face_down
+	delay_16
+	face_right
+	delay_16
+	step_end
+
+RustoboroCity_SamirLeave:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+
+RustoboroCity_Text_Samir:
+	.string "Nyaaa.....$"
+
 
 @ Unused
 RustboroCity_EventScript_ShadyCharacterTookOff::
@@ -1028,9 +1078,11 @@ RustboroCity_Text_WeShortenItToDevon:
 	.string "convenient products.$"
 
 RustboroCity_Text_SneakyLookingManWentAroundCorner:
-	.string "Hm? A sneaky-looking man?\p"
+	.string "Hm? A sneaky-looking man and furry?\p"
 	.string "Come to think of it, yes, a shady-\n"
-	.string "looking guy went around the corner.$"
+	.string "looking guy went around the corner.\p"
+	.string "I did see a weirdo in a cat suit too.\n"
+	.string "Don't think I wanna know...$"
 
 RustboroCity_Text_HaveYouChallengedGym:
 	.string "Have you taken the POKéMON GYM\n"
@@ -1041,8 +1093,10 @@ RustboroCity_Text_HaveYouChallengedGym:
 
 RustboroCity_Text_HeyThatsRustborosGymBadge:
 	.string "Hey, that's RUSTBORO's GYM BADGE!\p"
-	.string "Out of all the POKéMON GYM BADGES,\n"
-	.string "RUSTBORO's is the coolest, I'd say.$"
+	.string "You must be some big shot Rookie,\n"
+	.string "Theres been a few more I saw too.\p"
+	.string "Alot of strong new trainers running\n"
+	.string "about. I wonder what changed?$"
 
 RustboroCity_Text_YoureNewAroundHere:
 	.string "Oh? Who might you be?\n"
@@ -1091,10 +1145,11 @@ RustboroCity_Text_PokemonChangeShape:
 	.string "If one did that, I would be shocked!$"
 
 RustboroCity_Text_TradePokemonGrowFast:
-	.string "A POKéMON you get in a trade from\n"
-	.string "someone grows fast.\p"
-	.string "But if you don't have certain GYM\n"
-	.string "BADGES, it may not obey you…$"
+	.string "Have you heard?\p"
+	.string "DEVON CORPORATION are building a\n"
+	.string "secret project...\p"
+	.string "Something about Crystals and a new\n"
+	.string "form of evolution???$"
 
 RustboroCity_Text_OutOfTheWay:
 	.string "Get out!\n"

@@ -379,6 +379,11 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     TRAINER_CLASS(PIKE_QUEEN, "PIKE QUEEN"),
     TRAINER_CLASS(PYRAMID_KING, "PYRAMID KING"),
     TRAINER_CLASS(RS_PROTAG, "{PKMN} TRAINER"),
+    TRAINER_CLASS(TY, "God Complex", 15),
+    TRAINER_CLASS(SAMIR, "THEY/THEM", 15),
+    TRAINER_CLASS(SUGI, "Jisoo Stan", 15),
+    TRAINER_CLASS(AABHASH, "Goth Mommy", 15),
+    TRAINER_CLASS(MIRO, "The Tussler", 15),
 };
 
 static void (* const sTurnActionsFuncsTable[])(void) =

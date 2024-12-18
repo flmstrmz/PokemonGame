@@ -2,6 +2,7 @@
 .set LOCALID_BRINEY, 5
 .set LOCALID_GRUNT, 6
 .set LOCALID_PEEKO, 7
+.set LOCALID_AABHASH, 11
 .equ LOCALID_WANDA, 10
 
 RusturfTunnel_MapScripts::
@@ -275,11 +276,38 @@ RusturfTunnel_EventScript_TunnelBlockagePos3::
 RusturfTunnel_EventScript_AquaGruntBackUp::
 	lockall
 	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
-	msgbox RusturfTunnel_Text_ComeAndGetSome, MSGBOX_DEFAULT
+	msgbox RusturfTunnel_Text_GruntScared, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_AABHASH, RusturfTunnel_Movement_AabhashStep
+	waitmovement 0
+	msgbox RusturfTunnel_Text_AabhashThinking, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_GRUNT, RusturfTunnel_Movement_GruntAndPeekoBackUp
 	applymovement LOCALID_PEEKO, RusturfTunnel_Movement_GruntAndPeekoBackUp
+	applymovement LOCALID_AABHASH, RusturfTunnel_Movement_AabhashStep
 	waitmovement 0
+	msgbox RusturfTunnel_Text_Grunt1, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_GRUNT, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox RusturfTunnel_Text_Grunt2, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_AABHASH, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox RusturfTunnel_Text_AabhashOh, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_AABHASH, RusturfTunnel_Movement_AabhashFightDown
+	waitmovement 0
+	msgbox RusturfTunnel_Text_Aabhashbattle, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_AABHASH2, RusturfTunnel_Text_Aabhashlost
+	msgbox RusturfTunnel_Text_AabhashFun, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_AABHASH, RusturfTunnel_Movement_AabhashFightLeaveDown
+	waitmovement 0
+	setflag FLAG_HIDE_RUSTURF_TUNNEL_AABHASH
+	playse SE_EXIT
+	removeobject LOCALID_AABHASH
 	copyobjectxytoperm LOCALID_GRUNT
 	copyobjectxytoperm LOCALID_PEEKO
 	setvar VAR_RUSTURF_TUNNEL_STATE, 3
@@ -290,6 +318,39 @@ RusturfTunnel_Movement_GruntAndPeekoBackUp:
 	lock_facing_direction
 	walk_right
 	unlock_facing_direction
+	step_end
+
+RusturfTunnel_Movement_AabhashStep:
+	walk_right
+	step_end
+
+RusturfTunnel_Movement_AabhashFightUp:
+	walk_left
+	walk_up
+	walk_left
+	walk_left
+	step_end
+
+RusturfTunnel_Movement_AabhashFightDown:
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+RusturfTunnel_Movement_AabhashFightLeaveDown:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	step_end
 
 RusturfTunnel_EventScript_Peeko::
@@ -305,9 +366,6 @@ RusturfTunnel_EventScript_Peeko::
 RusturfTunnel_EventScript_Grunt::
 	lock
 	faceplayer
-	playbgm MUS_ENCOUNTER_AQUA, FALSE
-	msgbox RusturfTunnel_Text_GruntIntro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_GRUNT_RUSTURF_TUNNEL, RusturfTunnel_Text_GruntDefeat
 	msgbox RusturfTunnel_Text_GruntTakePackage, MSGBOX_DEFAULT
 	giveitem ITEM_DEVON_PARTS
 	closemessage
@@ -424,12 +482,47 @@ RusturfTunnel_EventScript_Mike::
 	msgbox RusturfTunnel_Text_MikePostBattle, MSGBOX_AUTOCLOSE
 	end
 
-RusturfTunnel_Text_ComeAndGetSome:
-	.string "What, are you coming?\n"
-	.string "Come and get some, then!$"
+RusturfTunnel_Text_GruntScared:
+	.string "W- What do you want!?\p"
+	.string "I've lost, I yield! I Yield!$"
+
+RusturfTunnel_Text_AabhashThinking:
+	.string "Mmmmm..$"
+
+RusturfTunnel_Text_Grunt1:
+	.string "You want money??\p"
+	.string "Why you lookin at me like that..?$"
+
+RusturfTunnel_Text_Grunt2:
+	.string "Ah! You! Please, help me!\p"
+	.string "I'll give back the goods just\n"
+	.string "get her away from me!$"
+
+RusturfTunnel_Text_AabhashOh:
+	.string "Oh?$"
 
 RusturfTunnel_Text_Peeko:
 	.string "PEEKO: Pii pihyoh!$"
+
+RusturfTunnel_Text_Aabhashbattle:
+	.string "So..\p"
+	.string "You also want to be added to\n"
+	.string "my naughty list?$"
+
+RusturfTunnel_Text_Aabhashlost:
+	.string "I guess you're safe.\p"
+	.string "for now...$"
+
+RusturfTunnel_Text_AabhashFun:
+	.string "Take your win for now,\n"
+	.string "but you have my attention.\p"
+	.string "Next time I won't go so easy.$"
+
+RusturfTunnel_Text_Grunt3:
+	.string "Dear god, I don't know what she\n"
+	.string "would've done if you hadn't shown\p"
+	.string "Here take it back, I don't want\p"
+	.string "anything to do with this anymore!$"
 
 RusturfTunnel_Text_GruntIntro:
 	.string "Grah, keelhaul it all!\p"
@@ -451,7 +544,7 @@ RusturfTunnel_Text_GruntTakePackage:
 	.string "All I had to do was steal some package\n"
 	.string "from DEVON.\p"
 	.string "Tch!\n"
-	.string "You want it back that badly, take it!$"
+	.string "here, take it!$"
 
 RusturfTunnel_Text_PeekoGladToSeeYouSafe:
 	.string "PEEKO!\n"

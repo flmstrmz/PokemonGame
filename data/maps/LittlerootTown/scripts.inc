@@ -1,4 +1,5 @@
 .set LOCALID_TWIN, 1
+.set LOCALID_BOY, 3
 .set LOCALID_MOM, 4
 .set LOCALID_RIVAL, 7
 .set LOCALID_BIRCH, 8
@@ -86,7 +87,7 @@ LittlerootTown_EventScript_SetTwinPos::
 	return
 
 LittlerootTown_EventScript_SetTwinGuardingRoutePos::
-	setobjectxyperm LOCALID_TWIN, 7, 2
+	setobjectxyperm LOCALID_TWIN, 9, 2
 	setobjectmovementtype LOCALID_TWIN, MOVEMENT_TYPE_FACE_DOWN
 	return
 
@@ -109,6 +110,7 @@ LittlerootTown_EventScript_SetMomInFrontOfDoorFemale::
 LittlerootTown_OnFrame:
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 1, LittlerootTown_EventScript_StepOffTruckMale
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_StepOffTruckFemale
+	map_script_2 VAR_LITTLEROOT_SCHOOL_STATE, 1, LittlerootTown_EventScript_VisitPokeSchool
 	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_BeginDexUpgradeScene
 	.2byte 0
 
@@ -295,6 +297,37 @@ LittlerootTown_EventScript_NeedPokemonTriggerLeft::
 	releaseall
 	end
 
+LittlerootTown_EventScript_NotPokeSchoolYetLeft::
+	lockall
+	applymovement LOCALID_BOY, LittlerootTown_Movement_BoyApproachPlayerLeft
+	waitmovement 0
+	call LittlerootTown_EventScript_NoPokemonForSchoolLeft
+	applymovement LOCALID_BOY, LittlerootTown_Movement_BoyReturnLeft
+	waitmovement 0
+	releaseall
+	end
+
+LittlerootTown_EventScript_NotPokeSchoolYetDown::
+	lockall
+	applymovement LOCALID_BOY, LittlerootTown_Movement_BoyApproachPlayerDown
+	waitmovement 0
+	call LittlerootTown_EventScript_NoPokemonForSchoolDown
+	applymovement LOCALID_BOY, LittlerootTown_Movement_BoyReturnDown
+	waitmovement 0
+	releaseall
+	end
+
+LittlerootTown_EventScript_VisitPokeSchool::
+	lockall
+	applymovement LOCALID_BOY, LittlerootTown_Movement_BoyWalkLab
+	waitmovement 0
+	call LittlerootTown_EventScript_BoyGotoPokeSchool
+	applymovement LOCALID_BOY, LittlerootTown_Movement_BoyReturnLab
+	waitmovement 0
+	setvar VAR_LITTLEROOT_SCHOOL_STATE, 2
+	releaseall
+	end
+
 LittlerootTown_EventScript_DangerousWithoutPokemon::
 	msgbox LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut, MSGBOX_DEFAULT
 	closemessage
@@ -305,6 +338,34 @@ LittlerootTown_EventScript_DangerousWithoutPokemon::
 	closemessage
 	return
 
+LittlerootTown_EventScript_NoPokemonForSchoolLeft::
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	msgbox LittlerootTown_Text_TrainerSchoolNoPokemon, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_PlayerWalkAwayFromSchoolLeft
+	waitmovement 0
+	return
+
+LittlerootTown_EventScript_NoPokemonForSchoolDown::
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	msgbox LittlerootTown_Text_TrainerSchoolNoPokemon, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_PlayerWalkAwayFromSchoolLeft
+	waitmovement 0
+	return
+
+LittlerootTown_EventScript_BoyGotoPokeSchool::
+	msgbox LittlerootTown_Text_CheckOutTrainerSchool, MSGBOX_DEFAULT
+	closemessage
+	return
+
+LittlerootTown_EventScript_notPokeSchool::
+	msgbox LittlerootTown_Text_NotTrainerSchool, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_TwinPushPlayerFromRoute
+	waitmovement 0
+	return
+
 LittlerootTown_Movement_TwinApproachPlayerLeft:
 	face_right
 	delay_8
@@ -313,16 +374,47 @@ LittlerootTown_Movement_TwinApproachPlayerLeft:
 	delay_8
 	walk_fast_right
 	walk_fast_right
-	walk_fast_right
-	walk_fast_right
 	walk_fast_up
 	walk_fast_up
 	walk_fast_left
 	face_down
 	step_end
 
+LittlerootTown_Movement_BoyApproachPlayerLeft:
+	face_right
+	delay_8
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_up
+	face_left
+	step_end
+
+	LittlerootTown_Movement_BoyApproachPlayerDown:
+	face_right
+	delay_8
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_up
+	walk_fast_right
+	face_down
+	step_end
+
 LittlerootTown_Movement_TwinPushPlayerFromRoute:
 	walk_down
+	step_end
+
+LittlerootTown_Movement_PlayerWalkAwayFromSchoolLeft:
+	face_left
+	walk_left
 	step_end
 
 LittlerootTown_Movement_TwinReturnLeft:
@@ -331,10 +423,55 @@ LittlerootTown_Movement_TwinReturnLeft:
 	walk_down
 	walk_left
 	walk_left
+	walk_up
+	walk_in_place_faster_down
+	step_end
+
+LittlerootTown_Movement_BoyReturnLeft:
+	face_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+LittlerootTown_Movement_BoyReturnDown:
+	face_left
+	walk_left
+	walk_left
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+LittlerootTown_Movement_BoyWalkLab:
+	delay_8
+	face_left
+	walk_left
+	walk_left
 	walk_left
 	walk_left
 	walk_up
-	walk_in_place_faster_down
+	walk_up
+	walk_up
+	step_end
+
+LittlerootTown_Movement_BoyReturnLab:
+	face_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	step_end
 
 LittlerootTown_Movement_PushPlayerBackFromRoute:
@@ -360,8 +497,6 @@ LittlerootTown_Movement_TwinApproachPlayerRight:
 	jump_in_place_right
 	delay_8
 	walk_fast_right
-	walk_fast_right
-	walk_fast_right
 	walk_fast_up
 	walk_fast_up
 	walk_fast_right
@@ -371,8 +506,6 @@ LittlerootTown_Movement_TwinApproachPlayerRight:
 LittlerootTown_Movement_TwinReturnRight:
 	walk_left
 	walk_down
-	walk_left
-	walk_left
 	walk_left
 	walk_in_place_faster_down
 	step_end
@@ -394,6 +527,10 @@ LittlerootTown_EventScript_GoSaveBirchTrigger::
 
 LittlerootTown_EventScript_TownSign::
 	msgbox LittlerootTown_Text_TownSign, MSGBOX_SIGN
+	end
+
+LittlerootTown_EventScript_SchoolSign::
+	msgbox LittlerootTown_Text_TrainerSchool, MSGBOX_SIGN
 	end
 
 LittlerootTown_EventScript_BirchsLabSign::
@@ -443,7 +580,7 @@ LittlerootTown_EventScript_GiveRunningShoesTrigger1::
 	lockall
 	setvar VAR_0x8008, 1
 	setobjectxy LOCALID_MOM, 11, 9
-	goto LittlerootTown_EventScript_GiveRunningShoesTrigger
+	goto LittlerootTown_EventScript_GiveRunningShoesTrigger1
 	end
 
 LittlerootTown_EventScript_GiveRunningShoesTrigger2::
@@ -999,6 +1136,10 @@ LittlerootTown_Text_TownSign:
 	.string "LITTLEROOT TOWN\n"
 	.string "“A town that can't be shaded any hue.”$"
 
+LittlerootTown_Text_TrainerSchool:
+	.string "Littleroot Trainer School\n"
+	.string "where the best young trainers start!$"
+
 LittlerootTown_Text_ProfBirchsLab:
 	.string "PROF. BIRCH'S POKéMON LAB$"
 
@@ -1019,3 +1160,19 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
 
+LittlerootTown_Text_TrainerSchoolNoPokemon:
+	.string "Hey!\p"
+	.string "I hope youre not thinking about going in\n"
+	.string "there without a pokemon?\p"
+	.string "Go talk to Birch first, I'm sure he\n"
+	.string "can help you.$"
+
+LittlerootTown_Text_CheckOutTrainerSchool:
+	.string "Hey {PLAYER}, Birch asked me to point\n"
+	.string "you towards the Trainer School here\p"
+	.string "Theres a few new trainers in there just\n"
+	.string "like you, though some are kinda weird..\p"
+	.string "I think I even saw a furry in there...$"
+
+LittlerootTown_Text_NotTrainerSchool:
+	.string "Maybe I should check the school$"

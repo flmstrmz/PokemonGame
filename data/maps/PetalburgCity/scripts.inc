@@ -3,6 +3,7 @@
 .set LOCALID_WALLYS_DAD, 5
 .set LOCALID_GYM_BOY, 8
 .set LOCALID_SCOTT, 9
+.set LOCALID_TY, 10
 
 PetalburgCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgCity_OnTransition
@@ -11,11 +12,16 @@ PetalburgCity_MapScripts::
 
 PetalburgCity_OnTransition:
 	setflag FLAG_VISITED_PETALBURG_CITY
+	call_if_eq VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_Script_HideTy
 	call_if_eq VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_EventScript_MoveGymBoyToWestEntrance
 	call_if_eq VAR_PETALBURG_CITY_STATE, 2, PetalburgCity_EventScript_DisableMapNameAndMusic
 	call_if_eq VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_EventScript_DisableMapNameAndMusic
 	call_if_eq VAR_PETALBURG_GYM_STATE, 8, PetalburgCity_EventScript_SetGymDoorsUnlocked
 	end
+
+PetalburgCity_Script_HideTy::
+	setflag FLAG_PETALBURG_TY
+	return
 
 PetalburgCity_EventScript_MoveGymBoyToWestEntrance::
 	setobjectxyperm LOCALID_GYM_BOY, 5, 11
@@ -294,6 +300,105 @@ PetalburgCity_EventScript_ShowGymToPlayer::
 	fadedefaultbgm
 	releaseall
 	end
+
+PetalburgCity_Script_TyGym::
+	lockall
+	setvar VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_TY
+	setvar VAR_0x8004, 15
+	setvar VAR_0x8005, 8
+	opendoor VAR_0x8004, VAR_0x8005
+	waitdooranim
+	clearflag FLAG_PETALBURG_TY
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_WalkDown
+	waitmovement 0
+	applymovement LOCALID_TY, PetalburgCity_Script_OldaleTyWalk
+	waitmovement 0
+	closedoor VAR_0x8004, VAR_0x8005
+	waitdooranim
+	goto PetalburgCity_Script_TyBattle
+	releaseall
+	end
+
+PetalburgCity_Script_TyBattle::
+	msgbox PetalburgCity_Text_TyBattle1 MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	applymovement LOCALID_TY, Common_Movement_ExclamationMark
+	waitmovement 0
+	trainerbattle_single TRAINER_TY2, PetalburgCity_Text_TyBattle2, PetalburgCity_Text_TyLost, PetalburgCity_Script_TyMad
+	return
+
+PetalburgCity_Script_TyMad::
+	addvar VAR_PETALBURG_TY, 1
+	msgbox PetalburgCity_Text_TyMad, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_SideStep
+	waitmovement 0
+	applymovement LOCALID_TY, PetalburgCity_Script_OldaleTyLeave
+	waitmovement 0
+	removeobject LOCALID_TY
+	setvar VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_VAR_2
+	end
+
+PetalburgCity_Text_TyBattle1:
+	.string "Can you believe this bum ass gym\n"
+	.string "tried telling ME im not ready?\p"
+	.string "Does he not know WHO I AM?\n"
+	.string "rank 419 world Riven btw$"
+
+PetalburgCity_Text_TyBattle2:
+	.string "Wait I remember you, you're\n"
+	.string "the lucky guy huh?\p"
+	.string "Ain't so lucky seeing me twice.$"
+
+PetalburgCity_Text_TyLost:
+	.string ".........$"
+
+PetalburgCity_Text_TyMad:
+	.string "GOD I'm playing so bad..\n"
+	.string "What the hell am I doing..\p"
+	.string "What you looking at?\p"
+	.string "You didn't beat me, I'm just playing\n"
+	.string "bad.\p"
+	.string "get out my way man...$"
+
+PetalburgCity_SideStep:
+face_left
+lock_facing_direction
+walk_right
+unlock_facing_direction
+step_end
+
+PetalburgCity_WalkDown:
+lock_facing_direction
+walk_down
+unlock_facing_direction
+step_end
+
+PetalburgCity_Script_OldaleTyWalk:
+walk_down
+step_end
+
+PetalburgCity_Script_OldaleTyLeave:
+walk_down
+walk_down
+walk_down
+walk_down
+walk_left
+walk_left
+walk_left
+walk_left
+walk_left
+walk_left
+walk_left
+walk_left
+walk_left
+walk_left
+step_end
 
 PetalburgCity_EventScript_BoyApproachPlayer0::
 	applymovement LOCALID_GYM_BOY, PetalburgCity_Movement_BoyApproachPlayer0
@@ -757,9 +862,15 @@ PetalburgCity_Text_AreYouATrainer:
 PetalburgCity_Text_WellMaybeNot:
 	.string "… … … … … …\p"
 	.string "Well, maybe not.\n"
-	.string "Your clothes aren't all that dirty.\p"
+	.string "You look like you've lost alot.\p"
+	.string "Smells demoralizing...\p"
 	.string "You're either a rookie TRAINER,\n"
-	.string "or maybe you're just an ordinary kid.$"
+	.string "or maybe you're just an ordinary kid.\p"
+	.string "Some advice if I may, but if\n"
+	.string "you look around, there's a bunch of\l"
+	.string "Battle Items rookie trainers leave\p"
+	.string "If you're gonna take L's at least\n"
+	.string "give yourself a fighting chance...$"
 
 PetalburgCity_Text_ImLookingForTalentedTrainers:
 	.string "I'm roaming the land in search of\n"

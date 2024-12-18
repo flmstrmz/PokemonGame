@@ -113,8 +113,9 @@ Route104_MrBrineysHouse_Text_ItsYouLetsSailToDewford:
 	.string "Quite the busy life you must lead!\p"
 	.string "But, certainly, what you're asking is\n"
 	.string "no problem at all.\p"
-	.string "You've come to the right man!\n"
-	.string "We'll set sail for DEWFORD.$"
+	.string "To be fair a couple others asked the same\n"
+	.string "a short time ago, weird bunch them.\p"
+	.string "Right, lets sail to DEWFORD!$"
 
 Route104_MrBrineysHouse_Text_SetSailForDewford:
 	.string "MR. BRINEY: DEWFORD it is, then!\p"

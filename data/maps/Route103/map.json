@@ -284,6 +284,19 @@
       "trainer_sight_or_berry_tree_id": "ITEM_PP_UP",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_103_PP_UP"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_VAR_3",
+      "x": 11,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_SAMIR_TROLL"
     }
   ],
   "warp_events": [
@@ -295,7 +308,62 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_SAMIR_TROLL",
+      "var_value": "0",
+      "script": "Route103_Script_Samir1"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_SAMIR_TROLL",
+      "var_value": "0",
+      "script": "Route103_Script_Samir2"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_SAMIR_TROLL",
+      "var_value": "0",
+      "script": "Route103_Script_Samir3"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_SAMIR_TROLL",
+      "var_value": "2",
+      "script": "Route103_Script_SamirBattle1"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_SAMIR_TROLL",
+      "var_value": "2",
+      "script": "Route103_Script_SamirBattle2"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_SAMIR_TROLL",
+      "var_value": "2",
+      "script": "Route103_Script_SamirBattle3"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

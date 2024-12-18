@@ -1264,6 +1264,11 @@ SECTIONS {
         sound/songs/midi/ph_nurse_blend.o(.rodata);
         sound/songs/midi/ph_nurse_held.o(.rodata);
         sound/songs/midi/ph_nurse_solo.o(.rodata);
+        sound/songs/midi/mus_dp_vs_gym_leader.o(.rodata);
+        sound/songs/midi/mus_dp_vs_champion.o(.rodata);
+        sound/songs/midi/mus_hg_vs_rocket.o(.rodata);
+        sound/songs/midi/mus_hg_vs_wild.o(.rodata);
+        sound/songs/midi/mus_hg_vs_trainer_kanto.o(.rodata);
     } > ROM =0
 
     lib_rodata :

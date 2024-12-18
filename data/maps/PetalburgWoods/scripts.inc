@@ -1,5 +1,6 @@
 .set LOCALID_GRUNT, 3
 .set LOCALID_DEVON_EMPLOYEE, 4
+.set LOCALID_SUGI, 14
 
 PetalburgWoods_MapScripts::
 	.byte 0
@@ -41,6 +42,7 @@ PetalburgWoods_EventScript_DevonResearcherLeft::
 
 PetalburgWoods_EventScript_DevonResearcherRight::
 	lockall
+	setvar VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_SUGI
 	call PetalburgWoods_EventScript_DevonResearcherIntro
 	applymovement LOCALID_DEVON_EMPLOYEE, PetalburgWoods_Movement_DevonResearcherApproachPlayerRight
 	waitmovement 0
@@ -83,6 +85,7 @@ PetalburgWoods_EventScript_DevonResearcherIntro::
 	return
 
 PetalburgWoods_EventScript_DevonResearcherPostBattle::
+	setflag FLAG_PETALBURG_AQUA
 	msgbox PetalburgWoods_Text_YouveGotSomeNerve, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_GRUNT, PetalburgWoods_Movement_AquaRunAway
@@ -278,12 +281,7 @@ PetalburgWoods_EventScript_Lyle::
 	end
 
 PetalburgWoods_EventScript_James::
-	trainerbattle_single TRAINER_JAMES_1, PetalburgWoods_Text_InstantlyPopularWithBugPokemon, PetalburgWoods_Text_CantBePopularIfILose, PetalburgWoods_EventScript_TryRegisterJames
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, PetalburgWoods_EventScript_JamesRematch
-	setvar VAR_0x8004, TRAINER_JAMES_1
-	specialvar VAR_RESULT, IsTrainerRegistered
-	goto_if_eq VAR_RESULT, FALSE, PetalburgWoods_EventScript_TryRegisterJames2
+	trainerbattle_single TRAINER_JAMES_1, PetalburgWoods_Text_InstantlyPopularWithBugPokemon, PetalburgWoods_Text_CantBePopularIfILose
 	msgbox PetalburgWoods_Text_PeopleRespectYou, MSGBOX_DEFAULT
 	release
 	end
@@ -317,6 +315,43 @@ PetalburgWoods_EventScript_JamesRematch::
 	trainerbattle_rematch TRAINER_JAMES_1, PetalburgWoods_Text_MyPokemonHaveGrown, PetalburgWoods_Text_CantBePopularIfLose
 	msgbox PetalburgWoods_Text_IveBeenTrainingHard, MSGBOX_AUTOCLOSE
 	end
+
+PetalburgWoods_EventScript_SugiFight::
+	trainerbattle_single TRAINER_SUGI2, PetalburgWoods_Script_SugiBattle, PetalburgWoods_Script_SugiLose, PetalburgWoods_Script_SugiL
+	end
+
+PetalburgWoods_Script_SugiL::
+	lockall
+	setflag FLAG_PETALBURG_SUGI
+	msgbox PetalburgWoods_Script_SugiLose2, MSGBOX_DEFAULT
+	applymovement LOCALID_SUGI, PetalburgWoods_SugiBackup
+	fadescreen FADE_TO_BLACK
+	playse SE_EXIT
+	removeobject LOCALID_SUGI
+	setvar VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_VAR_2
+	fadescreen FADE_FROM_BLACK
+	releaseall
+	end
+
+PetalburgWoods_SugiBackup:
+	lock_facing_direction
+	walk_up
+	step_end
+
+PetalburgWoods_Script_SugiBattle:
+	.string "Nah you see you man yeah\p"
+	.string "All you man are weak.\p"
+	.string "I beat everyone around here\p"
+	.string "Ain't a single one around got\n"
+	.string "Aura like me.$"
+
+PetalburgWoods_Script_SugiLose:
+	.string "Hmmm…...$"
+
+PetalburgWoods_Script_SugiLose2:
+	.string "Maybe one of yous ain't that bad.\p"
+	.string "Step to me again soon init bigman\p"
+	.string "Streets ain't safe for long.$"
 
 PetalburgWoods_Text_NotAOneToBeFound:
 	.string "Hmmm…\n"
@@ -384,7 +419,8 @@ PetalburgWoods_Text_YoureLoadedWithItems:
 	.string "I can't give you this GREAT BALL.$"
 
 PetalburgWoods_Text_GoBugPokemonTeam:
-	.string "I caught a whole bunch of POKéMON!\p"
+	.string "Theres some really rare Bug\n"
+	.string "POKéMON here!\p"
 	.string "Go, go, go!\n"
 	.string "My BUG POKéMON team!$"
 

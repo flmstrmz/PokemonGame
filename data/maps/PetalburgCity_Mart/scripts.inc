@@ -21,9 +21,6 @@ PetalburgCity_Mart_Pokemart_Basic:
 	.2byte ITEM_AWAKENING
 	.2byte ITEM_ESCAPE_ROPE
 	.2byte ITEM_REPEL
-	.2byte ITEM_X_SPEED
-	.2byte ITEM_X_ATTACK
-	.2byte ITEM_X_DEFENSE
 	.2byte ITEM_ORANGE_MAIL
 	.2byte ITEM_NONE
 	release
@@ -46,9 +43,6 @@ PetalburgCity_Mart_Pokemart_Expanded:
 	.2byte ITEM_AWAKENING
 	.2byte ITEM_ESCAPE_ROPE
 	.2byte ITEM_REPEL
-	.2byte ITEM_X_SPEED
-	.2byte ITEM_X_ATTACK
-	.2byte ITEM_X_DEFENSE
 	.2byte ITEM_ORANGE_MAIL
 	.2byte ITEM_NONE
 	release
@@ -66,21 +60,37 @@ PetalburgCity_Mart_EventScript_Man::
 	msgbox PetalburgCity_Mart_Text_TakeSomeAntidotesWithYou, MSGBOX_NPC
 	end
 
+PetalburgCity_Mart_Script_AabhashMinMax::
+	msgbox PetalburgCity_Mart_Text_AabhashMinMax, MSGBOX_NPC
+	goto_if_unset FLAG_AABHASH_PETALMART, PetalburgCity_Mart_Script_AabhashHide
+	end
+
+PetalburgCity_Mart_Script_AabhashHide::
+	setflag FLAG_AABHASH_PETALMART
+	end
+
 PetalburgCity_Mart_Text_WeakWillGrowStronger:
-	.string "Even if a POKéMON is weak now,\n"
-	.string "it will grow stronger.\p"
-	.string "The most important thing is love!\n"
-	.string "Love for your POKéMON!$"
+	.string "There are some strong trainers,\n"
+	.string "running about nowadays.\p"
+	.string "I heard some are abusing held items,\n"
+	.string "stat boosts, and natures!$"
 
 PetalburgCity_Mart_Text_RepelIsUseful:
-	.string "Do you use REPEL?\n"
-	.string "It keeps POKéMON away, so it's\l"
-	.string "useful when you're in a hurry.$"
+	.string "Man I really want some\n"
+	.string "Mints and Vitamins for my team!\p"
+	.string "But the store clerk says you need at\n"
+	.string "least 2 badges to be 'worthy'$"
 
 PetalburgCity_Mart_Text_TakeSomeAntidotesWithYou:
-	.string "Do you have any ANTIDOTES with\n"
-	.string "you?\p"
-	.string "If you walk around with a poisoned\n"
-	.string "POKéMON, it will lose HP until it faints.\l"
-	.string "Take some ANTIDOTES with you.$"
+	.string "Have you seen the prices of\n"
+	.string "these stores?\p"
+	.string "I heard it was bad, but this is\n"
+	.string "outrageous!\p"
+	.string "Inflation is crazy here...$"
 
+
+PetalburgCity_Mart_Text_AabhashMinMax:
+	.string "Mmmm...\p"
+	.string "I can minmax the fuck outta this game\n"
+	.string "huh?\p"
+	.string "Time to spreadsheet I guess.$"
