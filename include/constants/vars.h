@@ -114,8 +114,8 @@
 #define VAR_SOOTOPOLIS_CITY_STATE                        0x405E
 #define VAR_104_WIN_COUNT                                0x405F
 #define VAR_ROUTE101_STATE                               0x4060
-#define VAR_116_WIN_COUNT                                0x4061 // Unused Var
-#define VAR_ROUTE103_STATE                               0x4062 // Unused Var
+#define VAR_116_WIN_COUNT                                0x4061 
+#define VAR_FLY_TOOL_SOURCE                              0x4062  
 #define VAR_ROUTE104_STATE                               0x4063
 #define VAR_ROUTE105_STATE                               0x4064 // Unused Var
 #define VAR_ROUTE106_STATE                               0x4065 // Unused Var
