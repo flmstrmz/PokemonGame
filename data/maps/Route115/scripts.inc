@@ -130,10 +130,10 @@ Route115_EventScript_Marlene::
 	end
 
 Route115_Text_NeverKnowWhenCavePokemonWillAppear:
-	.string "Exploring a cave isn't like walking\n"
-	.string "on a road.\p"
-	.string "You never know when wild POKéMON will\n"
-	.string "appear. It's full of suspense.$"
+	.string "Caves have been much more eventful\n"
+	.string "as of recent, have you noticed?\p"
+	.string "Theres so much more variety in caves\n"
+	.string "now, it excites me to see what jumps out!$"
 
 Route115_Text_RouteSignRustboro:
 	.string "ROUTE 115\n"

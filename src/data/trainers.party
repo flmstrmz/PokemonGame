@@ -3223,11 +3223,17 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING
 
-Machop
-Level: 13
-IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+Riolu  
+Ability: Inner Focus  
+Level: 27  
+Lonely Nature  
+
+Scraggy  
+Ability: Intimidate  
+Level: 27  
+Adamant Nature  
 
 === TRAINER_HITOSHI ===
 Name: HITOSHI
@@ -8001,11 +8007,17 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING
 
-Meditite
-Level: 13
-IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+Sawk  
+Ability: Inner Focus  
+Level: 28  
+Adamant Nature  
+
+Throh  
+Ability: Inner Focus  
+Level: 28  
+Adamant Nature  
 
 === TRAINER_LAURA ===
 Name: LAURA
@@ -8014,11 +8026,17 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING
 
-Meditite
-Level: 13
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Meditite  
+Ability: Pure Power  
+Level: 26   
+Lonely Nature
+
+Mankey  
+Ability: Defiant  
+Level: 26  
+Hasty Nature  
 
 === TRAINER_CYNDY_1 ===
 Name: CYNDY
@@ -10760,11 +10778,17 @@ Pic: Sailor
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING
 
-Machop
-Level: 13
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Hitmonchan  
+Ability: Iron Fist  
+Level: 27  
+Adamant Nature  
+
+Hitmonlee  
+Ability: Reckless  
+Level: 28  
+Adamant Nature  
 
 === TRAINER_LILITH ===
 Name: LILITH
@@ -10773,11 +10797,19 @@ Pic: Battle Girl
 Gender: Female
 Music: Intense
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING
 
-Meditite
-Level: 13
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Makuhita  
+Ability: Sheer Force  
+Level: 26  
+Tera Type: Fighting  
+Adamant Nature  
+
+Machop  
+Ability: Steadfast  
+Level: 27  
+Tera Type: Fighting  
+Adamant Nature  
 
 === TRAINER_CRISTIAN ===
 Name: CRISTIAN
@@ -10786,11 +10818,22 @@ Pic: Black Belt
 Gender: Male
 Music: Intense
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING
 
-Makuhita
-Level: 13
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Pancham  
+Ability: Scrappy  
+Level: 27  
+Lonely Nature  
+
+Sawk  
+Ability: Inner Focus  
+Level: 27  
+Adamant Nature  
+
+Gurdurr  
+Ability: Guts  
+Level: 28  
+Adamant Nature  
 
 === TRAINER_SYLVIA ===
 Name: SYLVIA

@@ -339,17 +339,17 @@ PetalburgWoods_SugiBackup:
 	step_end
 
 PetalburgWoods_Script_SugiBattle:
-	.string "Nah you see you man yeah\p"
-	.string "All you man are weak.\p"
-	.string "I beat everyone around here\p"
-	.string "Ain't a single one around got\n"
-	.string "Aura like me.$"
+	.string "BRUDDA\p"
+	.string "You seen the latest trend on TikTok?\p"
+	.string "Broooo I'm about to show you how much\n"
+	.string "I learnt from those 10 seconds.$"
 
 PetalburgWoods_Script_SugiLose:
 	.string "Hmmm…...$"
 
 PetalburgWoods_Script_SugiLose2:
-	.string "Maybe one of yous ain't that bad.\p"
+	.string "You lucky I don't have my\n"
+	.string "BlackPink playlist here...\p"
 	.string "Step to me again soon init bigman\p"
 	.string "Streets ain't safe for long.$"
 

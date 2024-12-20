@@ -47,6 +47,8 @@ LittlerootSchool_Script_Thanks::
 	giveitem ITEM_OLD_ROD
 	setflag FLAG_RECEIVED_OLD_ROD
 	closemessage
+	msgbox LittlerootSchool_Text_Rod, MSGBOX_DEFAULT
+	closemessage
 	end
 
 LittlerootSchool_Script_Complete::
@@ -147,6 +149,13 @@ LittlerootSchool_Text_Thanks:
 	.string "Hopefully I never see them again..\p"
 	.string "Sorry for screaming at you,\n"
 	.string "Please take this for the trouble.$" 
+
+LittlerootSchool_Text_Rod:
+	.string "Back in my youth I used that\n"
+	.string "to catch a rare few myself!\p"
+	.string "if you don't want to fall behind\p"
+	.string "the other students, I suggest you get\l"
+	.string "Fishin'!$"
 
 LittlerootSchool_Text_Heal:
 	.string "What?\p"

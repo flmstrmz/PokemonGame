@@ -1102,7 +1102,11 @@ RustboroCity_Text_YoureNewAroundHere:
 	.string "Oh? Who might you be?\n"
 	.string "You're a new face around these parts.\p"
 	.string "Have you just transferred into the\n"
-	.string "POKéMON TRAINER'S SCHOOL?$"
+	.string "POKéMON TRAINER'S SCHOOL?\p"
+	.string "You attended Littleroot School?\n"
+	.string "oh you poor soul, I've seen the\l"
+	.string "calibre that comes from there!\p"
+	.string "You mustve been eaten alive...$"
 
 RustboroCity_Text_GymLeaderIsntEasyWithFire:
 	.string "I challenged the GYM LEADER, but…\p"

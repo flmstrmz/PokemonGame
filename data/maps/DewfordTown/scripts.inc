@@ -105,11 +105,7 @@ DewfordTown_EventScript_NotGettingItchToFish::
 	end
 
 DewfordTown_EventScript_HowsFishing::
-	message DewfordTown_Text_HowsYourFishing
-	waitmessage
-	multichoice 20, 8, MULTI_HOWS_FISHING, TRUE
-	goto_if_eq VAR_RESULT, 0, DewfordTown_EventScript_FishingExcellent
-	goto_if_eq VAR_RESULT, 1, DewfordTown_EventScript_FishingNotSoGood
+	msgbox DewfordTown_Text_HowsYourFishing MSGBOX_NPC
 	end
 
 DewfordTown_EventScript_FishingExcellent::
@@ -640,9 +636,12 @@ DewfordTown_EventScript_PhraseNotTrendyEnough::
 	end
 
 DewfordTown_Text_TinyIslandCommunity:
-	.string "DEWFORD is a tiny island community.\n"
-	.string "If something gets trendy here,\l"
-	.string "everyone picks up on it right away.$"
+	.string "Another newcomer!\p"
+	.string "Not as... 'Interesting' as the last,\n"
+	.string "but just as welcomed!\p"
+	.string "Who was the last you ask?\p"
+	.string "They weren't very talkative but rushed\n"
+	.string "to Granite Cave$"
 
 DewfordTown_Text_TownSign:
 	.string "DEWFORD TOWN\n"
@@ -729,8 +728,13 @@ DewfordTown_Text_ThatsTooBadThen:
 	.string "That's too bad, then.$"
 
 DewfordTown_Text_HowsYourFishing:
-	.string "Yo!\n"
-	.string "How's your fishing?$"
+	.string "Hmmm...\n"
+	.string "I recognize that OLD ROD\p"
+	.string "Ah! Thats of of my rods you thief!\p"
+	.string "Oh? You got it from an old lady in\n"
+	.string "Littleroot POKé School?\p"
+	.string "mmmm... Well you better be putting it\n"
+	.string "to good use!$"
 
 DewfordTown_Text_GreatHaulInSomeBigOnes:
 	.string "Is that right! That's great!\n"
