@@ -616,6 +616,12 @@ gSongTable::
 	song mus_hg_vs_rocket, 0, 0
 	song mus_hg_vs_wild, 0, 0
 	song mus_hg_vs_trainer_kanto, 0, 0
+	song mus_dp_vs_galactic_commander, 0, 0
+	song mus_dp_vs_elite_four, 0, 0
+	song mus_dp_vs_galactic_boss, 0, 0
+	song mus_dp_vs_uxie_mesprit_azelf, 0, 0
+	song mus_dp_vs_dialga_palkia, 0, 0
+	song mus_dp_vs_galactic, 0, 0
 
 	.align 2
 dummy_song_header:

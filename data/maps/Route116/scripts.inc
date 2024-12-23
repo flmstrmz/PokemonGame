@@ -142,6 +142,7 @@ Route116_EventScript_Briney::
 	faceplayer
 	msgbox Route116_Text_ScoundrelMadeOffWithPeeko, MSGBOX_DEFAULT
 	setvar VAR_ROUTE116_STATE, 2
+	clearflag FLAG_HIDE_RUSTURF_TUNNEL_AABHASH
 	release
 	end
 
@@ -330,7 +331,7 @@ Route116_Script_WinCount::
 	end
 
 Route116_EventScript_AceSarah::
-	goto_if_eq VAR_116_WIN_COUNT, 7, Route116_EventScript_AceSarahFight
+	goto_if_eq VAR_116_WIN_COUNT, 6, Route116_EventScript_AceSarahFight
 	goto_if_unset FLAG_BEAT_ACE116, Route116_Script_SarahWontFight 
 	msgbox Route116_Text_SarahDefeat, MSGBOX_AUTOCLOSE
 	end
@@ -342,7 +343,7 @@ Route116_Script_SarahWontFight::
 
 
 Route116_EventScript_AceDawson::
-	goto_if_eq VAR_116_WIN_COUNT, 7, Route116_EventScript_AceDawsonFight
+	goto_if_eq VAR_116_WIN_COUNT, 6, Route116_EventScript_AceDawsonFight
 	goto_if_unset FLAG_BEAT_ACE116, Route116_Script_DawsonWontFight
 	msgbox Route116_Text_DawsonDefeat, MSGBOX_AUTOCLOSE
 	end
@@ -418,6 +419,8 @@ Route116_EventScript_AceDawsonFight::
 	closemessage
 	giveitem ITEM_MAGNET
 	closemessage
+	applymovement LOCALID_SARAH, SarahMoveBack
+	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	waitmovement 0
 	msgbox Route116_Text_AceDawsonGift, MSGBOX_DEFAULT
@@ -436,6 +439,11 @@ step_end
 SarahMoveUp::
 delay_16
 walk_up
+step_end
+
+SarahMoveBack::
+walk_down
+face_up
 step_end
 
 Route116_EventScript_Sarah::

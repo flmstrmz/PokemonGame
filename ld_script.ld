@@ -1269,6 +1269,12 @@ SECTIONS {
         sound/songs/midi/mus_hg_vs_rocket.o(.rodata);
         sound/songs/midi/mus_hg_vs_wild.o(.rodata);
         sound/songs/midi/mus_hg_vs_trainer_kanto.o(.rodata);
+        sound/songs/midi/mus_dp_vs_galactic_commander.o(.rodata);
+        sound/songs/midi/mus_dp_vs_elite_four.o(.rodata);
+        sound/songs/midi/mus_dp_vs_galactic_boss.o(.rodata);
+        sound/songs/midi/mus_dp_vs_uxie_mesprit_azelf.o(.rodata);
+        sound/songs/midi/mus_dp_vs_dialga_palkia.o(.rodata);
+        sound/songs/midi/mus_dp_vs_galactic.o(.rodata);
     } > ROM =0
 
     lib_rodata :

@@ -4855,7 +4855,7 @@ Pic: Leader Roxanne
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT / AI_FLAG_ACE_POKEMON
 
 Dwebble @ Salac Berry  
 Ability: Sturdy  
@@ -4915,33 +4915,60 @@ Class: Leader
 Pic: Leader Brawly
 Gender: Male
 Music: Male
-Items: Super Potion / Super Potion
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT / AI_FLAG_ACE_POKEMON
 
-Machop
-Level: 16
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Karate Chop
+Mienfoo (F) @ Focus Sash 
+Ability: Regenerator  
+Level: 29  
+EVs: 126 HP / 126 Atk  
+Adamant Nature  
+- Fake Out  
+- U-turn  
+- Force Palm  
+- Reversal  
+
+Machoke (M) @ Coba Berry  
+Ability: No Guard  
+Level: 29  
+EVs: 126 HP / 126 Atk  
+Adamant Nature  
+- Ice Punch  
+- Bullet Punch  
+- Low Sweep  
+- Rock Slide  
+
+Hawlucha (M)  
+Ability: Mold Breaker  
+Level: 30  
+Shiny: Yes  
+EVs: 126 Atk / 126 Spe  
+Jolly Nature  
+- Aerial Ace
+- Brick Break  
+- Taunt  
+- Knock Off 
+
+Hakamo-o (M) @ Sitrus Berry 
+Ability: Overcoat  
+Level: 30  
+EVs: 126 HP / 126 Atk  
+Adamant Nature  
+- Dragon Tail  
+- Drain Punch  
+- Bulldoze  
 - Low Kick
-- Seismic Toss
-- Bulk Up
 
-Meditite
-Level: 16
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Focus Punch
-- Light Screen
-- Reflect
-- Bulk Up
-
-Makuhita @ Sitrus Berry
-Level: 19
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Arm Thrust
-- Vital Throw
-- Reversal
-- Bulk Up
+Pawmot (M)  
+Ability: Iron Fist  
+Level: 31 
+Shiny: Yes 
+EVs: 126 Atk / 126 Spe  
+Jolly Nature  
+- Thunder Punch  
+- Mach Punch  
+- Metal Claw  
+- Bite   
 
 === TRAINER_WATTSON_1 ===
 Name: WATTSON
@@ -10802,13 +10829,11 @@ AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWIT
 Makuhita  
 Ability: Sheer Force  
 Level: 26  
-Tera Type: Fighting  
 Adamant Nature  
 
 Machop  
 Ability: Steadfast  
 Level: 27  
-Tera Type: Fighting  
 Adamant Nature  
 
 === TRAINER_CRISTIAN ===
@@ -17499,8 +17524,7 @@ AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT
 
 Bingus (Eevee) (F) @ Eviolite  
 Ability: Adaptability  
-Level: 4  
-Shiny: Yes  
+Level: 4   
 Adamant Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
@@ -17513,16 +17537,64 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT
 
-Eevee (F) @ Eviolite  
+Bingus (Eevee) (F) @ Eviolite  
 Ability: Adaptability  
-Level: 10  
-Shiny: Yes   
+Level: 10     
 Adamant Nature  
 IVs: 5 HP / 5 Atk / 5 Def / 5 SpA / 5 SpD / 5 Spe 
 - Covet  
 - Quick Attack  
 - Sand Attack  
 - Growl
+
+=== TRAINER_SAMIR_3 ===
+Name: SAMIR
+Class: SAMIR
+Pic: SAMIR
+Gender: Male
+Music: Female
+Double Battle: No
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT
+
+Incineroar @ Heat Rock  
+Ability: Blaze  
+Level: 34  
+EVs: 165 HP / 165 Atk  
+Adamant Nature  
+- Darkest Lariat  
+- Fire Fang  
+- Drain Punch  
+- Sunny Day  
+
+Floragato (M) @ Focus Sash 
+Ability: Protean  
+Level: 34  
+EVs: 165 Atk / 165 Spe  
+Adamant Nature  
+- Seed Bomb  
+- U-turn  
+- Acrobatics  
+- Knock Off  
+
+Litleo (F) @ Eviolite  
+Ability: Unnerve  
+Level: 34  
+EVs: 165 HP / 165 SpD  
+Calm Nature  
+- Fire Spin  
+- Will-O-Wisp  
+- Protect  
+- Snarl  
+
+Bingus (Espeon) (F) @ Light Clay  
+Ability: Magic Bounce  
+Level: 34  
+EVs: 165 HP / 165 Def  
+Bold Nature  
+- Psychic Noise  
+- Alluring Voice  
+- Reflect  
+- Calm Mind  
 
 === TRAINER_SUGI ===
 Name: SUGI

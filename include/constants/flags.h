@@ -672,9 +672,9 @@
 #define FLAG_HIDE_RUSTURF_TUNNEL_AABHASH       0x271
 #define FLAG_DEFEATED_MIROSCHOOL       0x272 
 #define FLAG_BEAT_ACE116        0x273
-#define FLAG_UNUSED_0x274       0x274 // Unused Flag
-#define FLAG_UNUSED_0x275       0x275 // Unused Flag
-#define FLAG_UNUSED_0x276       0x276 // Unused Flag
+#define FLAG_GRANITE_SAMIR      0x274
+#define FLAG_HIDE_SAMIR_GRANITE 0x275 
+#define FLAG_BEAT_SAMIR_GRANITE 0x276 
 #define FLAG_UNUSED_0x277       0x277 // Unused Flag
 #define FLAG_UNUSED_0x278       0x278 // Unused Flag
 #define FLAG_UNUSED_0x279       0x279 // Unused Flag

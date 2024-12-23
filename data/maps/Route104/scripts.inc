@@ -851,9 +851,10 @@ testmiro::
 	end
 
 Route104_Script_ACEScript::
-	goto_if_eq VAR_104_WIN_COUNT, 6, Route104_EventScript_Ivan
-	goto_if_eq VAR_104_WIN_COUNT, 7, Route104_EventScript_IvanLoss
+	goto_if_eq VAR_104_WIN_COUNT, 5, Route104_EventScript_Ivan
+	goto_if_eq VAR_104_WIN_COUNT, 6, Route104_EventScript_IvanLoss
 	msgbox Route104_Text_AceWontFight, MSGBOX_DEFAULT
+	closemessage
 	end
 
 Route104_EventScript_IvanLoss::
@@ -992,17 +993,22 @@ Route104_EventScript_RematchCindy::
 	end
 
 Route104_EventScript_Gina::
-	trainerbattle_double TRAINER_GINA_AND_MIA_1, Route104_Text_GinaIntro, Route104_Text_GinaDefeat, Route104_WinCount
+	trainerbattle_double TRAINER_GINA_AND_MIA_1, Route104_Text_GinaIntro, Route104_Text_GinaDefeat, Route104_CantDoubleBattle
 	special GetPlayerBigGuyGirlString
 	msgbox Route104_Text_GinaPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
 Route104_EventScript_Mia::
-	trainerbattle_double TRAINER_GINA_AND_MIA_1, Route104_Text_MiaIntro, Route104_Text_MiaDefeat, Route104_WinCount
+	trainerbattle_double TRAINER_GINA_AND_MIA_1, Route104_Text_MiaIntro, Route104_Text_MiaDefeat, Route104_CantDoubleBattle
 	special GetPlayerBigGuyGirlString
 	msgbox Route104_Text_MiaPostBattle, MSGBOX_DEFAULT
 	release
+	end
+
+Route104_CantDoubleBattle::
+	msgbox Route104_Text_NotEnoughPoke, MSGBOX_DEFAULT
+	closemessage
 	end
 
 Route104_EventScript_Darian::
@@ -1201,4 +1207,7 @@ Route104_Text_AceWontFight:
 	.string "TRAINER.\p"
 	.string "I'm the ace around here, go beat\p"
 	.string "the others first!$"
+
+Route104_Text_NotEnoughPoke:
+	.string "Hey you need more pokemon!$"
 

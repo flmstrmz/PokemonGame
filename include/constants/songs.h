@@ -548,6 +548,12 @@
 #define MUS_HG_VS_ROCKET            612
 #define MUS_HG_VS_WILD              613
 #define MUS_HG_VS_TRAINER_KANTO     614
+#define MUS_DP_VS_GALACTIC_COMMANDER 615
+#define MUS_DP_VS_ELITE_FOUR         616
+#define MUS_DP_VS_GALACTIC_BOSS      617
+#define MUS_DP_VS_UXIE_MESPRIT_AZELF 618 
+#define MUS_DP_VS_DIALGA_PALKIA     619
+#define MUS_DP_VS_GALACTIC          620
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

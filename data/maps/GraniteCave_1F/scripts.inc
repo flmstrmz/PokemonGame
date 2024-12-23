@@ -25,7 +25,7 @@ GraniteCave_1F_Text_GetsDarkAheadHereYouGo:
 	.string "You didn't see them?\p"
 	.string "Well look you seem alot nicer so,\n"
 	.string "if you're going deeper youre gonna\l"
-	.string "need flash!"
+	.string "need flash!\p"
 	.string "Well, for us HIKERS, it's a must if\n"
 	.string "you're delving.\p"
 	.string "Here you go, I'll pass this on to you.$"
