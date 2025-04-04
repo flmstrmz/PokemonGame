@@ -483,7 +483,7 @@ MauvilleCity_Text_UncleYourePushingIt:
 
 MauvilleCity_Text_WallyWeCanBeatAnyone:
 	.string "WALLY: I'm not pushing it.\p"
-	.string "If I combine forces with RALTS,\n"
+	.string "If I combine forces with Kirlia,\n"
 	.string "we can beat anyone!$"
 
 MauvilleCity_Text_WallyWillYouBattleMe:
@@ -518,18 +518,23 @@ MauvilleCity_Text_WallyHereICome:
 MauvilleCity_Text_WallyDefeat:
 	.string "WALLY: … … … … … … …\p"
 	.string "… … … … … … … …\p"
-	.string "I lost…$"
+	.string "I thought…$"
 
 MauvilleCity_Text_WallyIllGoBackToVerdanturf:
-	.string "WALLY: UNCLE…\n"
-	.string "I'll go back to VERDANTURF…$"
+	.string "WALLY: …\p"
+	.string "I'm sorry Kirlia...\n"
+	.string "Maybe I'm too weak afterall...$" 
 
 MauvilleCity_Text_ThankYouNotEnoughToBattle:
-	.string "{PLAYER}, thank you.\n"
-	.string "Being a TRAINER is tough, isn't it?\p"
+	.string "{PLAYER}, I wonder...\n"
+	.string "What makes us so different?\p"
+	.string "I really thought I could win.\p"
+	.string "{PLAYER}, did you have a hard start\n"
+	.string "too..?\p"
+	.string "... ... ...\p"
 	.string "It's not enough just to have POKéMON\n"
 	.string "and make them battle. That isn't what\l"
-	.string "being a real TRAINER is about.$"
+	.string "being a real TRAINER is about I guess.$"
 
 MauvilleCity_Text_UncleNoNeedToBeDown:
 	.string "UNCLE: WALLY, there's no need to be so\n"
@@ -565,17 +570,18 @@ MauvilleCity_Text_RegisteredWally:
 	.string "in the POKéNAV.$"
 
 MauvilleCity_Text_ScottYouDidntHoldBack:
-	.string "SCOTT: Hehe…\n"
-	.string "I was watching that match!\p"
+	.string "SCOTT: Hmmm…\n"
+	.string "I was watching that match.\p"
 	.string "You're friends with that boy WALLY,\n"
 	.string "aren't you?\p"
-	.string "But you didn't hold anything back\n"
-	.string "and beat him impressively.\p"
-	.string "Yeah! That's what a real POKéMON\n"
-	.string "battle is all about!\p"
-	.string "I idolize TRAINERS like that!\p"
-	.string "… … … … … …\n"
-	.string "I'll be cheering for you!$"
+	.string "But you didn't hold anything back.\p"
+	.string "Good. That boy needs to learn the\n"
+	.string "hard way.\p"
+	.string "He's even weaker than you were when\n"
+	.string "you started...\p"
+	.string "You've grown some, I'll say.\p"
+	.string "But there are trainers, much more\n"
+	.string "fearsome out there...$"
 
 MauvilleCity_Text_WattsonNeedFavorTakeKey:
 	.string "WATTSON: Oh, {PLAYER}{KUN}!\n"
@@ -620,10 +626,16 @@ MauvilleCity_Text_NurseHurtMonBackToHealth:
 	.string "you have to nurse it back to health.$"
 
 MauvilleCity_Text_AllSortsOfPeopleComeThrough:
-	.string "The roads of this town stretch north\n"
-	.string "and south, and east and west.\p"
-	.string "Because of that, we get all sorts of\n"
-	.string "people coming through.$"
+	.string "Have you seen that tower looming to\n"
+	.string "the north?\p"
+	.string "Rumor has it some Big Shot owns it\n"
+	.string "for training.\p"
+	.string "I swear I saw him battling up there,\n"
+	.string "a couple days back.\p"
+	.string "crazy lights, a mini quake. You woulda\n"
+	.string "thought the tower would topple, but nope!\p"
+	.string "whoever he was against that day really\n"
+	.string "held their own...$"
 
 MauvilleCity_Text_RydelVeryGenerous:
 	.string "Have you been to RYDEL'S CYCLES yet?\p"
@@ -631,8 +643,12 @@ MauvilleCity_Text_RydelVeryGenerous:
 	.string "man.$"
 
 MauvilleCity_Text_PokemonCanJumpYouOnBike:
-	.string "Even if you're riding a BIKE,\n"
-	.string "wild POKéMON could jump you.$"
+	.string "Pfft, you see that peasant BIKE store\n"
+	.string "over there?\p"
+	.string "Embarassing people ride those things\n"
+	.string "around...$"
+	.string "My daddy says even if you're riding\n"
+	.string "that BIKE, wild POKéMON still jump you.$"
 
 MauvilleCity_Text_CitySign:
 	.string "MAUVILLE CITY\n"

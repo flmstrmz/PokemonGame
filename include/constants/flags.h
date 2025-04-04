@@ -675,14 +675,14 @@
 #define FLAG_GRANITE_SAMIR      0x274
 #define FLAG_HIDE_SAMIR_GRANITE 0x275 
 #define FLAG_BEAT_SAMIR_GRANITE 0x276 
-#define FLAG_UNUSED_0x277       0x277 // Unused Flag
-#define FLAG_UNUSED_0x278       0x278 // Unused Flag
-#define FLAG_UNUSED_0x279       0x279 // Unused Flag
-#define FLAG_UNUSED_0x27A       0x27A // Unused Flag
-#define FLAG_UNUSED_0x27B       0x27B // Unused Flag
-#define FLAG_UNUSED_0x27C       0x27C // Unused Flag
-#define FLAG_UNUSED_0x27D       0x27D // Unused Flag
-#define FLAG_UNUSED_0x27E       0x27E // Unused Flag
+#define FLAG_HIDETY_SEAHOUSE    0x277
+#define FLAG_HIDEMIRO_SEAHOUSE  0x278
+#define FLAG_HIDESUGI_SEAHOUSE  0x279
+#define FLAG_SEAHOUSEREWARD     0x27A
+#define FLAG_BEATGRUNTS_MUSEUM  0x27B 
+#define FLAG_TYWON              0x27C 
+#define FLAG_SUGIWON            0x27D 
+#define FLAG_MIROWON            0x27E 
 #define FLAG_UNUSED_0x27F       0x27F // Unused Flag
 #define FLAG_UNUSED_0x280       0x280 // Unused Flag
 #define FLAG_UNUSED_0x281       0x281 // Unused Flag

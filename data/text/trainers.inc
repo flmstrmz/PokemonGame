@@ -2564,8 +2564,8 @@ Route117_Text_BrandiDefeat:
 	.string "Astonishing!$"
 
 Route117_Text_BrandiPostBattle:
-	.string "PSYCHIC POKéMON are complex.\n"
-	.string "You should try catching some.$"
+	.string "Look at her.\n"
+	.string "Shes gonna be a star one day!$"
 
 Route117_Text_AishaIntro:
 	.string "Concentrate on getting the win.\n"
@@ -2576,8 +2576,8 @@ Route117_Text_AishaDefeat:
 	.string "over a loss--I would rather train.$"
 
 Route117_Text_AishaPostBattle:
-	.string "I think that if you worry about losing,\n"
-	.string "you're more likely to lose.$"
+	.string "We're training her to be the best,\n"
+	.string "One day the world will know her name.$"
 
 Route118_Text_RoseIntro:
 	.string "The aroma of flowers has a magical\n"

@@ -17,7 +17,8 @@
 .set LOCALID_GRUNT_8, 30
 .set LOCALID_GRUNT_9, 31
 .set LOCALID_GRUNT_11, 33
-.set LOCALID_SCOTT, 35
+.set LOCALID_SCOTT, 34
+.set LOCALID_AABHASH, 35
 
 @ Note: LOCALID_SLATEPORT_ENERGY_GURU is a local id for this map used elsewhere. It's defined in event_objects.h
 
@@ -142,7 +143,7 @@ SlateportCity_EventScript_EnergyGuru::
 	message SlateportCity_Text_EnergyGuruSellWhatYouNeed
 	waitmessage
 	pokemart SlateportCity_Pokemart_EnergyGuru
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox SlateportCity_Text_ClerkPerks, MSGBOX_DEFAULT
 	release
 	end
 
@@ -347,6 +348,14 @@ SlateportCity_EventScript_ManiacSternInterview::
 	release
 	end
 
+SlateportCity_EventScript_Aabhash::
+	lockall
+	applymovement LOCALID_AABHASH, Common_Movement_FacePlayer
+	msgbox SlateportCity_Text_AabhashMixMaxing, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
 SlateportCity_EventScript_Woman2::
 	msgbox SlateportCity_Text_CantChangeTradeMonName, MSGBOX_NPC
 	end
@@ -357,10 +366,6 @@ SlateportCity_EventScript_Sailor1::
 
 SlateportCity_EventScript_Sailor2::
 	msgbox SlateportCity_Text_SinkOldBoats, MSGBOX_NPC
-	end
-
-SlateportCity_EventScript_PokefanF::
-	msgbox SlateportCity_Text_BuyTooMuch, MSGBOX_NPC
 	end
 
 SlateportCity_EventScript_Man2::
@@ -502,19 +507,22 @@ SlateportCity_EventScript_AquaGrunt11::
 SlateportCity_EventScript_DollClerk::
 	lock
 	faceplayer
-	message gText_HowMayIServeYou
+	message SlateportCity_Text_ClerkBerries
 	waitmessage
-	pokemartdecoration SlateportCity_PokemartDecor_Dolls
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	pokemart SlateportCity_Pokemart_Berries
+	msgbox SlateportCity_Text_ClerkBerriesDone, MSGBOX_DEFAULT
 	release
 	end
 
 	.align 2
-SlateportCity_PokemartDecor_Dolls:
-	.2byte DECOR_AZURILL_DOLL
-	.2byte DECOR_MARILL_DOLL
-	.2byte DECOR_SKITTY_DOLL
-	.2byte DECOR_NONE
+SlateportCity_Pokemart_Berries:
+	.2byte ITEM_POMEG_BERRY
+	.2byte ITEM_KELPSY_BERRY
+	.2byte ITEM_QUALOT_BERRY
+	.2byte ITEM_HONDEW_BERRY
+	.2byte ITEM_GREPA_BERRY
+	.2byte ITEM_TAMATO_BERRY
+	.2byte ITEM_NONE
 	release
 	end
 
@@ -951,8 +959,11 @@ SlateportCity_EventScript_BerryCrushRankingsSign::
 	end
 
 SlateportCity_Text_EnergyGuruSellWhatYouNeed:
-	.string "I'm the ENERGY GURU! I'll go for it and\n"
-	.string "sell you what you need!$"
+	.string "Yo kid\n"
+	.string "Want to buy some Poke Stims?\p"
+	.string "What? No theyre not drugs I said\n"
+	.string "STIMS...\p"
+	.string "What are you the Police?$" 
 
 SlateportCity_Text_OhYourPokemon:
 	.string "Oh?\n"
@@ -1114,20 +1125,19 @@ SlateportCity_Text_SinkOldBoats:
 	.string "They sink them in the sea so they\n"
 	.string "become habitats for POKéMON.$"
 
-SlateportCity_Text_BuyTooMuch:
-	.string "Whenever I visit here, I get carried\n"
-	.string "away and buy too much.$"
-
 SlateportCity_Text_GetNameRaterToHelpYou:
 	.string "If you want to change your POKéMON's\n"
 	.string "nickname, you'll have to get the NAME\l"
 	.string "RATER to help you.$"
 
 SlateportCity_Text_CantChangeTradeMonName:
-	.string "Any POKéMON you get in a trade,\n"
-	.string "you can't change its nickname.\p"
-	.string "The original TRAINER's love for that\n"
-	.string "POKéMON is in the nickname.$"
+	.string "Oh, I haven't seen you before.\p"
+	.string "Have you checked out the open market?\p"
+	.string "This is the first town to sell the full\n"
+	.string "range of Poke stat buffers!\p"
+	.string "Huh?\p"
+	.string "No I was NOT paid to say that by the dev.\p"
+	.string "The hell is a 'dev' anyways...$"
 
 SlateportCity_Text_BattleTentBuiltRecently:
 	.string "Recently, a BATTLE TENT was built\n"
@@ -1348,7 +1358,8 @@ SlateportCity_Text_YouDroveTeamAquaAway:
 	.string "If not, my name's SCOTT.\p"
 	.string "I just saw TEAM AQUA run away from\n"
 	.string "here like they were stung.\p"
-	.string "Let me guess--you drove them away?$"
+	.string "HUH?\p"
+	.string "They were running from YOU?$"
 
 SlateportCity_Text_MaybeThisTrainer:
 	.string "SCOTT: Hmm…\n"
@@ -1366,20 +1377,40 @@ SlateportCity_Text_RegisteredScott:
 	.string "in the POKéNAV.$"
 
 SlateportCity_Text_KeepEyeOnTrainersBeSeeingYou:
-	.string "SCOTT: What I'd like to do is tag along\n"
+	.string "SCOTT: Now I'd love to stay and chat\n"
 	.string "with you, but I do want to keep an eye\l"
-	.string "on the talents of other people, too.\p"
+	.string "on the talents of some others, too.\p"
 	.string "So, I'll be off to roam other towns\n"
 	.string "a bit more.\p"
-	.string "Be seeing you, {PLAYER}{KUN}!$"
+	.string "catch you round, {PLAYER}{KUN}.$"
 
 SlateportCity_Text_TakingBattleTentChallenge:
-	.string "SCOTT: Oh, hey!\n"
-	.string "If it isn't {PLAYER}{KUN}!\p"
-	.string "{PLAYER}{KUN}, let me guess--you're going\n"
-	.string "to take the BATTLE TENT challenge?\p"
-	.string "Yeah! That's a good idea!\n"
-	.string "That's a really great idea!\p"
-	.string "After all, a tough TRAINER is\n"
-	.string "the perfect fit for the BATTLE TENT!\p"
-	.string "Give it your best effort!$"
+	.string "SCOTT: Hmph.\p"
+	.string "Dont tell me you're going in there too?\p"
+	.string "Waste of time if you ask me.\n"
+	.string "No class. No Tallent.\p"
+	.string "This battle tent had me excited to see\n"
+	.string "Some rising stars\p"
+	.string "What more dissapointing youth.$"
+
+SlateportCity_Text_AabhashMixMaxing:
+	.string "Bro bro bro.\p"
+	.string "Brrrrrrrrro.\p"
+	.string "have you SEEN this place?\p"
+	.string "These IDIOT npcs are just here\n"
+	.string "to get flipped bro.\p"
+	.string "This is literally just poe Hideout bro\p"
+	.string "I have my good little NPC Slaves here\n"
+	.string "to buy my shit overpriced and sell me\l"
+	.string "stat min maxing???\p"
+	.string "HAHAHAHA!\p"
+	.string "This zone is PEAK...$"
+
+SlateportCity_Text_ClerkPerks:
+	.string "Tell anyone bro its curtains.$" 
+
+SlateportCity_Text_ClerkBerries:
+	.string "Berries! Get ya Stat Berries!$"
+
+SlateportCity_Text_ClerkBerriesDone:
+	.string "Plenty more where that came from bud.$"

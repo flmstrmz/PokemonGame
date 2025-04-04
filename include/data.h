@@ -96,7 +96,7 @@ struct Trainer
 
 struct TrainerClass
 {
-    u8 name[13];
+    u8 name[14];
     u8 money;
     u16 ball;
 };
@@ -149,7 +149,8 @@ extern const struct SpriteFrameImage gTrainerBackPicTable_Leaf[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_RubySapphireBrendan[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_RubySapphireMay[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_Wally[];
-extern const struct SpriteFrameImage gTrainerBackPicTable_Steven[];
+extern const struct SpriteFrameImage gTrainerBackPicTable_Steven[]; 
+extern const struct SpriteFrameImage gTrainerBackPicTable_Test[];
 
 extern const union AffineAnimCmd *const gAffineAnims_BattleSpritePlayerSide[];
 extern const union AffineAnimCmd *const gAffineAnims_BattleSpriteOpponentSide[];

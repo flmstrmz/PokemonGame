@@ -163,56 +163,16 @@ Route117_EventScript_Derek::
 	msgbox Route117_Text_DerekPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route117_EventScript_Anna::
-	trainerbattle_double TRAINER_ANNA_AND_MEG_1, Route117_Text_AnnaIntro, Route117_Text_AnnaDefeat, Route117_Text_AnnaNotEnoughMons, Route117_EventScript_RegisterAnna
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route117_EventScript_RematchAnna
-	msgbox Route117_Text_AnnaPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route117_EventScript_RegisterAnna::
-	msgbox Route117_Text_AnnaAndMegRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ANNA_AND_MEG_1
-	release
-	end
-
-Route117_EventScript_RematchAnna::
-	trainerbattle_rematch_double TRAINER_ANNA_AND_MEG_1, Route117_Text_AnnaRematchIntro, Route117_Text_AnnaRematchDefeat, Route117_Text_AnnaRematchNotEnoughMons
-	msgbox Route117_Text_AnnaPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route117_EventScript_Meg::
-	trainerbattle_double TRAINER_ANNA_AND_MEG_1, Route117_Text_MegIntro, Route117_Text_MegDefeat, Route117_Text_MegNotEnoughMons, Route117_EventScript_RegisterMeg
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route117_EventScript_RematchMeg
-	msgbox Route117_Text_MegPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route117_EventScript_RegisterMeg::
-	msgbox Route117_Text_AnnaAndMegRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ANNA_AND_MEG_1
-	release
-	end
-
-Route117_EventScript_RematchMeg::
-	trainerbattle_rematch_double TRAINER_ANNA_AND_MEG_1, Route117_Text_MegRematchIntro, Route117_Text_MegRematchDefeat, Route117_Text_MegRematchNotEnoughMons
-	msgbox Route117_Text_MegPostRematch, MSGBOX_AUTOCLOSE
-	end
-
 Route117_EventScript_Melina::
 	trainerbattle_single TRAINER_MELINA, Route117_Text_MelinaIntro, Route117_Text_MelinaDefeat
 	msgbox Route117_Text_MelinaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route117_EventScript_Brandi::
-	trainerbattle_single TRAINER_BRANDI, Route117_Text_BrandiIntro, Route117_Text_BrandiDefeat
 	msgbox Route117_Text_BrandiPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route117_EventScript_Aisha::
-	trainerbattle_single TRAINER_AISHA, Route117_Text_AishaIntro, Route117_Text_AishaDefeat
 	msgbox Route117_Text_AishaPostBattle, MSGBOX_AUTOCLOSE
 	end
 

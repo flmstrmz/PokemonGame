@@ -42,7 +42,6 @@ PetalburgWoods_EventScript_DevonResearcherLeft::
 
 PetalburgWoods_EventScript_DevonResearcherRight::
 	lockall
-	setvar VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_SUGI
 	call PetalburgWoods_EventScript_DevonResearcherIntro
 	applymovement LOCALID_DEVON_EMPLOYEE, PetalburgWoods_Movement_DevonResearcherApproachPlayerRight
 	waitmovement 0
@@ -328,7 +327,6 @@ PetalburgWoods_Script_SugiL::
 	fadescreen FADE_TO_BLACK
 	playse SE_EXIT
 	removeobject LOCALID_SUGI
-	setvar VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_VAR_2
 	fadescreen FADE_FROM_BLACK
 	releaseall
 	end
@@ -341,7 +339,7 @@ PetalburgWoods_SugiBackup:
 PetalburgWoods_Script_SugiBattle:
 	.string "BRUDDA\p"
 	.string "You seen the latest trend on TikTok?\p"
-	.string "Broooo I'm about to show you how much\n"
+	.string "I'm about to show you how much\n"
 	.string "I learnt from those 10 seconds.$"
 
 PetalburgWoods_Script_SugiLose:

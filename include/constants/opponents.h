@@ -40,13 +40,13 @@
 #define TRAINER_ARCHIE                       34
 #define TRAINER_LEAH                         35
 #define TRAINER_DAISY                        36
-#define TRAINER_ROSE_1                       37
+#define TRAINER_ROSE_1                       37 //unused
 #define TRAINER_FELIX                        38
 #define TRAINER_VIOLET                       39
-#define TRAINER_ROSE_2                       40
-#define TRAINER_ROSE_3                       41
-#define TRAINER_ROSE_4                       42
-#define TRAINER_ROSE_5                       43
+#define TRAINER_ROSE_2                       40 //unused
+#define TRAINER_ROSE_3                       41 //unused
+#define TRAINER_ROSE_4                       42 //unused
+#define TRAINER_ROSE_5                       43 //unused
 #define TRAINER_DUSTY_1                      44
 #define TRAINER_CHIP                         45
 #define TRAINER_FOSTER                       46
@@ -68,7 +68,7 @@
 #define TRAINER_LOLA_4                       62
 #define TRAINER_LOLA_5                       63
 #define TRAINER_RICKY_1                      64
-#define TRAINER_SIMON                        65
+#define TRAINER_TY_FINAL                     65
 #define TRAINER_CHARLIE                      66
 #define TRAINER_RICKY_2                      67
 #define TRAINER_RICKY_3                      68
@@ -199,11 +199,11 @@
 #define TRAINER_GRUNT_AQUA_HIDEOUT_8        193
 #define TRAINER_SHAWN                       194
 #define TRAINER_FERNANDO_1                  195
-#define TRAINER_DALTON_1                    196
-#define TRAINER_DALTON_2                    197
-#define TRAINER_DALTON_3                    198
-#define TRAINER_DALTON_4                    199
-#define TRAINER_DALTON_5                    200
+#define TRAINER_DALTON_1                    196 //unused
+#define TRAINER_DALTON_2                    197 //unused
+#define TRAINER_DALTON_3                    198 //unused
+#define TRAINER_DALTON_4                    199 //unused
+#define TRAINER_DALTON_5                    200 //unused
 #define TRAINER_COLE                        201
 #define TRAINER_JEFF                        202
 #define TRAINER_AXLE                        203
@@ -290,11 +290,11 @@
 #define TRAINER_KAREN_4                     284
 #define TRAINER_KAREN_5                     285
 #define TRAINER_KATE_AND_JOY                286
-#define TRAINER_ANNA_AND_MEG_1              287
-#define TRAINER_ANNA_AND_MEG_2              288
-#define TRAINER_ANNA_AND_MEG_3              289
-#define TRAINER_ANNA_AND_MEG_4              290
-#define TRAINER_ANNA_AND_MEG_5              291
+#define TRAINER_ANNA_AND_MEG_1              287 //unused
+#define TRAINER_ANNA_AND_MEG_2              288 //unused
+#define TRAINER_ANNA_AND_MEG_3              289 //unused
+#define TRAINER_ANNA_AND_MEG_4              290 //unused
+#define TRAINER_ANNA_AND_MEG_5              291 //unused
 #define TRAINER_VICTOR                      292
 #define TRAINER_MIGUEL_1                    293
 #define TRAINER_COLTON                      294
@@ -306,7 +306,7 @@
 #define TRAINER_VANESSA                     300
 #define TRAINER_BETHANY                     301
 #define TRAINER_ISABEL_1                    302
-#define TRAINER_ISABEL_2                    303
+#define TRAINER_ISABEL_2                    303 //unused
 #define TRAINER_ISABEL_3                    304
 #define TRAINER_ISABEL_4                    305
 #define TRAINER_ISABEL_5                    306
@@ -372,11 +372,11 @@
 #define TRAINER_DYLAN_3                     366
 #define TRAINER_DYLAN_4                     367
 #define TRAINER_DYLAN_5                     368
-#define TRAINER_MARIA_1                     369
-#define TRAINER_MARIA_2                     370
-#define TRAINER_MARIA_3                     371
-#define TRAINER_MARIA_4                     372
-#define TRAINER_MARIA_5                     373
+#define TRAINER_MARIA_1                     369  //unused
+#define TRAINER_MARIA_2                     370 //unused
+#define TRAINER_MARIA_3                     371 //unused
+#define TRAINER_MARIA_4                     372 //unused
+#define TRAINER_MARIA_5                     373 //unused
 #define TRAINER_CAMDEN                      374
 #define TRAINER_DEMETRIUS                   375
 #define TRAINER_ISAIAH_1                    376
@@ -494,9 +494,9 @@
 #define TRAINER_AMY_AND_LIV_5               488
 #define TRAINER_AMY_AND_LIV_6               489
 #define TRAINER_HUEY                        490
-#define TRAINER_EDMOND                      491
+#define TRAINER_TY3                         491
 #define TRAINER_ERNEST_1                    492
-#define TRAINER_DWAYNE                      493
+#define TRAINER_MIRO3                       493
 #define TRAINER_PHILLIP                     494
 #define TRAINER_LEONARD                     495
 #define TRAINER_DUNCAN                      496
@@ -650,7 +650,7 @@
 #define TRAINER_KIRA_AND_DAN_3              644
 #define TRAINER_KIRA_AND_DAN_4              645
 #define TRAINER_KIRA_AND_DAN_5              646
-#define TRAINER_JOHANNA                     647
+#define TRAINER_SUGI3                       647
 #define TRAINER_GERALD                      648
 #define TRAINER_VIVIAN                      649
 #define TRAINER_DANIELLE                    650
@@ -718,7 +718,7 @@
 #define TRAINER_ANGELINA                    712
 #define TRAINER_KAI                         713
 #define TRAINER_CHARLOTTE                   714
-#define TRAINER_DEANDRE                     715
+#define TRAINER_DEANDRE                     715 //unused
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_1       716
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_2       717
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_3       718
@@ -759,7 +759,7 @@
 #define TRAINER_DEVAN                       753  //UNUSED
 #define TRAINER_JOHNSON                     754
 #define TRAINER_MELINA                      755
-#define TRAINER_BRANDI                      756
+#define TRAINER_BRANDI                      756 //UNUSED
 #define TRAINER_AISHA                       757
 #define TRAINER_MAKAYLA                     758
 #define TRAINER_FABIAN                      759
@@ -869,13 +869,14 @@
 #define TRAINER_AABHASH2                    863
 #define TRAINER_MIRO                        864
 #define TRAINER_MIRO2                       865
-#define TRAINER_SAMIR_3                      866
+#define TRAINER_SAMIR_3                     866
+#define TRAINER_MIRO_FINAL                  867
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      867
+#define TRAINERS_COUNT                      868
 #define MAX_TRAINERS_COUNT                  900
 #define TRAINER_PARTNER(partner)           (MAX_TRAINERS_COUNT + partner)
 

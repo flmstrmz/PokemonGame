@@ -46,7 +46,7 @@ Optional fields for Pokemon:
           (Order does not matter)
     - EVs (252 HP / 128 Spe / 48 Def, defaults to all 0, is not capped at 512 total)
           (Order does not matter)
-    - Ball (Poke Ball or ITEM_POKE_BALL, defaults to Poke Ball
+    - Ball (Poke Ball or ITEM_POKE_BALL, defaults to Poke Ball)
     - Happiness (Number between 1 and 255)
     - Nature (Rash or NATURE_RASH, defaults to Hardy)
     - Shiny (Yes/No, defaults to No)
@@ -416,11 +416,29 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES 
 
-Carvanha
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Buizel  
+Ability: Water Veil  
+Level: 34  
+EVs: 170 Atk / 12 Def / 170 Spe  
+Adamant Nature  
+- Aqua Jet  
+- Double Hit  
+- Bite  
+- Liquidation  
+
+Cloyster  
+Ability: Shell Armor 
+Level: 35  
+EVs: 90 HP / 170 Atk / 92 SpD  
+Careful Nature  
+- Icicle Spear  
+- Razor Shell  
+- Ice Shard  
+- Drill Run  
+
+
 
 === TRAINER_GRUNT_MUSEUM_2 ===
 Name: GRUNT
@@ -429,15 +447,37 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES 
 
-Zubat
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Golbat  
+Ability: Inner Focus  
+Level: 33  
+EVs: 170 Atk / 12 Def / 170 Spe  
+Jolly Nature  
+- Confuse Ray  
+- Poison Fang  
+- Payback  
+- Taunt  
 
-Carvanha
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Octillery @ Loaded Dice  
+Ability: Moody  
+Level: 34  
+EVs: 170 HP / 80 Atk / 80 SpA  
+Brave Nature  
+- Rock Blast  
+- Bullet Seed  
+- Octazooka  
+- Icy Wind  
+
+Sharpedo @ Rocky Helmet  
+Ability: Rough Skin  
+Level: 35  
+EVs: 12 HP / 180 Atk / 180 Spe  
+Jolly Nature  
+- Night Slash  
+- Poison Fang  
+- Ice Fang  
+- Aqua Jet  
 
 === TRAINER_GRUNT_SPACE_CENTER_1 ===
 Name: GRUNT
@@ -660,34 +700,38 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Shroomish
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Zorua (M)  
+Ability: Illusion  
+Level: 34  
+Shiny: No  
+EVs: 128 SpA / 128 Spe / 104 HP  
+Hasty Nature  
+- Night Daze  
+- U-turn  
+- Taunt  
+- Snarl
 
-Roselia
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Snubbull (F)  
+Ability: Intimidate  
+Level: 36  
+Shiny: No  
+EVs: 120 HP / 120 Atk / 120 Def  
+Impish Nature  
+- Charm  
+- Headbutt  
+- Bite  
+- Fire Fang
 
-=== TRAINER_ROSE_1 ===
-Name: ROSE
-Class: Aroma Lady
-Pic: Aroma Lady
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-
-Roselia
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Shroomish
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Roselia
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Combee (F)  
+Ability: Honey Gather  
+Level: 37  
+Shiny: No  
+EVs: 132 Spe / 128 SpA / 100 HP  
+Timid Nature  
+- Gust  
+- Bug Buzz  
+- Sweet Scent  
+- Tailwind
 
 === TRAINER_FELIX ===
 Name: FELIX
@@ -726,103 +770,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Gloom
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_ROSE_2 ===
-Name: ROSE
-Class: Aroma Lady
-Pic: Aroma Lady
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-
-Shroomish
-Level: 26
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-Roselia
-Level: 26
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-=== TRAINER_ROSE_3 ===
-Name: ROSE
-Class: Aroma Lady
-Pic: Aroma Lady
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-
-Shroomish
-Level: 28
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-Gloom
-Level: 28
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-Roselia
-Level: 28
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-=== TRAINER_ROSE_4 ===
-Name: ROSE
-Class: Aroma Lady
-Pic: Aroma Lady
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-
-Shroomish
-Level: 31
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Gloom
-Level: 31
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Roselia
-Level: 31
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-=== TRAINER_ROSE_5 ===
-Name: ROSE
-Class: Aroma Lady
-Pic: Aroma Lady
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-
-Breloom
-Level: 34
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
-Gloom
-Level: 34
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
-Roselia
-Level: 34
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
-=== TRAINER_DUSTY_1 ===
-Name: DUSTY
-Class: Ruin Maniac
-Pic: Ruin Maniac
-Gender: Male
-Music: Hiker
-Double Battle: No
-AI: Check Bad Move
-
-Sandslash
-Level: 23
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Dig
-- Slash
-- Sand Attack
-- Poison Sting
 
 === TRAINER_CHIP ===
 Name: CHIP
@@ -1069,13 +1016,15 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Azurill
-Level: 12
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Azurill  
+Ability: Huge Power  
+Level: 33  
+Brave Nature  
 
-Azurill
-Level: 12
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Smeargle  
+Ability: Technician  
+Level: 34  
+Serious Nature  
 
 === TRAINER_AUSTINA ===
 Name: AUSTINA
@@ -1180,30 +1129,27 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Zigzagoon
-Level: 13
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-- Sand Attack
-- Headbutt
-- Tail Whip
-- Surf
+Drilbur (M)  
+Ability: Sand Force  
+Level: 31  
+Shiny: No  
+EVs: 132 Atk / 132 Spe / 76 HP  
+Jolly Nature  
+- Dig  
+- Metal Claw  
+- Rock Slide  
+- Rapid Spin
 
-=== TRAINER_SIMON ===
-Name: SIMON
-Class: Tuber M
-Pic: Tuber M
-Gender: Male
-Music: Girl
-Double Battle: No
-AI: Check Bad Move
-
-Azurill
-Level: 12
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Marill
-Level: 12
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Slurpuff (F)  
+Ability: Sweet Veil  
+Level: 32  
+Shiny: No  
+EVs: 128 HP / 128 SpA / 84 Spe  
+Modest Nature  
+- Draining Kiss  
+- Energy Ball  
+- Cotton Spore  
+- Aromatherapy
 
 === TRAINER_CHARLIE ===
 Name: CHARLIE
@@ -3423,20 +3369,9 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Electrike
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Quick Attack
-- Thunder Wave
-- Spark
-- Leer
-
-Voltorb
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Charge
-- Shock Wave
-- Screech
+Flaaffy  
+Ability: Plus  
+Level: 36  
 
 === TRAINER_GRUNT_AQUA_HIDEOUT_7 ===
 Name: GRUNT
@@ -3477,13 +3412,13 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Voltorb
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Emolga  
+Ability: Motor Drive  
+Level: 37  
 
-Magnemite
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Kilowattrel  
+Ability: Volt Absorb  
+Level: 37  
 
 === TRAINER_FERNANDO_1 ===
 Name: FERNANDO
@@ -3501,107 +3436,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Loudred
 Level: 30
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_DALTON_1 ===
-Name: DALTON
-Class: Guitarist
-Pic: Guitarist
-Gender: Male
-Music: Intense
-Double Battle: No
-AI: Check Bad Move
-
-Magnemite
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Whismur
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_DALTON_2 ===
-Name: DALTON
-Class: Guitarist
-Pic: Guitarist
-Gender: Male
-Music: Intense
-Double Battle: No
-AI: Check Bad Move
-
-Magnemite
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-Whismur
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-Magnemite
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-=== TRAINER_DALTON_3 ===
-Name: DALTON
-Class: Guitarist
-Pic: Guitarist
-Gender: Male
-Music: Intense
-Double Battle: No
-AI: Check Bad Move
-
-Magnemite
-Level: 28
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-Loudred
-Level: 28
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-Magnemite
-Level: 28
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-=== TRAINER_DALTON_4 ===
-Name: DALTON
-Class: Guitarist
-Pic: Guitarist
-Gender: Male
-Music: Intense
-Double Battle: No
-AI: Check Bad Move
-
-Magneton
-Level: 31
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Loudred
-Level: 31
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Magneton
-Level: 31
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-=== TRAINER_DALTON_5 ===
-Name: DALTON
-Class: Guitarist
-Pic: Guitarist
-Gender: Male
-Music: Intense
-Double Battle: No
-AI: Check Bad Move
-
-Magneton
-Level: 34
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
-Exploud
-Level: 34
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
-Magneton
-Level: 34
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
 === TRAINER_COLE ===
 Name: COLE
@@ -4054,13 +3888,38 @@ Music: Suspicious
 Double Battle: No
 AI: Check Bad Move
 
-Dustox
-Level: 16
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Exeggcute (M)  
+Ability: Chlorophyll  
+Level: 37  
+Shiny: No  
+EVs: 128 SpA / 128 HP / 104 SpD  
+Calm Nature  
+- Leech Seed  
+- Psybeam  
+- Stun Spore  
+- Giga Drain
 
-Beautifly
-Level: 16
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Corvisquire (F)  
+Ability: Unnerve  
+Level: 38  
+Shiny: No  
+EVs: 128 Atk / 128 HP / 104 Spe  
+Jolly Nature  
+- Drill Peck  
+- Bulk Up  
+- Roost  
+- Scary Face
+
+Krokorok (M)  
+Ability: Intimidate  
+Level: 39  
+Shiny: No  
+EVs: 132 Atk / 132 Spe / 96 HP  
+Adamant Nature  
+- Crunch  
+- Earthquake  
+- Rock Tomb  
+- Leer
 
 === TRAINER_JEFFREY_2 ===
 Name: JEFFREY
@@ -4167,10 +4026,27 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Abra
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Hidden Power
+Primeape (M) @ Salac Berry  
+Ability: Anger Point  
+Level: 38  
+Shiny: No  
+EVs: 132 Atk / 132 Spe / 76 HP  
+Jolly Nature  
+- Close Combat  
+- U-turn  
+- Taunt  
+- Assurance
+
+Ursaring (F) @ Sitrus Berry  
+Ability: Quick Feet  
+Level: 38  
+Shiny: No  
+EVs: 140 HP / 120 Atk / 80 Def  
+Impish Nature  
+- Body Slam  
+- Crunch  
+- Protect  
+- Baby-Doll Eyes
 
 === TRAINER_PRESTON ===
 Name: PRESTON
@@ -4332,17 +4208,50 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
 === TRAINER_JACLYN ===
 Name: JACLYN
-Class: Psychic
+Class: ACE
 Pic: Psychic F
 Gender: Female
 Music: Intense
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT
 
-Abra
-Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Hidden Power
+Hatterene @ Fairy Feather  
+Ability: Magic Bounce  
+Level: 38  
+EVs: 190 HP / 190 SpA  
+- Psychic  
+- Draining Kiss  
+- Shadow Ball  
+- Giga Drain  
+
+Durant @ Red Card  
+Ability: Hustle  
+Level: 37   
+- Iron Head  
+- X-Scissor  
+- Rock Tomb  
+- First Impression  
+
+Rotom-Mow @ Magnet  
+Ability: Levitate  
+Level: 37   
+EVs: 190 SpA / 190 Spe  
+Timid Nature  
+- Volt Switch  
+- Thunder Wave  
+- Foul Play  
+- Will-O-Wisp  
+
+Tauros-Paldea-Aqua @ Chesto Berry  
+Ability: Intimidate  
+Level: 39  
+Shiny: Yes  
+EVs: 195 Atk / 195 Spe  
+Jolly Nature  
+- Liquidation  
+- Earthquake  
+- Rock Slide  
+- Rest 
 
 === TRAINER_HANNAH ===
 Name: HANNAH
@@ -4855,7 +4764,7 @@ Pic: Leader Roxanne
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT / AI_FLAG_ACE_POKEMON
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_ACE_POKEMON
 
 Dwebble @ Salac Berry  
 Ability: Sturdy  
@@ -4916,7 +4825,7 @@ Pic: Leader Brawly
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT / AI_FLAG_ACE_POKEMON
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_ACE_POKEMON
 
 Mienfoo (F) @ Focus Sash 
 Ability: Regenerator  
@@ -4976,41 +4885,59 @@ Class: Leader
 Pic: Leader Wattson
 Gender: Male
 Music: Male
-Items: Super Potion / Super Potion
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_ACE_POKEMON
 
-Voltorb
-Level: 20
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Rollout
-- Spark
-- Self Destruct
-- Shock Wave
+Charjabug @ Light Clay  
+Ability: Battery  
+Level: 37  
+EVs: 210 HP / 210 Def  
+Impish Nature  
+- Sticky Web  
+- Light Screen  
+- Bug Bite  
+- Volt Switch  
 
-Electrike
-Level: 20
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Shock Wave
-- Leer
-- Quick Attack
-- Howl
+Stunfisk @ Leftovers  
+Ability: Limber  
+Level: 38  
+EVs: 210 HP / 210 SpA  
+Modest Nature  
+- Stealth Rock  
+- Thunder Wave  
+- Muddy Water  
+- Earth Power  
 
-Magneton
-Level: 22
-IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
-- Supersonic
-- Shock Wave
-- Thunder Wave
-- Sonic Boom
+Rotom-Mow @ Focus Sash  
+Ability: Levitate  
+Level: 37  
+EVs: 210 SpA / 210 Spe  
+Timid Nature  
+- Leaf Storm  
+- Volt Switch  
+- Hex  
+- Dark Pulse  
 
-Manectric @ Sitrus Berry
-Level: 24
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Quick Attack
-- Thunder Wave
-- Shock Wave
-- Howl
+Oricorio-Pom-Pom  
+Ability: Dancer  
+Level: 38  
+EVs: 210 SpA / 210 Spe  
+Timid Nature  
+- Air Slash  
+- Icy Wind  
+- Teeter Dance  
+- Roost  
+
+Electivire @ Aguav Berry  
+Ability: Vital Spirit  
+Level: 39  
+Shiny: Yes  
+EVs: 210 Atk / 210 Spe  
+Jolly Nature  
+- Thunder Punch  
+- Low Kick  
+- Earthquake  
+- Fire Punch  
 
 === TRAINER_FLANNERY_1 ===
 Name: FLANNERY
@@ -5020,7 +4947,7 @@ Gender: Female
 Music: Female
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_ACE_POKEMON
 
 Numel
 Level: 24
@@ -5637,9 +5564,38 @@ Music: Twins
 Double Battle: No
 AI: Check Bad Move
 
-Skitty @ Oran Berry
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Electrike (M)  
+Ability: Static  
+Level: 35  
+Shiny: No  
+EVs: 128 SpA / 128 Spe / 104 HP  
+Timid Nature  
+- Discharge  
+- Thunder Wave  
+- Quick Attack  
+- Bite
+
+Pancham (M)  
+Ability: Mold Breaker  
+Level: 36  
+Shiny: No  
+EVs: 132 Atk / 128 HP / 100 Spe  
+Jolly Nature  
+- Arm Thrust  
+- Taunt  
+- Circle Throw  
+- Thunder Punch
+
+FLABEBE_WHITE_FLOWER (F)  
+Ability: Flower Veil  
+Level: 38  
+Shiny: No  
+EVs: 120 SpA / 120 HP / 120 SpD  
+Calm Nature  
+- Magical Leaf  
+- Wish  
+- Aromatherapy  
+- Fairy Wind
 
 === TRAINER_COLTON ===
 Name: COLTON
@@ -5806,15 +5762,18 @@ Music: Twins
 Double Battle: No
 AI: Check Bad Move
 
-Plusle @ Oran Berry
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Plusle (F) @ Berry Juice  
+Ability: Plus  
+Level: 34  
+Shiny: No  
+EVs: 120 SpA / 120 Spe / 100 HP  
+Timid Nature  
+- Spark  
+- Nuzzle  
+- Swift  
+- Helping Hand
 
-Minun @ Oran Berry
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_ISABEL_2 ===
+=== TRAINER_MARIA_1 === 
 Name: ISABEL
 Class: Pokefan
 Pic: Pokefan F
@@ -5823,13 +5782,27 @@ Music: Twins
 Double Battle: No
 AI: Check Bad Move
 
-Plusle @ Oran Berry
-Level: 26
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Spoink (F)  
+Ability: Own Tempo  
+Level: 38  
+Shiny: No  
+EVs: 128 HP / 128 SpA / 104 SpD  
+Modest Nature  
+- Psybeam  
+- Amnesia  
+- Shadow Ball  
+- Rest
 
-Minun @ Oran Berry
-Level: 26
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Hattrem (F)  
+Ability: Healer  
+Level: 40  
+Shiny: No  
+EVs: 132 SpA / 132 HP / 96 SpD  
+Calm Nature  
+- Psyshock  
+- Draining Kiss  
+- Calm Mind  
+- Heal Pulse
 
 === TRAINER_ISABEL_3 ===
 Name: ISABEL
@@ -6175,21 +6148,17 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Zigzagoon
-Level: 17
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Headbutt
-- Sand Attack
-- Growl
-- Thunderbolt
+Dedenne @ Aguav Berry  
+Ability: Cheek Pouch  
+Level: 36  
 
-Gulpin
-Level: 17
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Amnesia
-- Sludge
-- Yawn
-- Pound
+Togedemaru  
+Ability: Iron Barbs  
+Level: 37  
+
+Heliolisk  
+Ability: Dry Skin  
+Level: 37  
 
 === TRAINER_QUINCY ===
 Name: QUINCY
@@ -6388,15 +6357,29 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES 
 
-Aron
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Lairon (M)  
+Ability: Rock Head  
+Level: 35  
+Shiny: No  
+EVs: 132 HP / 128 Def / 80 Atk  
+Impish Nature  
+- Iron Head  
+- Rock Slide  
+- Protect  
+- Roar
 
-Electrike
-Level: 13
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Magneton (F)  
+Ability: Analytic  
+Level: 36  
+Shiny: No  
+EVs: 132 SpA / 128 HP / 80 Spe  
+Modest Nature  
+- Thunderbolt  
+- Flash Cannon  
+- Volt Switch  
+- Supersonic
 
 === TRAINER_WALLACE ===
 Name: WALLACE
@@ -6466,21 +6449,31 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Magikarp
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Basculin (M)  
+Ability: Adaptability  
+Level: 33  
+Shiny: No  
+EVs: 132 Atk / 132 Spe / 96 HP  
+Adamant Nature  
+- Aqua Tail  
+- Crunch  
+- Headbutt  
+- Scary Face
 
-Tentacool
-Level: 10
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Magikarp
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Qwilfish (F)  
+Ability: Poison Point  
+Level: 35  
+Shiny: No  
+EVs: 128 HP / 128 Atk / 104 Def  
+Impish Nature  
+- Poison Jab  
+- Aqua Jet  
+- Spikes  
+- Toxic Spikes
 
 === TRAINER_IVAN ===
 Name: IVAN
-Class: Fisherman
+Class: ACE
 Pic: Fisherman
 Gender: Male
 Music: Hiker
@@ -6601,21 +6594,38 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Tentacool
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Lumineon (F)  
+Ability: Storm Drain  
+Level: 36  
+Shiny: No  
+EVs: 132 HP / 128 Spe / 80 SpA  
+Timid Nature  
+- Scald  
+- Ice Beam  
+- U-turn  
+- Aqua Ring
 
-Wailmer
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Slowbro (M)  
+Ability: Regenerator  
+Level: 36  
+Shiny: No  
+EVs: 132 HP / 120 Def / 88 SpA  
+Bold Nature  
+- Confusion  
+- Water Pulse  
+- Slack Off  
+- Yawn
 
-Tentacool
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Wailmer
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Seaking (M)  
+Ability: Lightning Rod  
+Level: 37  
+Shiny: No  
+EVs: 128 Atk / 120 HP / 92 SpD  
+Adamant Nature  
+- Waterfall  
+- Megahorn  
+- Aqua Jet  
+- Supersonic
 
 === TRAINER_NOLAN ===
 Name: NOLAN
@@ -6815,17 +6825,27 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Voltorb
-Level: 6
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+Luxray (F)  
+Ability: Intimidate  
+Level: 38  
+Shiny: No  
+EVs: 128 Atk / 128 Spe / 124 HP  
+Jolly Nature  
+- Spark  
+- Bite  
+- Baby-Doll Eyes  
+- Quick Attack
 
-Voltorb
-Level: 6
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-Magnemite
-Level: 14
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+Mimikyu (M)  
+Ability: Disguise  
+Level: 37  
+Shiny: No  
+EVs: 128 Atk / 128 Spe / 124 HP  
+Jolly Nature  
+- Shadow Sneak  
+- Play Rough  
+- Swords Dance  
+- Double Team
 
 === TRAINER_ANTHONY ===
 Name: ANTHONY
@@ -6836,13 +6856,27 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Magnemite
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Audino (F)  
+Ability: Healer  
+Level: 36  
+Shiny: No  
+EVs: 128 HP / 128 Def / 124 SpD  
+Bold Nature  
+- Disarming Voice  
+- Wish  
+- Charm  
+- Heal Pulse
 
-Magnemite
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Pancham (M)  
+Ability: Iron Fist  
+Level: 35  
+Shiny: No  
+EVs: 128 Atk / 128 HP / 124 Spe  
+Adamant Nature  
+- Arm Thrust  
+- Bite  
+- Taunt  
+- Circle Throw
 
 === TRAINER_BENJAMIN_1 ===
 Name: BENJAMIN
@@ -6853,9 +6887,27 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Magnemite
-Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Hattrem (F)  
+Ability: Healer  
+Level: 35  
+Shiny: No  
+EVs: 128 HP / 128 SpA / 124 SpD  
+Quiet Nature  
+- Psybeam  
+- Calm Mind  
+- Draining Kiss  
+- Heal Pulse
+
+Comfey (F)  
+Ability: Triage  
+Level: 37  
+Shiny: No  
+EVs: 128 HP / 128 SpD / 124 Spe  
+Calm Nature  
+- Draining Kiss  
+- Aromatherapy  
+- Leech Seed  
+- Magical Leaf
 
 === TRAINER_BENJAMIN_2 ===
 Name: BENJAMIN
@@ -6918,9 +6970,16 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Magnemite
-Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Plusle (F)  
+Ability: Lightning Rod  
+Level: 34  
+Shiny: No  
+EVs: 128 SpA / 128 Spe / 124 HP  
+Timid Nature  
+- Spark  
+- Swift  
+- Nuzzle  
+- Encore
 
 === TRAINER_JASMINE ===
 Name: JASMINE
@@ -6931,17 +6990,27 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Magnemite
-Level: 14
-IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
+Bewear (M)  
+Ability: Fluffy  
+Level: 36  
+Shiny: No  
+EVs: 128 HP / 128 Atk / 124 Def  
+Adamant Nature  
+- Brutal Swing  
+- Strength  
+- Baby-Doll Eyes  
+- Bind
 
-Magnemite
-Level: 14
-IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
-
-Voltorb
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Boldore (M)  
+Ability: Sturdy  
+Level: 36  
+Shiny: No  
+EVs: 128 Atk / 128 Def / 124 HP  
+Brave Nature  
+- Rock Slide  
+- Bulldoze  
+- Headbutt  
+- Iron Defense
 
 === TRAINER_ABIGAIL_2 ===
 Name: ABIGAIL
@@ -7004,9 +7073,27 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Doduo
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Pikachu (M)  
+Ability: Static  
+Level: 34  
+Shiny: No  
+EVs: 132 SpA / 128 Spe / 100 HP  
+Timid Nature  
+- Thunderbolt  
+- Nuzzle  
+- Quick Attack  
+- Sweet Kiss
+
+Growlithe (M)  
+Ability: Intimidate  
+Level: 36  
+Shiny: No  
+EVs: 128 Atk / 128 HP / 104 Spe  
+Jolly Nature  
+- Flame Wheel  
+- Crunch  
+- Will-O-Wisp  
+- Agility
 
 === TRAINER_DYLAN_2 ===
 Name: DYLAN
@@ -7053,71 +7140,6 @@ Class: Triathlete
 Pic: Running Triathlete M
 Gender: Male
 Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Dodrio
-Level: 37
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
-=== TRAINER_MARIA_1 ===
-Name: MARIA
-Class: Triathlete
-Pic: Running Triathlete F
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-
-Doduo
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_MARIA_2 ===
-Name: MARIA
-Class: Triathlete
-Pic: Running Triathlete F
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-
-Doduo
-Level: 28
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-=== TRAINER_MARIA_3 ===
-Name: MARIA
-Class: Triathlete
-Pic: Running Triathlete F
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-
-Doduo
-Level: 31
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-=== TRAINER_MARIA_4 ===
-Name: MARIA
-Class: Triathlete
-Pic: Running Triathlete F
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-
-Dodrio
-Level: 34
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-=== TRAINER_MARIA_5 ===
-Name: MARIA
-Class: Triathlete
-Pic: Running Triathlete F
-Gender: Female
-Music: Female
 Double Battle: No
 AI: Check Bad Move
 
@@ -7594,7 +7616,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES 
 
 Doduo
 Level: 29
@@ -8980,13 +9002,49 @@ Music: Twins
 Double Battle: Yes
 AI: Check Bad Move
 
-Plusle
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Pidgeotto (F)  
+Ability: Keen Eye  
+Level: 35  
+Shiny: No  
+EVs: 132 Atk / 124 Spe / 104 HP  
+Adamant Nature  
+- Aerial Ace  
+- U-turn  
+- Roost  
+- Quick Attack
 
-Minun
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Swoobat (M)  
+Ability: Simple  
+Level: 36  
+Shiny: No  
+EVs: 132 Spe / 132 SpA / 96 HP  
+Timid Nature  
+- Air Cutter  
+- Calm Mind  
+- Heart Stamp  
+- Reflect
+
+Luxray (M)  
+Ability: Intimidate  
+Level: 38  
+Shiny: No  
+EVs: 132 Atk / 132 HP / 96 Spe  
+Jolly Nature  
+- Spark  
+- Bite  
+- Protect  
+- Baby-Doll Eyes
+
+Gabite (F)  
+Ability: Rough Skin  
+Level: 37  
+Shiny: No  
+EVs: 132 Atk / 120 Spe / 108 HP  
+Adamant Nature  
+- Dragon Claw  
+- Bulldoze  
+- Sandstorm  
+- Rock Tomb
 
 === TRAINER_AMY_AND_LIV_2 ===
 Name: AMY & LIV
@@ -9165,26 +9223,27 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Wingull
-Level: 12
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Qwilfish (F)  
+Ability: Poison Point  
+Level: 29  
+Shiny: No  
+EVs: 116 HP / 116 Atk / 108 Def  
+Impish Nature  
+- Poison Jab  
+- Spikes  
+- Aqua Jet  
+- Toxic Spikes
 
-Machop
-Level: 12
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-=== TRAINER_EDMOND ===
-Name: EDMOND
-Class: Sailor
-Pic: Sailor
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Wingull
-Level: 13
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Overqwil (M)  
+Ability: Poison Point  
+Level: 32  
+Shiny: No  
+EVs: 132 Atk / 120 HP / 88 Spe  
+Adamant Nature  
+- Barb Barrage  
+- Aqua Tail  
+- Swords Dance  
+- Fell Stinger 
 
 === TRAINER_ERNEST_1 ===
 Name: ERNEST
@@ -9201,27 +9260,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Machoke
 Level: 33
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_DWAYNE ===
-Name: DWAYNE
-Class: Sailor
-Pic: Sailor
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Wingull
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Machop
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Tentacool
-Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_PHILLIP ===
@@ -9557,13 +9595,27 @@ Music: Suspicious
 Double Battle: No
 AI: Check Bad Move
 
-Lombre
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nuzleaf (M)  
+Ability: Pickpocket  
+Level: 35  
+Shiny: No  
+EVs: 128 Atk / 128 Spe / 84 HP  
+Naughty Nature  
+- Fake Out  
+- Feint Attack  
+- Razor Leaf  
+- Torment
 
-Nuzleaf
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Ludicolo (F)  
+Ability: Own Tempo  
+Level: 37  
+Shiny: No  
+EVs: 132 SpA / 120 HP / 88 SpD  
+Calm Nature  
+- Bubble Beam  
+- Giga Drain  
+- Leech Seed  
+- Mist
 
 === TRAINER_HECTOR ===
 Name: HECTOR
@@ -9741,19 +9793,48 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
 
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Growlithe @ Passho Berry  
+Ability: Flash Fire  
+Level: 37  
+EVs: 190 HP / 190 Atk / 12 Spe  
+Adamant Nature  
+- Fire Fang  
+- Crunch  
+- Take Down  
+- Thief  
 
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Basculin  
+Ability: Adaptability  
+Level: 37  
+EVs: 190 Atk / 12 SpD / 190 Spe  
+Jolly Nature  
+- Aqua Jet  
+- Crunch  
+- Headbutt  
+- Liquidation  
 
-Grovyle
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Mudsdale @ Rock Gem  
+Ability: Stamina  
+Level: 36  
+EVs: 190 HP / 190 Atk  
+Adamant Nature  
+- High Horsepower  
+- Smack Down  
+- Heavy Slam  
+- Counter  
+
+Sceptile @ Miracle Seed  
+Ability: Overgrow  
+Level: 38  
+Shiny: Yes
+EVs: 190 SpA / 12 SpD / 190 Spe  
+Timid Nature  
+- Energy Ball  
+- Giga Drain  
+- Dragon Breath  
+- Vacuum Wave 
 
 === TRAINER_BRENDAN_ROUTE_119_MUDKIP ===
 Name: BRENDAN
@@ -9796,19 +9877,49 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
 
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Araquanid (M) @ Aguav Berry  
+Ability: Water Bubble  
+Level: 36  
+EVs: 190 HP / 4 SpA / 190 SpD  
+Calm Nature  
+- Aqua Ring  
+- Bubble Beam  
+- Infestation  
+- Protect  
 
-Lombre
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Krokorok @ Black Glasses  
+Ability: Moxie  
+Level: 37  
+EVs: 190 HP / 190 Atk / 4 SpD  
+Adamant Nature  
+- Bulldoze  
+- Crunch  
+- Swagger  
+- Power Trip  
 
-Combusken
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Rotom-Frost  
+Ability: Levitate  
+Level: 37  
+Shiny: Yes  
+EVs: 190 SpA / 12 SpD / 190 Spe  
+Timid Nature  
+- Thunder Wave  
+- Shock Wave  
+- Hex  
+- Blizzard
+
+Blaziken @ Expert Belt  
+Ability: Speed Boost  
+Level: 38  
+Shiny: Yes  
+EVs: 190 Atk / 12 SpD / 190 Spe  
+Jolly Nature  
+- Blaze Kick  
+- Double Kick  
+- Aerial Ace  
+- Rock Slide
 
 === TRAINER_BRENDAN_ROUTE_119_TREECKO ===
 Name: BRENDAN
@@ -9851,19 +9962,49 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
 
-Lombre
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Nidorina  
+Ability: Hustle  
+Level: 36  
+Shiny: Yes  
+EVs: 190 HP / 190 Atk / 12 SpD  
+Adamant Nature  
+- Body Slam  
+- Bite  
+- Poison Fang  
+- Double Kick  
 
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Dodrio @ Muscle Band  
+Ability: Early Bird  
+Level: 37  
+EVs: 190 Atk / 190 Spe  
+Jolly Nature  
+- Knock Off  
+- Pluck  
+- Tailwind  
+- Low Kick  
 
-Marshtomp
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Graveler-Alola @ Magnet  
+Ability: Galvanize  
+Level: 37  
+EVs: 190 HP / 190 Atk / 4 Spe  
+Adamant Nature  
+- Fire Punch  
+- Bulldoze  
+- Self-Destruct  
+- Stealth Rock  
+
+Swampert @ Mystic Water  
+Ability: Torrent  
+Level: 38  
+Shiny: Yes  
+EVs: 190 HP / 190 Atk / 12 Spe  
+Adamant Nature  
+- Earthquake  
+- Hammer Arm  
+- Rock Slide  
+- Flip Turn
 
 === TRAINER_BRENDAN_ROUTE_119_TORCHIC ===
 Name: BRENDAN
@@ -9906,19 +10047,48 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
 
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Growlithe @ Passho Berry  
+Ability: Flash Fire  
+Level: 37  
+EVs: 190 HP / 190 Atk / 12 Spe  
+Adamant Nature  
+- Fire Fang  
+- Crunch  
+- Take Down  
+- Thief  
 
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Basculin  
+Ability: Adaptability  
+Level: 37  
+EVs: 190 Atk / 12 SpD / 190 Spe  
+Jolly Nature  
+- Aqua Jet  
+- Crunch  
+- Headbutt  
+- Liquidation  
 
-Grovyle
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Mudsdale @ Rock Gem  
+Ability: Stamina  
+Level: 36  
+EVs: 190 HP / 190 Atk  
+Adamant Nature  
+- High Horsepower  
+- Smack Down  
+- Heavy Slam  
+- Counter  
+
+Sceptile @ Miracle Seed  
+Ability: Overgrow  
+Level: 38  
+Shiny: Yes
+EVs: 190 SpA / 12 SpD / 190 Spe  
+Timid Nature  
+- Energy Ball  
+- Giga Drain  
+- Dragon Breath  
+- Vacuum Wave 
 
 === TRAINER_MAY_ROUTE_119_MUDKIP ===
 Name: MAY
@@ -9961,19 +10131,49 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
 
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Araquanid (M) @ Aguav Berry  
+Ability: Water Bubble  
+Level: 36  
+EVs: 190 HP / 4 SpA / 190 SpD  
+Calm Nature  
+- Aqua Ring  
+- Bubble Beam  
+- Infestation  
+- Protect  
 
-Lombre
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Krokorok @ Black Glasses  
+Ability: Moxie  
+Level: 37  
+EVs: 190 HP / 190 Atk / 4 SpD  
+Adamant Nature  
+- Bulldoze  
+- Crunch  
+- Swagger  
+- Power Trip  
 
-Combusken
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Rotom-Frost  
+Ability: Levitate  
+Level: 37  
+Shiny: Yes  
+EVs: 190 SpA / 12 SpD / 190 Spe  
+Timid Nature  
+- Thunder Wave  
+- Shock Wave  
+- Hex  
+- Blizzard
+
+Blaziken @ Expert Belt  
+Ability: Speed Boost  
+Level: 38  
+Shiny: Yes  
+EVs: 190 Atk / 12 SpD / 190 Spe  
+Jolly Nature  
+- Blaze Kick  
+- Double Kick  
+- Aerial Ace  
+- Rock Slide
 
 === TRAINER_MAY_ROUTE_119_TREECKO ===
 Name: MAY
@@ -10016,19 +10216,49 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
 
-Lombre
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Nidorina  
+Ability: Hustle  
+Level: 36  
+Shiny: Yes  
+EVs: 190 HP / 190 Atk / 12 SpD  
+Adamant Nature  
+- Body Slam  
+- Bite  
+- Poison Fang  
+- Double Kick  
 
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Dodrio @ Muscle Band  
+Ability: Early Bird  
+Level: 37  
+EVs: 190 Atk / 190 Spe  
+Jolly Nature  
+- Knock Off  
+- Pluck  
+- Tailwind  
+- Low Kick  
 
-Marshtomp
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Graveler-Alola @ Magnet  
+Ability: Galvanize  
+Level: 37  
+EVs: 190 HP / 190 Atk / 4 Spe  
+Adamant Nature  
+- Fire Punch  
+- Bulldoze  
+- Self-Destruct  
+- Stealth Rock  
+
+Swampert @ Mystic Water  
+Ability: Torrent  
+Level: 38  
+Shiny: Yes  
+EVs: 190 HP / 190 Atk / 12 Spe  
+Adamant Nature  
+- Earthquake  
+- Hammer Arm  
+- Rock Slide  
+- Flip Turn
 
 === TRAINER_MAY_ROUTE_119_TORCHIC ===
 Name: MAY
@@ -10060,29 +10290,38 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Whismur
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Whirlipede (F)  
+Ability: Poison Point  
+Level: 35  
+Shiny: No  
+EVs: 132 HP / 132 Def / 96 Atk  
+Impish Nature  
+- Poison Tail  
+- Rollout  
+- Iron Defense  
+- Bug Bite
 
-Zigzagoon
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Swadloon (M)  
+Ability: Leaf Guard  
+Level: 36  
+Shiny: No  
+EVs: 132 HP / 132 Def / 96 SpA  
+Calm Nature  
+- Bug Buzz  
+- Razor Leaf  
+- Protect  
+- Light Screen
 
-Aron
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Poochyena
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Taillow
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Makuhita
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Combee (F)  
+Ability: Honey Gather  
+Level: 37  
+Shiny: No  
+EVs: 128 Spe / 128 SpA / 104 HP  
+Timid Nature  
+- Gust  
+- Sweet Scent  
+- Air Cutter  
+- Tailwind
 
 === TRAINER_DAVIS ===
 Name: DAVIS
@@ -10263,29 +10502,49 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Wingull
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Mienfoo (M)  
+Ability: Regenerator  
+Level: 35  
+Shiny: No  
+EVs: 128 Atk / 128 Spe / 104 HP  
+Jolly Nature  
+- Force Palm  
+- U-turn  
+- Knock Off  
+- Fake Out
 
-Shroomish
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Gurdurr (F)  
+Ability: Guts  
+Level: 36  
+Shiny: No  
+EVs: 132 Atk / 132 HP / 96 Def  
+Adamant Nature  
+- Drain Punch  
+- Rock Slide  
+- Mach Punch  
+- Bulk Up
 
-Marill
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Hakamo-o (M)  
+Ability: Overcoat  
+Level: 37  
+Shiny: No  
+EVs: 132 HP / 128 Atk / 100 Spe  
+Adamant Nature  
+- Dragon Tail  
+- Drain Punch  
+- Low Kick  
+- Iron Defense
 
-Roselia
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Skitty
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Goldeen
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Pancham (M)
+Ability: Mold Breaker  
+Level: 38  
+Shiny: No  
+EVs: 132 Atk / 132 HP / 96 Spe  
+Adamant Nature  
+- Circle Throw  
+- Bite  
+- Work Up  
+- Brick Break
 
 === TRAINER_HALLE ===
 Name: HALLE
@@ -11102,7 +11361,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES 
 
 Araquanid (M) @ Aguav Berry  
 Ability: Water Bubble  
@@ -11153,7 +11412,18 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
+
+Growlithe @ Passho Berry  
+Ability: Flash Fire  
+Level: 24  
+Shiny: Yes  
+EVs: 96 HP / 96 Atk / 4 SpD  
+Adamant Nature  
+- Flame Wheel  
+- Fire Fang  
+- Bite  
+- Double Kick  
 
 Mudbray  
 Ability: Stamina  
@@ -11174,17 +11444,6 @@ Jolly Nature
 - Bite  
 - Headbutt  
 - Flail  
-
-Growlithe @ Passho Berry  
-Ability: Flash Fire  
-Level: 24  
-Shiny: Yes  
-EVs: 96 HP / 96 Atk / 4 SpD  
-Adamant Nature  
-- Flame Wheel  
-- Fire Fang  
-- Bite  
-- Double Kick  
 
 Grovyle @ Miracle Seed  
 Ability: Overgrow  
@@ -11294,7 +11553,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT / AI_FLAG_WILL_SUICIDE
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_WILL_SUICIDE
 
 Nidorina  
 Ability: Hustle  
@@ -12304,19 +12563,6 @@ Illumise
 Level: 39
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_JOHANNA ===
-Name: JOHANNA
-Class: Beauty
-Pic: Beauty
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-
-Goldeen
-Level: 13
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 === TRAINER_GERALD ===
 Name: GERALD
 Class: Cooltrainer
@@ -12344,21 +12590,9 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Meditite
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Bide
-- Detect
-- Confusion
-- Thunder Punch
-
-Meditite
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Thunder Punch
-- Detect
-- Confusion
-- Meditate
+Klang  
+Ability: Minus  
+Level: 37  
 
 === TRAINER_DANIELLE ===
 Name: DANIELLE
@@ -12499,9 +12733,8 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Ralts
-Level: 16
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+Kirlia
+Level: 25 
 
 === TRAINER_WALLY_VR_2 ===
 Name: WALLY
@@ -13392,7 +13625,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_DAWSON ===
 Name: DAWSON
-Class: Rich Boy
+Class: ACE
 Pic: Rich Boy
 Gender: Male
 Music: Rich
@@ -13421,7 +13654,7 @@ Adamant Nature
 
 === TRAINER_SARAH ===
 Name: SARAH
-Class: Lady
+Class: ACE
 Pic: Lady
 Gender: Female
 Music: Female
@@ -13493,9 +13726,27 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Marill
-Level: 13
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Sandygast (M)  
+Ability: Water Compaction  
+Level: 32  
+Shiny: No  
+EVs: 132 HP / 128 Def / 80 SpA  
+Bold Nature  
+- Shadow Ball  
+- Sand Tomb  
+- Hypnosis  
+- Iron Defense
+
+Sandaconda (F)  
+Ability: Sand Spit  
+Level: 33  
+Shiny: No  
+EVs: 136 HP / 136 Def / 68 Atk  
+Impish Nature  
+- Bulldoze  
+- Glare  
+- Protect  
+- Rock Tomb
 
 === TRAINER_CHANDLER ===
 Name: CHANDLER
@@ -13506,13 +13757,27 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Tentacool
-Level: 12
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Basculin (M)  
+Ability: Adaptability  
+Level: 32  
+Shiny: No  
+EVs: 132 Atk / 132 Spe / 76 HP  
+Adamant Nature  
+- Aqua Tail  
+- Crunch  
+- Headbutt  
+- Scary Face
 
-Tentacool
-Level: 12
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Tentacruel (F)  
+Ability: Clear Body  
+Level: 34  
+Shiny: No  
+EVs: 120 HP / 120 SpA / 100 Spe  
+Calm Nature  
+- Scald  
+- Acid Spray  
+- Barrier  
+- Confuse Ray 
 
 === TRAINER_KALEB ===
 Name: KALEB
@@ -13523,13 +13788,16 @@ Music: Twins
 Double Battle: No
 AI: Check Bad Move
 
-Minun @ Oran Berry
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Plusle @ Oran Berry
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Minun (M) @ Berry Juice  
+Ability: Minus  
+Level: 35  
+Shiny: No  
+EVs: 124 SpA / 124 HP / 92 Spe  
+Calm Nature  
+- Discharge  
+- Encore  
+- Light Screen  
+- Quick Attack 
 
 === TRAINER_JOSEPH ===
 Name: JOSEPH
@@ -13540,13 +13808,38 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Electrike
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Audino (F)  
+Ability: Regenerator  
+Level: 36  
+Shiny: No  
+EVs: 132 HP / 120 SpD / 88 Def  
+Sassy Nature  
+- Disarming Voice  
+- Heal Bell  
+- Wish  
+- Protect
 
-Voltorb
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Mimikyu (F)  
+Ability: Disguise  
+Level: 36  
+Shiny: No  
+EVs: 128 Atk / 124 Spe / 88 HP  
+Jolly Nature  
+- Play Rough  
+- Shadow Sneak  
+- Swords Dance  
+- Baby-Doll Eyes
+
+Bewear (M)  
+Ability: Fluffy  
+Level: 37  
+Shiny: No  
+EVs: 132 Atk / 132 HP / 76 Def  
+Adamant Nature  
+- Strength  
+- Brutal Swing  
+- Baby-Doll Eyes  
+- Bind
 
 === TRAINER_ALYSSA ===
 Name: ALYSSA
@@ -13555,11 +13848,40 @@ Pic: Cycling Triathlete F
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES 
 
-Magnemite
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Comfey (F)  
+Ability: Triage  
+Level: 36  
+Shiny: No  
+EVs: 132 HP / 128 SpD / 80 Spe  
+Calm Nature  
+- Draining Kiss  
+- Leech Seed  
+- Aromatherapy  
+- Magical Leaf
+
+Magmar (M)  
+Ability: Flame Body  
+Level: 37  
+Shiny: No  
+EVs: 132 SpA / 128 Spe / 80 HP  
+Modest Nature  
+- Lava Plume  
+- Clear Smog  
+- Confuse Ray  
+- Will-O-Wisp
+
+Persian (M)  
+Ability: Technician  
+Level: 37  
+Shiny: No  
+EVs: 132 Atk / 128 Spe / 80 HP  
+Jolly Nature  
+- Fake Out  
+- Bite  
+- Swift  
+- Taunt
 
 === TRAINER_MARCOS ===
 Name: MARCOS
@@ -13570,9 +13892,27 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Voltorb
-Level: 15
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Magneton  
+Ability: Analytic  
+Level: 37  
+Shiny: No  
+EVs: 132 SpA / 128 HP / 100 Spe  
+Modest Nature  
+- Discharge  
+- Flash Cannon  
+- Thunder Wave  
+- Protect
+
+Golbat (F)  
+Ability: Inner Focus  
+Level: 35  
+Shiny: No  
+EVs: 128 HP / 128 Spe / 104 Atk  
+Jolly Nature  
+- Acrobatics  
+- Bite  
+- Tailwind  
+- Confuse Ray
 
 === TRAINER_RHETT ===
 Name: RHETT
@@ -13583,9 +13923,27 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Makuhita
-Level: 15
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Gurdurr (M)  
+Ability: Guts  
+Level: 36  
+Shiny: No  
+EVs: 132 Atk / 132 HP / 96 Def  
+Adamant Nature  
+- Drain Punch  
+- Rock Slide  
+- Bulk Up  
+- Mach Punch
+
+Hattrem (F)  
+Ability: Healer  
+Level: 36  
+Shiny: No  
+EVs: 128 SpA / 128 HP / 104 SpD  
+Calm Nature  
+- Psybeam  
+- Draining Kiss  
+- Light Screen  
+- Heal Pulse
 
 === TRAINER_TYRON ===
 Name: TYRON
@@ -13748,27 +14106,6 @@ AI: Check Bad Move
 
 Nuzleaf
 Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_DEANDRE ===
-Name: DEANDRE
-Class: Youngster
-Pic: Youngster
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Zigzagoon
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Aron
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Electrike
-Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_1 ===
@@ -14404,35 +14741,38 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Doduo
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Boldore (M)  
+Ability: Sturdy  
+Level: 36  
+Shiny: No  
+EVs: 132 HP / 132 Atk / 96 Def  
+Brave Nature  
+- Rock Slide  
+- Iron Defense  
+- Headbutt  
+- Bulldoze
 
-=== TRAINER_BRANDI ===
-Name: BRANDI
-Class: Psychic
-Pic: Psychic F
-Gender: Female
-Music: Intense
-Double Battle: No
-AI: Check Bad Move
+Graveler-Alola (M)  
+Ability: Galvanize  
+Level: 37  
+Shiny: No  
+EVs: 132 Atk / 132 HP / 96 Def  
+Adamant Nature  
+- Thunder Punch  
+- Self-Destruct  
+- Rock Tomb  
+- Stealth Rock
 
-Ralts
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_AISHA ===
-Name: AISHA
-Class: Battle Girl
-Pic: Battle Girl
-Gender: Female
-Music: Intense
-Double Battle: No
-AI: Check Bad Move
-
-Meditite
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Pupitar (F)  
+Ability: Guts  
+Level: 39  
+Shiny: No  
+EVs: 132 Atk / 132 HP / 96 SpD  
+Careful Nature  
+- Crunch  
+- Rock Slide  
+- Dragon Dance  
+- Screech
 
 === TRAINER_MAKAYLA ===
 Name: MAKAYLA
@@ -14688,7 +15028,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT / AI_FLAG_WILL_SUICIDE
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_WILL_SUICIDE
 
 Nidorina  
 Ability: Hustle  
@@ -16405,19 +16745,13 @@ Music: Suspicious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Illumise
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Shock Wave
-- Quick Attack
-- Charm
+Joltik  
+Ability: Swarm  
+Level: 36  
 
-Volbeat
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Shock Wave
-- Quick Attack
-- Confuse Ray
+Galvantula  
+Ability: Unnerve  
+Level: 37  
 
 === TRAINER_DARIUS ===
 Name: DARIUS
@@ -17476,18 +17810,18 @@ Pic: TY
 Gender: Male
 Music: Intense
 Double Battle: No
-AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
 
-Thwackey (F) @ Aguav Berry  
-Ability: Grassy Surge  
+Skiddo (F) @ Aguav Berry  
+Ability: Grass Pelt  
 Level: 16   
-EVs: 40 Atk / 6 SpD / 40 Spe  
-Jolly Nature  
+EVs: 40 HP / 4 Atk / 40 SpD  
+Careful Nature 
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe  
 - Razor Leaf  
-- Double Hit  
+- Grassy Terrain
 - Leech Seed  
-- Taunt 
+- Tackle 
 
 Honedge (M) @ Expert Belt  
 Ability: No Guard  
@@ -17505,13 +17839,119 @@ Mareanie (F) @ Leftovers
 Ability: Regenerator  
 Level: 16  
 Shiny: Yes   
-EVs: 50 Atk / 50 SpD  
-Relaxed Nature  
+EVs: 50 HP / 50 Def  
+Bold Nature  
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe  
 - Poison Sting  
 - Peck  
 - Venoshock  
 - Infestation  
+
+=== TRAINER_TY3 ===
+Name: TY
+Class: TY
+Pic: TY
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES 
+
+Gogoat (F) @ Terrain Extender  
+Ability: Grass Pelt 
+Level: 35  
+EVs: 165 HP / 12 Atk / 165 SpD  
+Careful Nature 
+- Grassy Terrain 
+- Leech Seed
+- Aerial Ace  
+- Seed Bomb  
+
+Doublade (M) @ Expert Belt  
+Ability: No Guard  
+Level: 35  
+Shiny: Yes  
+EVs: 165 HP / 165 Atk  
+Adamant Nature  
+- Shadow Sneak  
+- Night Slash  
+- Retaliate  
+- Swords Dance  
+
+Mareanie (F) @ Leftovers  
+Ability: Regenerator  
+Level: 35  
+Shiny: Yes  
+EVs: 165 HP / 165 SpD  
+Sassy Nature  
+- Toxic Spikes  
+- Recover  
+- Venoshock  
+- Liquidation    
+
+=== TRAINER_TY_FINAL ===
+Name: TY
+Class: TY
+Pic: TY
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES 
+
+Toxapex @ Leftovers  
+Ability: Regenerator  
+EVs: 248 HP / 252 Def / 8 SpD  
+Bold Nature  
+IVs: 0 Atk  
+- Haze 
+- Toxic 
+- Scald  
+- Recover  
+
+Nidoking (M) @ Shuca Berry  
+Ability: Sheer Force  
+EVs: 4 HP / 252 SpA / 252 Spe  
+Timid Nature  
+IVs: 0 Atk  
+- Sludge Wave  
+- Earth Power  
+- Ice Beam  
+- Thunderbolt  
+
+Gogoat @ Terrain Extender  
+Ability: Grass Pelt  
+EVs: 252 HP / 4 Atk / 252 SpD  
+Careful Nature  
+- Grassy Terrain  
+- Horn Leech  
+- Leech Seed  
+- Milk Drink  
+
+Aegislash @ Weakness Policy  
+Ability: Stance Change  
+EVs: 252 HP / 252 Atk / 4 SpD  
+Adamant Nature  
+- Kings Shield  
+- Swords Dance  
+- Shadow Sneak  
+- Close Combat 
+
+Gliscor @ Toxic Orb  
+Ability: Poison Heal  
+EVs: 252 HP / 252 SpD  
+Careful Nature  
+- X-Scissor  
+- Earthquake  
+- Poison Jab  
+- Protect  
+
+Sableye @ Sablenite  
+Ability: Keen Eye  
+EVs: 252 HP / 4 Atk / 126 Def / 126 SpD  
+Impish Nature  
+- Knock Off  
+- Foul Play  
+- Will-O-Wisp  
+- Hex  
 
 === TRAINER_SAMIR ===
 Name: SAMIR
@@ -17556,15 +17996,15 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT
 
-Incineroar @ Heat Rock  
+Torracat (M) @ Heat Rock  
 Ability: Blaze  
-Level: 34  
+Level: 33  
 EVs: 165 HP / 165 Atk  
 Adamant Nature  
-- Darkest Lariat  
 - Fire Fang  
-- Drain Punch  
 - Sunny Day  
+- Double Kick  
+- Bite 
 
 Floragato (M) @ Focus Sash 
 Ability: Protean  
@@ -17619,11 +18059,11 @@ Pic: SUGI
 Gender: Male
 Music: Cool
 Double Battle: No
-AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES 
 
 Bronzor @ Expert Belt  
 Ability: Levitate  
-Level: 19   
+Level: 16   
 EVs: 50 HP / 50 Atk  
 Sassy Nature  
 - Hypnosis  
@@ -17633,7 +18073,7 @@ Sassy Nature
 
 Ducklett (F) @ Water Gem  
 Ability: Big Pecks  
-Level: 19  
+Level: 17  
 Shiny: Yes   
 EVs: 50 HP / 6 Atk / 50 SpA  
 Mild Nature  
@@ -17644,7 +18084,7 @@ Mild Nature
 
 Chinchou (F) @ Mago Berry  
 Ability: Volt Absorb  
-Level: 19   
+Level: 16   
 EVs: 100 HP / 6 SpD  
 Modest Nature  
 - Electro Ball  
@@ -17654,7 +18094,7 @@ Modest Nature
 
 Monferno (M) @ Life Orb  
 Ability: Iron Fist  
-Level: 20  
+Level: 18  
 Shiny: Yes  
 EVs: 6 HP / 50 Atk / 50 Spe  
 Jolly Nature   
@@ -17662,6 +18102,47 @@ Jolly Nature
 - Flame Wheel  
 - Power-Up Punch  
 - Focus Energy
+
+=== TRAINER_SUGI3 ===
+Name: SUGI
+Class: SUGI
+Pic: SUGI
+Gender: Male
+Music: Cool
+Double Battle: No
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES 
+
+Bronzong @ Rocky Helmet  
+Ability: Levitate  
+Level: 35  
+EVs: 165 HP / 165 SpD  
+Sassy Nature  
+IVs: 0 Spe  
+- Block  
+- Gyro Ball  
+- Extrasensory  
+- Hypnosis  
+
+Swanna (F) @ Sharp Beak  
+Ability: Keen Eye  
+Level: 35  
+EVs: 165 HP / 65 Atk / 100 SpA  
+Serious Nature  
+- Aqua Jet  
+- Air Slash  
+- Bubble Beam  
+- Brine  
+
+Monferno (M) @ Life Orb  
+Ability: Iron Fist  
+Level: 35  
+Shiny: Yes  
+EVs: 12 HP / 165 Atk / 165 Spe  
+Jolly Nature  
+- Mach Punch  
+- Flame Wheel  
+- Close Combat  
+- U-turn  
 
 === TRAINER_AABHASH ===
 Name: AABHASH
@@ -17672,7 +18153,7 @@ Music: Cool
 Double Battle: No
 AI: Check Bad Move / Check Viability / AI_FLAG_PREFER_STRONGEST_MOVE
 
-Munchlax (M) @ Aguav Berry  
+Munchlax (M) @ Oran Berry  
 Ability: Gluttony  
 Level: 4  
 Shiny: Yes   
@@ -17686,7 +18167,7 @@ Pic: AABHASH
 Gender: Female
 Music: Cool
 Double Battle: No
-AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
 
 Pawniard @ Rocky Helmet  
 Ability: Inner Focus  
@@ -17719,7 +18200,7 @@ Adamant Nature
 - Retaliate  
 - Ice Fang
 
-Snorlax @ Aguav Berry  
+Munchlax @ Aguav Berry  
 Ability: Gluttony  
 Level: 25  
 Shiny: Yes   
@@ -17744,11 +18225,11 @@ Ability: Moxie
 Level: 4  
 Shiny: Yes   
 Brave Nature  
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Fake Out  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe 
 - Low Kick  
-- Payback  
+- Headbutt  
 - Leer
+- Fake Out
 
 === TRAINER_MIRO2 ===
 Name: MIRO
@@ -17757,7 +18238,7 @@ Pic: MIRO
 Gender: Male
 Music: Suspicious
 Double Battle: No
-AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT / AI_FLAG_POWERFUL_STATUS
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES 
 
 Skorupi (M) @ Assault Vest  
 Ability: Battle Armor  
@@ -17801,9 +18282,113 @@ Brave Nature
 - Payback  
 - Fake Out  
 
+=== TRAINER_MIRO3 ===
+Name: MIRO
+Class: MIRO
+Pic: MIRO
+Gender: Male
+Music: Suspicious
+Double Battle: No
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES 
+
+Porygon   
+Ability: Download  
+Level: 35  
+EVs: 165 HP / 165 SpA / 4 Spe  
+Modest Nature  
+- Psybeam  
+- Thunder Wave  
+- Swift  
+- Electroweb  
+
+Scraggy (M) @ Fighting Gem  
+Ability: Moxie  
+Level: 35  
+Shiny: Yes  
+EVs: 165 HP / 165 Atk  
+Brave Nature  
+- Brick Break  
+- Beat Up  
+- Drain Punch  
+- Fake Out  
+
+Luxray (M) @ Flame Orb  
+Ability: Guts  
+Level: 35  
+EVs: 100 SpA / 65 Atk / 165 Spe  
+Mild Nature  
+Shiny: Yes  
+- Volt Switch  
+- Bite  
+- Roar  
+- Shock Wave  
+
+=== TRAINER_MIRO_FINAL ===
+Name: MIRO
+Class: MIRO
+Pic: MIRO
+Gender: Male
+Music: Suspicious
+Double Battle: No
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES 
+
+Porygon2 @ Kee Berry  
+Ability: Download  
+EVs: 252 HP / 4 SpA / 252 SpD  
+Sassy Nature  
+- Trick Room  
+- Tri Attack  
+- Thunder Wave  
+- Ice Beam  
+
+Luxray @ Flame Orb  
+Ability: Guts  
+EVs: 252 HP / 252 Atk / 4 SpA  
+Brave Nature  
+- Thunder Fang  
+- Fire Fang  
+- Ice Fang  
+- Facade  
+
+Scrafty  
+Ability: Moxie  
+EVs: 252 HP / 252 Atk / 4 SpD  
+Adamant Nature  
+- Fake Out  
+- High Jump Kick  
+- Knock Off  
+- Rock Slide  
+
+Marowak-Alola @ Thick Club  
+Ability: Lightning Rod  
+EVs: 248 HP / 252 Atk / 8 SpD  
+Brave Nature  
+- Shadow Bone  
+- Bonemerang  
+- Flare Blitz  
+- Iron Tail  
+
+Rotom-Wash @ Assault Vest  
+Ability: Levitate  
+EVs: 252 HP / 252 SpA / 4 SpD  
+Quiet Nature  
+- Thunder  
+- Hydro Pump  
+- Shadow Ball  
+- Dark Pulse  
+
+Mawile @ Mawilite  
+Ability: Intimidate  
+EVs: 248 HP / 252 Atk / 8 SpD  
+Brave Nature  
+- Play Rough  
+- Sucker Punch  
+- Iron Head  
+- Rock Slide  
+
 === TRAINER_102_ACE ===
 Name: GREGG
-Class: Ninja Boy
+Class: ACE
 Pic: Ninja Boy
 Gender: Male
 Music: Suspicious
@@ -17839,3 +18424,4 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Retaliate  
 - Work Up  
 - Mud-Slap
+

@@ -1287,7 +1287,7 @@ const struct Item gItemsInfo[] =
     [ITEM_HP_UP] =
     {
         .name = _("HP Up"),
-        .price = (I_PRICE >= GEN_7) ? 10000 : 9800,
+        .price = (I_PRICE >= GEN_7) ? 750 : 750,
         .description = COMPOUND_STRING(
             "Raises the base HP\n"
             "of one Pokémon."),

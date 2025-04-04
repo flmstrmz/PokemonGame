@@ -543,17 +543,20 @@
 #define PH_NURSE_BLEND              607
 #define PH_NURSE_HELD               608
 #define PH_NURSE_SOLO               609
-#define MUS_DP_VS_GYM_LEADER        610
-#define MUS_DP_VS_CHAMPION          611
-#define MUS_HG_VS_ROCKET            612
-#define MUS_HG_VS_WILD              613
-#define MUS_HG_VS_TRAINER_KANTO     614
-#define MUS_DP_VS_GALACTIC_COMMANDER 615
-#define MUS_DP_VS_ELITE_FOUR         616
-#define MUS_DP_VS_GALACTIC_BOSS      617
-#define MUS_DP_VS_UXIE_MESPRIT_AZELF 618 
-#define MUS_DP_VS_DIALGA_PALKIA     619
-#define MUS_DP_VS_GALACTIC          620
+#define MUS_DP_VS_GYM_LEADER        610  //GENERAL RIVAL?
+#define MUS_DP_VS_CHAMPION          611  //TY - FINAL
+#define MUS_HG_VS_ROCKET            612  //MIRO - FINAL?
+#define MUS_HG_VS_WILD              613  //SIMILAR
+#define MUS_HG_VS_TRAINER_KANTO     614  //GENERAL THEME?
+#define MUS_DP_VS_GALACTIC_COMMANDER 615 //SAMIR
+#define MUS_DP_VS_ELITE_FOUR         616 //SIMILAR
+#define MUS_DP_VS_GALACTIC_BOSS      617 //SAMIR
+#define MUS_DP_VS_UXIE_MESPRIT_AZELF 618 //GREAT - MAYBE SAMIR FOR ONE MYSTERIOUS FIGHT?
+#define MUS_DP_VS_DIALGA_PALKIA     619 //KRILLAR - MEGEV BATTLE
+#define MUS_DP_VS_GALACTIC          620 //SAMIR
+#define MUS_DP_VS_LEGEND            621 //Ace Megev Mus
+#define MUS_HG_VS_RIVAL             622 //ACE Music
+#define MUS_HG_VS_LEADER_KANTO      623 //SUGI FINAL
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

@@ -117,13 +117,13 @@
 #define VAR_116_WIN_COUNT                                0x4061 
 #define VAR_FLY_TOOL_SOURCE                              0x4062  
 #define VAR_ROUTE104_STATE                               0x4063
-#define VAR_SAMIR_STEPHEN                                0x4064 // Unused Var
-#define VAR_ROUTE106_STATE                               0x4065 // Unused Var
-#define VAR_ROUTE107_STATE                               0x4066 // Unused Var
-#define VAR_ROUTE108_STATE                               0x4067 // Unused Var
-#define VAR_ROUTE109_STATE                               0x4068 // Unused Var
+#define VAR_SAMIR_STEPHEN                                0x4064 
+#define VAR_SEASHORE_BATTLE                              0x4065 
+#define VAR_ROUTE109_CLEARED                             0x4066
+#define VAR_ROUTE109_WINS                                0x4067 
+#define VAR_ROUTE109_RH                                  0x4068
 #define VAR_ROUTE110_STATE                               0x4069
-#define VAR_ROUTE111_STATE                               0x406A // Unused Var
+#define VAR_ROUTE109_LC                                  0x406A
 #define VAR_ROUTE112_STATE                               0x406B // Unused Var
 #define VAR_ROUTE113_STATE                               0x406C // Unused Var
 #define VAR_ROUTE114_STATE                               0x406D // Unused Var

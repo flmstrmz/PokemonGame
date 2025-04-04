@@ -70,6 +70,26 @@ static const struct MenuAction MultichoiceList_StatusInfo[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_BPartner[] =
+{
+    {gText_Sugi},
+    {gText_Ty},
+    {gText_Miro},
+};
+
+static const struct MenuAction MultichoiceList_BReward[] =
+{
+    {gText_WStone},
+    {gText_FStone},
+    {gText_TStone},
+    {gText_LStone},
+    {gText_SStone},
+    {gText_DskStone},
+    {gText_DwnStone},
+    {gText_IStone},
+};
+
+
 static const struct MenuAction MultichoiceList_BrineyOffDewford[] =
 {
     {gText_Dewford},
@@ -805,6 +825,8 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_FRONTIER_PASS_INFO]         = MULTICHOICE(MultichoiceList_FrontierPassInfo),
     [MULTI_BIKE]                       = MULTICHOICE(MultichoiceList_Bike),
     [MULTI_STATUS_INFO]                = MULTICHOICE(MultichoiceList_StatusInfo),
+    [MULTI_BATTLE_PARTNER]             = MULTICHOICE(MultichoiceList_BPartner),
+    [MULTI_BATTLE_REWARD]              = MULTICHOICE(MultichoiceList_BReward),
     [MULTI_BRINEY_OFF_DEWFORD]         = MULTICHOICE(MultichoiceList_BrineyOffDewford),
     [MULTI_UNUSED_15]                  = MULTICHOICE(MultichoiceList_Exit),
     [MULTI_VIEWED_PAINTINGS]           = MULTICHOICE(MultichoiceList_ViewedPaintings),

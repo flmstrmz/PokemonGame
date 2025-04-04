@@ -1275,6 +1275,10 @@ SECTIONS {
         sound/songs/midi/mus_dp_vs_uxie_mesprit_azelf.o(.rodata);
         sound/songs/midi/mus_dp_vs_dialga_palkia.o(.rodata);
         sound/songs/midi/mus_dp_vs_galactic.o(.rodata);
+        sound/songs/midi/mus_dp_vs_legend.o(.rodata);
+        sound/songs/midi/mus_hg_vs_rival.o(.rodata);
+        sound/songs/midi/mus_hg_vs_gym_leader_kanto.o(.rodata);
+
     } > ROM =0
 
     lib_rodata :

@@ -17,7 +17,10 @@ u32 GetCurrentLevelCap(void)
         {FLAG_DEFEATED_RIVAL_RUSTBORO, 24},
         {FLAG_BADGE02_GET, 30},
         {FLAG_GRANITE_SAMIR, 32},
-        {FLAG_IS_CHAMPION, 37},
+        {FLAG_BEATGRUNTS_MUSEUM, 34},
+        {FLAG_BADGE03_GET, 38},
+        {FLAG_BADGE04_GET, 45},
+        {FLAG_IS_CHAMPION, 100},
     };
 
     u32 i;

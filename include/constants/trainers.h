@@ -124,6 +124,7 @@
 #define TRAINER_BACK_PIC_RUBY_SAPPHIRE_MAY      5
 #define TRAINER_BACK_PIC_WALLY                  6
 #define TRAINER_BACK_PIC_STEVEN                 7
+#define TRAINER_BACK_PIC_TEST                   8
 
 #define FACILITY_CLASS_HIKER                 0x0
 #define FACILITY_CLASS_AQUA_GRUNT_M          0x1
@@ -361,7 +362,8 @@
 #define TRAINER_CLASS_SUGI           0x44
 #define TRAINER_CLASS_AABHASH        0x45
 #define TRAINER_CLASS_MIRO           0x46
-#define TRAINER_CLASS_COUNT          0x47
+#define TRAINER_CLASS_ACE            0x47
+#define TRAINER_CLASS_COUNT          0x48
 
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // standard male encounter music
 #define TRAINER_ENCOUNTER_MUSIC_FEMALE       1 // standard female encounter music

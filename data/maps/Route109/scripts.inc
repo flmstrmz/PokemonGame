@@ -1,6 +1,12 @@
 @ NOTE: Route 109's sail to Dewford script references local IDs from Dewford's map.
 @  These are labeled in DewfordTown/scripts.inc
 
+.set LOCALID_RICKY, 6
+.set LOCALID_LOLA, 7
+.set LOCALID_BOATHOUSEGIRL, 8
+.set LOCALID_HAILEY, 20
+.set LOCALID_CHANDLER, 21
+
 Route109_MapScripts::
 	.byte 0
 
@@ -272,6 +278,10 @@ Route109_Movement_BrineyExitBoat:
 	walk_in_place_faster_left
 	step_end
 
+Route109_Movement_WalkAwayFromBH:
+	walk_down
+	step_end
+
 Route109_EventScript_MrBriney::
 	lock
 	faceplayer
@@ -385,55 +395,20 @@ Route109_EventScript_Alice::
 	end
 
 Route109_EventScript_Huey::
-	trainerbattle_single TRAINER_HUEY, Route109_Text_HueyIntro, Route109_Text_HueyDefeated
+	trainerbattle_single TRAINER_HUEY, Route109_Text_HueyIntro, Route109_Text_HueyDefeated, Route109_EventScript_WinCount
 	msgbox Route109_Text_HueyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route109_EventScript_Edmond::
-	trainerbattle_single TRAINER_EDMOND, Route109_Text_EdmondIntro, Route109_Text_EdmondDefeated
-	msgbox Route109_Text_EdmondPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route109_EventScript_Ricky::
-	trainerbattle_single TRAINER_RICKY_1, Route109_Text_RickyIntro, Route109_Text_RickyDefeated, Route109_EventScript_RickyRegisterMatchCallAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route109_EventScript_RickyRematch
+	trainerbattle_single TRAINER_RICKY_1, Route109_Text_RickyIntro, Route109_Text_RickyDefeated, Route109_EventScript_RHWinCount
 	msgbox Route109_Text_RickyPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
-Route109_EventScript_RickyRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route109_Text_RickyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_RICKY_1
-	release
-	end
-
-Route109_EventScript_RickyRematch::
-	trainerbattle_rematch TRAINER_RICKY_1, Route109_Text_RickyRematchIntro, Route109_Text_RickyRematchDefeated
-	msgbox Route109_Text_RickyRematchPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route109_EventScript_Lola::
-	trainerbattle_single TRAINER_LOLA_1, Route109_Text_LolaIntro, Route109_Text_LolaDefeated, Route109_EventScript_LolaRegisterMatchCallAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route109_EventScript_LolaRematch
+	trainerbattle_single TRAINER_LOLA_1, Route109_Text_LolaIntro, Route109_Text_LolaDefeated, Route109_EventScript_LCWinCount
 	msgbox Route109_Text_LolaPostBattle, MSGBOX_DEFAULT
 	release
-	end
-
-Route109_EventScript_LolaRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route109_Text_LolaRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_LOLA_1
-	release
-	end
-
-Route109_EventScript_LolaRematch::
-	trainerbattle_rematch TRAINER_LOLA_1, Route109_Text_LolaRematchIntro, Route109_Text_LolaRematchDefeated
-	msgbox Route109_Text_LolaRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route109_EventScript_Austina::
@@ -462,12 +437,12 @@ Route109_EventScript_Mel::
 	end
 
 Route109_EventScript_Chandler::
-	trainerbattle_single TRAINER_CHANDLER, Route109_Text_ChandlerIntro, Route109_Text_ChandlerDefeated
+	trainerbattle_single TRAINER_CHANDLER, Route109_Text_ChandlerIntro, Route109_Text_ChandlerDefeated, Route109_EventScript_LCWinCount
 	msgbox Route109_Text_ChandlerPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route109_EventScript_Hailey::
-	trainerbattle_single TRAINER_HAILEY, Route109_Text_HaileyIntro, Route109_Text_HaileyDefeated
+	trainerbattle_single TRAINER_HAILEY, Route109_Text_HaileyIntro, Route109_Text_HaileyDefeated, Route109_EventScript_RHWinCount
 	msgbox Route109_Text_HaileyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -475,6 +450,235 @@ Route109_EventScript_Elijah::
 	trainerbattle_single TRAINER_ELIJAH, Route109_Text_ElijahIntro, Route109_Text_ElijahDefeated
 	msgbox Route109_Text_ElijahPostBattle, MSGBOX_AUTOCLOSE
 	end
+
+Route109_EventScript_RickyHaileyBattle::
+	playse SE_PIN
+	applymovement LOCALID_HAILEY, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_HAILEY, Route109_HailyWalk
+	waitmovement 0
+	msgbox Route109_Text_HaileyIntro, MSGBOX_DEFAULT
+	closemessage
+	playse SE_PIN
+	applymovement LOCALID_RICKY, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_RICKY, Route109_RickyWalk
+	waitmovement 0
+	msgbox Route109_Text_RickyIntro, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_two_trainers TRAINER_RICKY_1, Route109_Text_RickyDefeated, TRAINER_HAILEY, Route109_Text_HaileyDefeated
+	addvar VAR_ROUTE109_RH, 1
+	addvar VAR_ROUTE109_WINS, 2
+	goto_if_eq VAR_ROUTE109_WINS, 5, Route109_EventScript_Cleared
+	end
+
+Route109_EventScript_LolaChandlerBattle::
+	playse SE_PIN
+	applymovement LOCALID_LOLA, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox Route109_Text_LolaIntro, MSGBOX_DEFAULT
+	closemessage
+	playse SE_PIN
+	applymovement LOCALID_CHANDLER, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_CHANDLER, Route109_ChandlerWalk3
+	waitmovement 0
+	msgbox Route109_Text_ChandlerIntro, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_two_trainers TRAINER_LOLA_1, Route109_Text_LolaDefeated, TRAINER_CHANDLER, Route109_Text_ChandlerDefeated
+	addvar VAR_ROUTE109_LC, 1
+	addvar VAR_ROUTE109_WINS, 2
+	goto_if_eq VAR_ROUTE109_WINS, 5, Route109_EventScript_Cleared
+	end
+
+Route109_EventScript_LolaChandlerBattle2::
+	playse SE_PIN
+	applymovement LOCALID_LOLA, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_LOLA, Route109_LolaWalk
+	waitmovement 0
+	msgbox Route109_Text_LolaIntro, MSGBOX_DEFAULT
+	closemessage
+	playse SE_PIN
+	applymovement LOCALID_CHANDLER, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_CHANDLER, Route109_ChandlerWalk2
+	waitmovement 0
+	msgbox Route109_Text_ChandlerIntro, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_two_trainers TRAINER_LOLA_1, Route109_Text_LolaDefeated, TRAINER_CHANDLER, Route109_Text_ChandlerDefeated
+	addvar VAR_ROUTE109_LC, 1
+	addvar VAR_ROUTE109_WINS, 2
+	goto_if_eq VAR_ROUTE109_WINS, 5, Route109_EventScript_Cleared
+	end
+
+Route109_EventScript_LolaChandlerBattle3::
+	playse SE_PIN
+	applymovement LOCALID_LOLA, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_LOLA, Route109_LolaWalk2
+	waitmovement 0
+	msgbox Route109_Text_LolaIntro, MSGBOX_DEFAULT
+	closemessage
+	playse SE_PIN
+	applymovement LOCALID_CHANDLER, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_CHANDLER, Route109_ChandlerWalk
+	waitmovement 0
+	msgbox Route109_Text_ChandlerIntro, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_two_trainers TRAINER_LOLA_1, Route109_Text_LolaDefeated, TRAINER_CHANDLER, Route109_Text_ChandlerDefeated
+	addvar VAR_ROUTE109_LC, 1
+	addvar VAR_ROUTE109_WINS, 2
+	goto_if_eq VAR_ROUTE109_WINS, 5, Route109_EventScript_Cleared
+	end
+
+Route109_EventScript_LolaChandlerBattle4::
+	playse SE_PIN
+	applymovement LOCALID_LOLA, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_LOLA, Route109_LolaWalk3
+	waitmovement 0
+	msgbox Route109_Text_LolaIntro, MSGBOX_DEFAULT
+	closemessage
+	playse SE_PIN
+	applymovement LOCALID_CHANDLER, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox Route109_Text_ChandlerIntro, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_two_trainers TRAINER_LOLA_1, Route109_Text_LolaDefeated, TRAINER_CHANDLER, Route109_Text_ChandlerDefeated
+	addvar VAR_ROUTE109_LC, 1
+	addvar VAR_ROUTE109_WINS, 2
+	goto_if_eq VAR_ROUTE109_WINS, 5, Route109_EventScript_Cleared
+	end
+
+
+
+Route109_EventScript_Cleared::
+	addvar VAR_ROUTE109_CLEARED, 1
+	end
+
+Route109_EventScript_WinCount::
+	addvar VAR_ROUTE109_WINS, 1
+	goto_if_eq VAR_ROUTE109_WINS, 5, Route109_EventScript_Cleared
+	end
+
+Route109_EventScript_RHWinCount::
+	addvar VAR_ROUTE109_WINS, 1
+	addvar VAR_ROUTE109_RH, 1
+	goto_if_eq VAR_ROUTE109_WINS, 5, Route109_EventScript_Cleared
+	end
+
+Route109_EventScript_LCWinCount::
+	addvar VAR_ROUTE109_WINS, 1
+	addvar VAR_ROUTE109_LC, 1
+	goto_if_eq VAR_ROUTE109_WINS, 5, Route109_EventScript_Cleared
+	end
+	
+
+Route109_EventScript_BHGirl::
+	applymovement LOCALID_BOATHOUSEGIRL, Common_Movement_FacePlayer
+	goto_if_eq VAR_ROUTE109_CLEARED, 0, Route109_EventScript_BHGirl1
+	goto_if_eq VAR_ROUTE109_CLEARED, 1, Route109_EventScript_BHGirl1
+	goto_if_eq VAR_ROUTE109_CLEARED, 2, Route109_EventScript_BHGirl1
+	goto_if_eq VAR_ROUTE109_CLEARED, 3, Route109_EventScript_BHGirl2
+	goto_if_eq VAR_ROUTE109_CLEARED, 4, Route109_EventScript_BHGirl3
+
+	end
+
+Route109_EventScript_BHGirl1::
+	msgbox Route109_Text_Shoo, MSGBOX_AUTOCLOSE
+	end
+
+Route109_EventScript_BHGirl2::
+	msgbox Route109_Text_BHCongrats, MSGBOX_AUTOCLOSE
+	end
+
+Route109_EventScript_BHGirl3::
+	msgbox Route109_Text_BHLoser, MSGBOX_AUTOCLOSE
+	end
+	
+
+Route109_EventScript_BeatTrainersFirst::
+	lockall
+	applymovement LOCALID_BOATHOUSEGIRL, Common_Movement_FaceRight
+	msgbox Route109_Text_BeatTrainersFirst, MSGBOX_AUTOCLOSE
+	applymovement OBJ_EVENT_ID_PLAYER, Route109_Movement_WalkAwayFromBH
+	waitmovement 0
+	applymovement LOCALID_BOATHOUSEGIRL, Common_Movement_FaceDown
+	end
+
+Route109_EventScript_BeatenTrainers::
+	lockall
+	applymovement LOCALID_BOATHOUSEGIRL, Common_Movement_FaceRight
+	msgbox Route109_Text_BeatenAllTrainers, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_BOATHOUSEGIRL, Common_Movement_FaceDown
+	addvar VAR_ROUTE109_CLEARED, 1
+	end
+
+Route109_HailyWalk:
+	walk_right
+	step_end
+
+Route109_RickyWalk:
+	walk_down
+	walk_down
+	step_end
+
+Route109_ChandlerWalk:
+	walk_left
+	step_end
+
+Route109_ChandlerWalk2:
+	walk_left
+	walk_left
+	step_end
+
+Route109_ChandlerWalk3:
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Route109_LolaWalk:
+	walk_right
+	step_end
+
+Route109_LolaWalk2:
+	walk_right
+	walk_right
+	step_end
+
+Route109_LolaWalk3:
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Route109_Text_BeatTrainersFirst:
+	.string "Hey!\p"
+	.string "You can't just barge in there without,\n"
+	.string "Beating everyone else first!\p"
+	.string "Dummy...$"
+
+Route109_Text_BeatenAllTrainers:
+	.string "Hey!\p"
+	.string "...Oh?\p"
+	.string "You beat all the trainers here?\p"
+	.string "Well good luck in there you'll need it...\p"
+	.string "You'll only get one chance!$"
+
+Route109_Text_Shoo:
+	.string "You aren't the winner yet...\p"
+	.string "Shoo!$"
+
+Route109_Text_BHCongrats:
+	.string "Wow you're stronger than you look!\p"
+	.string "Well it wasn't JUST you I guess.\p"
+	.string "Hehe.$"
+
+Route109_Text_BHLoser:
+	.string "I did say they were strong...$"
 
 DewfordTown_Text_BrineyLandedInSlateportDeliverGoods:
 	.string "MR. BRINEY: Ahoy!\n"

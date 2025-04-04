@@ -6,7 +6,7 @@ GraniteCave_StevensRoom_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, SetSamir
 	.byte 0
 
-SetSamir::
+SetSamir:
 	setvar VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_SAMIR
 	end
 
@@ -72,6 +72,7 @@ GraniteCave_Samir_Stephen::
 	waitmovement 0
 	delay 8
 	setflag FLAG_HIDE_SAMIR_GRANITE
+	setflag FLAG_GRANITE_SAMIR
 	trainerbattle_single TRAINER_SAMIR_3, GraniteCave_SamirOpen, GraniteCave_SamirLost, GraniteCave_Samir_Leaves
 	releaseall
 	end
@@ -85,7 +86,7 @@ GraniteCave_Samir_Leaves::
 	applymovement LOCALID_SAMIR, GraniteCave_SamirLeave
 	waitmovement 0
 	removeobject LOCALID_SAMIR
-	setvar VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_SAMIR
+	setvar VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_VAR_2
 	releaseall
 	end
 

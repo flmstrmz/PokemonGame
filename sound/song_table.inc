@@ -622,6 +622,9 @@ gSongTable::
 	song mus_dp_vs_uxie_mesprit_azelf, 0, 0
 	song mus_dp_vs_dialga_palkia, 0, 0
 	song mus_dp_vs_galactic, 0, 0
+	song mus_dp_vs_legend, 0, 0
+	song mus_hg_vs_rival, 0, 0
+	song mus_hg_vs_gym_leader_kanto, 0, 0
 
 	.align 2
 dummy_song_header:

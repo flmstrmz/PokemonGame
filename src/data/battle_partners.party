@@ -41,3 +41,120 @@ EVs: 252 Atk / 252 SpA / 6 SpD
 - Protect
 - Solar Beam
 - Dragon Claw
+
+=== PARTNER_TY ===
+Name: TY
+Class: TY
+Pic: Test
+Gender: Male
+Music: Male
+
+Gogoat (F) @ Terrain Extender  
+Ability: Grass Pelt 
+Level: 35  
+EVs: 165 HP / 12 Atk / 165 SpD  
+Careful Nature 
+- Grassy Terrain 
+- Leech Seed
+- Aerial Ace  
+- Seed Bomb  
+
+Doublade (M) @ Expert Belt  
+Ability: No Guard  
+Level: 35  
+Shiny: Yes  
+EVs: 165 HP / 165 Atk  
+Adamant Nature  
+- Shadow Sneak  
+- Night Slash  
+- Retaliate  
+- Swords Dance  
+
+Mareanie (F) @ Leftovers  
+Ability: Regenerator  
+Level: 35  
+Shiny: Yes  
+EVs: 165 HP / 165 SpD  
+Sassy Nature  
+- Toxic Spikes  
+- Recover  
+- Venoshock  
+- Liquidation   
+
+=== PARTNER_MIRO ===
+Name: MIRO
+Class: MIRO
+Pic: Test
+Gender: Male
+Music: Suspicious
+
+Luxray (M) @ Flame Orb  
+Ability: Guts  
+Level: 35  
+EVs: 100 SpA / 65 Atk / 165 Spe  
+Mild Nature  
+Shiny: Yes  
+- Volt Switch  
+- Bite  
+- Roar  
+- Shock Wave  
+
+Porygon @ Wise Glasses  
+Ability: Download  
+Level: 35  
+EVs: 165 HP / 165 SpA / 4 Spe  
+Modest Nature  
+- Psybeam  
+- Thunder Wave  
+- Swift  
+- Electroweb  
+
+Scraggy (M) @ Fighting Gem  
+Ability: Moxie  
+Level: 35  
+Shiny: Yes  
+EVs: 165 HP / 165 Atk  
+Brave Nature  
+- Brick Break  
+- Beat Up  
+- Drain Punch  
+- Fake Out  
+
+=== PARTNER_SUGI ===
+Name: SUGI
+Class: SUGI
+Pic: Test
+Gender: Male
+Music: Cool
+
+Bronzong @ Rocky Helmet  
+Ability: Levitate  
+Level: 35  
+EVs: 165 HP / 165 SpD  
+Sassy Nature  
+IVs: 0 Spe  
+- Block  
+- Gyro Ball  
+- Extrasensory  
+- Hypnosis  
+
+Swanna @ Sharp Beak  
+Ability: Keen Eye  
+Level: 35  
+EVs: 165 HP / 65 Atk / 100 SpA  
+Serious Nature  
+- Aqua Jet  
+- Air Slash  
+- Bubble Beam  
+- Brine  
+
+Monferno (M) @ Life Orb  
+Ability: Iron Fist  
+Level: 35  
+Shiny: Yes  
+EVs: 12 HP / 165 Atk / 165 Spe  
+Jolly Nature  
+- Mach Punch  
+- Flame Wheel  
+- Close Combat  
+- U-turn  
