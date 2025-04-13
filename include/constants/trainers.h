@@ -114,6 +114,7 @@
 #define TRAINER_PIC_SUGI                  96
 #define TRAINER_PIC_AABHASH               97
 #define TRAINER_PIC_MIRO                  98 
+#define TRAINER_PIC_KRILL                 99 
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0
@@ -362,8 +363,9 @@
 #define TRAINER_CLASS_SUGI           0x44
 #define TRAINER_CLASS_AABHASH        0x45
 #define TRAINER_CLASS_MIRO           0x46
-#define TRAINER_CLASS_ACE            0x47
-#define TRAINER_CLASS_COUNT          0x48
+#define TRAINER_CLASS_KRILL          0x47
+#define TRAINER_CLASS_ACE            0x48
+#define TRAINER_CLASS_COUNT          0x49
 
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // standard male encounter music
 #define TRAINER_ENCOUNTER_MUSIC_FEMALE       1 // standard female encounter music

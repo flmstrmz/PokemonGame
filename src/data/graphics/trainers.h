@@ -309,6 +309,9 @@ const u32 gTrainerPalette_Aabhash[] = INCBIN_U32("graphics/trainers/front_pics/A
 const u32 gTrainerFrontPic_Miro[] = INCBIN_U32("graphics/trainers/front_pics/Miro_battle.4bpp.lz");
 const u32 gTrainerPalette_Miro[] = INCBIN_U32("graphics/trainers/front_pics/Miro_battle.gbapal.lz");
 
+const u32 gTrainerFrontPic_Krill[] = INCBIN_U32("graphics/trainers/front_pics/Krillar.4bpp.lz");
+const u32 gTrainerPalette_Krill[] = INCBIN_U32("graphics/trainers/front_pics/Krill_battle.gbapal.lz");
+
 // The first two parameters invoke a front pic and palette by
 // calling a "TRAINER_PIC" constant (e.g. TRAINER_PIC_HIKER), and
 // gTrainerFrontPic/gTrainerPalette pointers, (e.g "gTrainerFrontPic_Hiker" and "gTrainerPalette_Hiker").
@@ -423,6 +426,7 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(SUGI, Sugi),
     TRAINER_SPRITE(AABHASH, Aabhash),
     TRAINER_SPRITE(MIRO, Miro),
+    TRAINER_SPRITE(KRILL, Krill),
 };
 
 static const union AnimCmd sAnimCmd_Hoenn[] =

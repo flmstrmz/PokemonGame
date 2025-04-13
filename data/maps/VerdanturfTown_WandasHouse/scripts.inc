@@ -83,22 +83,24 @@ VerdanturfTown_WandasHouse_EventScript_WallysAuntEverGrande::
 	end
 
 VerdanturfTown_WandasHouse_Text_StrongerSpeech:
-	.string "WALLY: I lost to you, {PLAYER}, but I'm\n"
-	.string "not feeling down anymore.\p"
-	.string "Because I have a new purpose in life.\n"
-	.string "Together with my RALTS, I'm going\l"
-	.string "to challenge POKéMON GYMS and become\l"
-	.string "a great TRAINER.\p"
-	.string "Please watch me, {PLAYER}.\n"
-	.string "I'm going to be stronger than you.\p"
+	.string "WALLY: Its funny y'know I lost to you,\n"
+	.string " {PLAYER}.\p"
+	.string "I misunderstood my own strength,\n"
+	.string "and let Kirlia down.\p"
+	.string "But standing here I feel determined,\n" 
+	.string "like im filled with new purpose.\p"
+	.string "I'm going to get stronger. Much Stronger.\p"
 	.string "When I do, I'm going to challenge you\n"
-	.string "to another battle.$"
+	.string "to another battle.\p"
+	.string "And I refuse to lose.$"
 
 VerdanturfTown_WandasHouse_Text_StrongerSpeechShort:
 	.string "WALLY: Please watch me, {PLAYER}.\n"
-	.string "I'm going to get stronger than you.\p"
+	.string "I'm going to get stronger.\p"
+	.string "Stronger than you.\p"
 	.string "When I do, I'm going to challenge you\n"
-	.string "to another battle.$"
+	.string "again.\p"
+	.string "And I refuse to lose.$"
 
 VerdanturfTown_WandasHouse_Text_WallysNextDoor:
 	.string "UNCLE: Oh! {PLAYER}{KUN}!\n"

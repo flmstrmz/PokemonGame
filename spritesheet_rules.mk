@@ -46,6 +46,9 @@ $(OBJEVENTGFXDIR)/people/Aabhash.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/Miro.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
+$(OBJEVENTGFXDIR)/people/KrillarOW.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 
 $(OBJEVENTGFXDIR)/people/elite_four/drake.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4

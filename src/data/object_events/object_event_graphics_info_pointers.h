@@ -241,6 +241,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Samir;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sugi;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Aabhash;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Miro;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Krill;
 // Begin pokemon event objects
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeBall;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Follower;
@@ -498,6 +499,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SUGI] =                     &gObjectEventGraphicsInfo_Sugi,
     [OBJ_EVENT_GFX_AABHASH] =                  &gObjectEventGraphicsInfo_Aabhash,
     [OBJ_EVENT_GFX_MIRO] =                     &gObjectEventGraphicsInfo_Miro,
+    [OBJ_EVENT_GFX_KRILL] =                    &gObjectEventGraphicsInfo_Krill,
     [OBJ_EVENT_GFX_POKE_BALL] =                &gObjectEventGraphicsInfo_PokeBall,
     [OBJ_EVENT_GFX_OW_MON] =                   &gObjectEventGraphicsInfo_Follower,
 };

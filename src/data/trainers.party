@@ -12302,36 +12302,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Splash
 - Water Gun
 
-=== TRAINER_MIKE_1 ===
-Name: MIKE
-Class: Hiker
-Pic: Hiker
-Gender: Male
-Music: Hiker
-Double Battle: No
-AI: Check Bad Move
-
-Pelipper
-Level: 10
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Gust
-- Growl
-
-Poochyena
-Level: 10
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Bite
-- Scary Face
-
-=== TRAINER_MIKE_2 ===
-Name: MIKE
-Class: Hiker
-Pic: Hiker
-Gender: Male
-Music: Hiker
-Double Battle: No
-AI: Check Bad Move
-
 Geodude
 Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
@@ -18385,6 +18355,25 @@ Brave Nature
 - Sucker Punch  
 - Iron Head  
 - Rock Slide  
+
+=== TRAINER_KRILL_1 ===
+Name: Kriller
+Class: Krill
+Pic: Krill
+Gender: Male
+Music: Suspicious
+Double Battle: No
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT
+
+Aggron (M) @ Aggronite  
+Ability: Sturdy  
+Level: 50 
+EVs: 252 HP / 252 Atk / 4 SpD  
+Adamant Nature  
+- Stealth Rock  
+- Heavy Slam  
+- Earthquake  
+- Thunder Punch
 
 === TRAINER_102_ACE ===
 Name: GREGG

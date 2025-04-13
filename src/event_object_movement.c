@@ -491,6 +491,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Sugi,                  OBJ_EVENT_PAL_TAG_SUGI},
     {gObjectEventPal_Aabhash,               OBJ_EVENT_PAL_TAG_AABHASH},
     {gObjectEventPal_Miro,                  OBJ_EVENT_PAL_TAG_MIRO},
+    {gObjectEventPal_Krill,                 OBJ_EVENT_PAL_TAG_KRILL},
     {gObjectEventPal_Truck,                 OBJ_EVENT_PAL_TAG_TRUCK},
     {gObjectEventPal_Vigoroth,              OBJ_EVENT_PAL_TAG_VIGOROTH},
     {gObjectEventPal_EnemyZigzagoon,        OBJ_EVENT_PAL_TAG_ZIGZAGOON},

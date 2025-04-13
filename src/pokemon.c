@@ -5770,6 +5770,8 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_AABHASH:
         case TRAINER_CLASS_MIRO:
             return MUS_DP_VS_GYM_LEADER;
+        case TRAINER_CLASS_KRILL:
+            return MUS_DP_VS_DIALGA_PALKIA;
         default:
             return MUS_VS_TRAINER;
         }

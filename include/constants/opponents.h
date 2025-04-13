@@ -637,8 +637,8 @@
 #define TRAINER_CLARK                       631
 #define TRAINER_ERIC                        632
 #define TRAINER_LUCAS_2                     633
-#define TRAINER_MIKE_1                      634
-#define TRAINER_MIKE_2                      635
+#define TRAINER_MIKE_1                      634 //unused
+#define TRAINER_MIKE_2                      635 //unused
 #define TRAINER_TRENT_2                     636
 #define TRAINER_TRENT_3                     637
 #define TRAINER_TRENT_4                     638
@@ -871,12 +871,13 @@
 #define TRAINER_MIRO2                       865
 #define TRAINER_SAMIR_3                     866
 #define TRAINER_MIRO_FINAL                  867
+#define TRAINER_KRILL_1                     868
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      868
+#define TRAINERS_COUNT                      869
 #define MAX_TRAINERS_COUNT                  900
 #define TRAINER_PARTNER(partner)           (MAX_TRAINERS_COUNT + partner)
 

@@ -573,6 +573,14 @@ Route111_EventScript_TrainerHillSign::
 	msgbox Route111_Text_TrainerHillSign, MSGBOX_SIGN
 	end
 
+Route111_EventScript_KrillarFight::
+	trainerbattle_single TRAINER_KRILL_1, Route111_Text_FightKrill, Route111_Text_DustyRematchDefeat
+	end
+
+Route111_Text_FightKrill:
+	.string "I'll Take you on\n"
+	.string "prove your worth!$"
+
 Route111_Text_BattleOurFamily:
 	.string "Hello! I take it you're a traveler.\p"
 	.string "How's this? What do you say to taking\n"

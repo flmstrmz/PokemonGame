@@ -384,6 +384,7 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     TRAINER_CLASS(SUGI, "Jisoo Stan", 20),
     TRAINER_CLASS(AABHASH, "Goth Mommy", 20),
     TRAINER_CLASS(MIRO, "The Tussler", 20),
+    TRAINER_CLASS(KRILL, "The Great Dane", 20),
     TRAINER_CLASS(ACE, "Ace Trainer", 20),
 };
 
