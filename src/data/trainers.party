@@ -13915,58 +13915,6 @@ Calm Nature
 - Light Screen  
 - Heal Pulse
 
-=== TRAINER_TYRON ===
-Name: TYRON
-Class: Camper
-Pic: Camper
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Sandshrew
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_CELINA ===
-Name: CELINA
-Class: Aroma Lady
-Pic: Aroma Lady
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-
-Roselia
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_BIANCA ===
-Name: BIANCA
-Class: Picnicker
-Pic: Picnicker
-Gender: Female
-Music: Girl
-Double Battle: No
-AI: Check Bad Move
-
-Shroomish
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_HAYDEN ===
-Name: HAYDEN
-Class: Kindler
-Pic: Kindler
-Gender: Male
-Music: Hiker
-Double Battle: No
-AI: Check Bad Move
-
-Numel
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 === TRAINER_SOPHIE ===
 Name: SOPHIE
 Class: Picnicker
@@ -18368,8 +18316,8 @@ AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWIT
 Aggron (M) @ Aggronite  
 Ability: Sturdy  
 Level: 50 
-EVs: 252 HP / 252 Atk / 4 SpD  
-Adamant Nature  
+EVs: 252 HP / 252 Atk / 252 SpD  / 252 Spe
+Careful Nature  
 - Stealth Rock  
 - Heavy Slam  
 - Earthquake  

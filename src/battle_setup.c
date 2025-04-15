@@ -1444,8 +1444,11 @@ static void CB2_EndTrainerBattle(void)
     }
     else if (IsPlayerDefeated(gBattleOutcome) == TRUE)
     {
-        if (InBattlePyramid() || InTrainerHillChallenge() || (!NoAliveMonsForPlayer()))
+        if (InBattlePyramid() || InTrainerHillChallenge() || (!NoAliveMonsForPlayer()) || (FlagGet(FLAG_3VS3) == TRUE))
+        {
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+            FlagClear(FLAG_3VS3);
+        }
         else
             SetMainCallback2(CB2_WhiteOut);
     }

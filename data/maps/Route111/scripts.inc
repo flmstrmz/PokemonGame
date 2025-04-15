@@ -534,31 +534,6 @@ Route111_EventScript_RematchBrooke::
 	msgbox Route111_Text_BrookePostRematch, MSGBOX_AUTOCLOSE
 	end
 
-Route111_EventScript_Hayden::
-	trainerbattle_single TRAINER_HAYDEN, Route111_Text_HaydenIntro, Route111_Text_HaydenDefeat
-	msgbox Route111_Text_HaydenPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route111_EventScript_Bianca::
-	trainerbattle_single TRAINER_BIANCA, Route111_Text_BiancaIntro, Route111_Text_BiancaDefeat
-	msgbox Route111_Text_BiancaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route111_EventScript_Tyron::
-	trainerbattle_single TRAINER_TYRON, Route111_Text_TyronIntro, Route111_Text_TyronDefeat
-	msgbox Route111_Text_TyronPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route111_EventScript_Celina::
-	trainerbattle_single TRAINER_CELINA, Route111_Text_CelinaIntro, Route111_Text_CelinaDefeat
-	msgbox Route111_Text_CelinaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route111_EventScript_Celia::
-	trainerbattle_single TRAINER_CELIA, Route111_Text_CeliaIntro, Route111_Text_CeliaDefeat
-	msgbox Route111_Text_CeliaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route111_EventScript_Bryan::
 	trainerbattle_single TRAINER_BRYAN, Route111_Text_BryanIntro, Route111_Text_BryanDefeat
 	msgbox Route111_Text_BryanPostBattle, MSGBOX_AUTOCLOSE
@@ -574,7 +549,13 @@ Route111_EventScript_TrainerHillSign::
 	end
 
 Route111_EventScript_KrillarFight::
-	trainerbattle_single TRAINER_KRILL_1, Route111_Text_FightKrill, Route111_Text_DustyRematchDefeat
+	special SavePlayerParty
+	fadescreen FADE_TO_BLACK
+	special ChooseHalfPartyForBattle
+	waitstate
+	special ReducePlayerPartyToSelectedMons
+	setflag FLAG_3VS3
+	trainerbattle_single TRAINER_KRILL_1, Route111_Text_FightKrill, Route111_Text_BrandenDefeat
 	end
 
 Route111_Text_FightKrill:

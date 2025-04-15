@@ -707,10 +707,10 @@
 #define TRAINER_ALYSSA                      701
 #define TRAINER_MARCOS                      702
 #define TRAINER_RHETT                       703
-#define TRAINER_TYRON                       704
-#define TRAINER_CELINA                      705
-#define TRAINER_BIANCA                      706
-#define TRAINER_HAYDEN                      707
+#define TRAINER_TYRON                       704 //unused
+#define TRAINER_CELINA                      705 //unused
+#define TRAINER_BIANCA                      706 //unused
+#define TRAINER_HAYDEN                      707 //unused
 #define TRAINER_SOPHIE                      708
 #define TRAINER_COBY                        709
 #define TRAINER_LAWRENCE                    710
