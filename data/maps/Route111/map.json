@@ -486,19 +486,6 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 22,
-      "y": 77,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "6",
-      "script": "Route111_EventScript_Celia",
-      "flag": "0"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
       "x": 37,
       "y": 77,
@@ -581,7 +568,7 @@
       "x": 31,
       "y": 114,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -592,7 +579,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_STEVEN",
       "x": 21,
-      "y": 112,
+      "y": 117,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -601,6 +588,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SAMIR",
+      "x": 31,
+      "y": 115,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_ROUTE111_HIDE_SAMIR"
     }
   ],
   "warp_events": [
@@ -952,9 +952,9 @@
       "x": 21,
       "y": 121,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_ROUTE111_MEGA",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route111_EventScript_Steven"
     },
     {
       "type": "trigger",
@@ -1107,7 +1107,7 @@
     {
       "type": "sign",
       "x": 24,
-      "y": 116,
+      "y": 115,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route111_EventScript_TrainerHillSign"

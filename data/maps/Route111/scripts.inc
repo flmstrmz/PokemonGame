@@ -3,6 +3,9 @@
 .set LOCALID_VIVI, 3
 .set LOCALID_VICKY, 4
 .set LOCALID_ROCK_SMASH_MAN, 46
+.set LOCALID_STEVEN, 43
+.set LOCALID_KRILL, 42
+.set LOCALID_SAMIR, 44
 
 @ Note: LOCALID_ROUTE111_PLAYER_FALLING is a local id for this map used elsewhere. It's defined in event_objects.h
 
@@ -557,6 +560,186 @@ Route111_EventScript_KrillarFight::
 	setflag FLAG_3VS3
 	trainerbattle_single TRAINER_KRILL_1, Route111_Text_FightKrill, Route111_Text_BrandenDefeat
 	end
+
+Route111_EventScript_Steven::
+	lockall
+	playse SE_PIN
+	applymovement LOCALID_STEVEN, Common_Movement_ExclamationMark
+	delay 16
+	applymovement LOCALID_STEVEN, Route111_StevenApproach1
+	waitmovement 0
+	msgbox Route111_Text_StevenHi, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_STEVEN, Route111_StevenFollowMe
+	applymovement OBJ_EVENT_ID_PLAYER, Route111_FollowSteven
+	waitmovement 0
+	applymovement LOCALID_SAMIR, Route111_SamirLook
+	waitmovement 0
+	applymovement LOCALID_STEVEN, Common_Movement_FaceUp
+	msgbox Route111_Text_SamirHiss MSGBOX_AUTOCLOSE
+	applymovement LOCALID_SAMIR, Route111_SamirLeave
+	waitmovement 0
+	removeobject LOCALID_SAMIR
+	setflag FLAG_ROUTE111_HIDE_SAMIR
+	applymovement LOCALID_STEVEN, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox Route111_Text_StevenWhat, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_STEVEN, Route111_StevenToKrill
+	applymovement OBJ_EVENT_ID_PLAYER, Route111_FollowStevenToKrill
+	waitmovement 0
+	msgbox Route111_Text_StevenISee, MSGBOX_AUTOCLOSE
+	msgbox Route111_Text_KrillHi, MSGBOX_AUTOCLOSE
+	msgbox Route111_Text_StevenIWant, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_KRILL, Common_Movement_FaceLeft
+	msgbox Route111_Text_KrillSeems, MSGBOX_AUTOCLOSE
+	msgbox Route111_Text_StevenNoAnswer, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_KRILL, Common_Movement_FaceDown
+	msgbox Route111_Text_KrillDepends, MSGBOX_AUTOCLOSE
+	msgbox Route111_Text_StevenMyFriend, MSGBOX_AUTOCLOSE
+	msgbox Route111_Text_KrillRunt, MSGBOX_AUTOCLOSE
+	releaseall
+	end
+
+Route111_FollowStevenToKrill:
+	walk_right
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+Route111_StevenToKrill:
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+Route111_SamirLook:
+	face_down
+	delay_16
+	face_left
+	delay_16
+	face_up
+	delay_16
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	step_end
+
+Route111_SamirLeave:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Route111_FollowSteven:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Route111_StevenFollowMe:
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Route111_StevenApproach1:
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Route111_Text_KrillRunt:
+	.string "Krillar: HA!\n"
+	.string "Lo, a fledgling takes to the trail\n"
+	.string "steel unblooded, heart untested.\p"
+	.string "I'll show you a glimpse into\n"
+	.string "real power$."
+
+Route111_Text_StevenMyFriend:
+	.string "Steven: Not today unfortunately.\p"
+	.string "However I'd like you to consider\n"
+	.string "my friend {PLAYER}'s strength.\p"
+	.string "A rising star if I say so myself!\p"
+	.string "As they've just started a proving\n"
+	.string "3V1 should suffice - Right\l"
+	.string "{PLAYER}?$"
+
+Route111_Text_KrillDepends:
+	.string "Krillar: I answer only those who can\n"
+	.string "prove their strength.\p"
+	.string "so unless you're here to do battle...\p"
+
+Route111_Text_StevenNoAnswer:
+	.string "Steven: I assume you had no answer\n"
+	.string "for him...$"
+
+Route111_Text_KrillSeems:
+	.string "Krillar: Seems they're not the only\n"
+	.string "ones...\p"
+	.string "I assume you know why he was here.$"
+
+Route111_Text_StevenIWant:
+	.string "Steven: DEVONCORP have almost figured\n"
+	.string "it out.\p"
+	.string "They're asking your help again.$"
+
+Route111_Text_KrillHi:
+	.string "Krillar: Bro is a FREAK\n"
+	.string "but no joke of a trainer.\p"
+	.string "Looks can be deceiving huh.\p"
+	.string "What are you here for Steven?$"
+
+Route111_Text_StevenISee:
+	.string "Steven: I see you're also\n"
+	.string "aquainted with our furred friend."
+
+Route111_Text_SamirHiss:
+	.string "Hiss...$"
+
+Route111_Text_StevenWhat:
+	.string "...\p"
+	.string "Did he just hiss at me??\p"
+	.string "Sometimes you wonder whats going\n"
+	.string "through peoples heads...\p"
+	.string "Anyways...$"
+
+Route111_Text_StevenHi:
+	.string "{PLAYER}! Fancy seeing you here.\p"
+	.string "I can assume your journey is going\n"
+	.string "well?\p"
+	.string "3 Badges... Hmm, you still have a ways\n"
+	.string "to go yet.\p"
+	.string "But I wonder...\p"
+	.string "Come there is someone I want you to meet.$"
 
 Route111_Text_FightKrill:
 	.string "I'll Take you on\n"
