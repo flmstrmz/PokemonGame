@@ -684,7 +684,7 @@
 #define FLAG_SUGIWON            0x27D 
 #define FLAG_MIROWON            0x27E 
 #define FLAG_ROUTE111_HIDE_SAMIR 0x27F
-#define FLAG_UNUSED_0x280       0x280 // Unused Flag
+#define FLAG_ROUTE111_HIDE_STEVEN       0x280
 #define FLAG_UNUSED_0x281       0x281 // Unused Flag
 #define FLAG_UNUSED_0x282       0x282 // Unused Flag
 #define FLAG_UNUSED_0x283       0x283 // Unused Flag

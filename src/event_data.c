@@ -198,6 +198,15 @@ bool8 VarSet(u16 id, u16 value)
     return TRUE;
 }
 
+bool8 VarAdd(u16 id, u16 value)
+{
+    u16 *ptr = GetVarPointer(id);
+    if (!ptr)
+        return FALSE;
+    *ptr += value;
+    return TRUE;
+}
+
 u16 VarGetObjectEventGraphicsId(u8 id)
 {
     return VarGet(VAR_OBJ_GFX_ID_0 + id);

@@ -113,6 +113,7 @@ Route111_EventScript_HidePlayerForMirageTower::
 
 Route111_OnFrame:
 	map_script_2 VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_MirageTowerDisappear
+	map_script_2 VAR_ROUTE111_MEGA, 1, Route111_EventScript_LostKrill
 	.2byte 0
 
 Route111_EventScript_MirageTowerDisappear::
@@ -558,7 +559,7 @@ Route111_EventScript_KrillarFight::
 	waitstate
 	special ReducePlayerPartyToSelectedMons
 	setflag FLAG_3VS3
-	trainerbattle_single TRAINER_KRILL_1, Route111_Text_FightKrill, Route111_Text_BrandenDefeat
+	trainerbattle_single TRAINER_KRILL_1, Route111_Text_KrillRunt, Route111_Text_BrandenDefeat
 	end
 
 Route111_EventScript_Steven::
@@ -568,6 +569,8 @@ Route111_EventScript_Steven::
 	delay 16
 	applymovement LOCALID_STEVEN, Route111_StevenApproach1
 	waitmovement 0
+
+Route111_EventScript_StevenIntro
 	msgbox Route111_Text_StevenHi, MSGBOX_AUTOCLOSE
 	applymovement LOCALID_STEVEN, Route111_StevenFollowMe
 	applymovement OBJ_EVENT_ID_PLAYER, Route111_FollowSteven
@@ -594,10 +597,59 @@ Route111_EventScript_Steven::
 	msgbox Route111_Text_StevenNoAnswer, MSGBOX_AUTOCLOSE
 	applymovement LOCALID_KRILL, Common_Movement_FaceDown
 	msgbox Route111_Text_KrillDepends, MSGBOX_AUTOCLOSE
-	msgbox Route111_Text_StevenMyFriend, MSGBOX_AUTOCLOSE
-	msgbox Route111_Text_KrillRunt, MSGBOX_AUTOCLOSE
+	msgbox Route111_Text_StevenMyFriend, MSGBOX_YESNO
+	switch VAR_RESULT
+	case YES, Route111_EventScript_KrillarFight
+	case NO, Route111_EventScript_NotReady
+	case MULTI_B_PRESSED, Route111_EventScript_NotReady
 	releaseall
 	end
+
+Route111_EventScript_LostKrill::
+	addvar VAR_ROUTE111_MEGA, 1
+	msgbox Route111_Text_KrillComeBack MSGBOX_AUTOCLOSE
+	applymovement LOCALID_STEVEN, Common_Movement_FacePlayer
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	msgbox Route111_Text_StevenHelpMe, MSGBOX_AUTOCLOSE
+	playfanfare MUS_HEAL
+	waitfanfare
+	special HealPlayerParty
+	msgbox Route111_Text_StevenBadFeeling MSGBOX_AUTOCLOSE
+	applymovement LOCALID_STEVEN, Route111_FollowStevenLeave
+	waitmovement 0
+	removeobject LOCALID_STEVEN
+	setflag FLAG_ROUTE111_HIDE_STEVEN
+	applymovement OBJ_EVENT_ID_PLAYER, route111_WalkToKrill
+	waitmovement 0
+	msgbox Route111_Text_KrillInteresting MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_NotReady::
+	msgbox Route111_Text_StevenBeHere, MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Krill::
+	msgbox Route111_Text_KrillInteresting MSGBOX_AUTOCLOSE
+	end
+
+route111_WalkToKrill:
+	walk_right
+	face_up
+	step_end
+
+Route111_FollowStevenLeave:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
 
 Route111_FollowStevenToKrill:
 	walk_right
@@ -677,12 +729,53 @@ Route111_StevenApproach1:
 	walk_down
 	step_end
 
+Route111_Text_KrillInteresting:
+	.string "Krillar: Hmm.\p"
+	.string "I expect we'll meet again.\p"
+	.string "Don't expect me to go easy next\n"
+	.string "time.\p"
+	.string "Now go, I await my next opponent.$"
+
+Route111_Text_StevenBadFeeling:
+	.string "Either way, I need to keep an eye\n"
+	.string "on that cat kid.\p"
+	.string "Something gives me a bad feeling\n"
+	.string "about him...$"
+
+Route111_Text_StevenHelpMe:
+	.string "Steven: Well {PLAYER} let me.\n"
+	.string "cut you a deal\p"
+	.string "Help me with this task and I will\n"
+	.string "personally ensure you receive a\l"
+	.string "MEGA bracelet.\p"
+	.string "I hope this is of interest for you\n"
+	.string "as it seems to be for others.\p"
+	.string "Let me get your pokemon for you.$"
+
+Route111_Text_KrillComeBack:
+	.string "Krillar: Disappointing.\p"
+	.string "I expected far better from one you\n"
+	.string "call 'Rising Star' Steven...\p"
+	.string "Yet, in the jaws of defeat I see\n"
+	.string "determination.\p"
+	.string "You're behind that goofball that\n"
+	.string "was here a second ago - but not\l"
+	.string "too far. So I'll tell you as I did him\p"
+	.string "Come back stronger and face me again.\p"
+	.string "Beat me properly and you shall have\n"
+	.string "the knowledge you seek!$"
+
+Route111_Text_StevenBeHere:
+	.string "You're not ready?\p"
+	.string "Well - Get prepped, we'll be\n"
+	.string "right here.$"
+
 Route111_Text_KrillRunt:
-	.string "Krillar: HA!\n"
+	.string "Krillar: HA!\p"
 	.string "Lo, a fledgling takes to the trail\n"
 	.string "steel unblooded, heart untested.\p"
 	.string "I'll show you a glimpse into\n"
-	.string "real power$."
+	.string "real power!$."
 
 Route111_Text_StevenMyFriend:
 	.string "Steven: Not today unfortunately.\p"
@@ -696,7 +789,7 @@ Route111_Text_StevenMyFriend:
 Route111_Text_KrillDepends:
 	.string "Krillar: I answer only those who can\n"
 	.string "prove their strength.\p"
-	.string "so unless you're here to do battle...\p"
+	.string "so unless you're here to do battle...$"
 
 Route111_Text_StevenNoAnswer:
 	.string "Steven: I assume you had no answer\n"
@@ -720,7 +813,7 @@ Route111_Text_KrillHi:
 
 Route111_Text_StevenISee:
 	.string "Steven: I see you're also\n"
-	.string "aquainted with our furred friend."
+	.string "aquainted with our furred friend.$"
 
 Route111_Text_SamirHiss:
 	.string "Hiss...$"

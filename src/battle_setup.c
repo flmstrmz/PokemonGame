@@ -1444,9 +1444,16 @@ static void CB2_EndTrainerBattle(void)
     }
     else if (IsPlayerDefeated(gBattleOutcome) == TRUE)
     {
+        if ((FlagGet(FLAG_3VS3) == TRUE)){
+            SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+            LoadPlayerParty();
+            FlagClear(FLAG_3VS3);
+            VarAdd(VAR_ROUTE111_MEGA, 1);
+        }
         if (InBattlePyramid() || InTrainerHillChallenge() || (!NoAliveMonsForPlayer()) || (FlagGet(FLAG_3VS3) == TRUE))
         {
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+            LoadPlayerParty();
             FlagClear(FLAG_3VS3);
         }
         else
