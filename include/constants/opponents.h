@@ -54,12 +54,12 @@
 #define TRAINER_DUSTY_3                      48
 #define TRAINER_DUSTY_4                      49
 #define TRAINER_DUSTY_5                      50
-#define TRAINER_GABBY_AND_TY_1               51
-#define TRAINER_GABBY_AND_TY_2               52
-#define TRAINER_GABBY_AND_TY_3               53
-#define TRAINER_GABBY_AND_TY_4               54
-#define TRAINER_GABBY_AND_TY_5               55
-#define TRAINER_GABBY_AND_TY_6               56
+#define TRAINER_GABBY_AND_TY_1               51 //unused
+#define TRAINER_GABBY_AND_TY_2               52 //unused
+#define TRAINER_GABBY_AND_TY_3               53 //unused
+#define TRAINER_GABBY_AND_TY_4               54 //unused
+#define TRAINER_GABBY_AND_TY_5               55 //unused
+#define TRAINER_GABBY_AND_TY_6               56 //unused
 #define TRAINER_LOLA_1                       57
 #define TRAINER_AUSTINA                      58
 #define TRAINER_GWEN                         59

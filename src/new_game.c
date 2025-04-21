@@ -167,7 +167,6 @@ void NewGameInitData(void)
     ClearPokedexFlags();
     InitEventData();
     ClearTVShowData();
-    ResetGabbyAndTy();
     ClearSecretBases();
     ClearBerryTrees();
     SetMoney(&gSaveBlock1Ptr->money, 3000);

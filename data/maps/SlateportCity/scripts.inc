@@ -7,18 +7,18 @@
 .set LOCALID_GIRL, 8
 .set LOCALID_TY, 9
 .set LOCALID_GABBY, 10
-.set LOCALID_CAPT_STERN, 11
-.set LOCALID_GRUNT_2, 18
-.set LOCALID_GRUNT_3, 19
-.set LOCALID_GRUNT_4, 26
-.set LOCALID_GRUNT_5, 27
-.set LOCALID_GRUNT_6, 28
-.set LOCALID_GRUNT_7, 29
-.set LOCALID_GRUNT_8, 30
-.set LOCALID_GRUNT_9, 31
-.set LOCALID_GRUNT_11, 33
-.set LOCALID_SCOTT, 34
-.set LOCALID_AABHASH, 35
+.set LOCALID_CAPT_STERN, 9
+.set LOCALID_GRUNT_2, 15
+.set LOCALID_GRUNT_3, 16
+.set LOCALID_GRUNT_4, 23
+.set LOCALID_GRUNT_5, 24
+.set LOCALID_GRUNT_6, 25
+.set LOCALID_GRUNT_7, 26
+.set LOCALID_GRUNT_8, 27
+.set LOCALID_GRUNT_9, 28
+.set LOCALID_GRUNT_11, 30
+.set LOCALID_SCOTT, 32
+.set LOCALID_AABHASH, 33
 
 @ Note: LOCALID_SLATEPORT_ENERGY_GURU is a local id for this map used elsewhere. It's defined in event_objects.h
 
@@ -351,8 +351,7 @@ SlateportCity_EventScript_ManiacSternInterview::
 SlateportCity_EventScript_Aabhash::
 	lockall
 	applymovement LOCALID_AABHASH, Common_Movement_FacePlayer
-	msgbox SlateportCity_Text_AabhashMixMaxing, MSGBOX_DEFAULT
-	closemessage
+	msgbox SlateportCity_Text_AabhashMixMaxing, MSGBOX_AUTOCLOSE
 	releaseall
 	end
 
@@ -592,7 +591,7 @@ SlateportCity_EventScript_CaptStern::
 	applymovement LOCALID_TY, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
 	delay 25
-	applymovement LOCALID_CAPT_STERN, SlateportCity_Movement_SternWatchGabbyAndTyExit
+	applymovement LOCALID_CAPT_STERN, SlateportCity_Movement_SternWatchExit
 	applymovement OBJ_EVENT_ID_PLAYER, SlateportCity_Movement_PlayerFaceStern
 	applymovement LOCALID_GABBY, SlateportCity_Movement_GabbyExit
 	applymovement LOCALID_TY, SlateportCity_Movement_TyExit
@@ -701,7 +700,7 @@ SlateportCity_Movement_SternEnterHarbor:
 	set_invisible
 	step_end
 
-SlateportCity_Movement_SternWatchGabbyAndTyExit:
+SlateportCity_Movement_SternWatchExit:
 	delay_16
 	delay_16
 	delay_16

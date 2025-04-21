@@ -2,8 +2,8 @@
 .set LOCALID_BRINEY, 5
 .set LOCALID_GRUNT, 6
 .set LOCALID_PEEKO, 7
-.set LOCALID_AABHASH, 11
-.equ LOCALID_WANDA, 10
+.set LOCALID_AABHASH, 10
+.equ LOCALID_WANDA, 9
 
 RusturfTunnel_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, RusturfTunnel_OnTransition

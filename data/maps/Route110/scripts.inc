@@ -171,9 +171,18 @@ Route110_EventScript_Edward::
 	end
 
 Route110_EventScript_Jaclyn::
+	goto_if_eq VAR_ROUTE110_ACE, 8, Route110_EventScript_AceFight
+	end
+
+Route110_EventScript_AceFight::
 	trainerbattle_single TRAINER_JACLYN, Route110_Text_JaclynIntro, Route110_Text_JaclynDefeated
 	msgbox Route110_Text_JaclynPostBattle, MSGBOX_AUTOCLOSE
 	end
+
+Route110_Text_AceNotReady:
+	.string "Hey, you know the rules dont you?\p"
+	.string "If you wanna challenge me, you have\n"
+	.string "to beat all them first! Hehe.$"
 
 Route110_EventScript_Edwin::
 	trainerbattle_single TRAINER_EDWIN_1, Route110_Text_EdwinIntro, Route110_Text_EdwinDefeated

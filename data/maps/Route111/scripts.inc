@@ -2,7 +2,9 @@
 .set LOCALID_VICTORIA, 2
 .set LOCALID_VIVI, 3
 .set LOCALID_VICKY, 4
-.set LOCALID_ROCK_SMASH_MAN, 46
+.set LOCALID_ROCK_SMASH_MAN, 35
+.set LOCALID_REPORTER, 39
+.set LOCALID_CAMERAMAN, 40
 .set LOCALID_STEVEN, 43
 .set LOCALID_KRILL, 42
 .set LOCALID_SAMIR, 44
@@ -54,8 +56,8 @@ Route111_OnTransition:
 	call_if_unset FLAG_MIRAGE_TOWER_VISIBLE, Route111_EventScript_SetLayoutNoMirageTower
 	call_if_eq VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_SetFallingPlayerGfx
 	call_if_eq VAR_MIRAGE_TOWER_STATE, 2, Route111_EventScript_SetMirageTowerGone
+	call_if_eq VAR_ROUTE111_MEGA, 2, Route111_EventScript_SetSteven
 	call Route111_EventScript_CheckSetSandstorm
-	call GabbyAndTy_EventScript_UpdateLocation
 	goto_if_not_defeated TRAINER_VICKY, Route111_EventScript_SetWinstratesNotDefeated
 	end
 
@@ -113,7 +115,7 @@ Route111_EventScript_HidePlayerForMirageTower::
 
 Route111_OnFrame:
 	map_script_2 VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_MirageTowerDisappear
-	map_script_2 VAR_ROUTE111_MEGA, 1, Route111_EventScript_LostKrill
+	map_script_2 VAR_ROUTE111_MEGA, 3, Route111_EventScript_LostKrill
 	.2byte 0
 
 Route111_EventScript_MirageTowerDisappear::
@@ -553,13 +555,21 @@ Route111_EventScript_TrainerHillSign::
 	end
 
 Route111_EventScript_KrillarFight::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	applymovement LOCALID_STEVEN, Common_Movement_FaceUp
+	waitmovement 0
 	special SavePlayerParty
 	fadescreen FADE_TO_BLACK
 	special ChooseHalfPartyForBattle
 	waitstate
+	goto_if_eq VAR_RESULT, 0, Route111_EventScript_NotReady
 	special ReducePlayerPartyToSelectedMons
 	setflag FLAG_3VS3
-	trainerbattle_single TRAINER_KRILL_1, Route111_Text_KrillRunt, Route111_Text_BrandenDefeat
+	msgbox Route111_Text_KrillRunt MSGBOX_AUTOCLOSE
+	trainerbattle_no_intro TRAINER_KRILL_1, Route111_Text_KrillImpressive
+	switch VAR_RESULT
+	case 1, Route111_EventScript_BeatKrill
 	end
 
 Route111_EventScript_Steven::
@@ -569,12 +579,57 @@ Route111_EventScript_Steven::
 	delay 16
 	applymovement LOCALID_STEVEN, Route111_StevenApproach1
 	waitmovement 0
-
-Route111_EventScript_StevenIntro
 	msgbox Route111_Text_StevenHi, MSGBOX_AUTOCLOSE
 	applymovement LOCALID_STEVEN, Route111_StevenFollowMe
 	applymovement OBJ_EVENT_ID_PLAYER, Route111_FollowSteven
 	waitmovement 0
+	goto Route111_EventScript_StevenIntro
+	end
+
+Route111_EventScript_SpecialReport::
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	msgbox Route111_Text_SpecialReport MSGBOX_AUTOCLOSE
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	end
+
+Route111_EventScript_Reporter::
+	msgbox Route111_Text_BreakingNews MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Recorder::
+	msgbox Route111_Text_LiveIn MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_Steven2::
+	lockall
+	playse SE_PIN
+	applymovement LOCALID_STEVEN, Common_Movement_ExclamationMark
+	delay 16
+	applymovement LOCALID_STEVEN, Route111_StevenApproach2
+	waitmovement 0
+	msgbox Route111_Text_StevenHi, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_STEVEN, Route111_StevenFollowMe2
+	applymovement OBJ_EVENT_ID_PLAYER, Route111_FollowSteven2
+	waitmovement 0
+	goto Route111_EventScript_StevenIntro
+	end
+
+Route111_EventScript_Steven3::
+	lockall
+	playse SE_PIN
+	applymovement LOCALID_STEVEN, Common_Movement_ExclamationMark
+	delay 16
+	applymovement LOCALID_STEVEN, Route111_StevenApproach3
+	waitmovement 0
+	msgbox Route111_Text_StevenHi, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_STEVEN, Route111_StevenFollowMe3
+	applymovement OBJ_EVENT_ID_PLAYER, Route111_FollowSteven3
+	waitmovement 0
+	goto Route111_EventScript_StevenIntro
+	end
+
+Route111_EventScript_StevenIntro::
+	addvar VAR_ROUTE111_MEGA, 1
 	applymovement LOCALID_SAMIR, Route111_SamirLook
 	waitmovement 0
 	applymovement LOCALID_STEVEN, Common_Movement_FaceUp
@@ -602,11 +657,17 @@ Route111_EventScript_StevenIntro
 	case YES, Route111_EventScript_KrillarFight
 	case NO, Route111_EventScript_NotReady
 	case MULTI_B_PRESSED, Route111_EventScript_NotReady
-	releaseall
+	end
+
+Route111_EventScript_TowerMan::
+	msgbox Route111_Text_TowerMan  MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_LostKrill::
 	addvar VAR_ROUTE111_MEGA, 1
+	setflag FLAG_HIDE_ROUTE_111_REPORTERS
+	setflag FLAG_ROUTE111_HIDE_KRILL
+	clearflag FLAG_ROUTE111_HIDETOWERMAN
 	msgbox Route111_Text_KrillComeBack MSGBOX_AUTOCLOSE
 	applymovement LOCALID_STEVEN, Common_Movement_FacePlayer
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
@@ -615,31 +676,83 @@ Route111_EventScript_LostKrill::
 	waitfanfare
 	special HealPlayerParty
 	msgbox Route111_Text_StevenBadFeeling MSGBOX_AUTOCLOSE
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
+	waitmovement 0
 	applymovement LOCALID_STEVEN, Route111_FollowStevenLeave
 	waitmovement 0
 	removeobject LOCALID_STEVEN
 	setflag FLAG_ROUTE111_HIDE_STEVEN
-	applymovement OBJ_EVENT_ID_PLAYER, route111_WalkToKrill
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	applymovement LOCALID_KRILL, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox Route111_Text_KrillInteresting MSGBOX_AUTOCLOSE
+	end
+
+Route111_EventScript_BeatKrill::
+	addvar VAR_ROUTE111_MEGA, 1
+	setflag FLAG_HIDE_ROUTE_111_REPORTERS
+	setflag FLAG_ROUTE111_HIDE_KRILL
+	clearflag FLAG_ROUTE111_HIDETOWERMAN
+	removeobject LOCALID_REPORTER
+	removeobject LOCALID_CAMERAMAN
+	msgbox Route111_Text_KrillInterested MSGBOX_AUTOCLOSE
+	applymovement LOCALID_STEVEN, Common_Movement_FacePlayer
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	msgbox Route111_Text_StevenHelpMe, MSGBOX_AUTOCLOSE
+	playfanfare MUS_HEAL
+	waitfanfare
+	special HealPlayerParty
+	msgbox Route111_Text_StevenBadFeeling MSGBOX_AUTOCLOSE
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
+	waitmovement 0
+	applymovement LOCALID_STEVEN, Route111_FollowStevenLeave
+	waitmovement 0
+	removeobject LOCALID_STEVEN
+	setflag FLAG_ROUTE111_HIDE_STEVEN
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	applymovement LOCALID_KRILL, Common_Movement_FacePlayer
 	waitmovement 0
 	msgbox Route111_Text_KrillInteresting MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_NotReady::
 	msgbox Route111_Text_StevenBeHere, MSGBOX_AUTOCLOSE
+	setobjectxyperm LOCALID_STEVEN, 31, 115
+	return
+
+Route111_EventScript_SetSteven::
+	setobjectxyperm LOCALID_STEVEN, 31, 115
+	setobjectmovementtype LOCALID_STEVEN, MOVEMENT_TYPE_FACE_UP
+	return
+
+Route111_EventScript_StevenReady::
+	applymovement LOCALID_STEVEN, Common_Movement_FacePlayer
+	msgbox Route111_Text_StevenReady MSGBOX_YESNO
+	switch VAR_RESULT
+	case YES, Route111_EventScript_KrillarFight
+	case NO, Route111_EventScript_NotReady
+	case MULTI_B_PRESSED, Route111_EventScript_NotReady
 	end
 
 Route111_EventScript_Krill::
-	msgbox Route111_Text_KrillInteresting MSGBOX_AUTOCLOSE
+	applymovement LOCALID_KRILL, Common_Movement_FacePlayer
+	goto_if_eq VAR_ROUTE111_MEGA, 2, Route111_EventScript_KrillPreBattle
+	goto_if_eq VAR_ROUTE111_MEGA, 4, Route111_EventScript_KrillPostBattle
 	end
 
-route111_WalkToKrill:
-	walk_right
-	face_up
-	step_end
+Route111_EventScript_KrillPreBattle::
+	msgbox Route111_Text_KrillNotInteresting MSGBOX_AUTOCLOSE
+	applymovement LOCALID_KRILL, Common_Movement_FaceOriginalDirection
+	end
+
+Route111_EventScript_KrillPostBattle::
+	msgbox Route111_Text_KrillInteresting MSGBOX_AUTOCLOSE
+	applymovement LOCALID_KRILL, Common_Movement_FaceOriginalDirection
+	end
 
 Route111_FollowStevenLeave:
-	walk_down
 	walk_left
+	walk_down
 	walk_left
 	walk_left
 	walk_left
@@ -710,6 +823,26 @@ Route111_FollowSteven:
 	walk_right
 	walk_right
 	step_end
+Route111_FollowSteven2:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Route111_FollowSteven3:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	step_end
 
 Route111_StevenFollowMe:
 	walk_up
@@ -723,17 +856,72 @@ Route111_StevenFollowMe:
 	walk_right
 	step_end
 
+Route111_StevenFollowMe2:
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Route111_StevenFollowMe3:
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
 Route111_StevenApproach1:
 	walk_down
 	walk_down
 	walk_down
 	step_end
 
+Route111_StevenApproach2:
+	walk_down
+	walk_down
+	walk_right
+	walk_down
+	step_end
+
+Route111_StevenApproach3:
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_down
+	step_end
+
+Route111_Text_TowerMan:
+	.string "Hey! - You sure as hell aint allowed\n"
+	.string "in here.\p"
+	.string "Beat it kid!$"
+
+Route111_Text_KrillInterested:
+	.string "Krillar: You may be worth your\n"
+	.string "Salt...\p"
+	.string "So I'll tell you as I did your\n"
+	.string "friend.\p"
+	.string "Come back stronger and face me again.\p"
+	.string "Beat me properly and you shall have\n"
+	.string "the knowledge you seek!$"
+
+Route111_Text_StevenReady:
+	.string "Steven: I take it you are ready?$"
+
+Route111_Text_KrillNotInteresting:
+	.string "bros shaking in his boots...$"
+
 Route111_Text_KrillInteresting:
-	.string "Krillar: Hmm.\p"
 	.string "I expect we'll meet again.\p"
-	.string "Don't expect me to go easy next\n"
-	.string "time.\p"
+	.string "So don't expect me to hold back\n"
+	.string "next time.\p"
 	.string "Now go, I await my next opponent.$"
 
 Route111_Text_StevenBadFeeling:
@@ -764,6 +952,10 @@ Route111_Text_KrillComeBack:
 	.string "Come back stronger and face me again.\p"
 	.string "Beat me properly and you shall have\n"
 	.string "the knowledge you seek!$"
+
+Route111_Text_KrillImpressive:
+	.string "Hmm.\n"
+	.string "pretty decent.$"
 
 Route111_Text_StevenBeHere:
 	.string "You're not ready?\p"
@@ -833,6 +1025,21 @@ Route111_Text_StevenHi:
 	.string "to go yet.\p"
 	.string "But I wonder...\p"
 	.string "Come there is someone I want you to meet.$"
+
+Route111_Text_SpecialReport:
+	.string "Ugh...\p"
+	.string "Can you not see we're reporting a\n"
+	.string "special case?\p"
+	.string "Go run along and play somewhere else,\n"
+	.string "adults are adulting!$"
+
+Route111_Text_LiveIn:
+	.string "aaaaand we're live in\p"
+	.string "5, 4, 3...$"
+
+Route111_Text_BreakingNews:
+	.string "Reporting live outside Krillars battle\n"
+	.string "tower...$"
 
 Route111_Text_FightKrill:
 	.string "I'll Take you on\n"
@@ -981,11 +1188,12 @@ Route111_Text_RootFossilDisappeared:
 
 Route111_Text_MauvilleUncleToldMeToTakeRockSmash:
 	.string "Oh, no!\p"
-	.string "My uncle in MAUVILLE told me to take\n"
-	.string "ROCK SMASH with me if I was going to\l"
-	.string "ROUTE 111!\p"
+	.string "My uncle in MAUVILLE told me to grab\n"
+	.string "the ROCK SMASH TOOL with me if I was\l"
+	.string "going toROUTE 111!\p"
 	.string "My uncle? He lives across from\n"
-	.string "the bike shop in MAUVILLE.$"
+	.string "the bike shop in MAUVILLE.\p"
+	.string "Though he is a little... loud...$"
 
 Route111_Text_TrainerHillSign:
 	.string "{RIGHT_ARROW} TRAINER HILL ENTRANCE\p"

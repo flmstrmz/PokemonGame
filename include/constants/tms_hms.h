@@ -52,7 +52,10 @@
     F(SKILL_SWAP) \
     F(SNATCH) \
     F(OVERHEAT) \
-    F(DRAIN_PUNCH)
+    F(DRAIN_PUNCH) \
+    F(CHILLING_WATER) \
+    F(MUD_SHOT) \
+    F(HEART_STAMP)
 
 #define FOREACH_HM(F) \
     F(CUT) \

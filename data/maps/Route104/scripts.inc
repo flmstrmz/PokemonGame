@@ -960,6 +960,7 @@ Route104_EventScript_Cindy::
 	msgbox Route104_Text_CindyPostBattle, MSGBOX_DEFAULT
 	closemessage
 	call Common_EventScript_OutOfCenterPartyHeal
+	setrespawn HEAL_LOCATION_ROUTE104_HEALER
 	end
 
 Route104_EventScript_TryRegisterCindyAfterBattle::

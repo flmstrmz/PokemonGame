@@ -21,6 +21,7 @@ GraniteCave_StevensRoom_EventScript_Steven::
 	setvar VAR_0x8004, ITEM_LETTER
 	call Common_EventScript_PlayerHandedOverTheItem
 	setflag FLAG_DELIVERED_STEVEN_LETTER
+	setflag FLAG_GRANITE_SAMIR
 	msgbox GraniteCave_StevensRoom_Text_ThankYouTakeThis, MSGBOX_DEFAULT
 	giveitem ITEM_TM_STEEL_WING
 	call_if_eq VAR_RESULT, FALSE, GraniteCave_StevensRoom_EventScript_BagFull
@@ -71,16 +72,32 @@ GraniteCave_Samir_Stephen::
 	applymovement LOCALID_SAMIR, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 8
+	msgbox GraniteCave_SamirOpen MSGBOX_AUTOCLOSE
 	setflag FLAG_HIDE_SAMIR_GRANITE
-	setflag FLAG_GRANITE_SAMIR
-	trainerbattle_single TRAINER_SAMIR_3, GraniteCave_SamirOpen, GraniteCave_SamirLost, GraniteCave_Samir_Leaves
-	releaseall
+	setflag FLAG_3VS3
+	trainerbattle_no_intro TRAINER_SAMIR_3, GraniteCave_SamirLost
+	switch VAR_RESULT
+	case 1, GraniteCave_Samir_Leaves
+	goto GraniteCave_Samir_Leaves2
 	end
 
 GraniteCave_Samir_Leaves::
 	lockall
 	setflag FLAG_BEAT_SAMIR_GRANITE
 	msgbox GraniteCave_SamirShow, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, GraniteCave_PlayerMove
+	applymovement LOCALID_SAMIR, GraniteCave_SamirLeave
+	waitmovement 0
+	removeobject LOCALID_SAMIR
+	setvar VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_VAR_2
+	releaseall
+	end
+
+GraniteCave_Samir_Leaves2::
+	lockall
+	setflag FLAG_BEAT_SAMIR_GRANITE
+	msgbox GraniteCave_SamirMove, MSGBOX_DEFAULT
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, GraniteCave_PlayerMove
 	applymovement LOCALID_SAMIR, GraniteCave_SamirLeave
@@ -246,5 +263,8 @@ GraniteCave_SamirLost:
 
 GraniteCave_SamirShow:
 	.string "...Just you wait$"
+
+GraniteCave_SamirMove:
+	.string "bro you fucking suck...$"
 
 

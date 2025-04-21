@@ -619,18 +619,6 @@ static const struct EasyChatScreenTemplate sEasyChatScreenTemplates[] = {
         .confirmText2 = gText_IsAsShownOkay,
     },
     {
-        .type = EASY_CHAT_TYPE_GABBY_AND_TY,
-        .numColumns = 1,
-        .numRows = 1,
-        .frameId = FRAMEID_INTERVIEW_SHOW_PERSON,
-        .fourFooterOptions = FALSE,
-        .titleText = gText_Interview,
-        .instructionsText1 = gText_FindWordsThatDescribeYour,
-        .instructionsText2 = gText_FeelingsRightNow,
-        .confirmText1 = gText_TheAnswer,
-        .confirmText2 = gText_IsAsShownOkay,
-    },
-    {
         .type = EASY_CHAT_TYPE_BATTLE_TOWER_INTERVIEW,
         .numColumns = 1,
         .numRows = 1,
@@ -1499,11 +1487,6 @@ void ShowEasyChatScreen(void)
         words = (u16 *)gStringVar3;
         words[0] = gSaveBlock1Ptr->dewfordTrends[0].words[0];
         words[1] = gSaveBlock1Ptr->dewfordTrends[0].words[1];
-        break;
-    case EASY_CHAT_TYPE_GABBY_AND_TY:
-        words = gSaveBlock1Ptr->gabbyAndTyData.quote;
-        *words = EC_EMPTY_WORD;
-        displayedPersonType = EASY_CHAT_PERSON_REPORTER_FEMALE;
         break;
     case EASY_CHAT_TYPE_CONTEST_INTERVIEW:
         words = &gSaveBlock1Ptr->tvShows[gSpecialVar_0x8005].bravoTrainer.words[gSpecialVar_0x8006];
