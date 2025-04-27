@@ -19,7 +19,8 @@ u32 GetCurrentLevelCap(void)
         {FLAG_GRANITE_SAMIR, 32},
         {FLAG_BEATGRUNTS_MUSEUM, 34},
         {FLAG_BADGE03_GET, 38},
-        {FLAG_BADGE04_GET, 45},
+        {FLAG_STOLEN_METEORITE, 40},
+        {FLAG_BADGE04_GET, 43},
         {FLAG_IS_CHAMPION, 100},
     };
 

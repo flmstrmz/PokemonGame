@@ -1,5 +1,6 @@
 .set LOCALID_GRUNT_1, 1
 .set LOCALID_GRUNT_2, 6
+.set LOCALID_MIRO, 13
 
 Route112_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route112_OnTransition
@@ -47,6 +48,35 @@ Route112_EventScript_MagmaGrunts::
 	releaseall
 	end
 
+Route112_Text_MiroLookAround:
+	face_up
+	delay_16
+	delay_8
+	face_left
+	delay_16
+	delay_8
+	face_down
+	delay_16
+	delay_8
+	step_end
+
+Route112_Text_MiroApproachLeft:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	step_end
+
+Route112_Text_MiroApproachRight:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	step_end
+
 Route112_EventScript_MtChimneyCableCarSign::
 	msgbox Route112_Text_MtChimneyCableCarSign, MSGBOX_SIGN
 	end
@@ -59,34 +89,77 @@ Route112_EventScript_RouteSignLavaridge::
 	msgbox Route112_Text_RouteSignLavaridge, MSGBOX_SIGN
 	end
 
+Route112_EventScript_Miro::
+	lockall
+	applymovement LOCALID_MIRO, Common_Movement_FacePlayer
+	msgbox Route112_Text_MiroChill MSGBOX_AUTOCLOSE
+	releaseall
+	end
+
+Route112_EventScript_MiroLost::
+	addvar VAR_ROUTE112_MIRO, 1
+	msgbox Route112_Text_MiroChill MSGBOX_AUTOCLOSE
+	end
+
+Route112_EventScript_MiroBattleLeft::
+	playse SE_PIN
+	applymovement LOCALID_MIRO, Common_Movement_ExclamationMark
+	delay 16
+	applymovement LOCALID_MIRO, Route112_Text_MiroApproachLeft
+	waitmovement 0
+	msgbox Route112_Text_MiroIntro MSGBOX_AUTOCLOSE
+	applymovement LOCALID_MIRO, Route112_Text_MiroLookAround
+	waitmovement 0
+	goto_if_set FLAG_MIROWON, Route112_EventScript_MiroUpgradeTeam
+	goto_if_unset FLAG_MIROWON, Route112_EventScript_MiroNoUpgradeTeam
+	end
+
+Route112_EventScript_MiroBattleRight::
+	playse SE_PIN
+	applymovement LOCALID_MIRO, Common_Movement_ExclamationMark
+	delay 16
+	applymovement LOCALID_MIRO, Route112_Text_MiroApproachRight
+	waitmovement 0
+	msgbox Route112_Text_MiroIntro MSGBOX_AUTOCLOSE
+	applymovement LOCALID_MIRO, Route112_Text_MiroLookAround
+	waitmovement 0
+	goto_if_set FLAG_MIROWON, Route112_EventScript_MiroUpgradeTeam
+	goto_if_unset FLAG_MIROWON, Route112_EventScript_MiroNoUpgradeTeam
+	end
+
+Route112_EventScript_MiroUpgradeTeam::
+	trainerbattle_single TRAINER_MIRO4UPGRADE, Route112_Text_MiroIntro2, Route112_Text_MiroLost, Route112_EventScript_MiroLost
+	end
+
+Route112_EventScript_MiroNoUpgradeTeam::
+	trainerbattle_single TRAINER_MIRO4UPGRADE, Route112_Text_MiroIntro2, Route112_Text_MiroLost, Route112_EventScript_MiroLost
+	end
+
+Route112_Text_MiroIntro:
+	.string "Yooooo\p"
+	.string "Bruv imagine these two dickheads\n"
+	.string "blocking the way\p"
+	.string "naaah now we gotta walk through\n"
+	.string "a volcano??\p"
+	.string "...$"
+
+Route112_Text_MiroIntro2:
+	.string "Yknow what Since you're here tho\n"
+	.string "lemme cook you real quick.$"
+
+Route112_Text_MiroLost:
+	.string "I cant lie my hands were abit cold\n"
+	.string "stiiiill$"
+
+Route112_Text_MiroChill:
+	.string "Listen an L is a W in disguise.\p"
+	.string "You lose, you identify weakness,\n"
+	.string "you adapt, you improve.\p"
+	.string "Imma chill abit for these two to\n"
+	.string "move.$"
+
 Route112_EventScript_Hiker::
 	msgbox Route112_Text_NotEasyToGetBackToLavaridge, MSGBOX_NPC
-	end
-
-Route112_EventScript_Brice::
-	trainerbattle_single TRAINER_BRICE, Route112_Text_BriceIntro, Route112_Text_BriceDefeat
-	msgbox Route112_Text_BricePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route112_EventScript_Trent::
-	trainerbattle_single TRAINER_TRENT_1, Route112_Text_TrentIntro, Route112_Text_TrentDefeat, Route112_EventScript_RegisterTrent
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route112_EventScript_RematchTrent
-	msgbox Route112_Text_TrentPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route112_EventScript_RegisterTrent::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route112_Text_TrentRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_TRENT_1
-	release
-	end
-
-Route112_EventScript_RematchTrent::
-	trainerbattle_rematch TRAINER_TRENT_1, Route112_Text_TrentRematchIntro, Route112_Text_TrentRematchDefeat
-	msgbox Route112_Text_TrentRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route112_EventScript_Larry::

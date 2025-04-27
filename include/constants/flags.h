@@ -685,11 +685,11 @@
 #define FLAG_MIROWON            0x27E 
 #define FLAG_ROUTE111_HIDE_SAMIR 0x27F
 #define FLAG_ROUTE111_HIDE_STEVEN       0x280
-#define FLAG_UNUSED_0x281       0x281 // Unused Flag
-#define FLAG_UNUSED_0x282       0x282 // Unused Flag
-#define FLAG_UNUSED_0x283       0x283 // Unused Flag
-#define FLAG_UNUSED_0x284       0x284 // Unused Flag
-#define FLAG_UNUSED_0x285       0x285 // Unused Flag
+#define FLAG_MIRO_ROUTE112      0x281
+#define FLAG_SAMIR_MTCHIMNEY    0x282
+#define FLAG_COSMO_MTCHIMNEY    0x283
+#define FLAG_STOLEN_METEORITE   0x284
+#define FLAG_MTCHIM_MAGMARIZER  0x285 // Unused Flag
 #define FLAG_UNUSED_0x286       0x286 // Unused Flag
 #define FLAG_UNUSED_0x287       0x287 // Unused Flag
 #define FLAG_UNUSED_0x288       0x288 // Unused Flag

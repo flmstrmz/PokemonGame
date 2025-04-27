@@ -952,6 +952,15 @@
       "var": "VAR_ROUTE111_MEGA",
       "var_value": "1",
       "script": "Route111_EventScript_SpecialReport"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 110,
+      "elevation": 0,
+      "var": "VAR_ROUTE111_MEGA",
+      "var_value": "0",
+      "script": "Route111_EventScript_SpecialReport"
     }
   ],
   "bg_events": [

@@ -83,6 +83,7 @@ SlateportCity_OceanicMuseum_2F_EventScript_CaptStern::
 	removeobject LOCALID_CAPT_STERN
 	setflag FLAG_HIDE_ROUTE_110_TEAM_AQUA
 	setflag FLAG_BEATGRUNTS_MUSEUM
+	call_if_unset FLAG_SEAHOUSEREWARD, SlateportCity_OceanicMuseum_2F_EventScript_SkippedBH
 	call_if_eq VAR_REGISTER_BIRCH_STATE, 0, SlateportCity_OceanicMuseum_2F_EventScript_ReadyRegisterBirch
 	setflag FLAG_DELIVERED_DEVON_GOODS
 	clearflag FLAG_HIDE_ROUTE_116_DEVON_EMPLOYEE
@@ -91,6 +92,14 @@ SlateportCity_OceanicMuseum_2F_EventScript_CaptStern::
 	fadescreen FADE_FROM_BLACK
 	release
 	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_SkippedBH::
+	setflag FLAG_HIDESUGI_SEAHOUSE
+	setflag FLAG_HIDETY_SEAHOUSE
+	setflag FLAG_HIDEMIRO_SEAHOUSE
+	setvar VAR_SEASHORE_BATTLE, 1
+	setvar VAR_ROUTE109_CLEARED, 4
+	return
 
 SlateportCity_OceanicMuseum_2F_EventScript_ReadyRegisterBirch::
 	setvar VAR_REGISTER_BIRCH_STATE, 1

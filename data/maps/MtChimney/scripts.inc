@@ -1,8 +1,10 @@
 .set LOCALID_ARCHIE, 1
 .set LOCALID_MAXIE, 2
 .set LOCALID_TABITHA, 3
-.set LOCALID_MAGMA_GRUNT_2, 22
-.set LOCALID_MAGMA_GRUNT_1, 29
+.set LOCALID_MAGMA_GRUNT_2, 12
+.set LOCALID_MAGMA_GRUNT_1, 16
+.set LOCALID_SAMIR, 30
+.set LOCALID_COSMO, 31
 
 
 MtChimney_MapScripts::
@@ -72,21 +74,202 @@ MtChimney_EventScript_Maxie::
 	call_if_eq VAR_FACING, DIR_EAST, MtChimney_EventScript_ArchieExitEast
 	call_if_eq VAR_FACING, DIR_NORTH, MtChimney_EventScript_ArchieExitNorth
 	removeobject LOCALID_ARCHIE
-	setflag FLAG_HIDE_MT_CHIMNEY_TEAM_AQUA
-	setflag FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY
-	clearflag FLAG_HIDE_FALLARBOR_HOUSE_PROF_COZMO
-	setflag FLAG_HIDE_METEOR_FALLS_1F_1R_COZMO
-	clearflag FLAG_HIDE_MT_CHIMNEY_LAVA_COOKIE_LADY
+	removeobject LOCALID_SAMIR
+	setobjectxyperm LOCALID_SAMIR, 10, 12
+	setobjectxyperm LOCALID_COSMO, 25, 21
+	addobject LOCALID_SAMIR
+	call_if_eq VAR_MTCHIMSAMIR, 1, MtChimney_EventScript_SamirApproachEast
+	call_if_eq VAR_MTCHIMSAMIR, 2, MtChimney_EventScript_SamirApproachWest
+	msgbox MtChimney_Text_SamirMeowdy MSGBOX_AUTOCLOSE
+	msgbox MtChimney_Text_SamirStole MSGBOX_AUTOCLOSE
+	setflag FLAG_STOLEN_METEORITE
+	call_if_eq VAR_MTCHIMSAMIR, 1, MtChimney_EventScript_SamirApproachPlayerEast
+	call_if_eq VAR_MTCHIMSAMIR, 2, MtChimney_EventScript_SamirApproachPlayerWest
+	msgbox MtChimney_Text_SamirOwO MSGBOX_AUTOCLOSE
+	trainerbattle_no_intro TRAINER_SAMIR_4, MtChimney_Text_SamirLostSomehow
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, MtChimney_EventScript_SamirLeaveLost
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, MtChimney_EventScript_SamirLeave
 	releaseall
 	end
 
+MtChimney_EventScript_SamirApproachEast::
+	applymovement LOCALID_SAMIR, MtChimney_EventScript_SamirApproachE
+	waitmovement 0
+	return
+
+MtChimney_EventScript_SamirApproachWest::
+	applymovement LOCALID_SAMIR, MtChimney_EventScript_SamirApproachW
+	waitmovement 0
+	return
+
+MtChimney_EventScript_SamirApproachPlayerEast::
+	applymovement LOCALID_SAMIR, MtChimney_EventScript_SamirGoToPlayerE
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	return
+
+MtChimney_EventScript_SamirApproachPlayerWest::
+	applymovement LOCALID_SAMIR, MtChimney_EventScript_SamirGoToPlayerW
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	return
+
+
+MtChimney_EventScript_Cosmo::
+	applymovement LOCALID_COSMO, Common_Movement_FacePlayer
+	msgbox MtChimney_Text_CosmoMeteor, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_COSMO, MtChimney_EventScript_CosmoLookaround
+	waitmovement 0
+	applymovement LOCALID_COSMO, Common_Movement_FacePlayer
+	msgbox MtChimney_Text_CosmoStudies, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_COSMO, MtChimney_EventScript_CosmoLeave
+	waitmovement 0 
+	removeobject LOCALID_COSMO
+	setflag FLAG_COSMO_MTCHIMNEY
+	end
+	
+
+MtChimney_EventScript_SamirLeaveLost::
+	msgbox MtChimney_Text_SamirLeavingLost MSGBOX_AUTOCLOSE
+	applymovement LOCALID_SAMIR , MtChimney_EventScript_SamirLeaving
+	waitmovement 0
+	removeobject LOCALID_SAMIR
+	setflag FLAG_SAMIR_MTCHIMNEY
+	setflag FLAG_HIDE_MT_CHIMNEY_TEAM_AQUA
+	setflag FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY
+	setflag FLAG_HIDE_METEOR_FALLS_1F_1R_COZMO
+	return
+
+MtChimney_EventScript_SamirLeave::
+	msgbox MtChimney_Text_SamirLeaving MSGBOX_AUTOCLOSE
+	applymovement LOCALID_SAMIR , MtChimney_EventScript_SamirLeaving
+	waitmovement 0
+	removeobject LOCALID_SAMIR
+	setflag FLAG_SAMIR_MTCHIMNEY
+	setflag FLAG_HIDE_MT_CHIMNEY_TEAM_AQUA
+	setflag FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY
+	setflag FLAG_HIDE_METEOR_FALLS_1F_1R_COZMO
+	end
+
+MtChimney_Text_CosmoStudies:
+	.string "I must get back to FALLARBOR\n"
+	.string "TOWN.\p"
+	.string "Please find me there if you\n"
+	.string "retrieve the METEOR!$"
+
+MtChimney_Text_CosmoMeteor:
+	.string "Hello, Hello!\p"
+	.string "I saw you back at the cave right?\p"
+	.string "Please, tell me you got the\n"
+	.string "METEOR back!?\p"
+	.string "... ... ...\p"
+	.string "It was stolen????\p"
+	.string "My friend there is immense power\n"
+	.string "in that METEOR\p"
+	.string "Please you must get it back!$"
+
+MtChimney_Text_SamirLeavingLost:
+	.string "I meeeean...\p"
+	.string "Clearly you cheated bro.\p"
+	.string "So...\n"
+	.string "Yeah...\p"
+	.string "You still lose...$"
+
+MtChimney_Text_SamirLeaving:
+	.string "Lil gup really thought you could\n"
+	.string "stop me?\p"
+	.string "Sit DOG.$"
+
+MtChimney_Text_SamirLostSomehow:
+	.string "O.O$"
+
+MtChimney_Text_SamirOwO:
+	.string "o.o\p"
+	.string "Lil bro about to get the\n"
+	.string "Fantum tax too...$"
+
+MtChimney_Text_SamirStole:
+	.string "Samir Stole the METEORITE!$"
+
+MtChimney_Text_SamirMeowdy:
+	.string "Samir: Mewody,\n"
+	.string "Ill be taking that.\p"
+	.string "Yoink!$"
+
+MtChimney_EventScript_CosmoLeave:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_down
+	walk_down
+	step_end
+
+MtChimney_EventScript_CosmoLookaround:
+	face_right
+	delay_16
+	face_Left
+	delay_16
+	step_end
+
+MtChimney_EventScript_SamirLeaving:
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+MtChimney_EventScript_SamirApproachE:
+	delay_16
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	face_up
+	step_end
+
+MtChimney_EventScript_SamirApproachW:
+	delay_16
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	step_end
+
+MtChimney_EventScript_SamirGoToPlayerE:
+	walk_left
+	walk_left
+	face_up
+	step_end
+
+MtChimney_EventScript_SamirGoToPlayerW:
+	face_down
+	step_end
+
 MtChimney_EventScript_ArchieApproachPlayerEast::
 	applymovement LOCALID_ARCHIE, MtChimney_Movement_ArchieApproachPlayerEast
+	setvar VAR_MTCHIMSAMIR, 1
 	waitmovement 0
 	return
 
 MtChimney_EventScript_ArchieApproachPlayerNorth::
 	applymovement LOCALID_ARCHIE, MtChimney_Movement_ArchieApproachPlayerNorth
+	setvar VAR_MTCHIMSAMIR, 2
 	waitmovement 0
 	return
 
@@ -100,23 +283,6 @@ MtChimney_EventScript_ArchieExitNorth::
 	waitmovement 0
 	return
 
-MtChimney_EventScript_LavaCookieLady::
-	lock
-	faceplayer
-	showmoneybox 0, 0
-	msgbox MtChimney_Text_LavaCookiesJust200, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MtChimney_EventScript_DeclineLavaCookie
-	checkmoney 200
-	goto_if_eq VAR_RESULT, FALSE, MtChimney_EventScript_NotEnoughMoney
-	msgbox MtChimney_Text_ThankYouDear, MSGBOX_DEFAULT
-	checkitemspace ITEM_LAVA_COOKIE
-	call_if_eq VAR_RESULT, TRUE, MtChimney_EventScript_RemoveMoney
-	giveitem ITEM_LAVA_COOKIE
-	goto_if_eq VAR_RESULT, FALSE, MtChimney_EventScript_BagIsFull
-	hidemoneybox
-	release
-	end
-
 MtChimney_EventScript_BagIsFull::
 	msgbox gText_TooBadBagIsFull, MSGBOX_DEFAULT
 	hidemoneybox
@@ -127,12 +293,6 @@ MtChimney_EventScript_RemoveMoney::
 	removemoney 200
 	updatemoneybox
 	return
-
-MtChimney_EventScript_DeclineLavaCookie::
-	msgbox MtChimney_Text_OhFineThen, MSGBOX_DEFAULT
-	hidemoneybox
-	release
-	end
 
 MtChimney_EventScript_NotEnoughMoney::
 	msgbox MtChimney_Text_YouveNotGotTheMoney, MSGBOX_DEFAULT
@@ -443,13 +603,7 @@ MtChimney_EventScript_AquaPoochyena::
 MtChimney_EventScript_MeteoriteMachine::
 	lockall
 	goto_if_unset FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, MtChimney_EventScript_MachineOn
-	goto_if_set FLAG_RECEIVED_METEORITE, MtChimney_EventScript_MachineOff
-	msgbox MtChimney_Text_RemoveTheMeteorite, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MtChimney_EventScript_LeaveMeteoriteAlone
-	msgbox MtChimney_Text_PlayerRemovedMeteorite, MSGBOX_DEFAULT
-	giveitem ITEM_METEORITE
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_METEORITE
+	goto_if_set FLAG_STOLEN_METEORITE, MtChimney_EventScript_MachineOff
 	releaseall
 	end
 
@@ -703,11 +857,6 @@ MtChimney_Text_MagmasNameSimilar:
 
 MtChimney_Text_Bushaa:
 	.string "Bushaa!$"
-
-MtChimney_Text_LavaCookiesJust200:
-	.string "LAVA COOKIES are MT. CHIMNEY's local\n"
-	.string "specialty.\p"
-	.string "Try one. It's just ¥200.$"
 
 MtChimney_Text_ThankYouDear:
 	.string "Thank you, dear!$"

@@ -42,8 +42,10 @@ VerdanturfTown_Mart_EventScript_Lass::
 VerdanturfTown_Mart_Text_XSpecialIsCrucial:
 	.string "For any POKéMON match, X SPECIAL\n"
 	.string "is crucial.\p"
-	.string "It jacks up the power of some moves\n"
-	.string "even though it's only for one battle.$"
+	.string "It jacks up the power of some moves,\n"
+	.string "though scarce to find now\p"
+	.string "I have heard of this 'Chu' Guy\n"
+	.string "who might sell some...$"
 
 VerdanturfTown_Mart_Text_NoStrategyGuidesForBattleTent:
 	.string "They don't seem to sell any winning\n"

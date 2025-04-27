@@ -583,7 +583,6 @@ Route109_EventScript_BHGirl::
 	goto_if_eq VAR_ROUTE109_CLEARED, 2, Route109_EventScript_BHGirl1
 	goto_if_eq VAR_ROUTE109_CLEARED, 3, Route109_EventScript_BHGirl2
 	goto_if_eq VAR_ROUTE109_CLEARED, 4, Route109_EventScript_BHGirl3
-
 	end
 
 Route109_EventScript_BHGirl1::
@@ -597,7 +596,6 @@ Route109_EventScript_BHGirl2::
 Route109_EventScript_BHGirl3::
 	msgbox Route109_Text_BHLoser, MSGBOX_AUTOCLOSE
 	end
-	
 
 Route109_EventScript_BeatTrainersFirst::
 	lockall

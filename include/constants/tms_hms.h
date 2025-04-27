@@ -55,7 +55,10 @@
     F(DRAIN_PUNCH) \
     F(CHILLING_WATER) \
     F(MUD_SHOT) \
-    F(HEART_STAMP)
+    F(HEART_STAMP) \
+    F(RAZOR_SHELL) \
+    F(MIRROR_SHOT) \
+    F(KNOCK_OFF)
 
 #define FOREACH_HM(F) \
     F(CUT) \

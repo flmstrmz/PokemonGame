@@ -1135,7 +1135,8 @@ SlateportCity_Text_CantChangeTradeMonName:
 	.string "This is the first town to sell the full\n"
 	.string "range of Poke stat buffers!\p"
 	.string "Huh?\p"
-	.string "No I was NOT paid to say that by the dev.\p"
+	.string "No I was NOT paid to say that by\n"
+	.string "the dev.\p"
 	.string "The hell is a 'dev' anyways...$"
 
 SlateportCity_Text_BattleTentBuiltRecently:

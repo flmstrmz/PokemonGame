@@ -40,7 +40,7 @@
 #define TRAINER_ARCHIE                       34
 #define TRAINER_LEAH                         35
 #define TRAINER_DAISY                        36
-#define TRAINER_ROSE_1                       37 //unused
+#define TRAINER_SAMIR_4                      37 
 #define TRAINER_FELIX                        38
 #define TRAINER_VIOLET                       39
 #define TRAINER_ROSE_2                       40 //unused
@@ -629,8 +629,8 @@
 #define TRAINER_JAMES_3                     623
 #define TRAINER_JAMES_4                     624
 #define TRAINER_JAMES_5                     625
-#define TRAINER_BRICE                       626
-#define TRAINER_TRENT_1                     627
+#define TRAINER_BRICE                       626 //unused
+#define TRAINER_TRENT_1                     627 //unused
 #define TRAINER_LENNY                       628
 #define TRAINER_LUCAS_1                     629
 #define TRAINER_ALAN                        630
@@ -639,10 +639,10 @@
 #define TRAINER_LUCAS_2                     633
 #define TRAINER_MIKE_1                      634 //unused
 #define TRAINER_MIKE_2                      635 //unused
-#define TRAINER_TRENT_2                     636
-#define TRAINER_TRENT_3                     637
-#define TRAINER_TRENT_4                     638
-#define TRAINER_TRENT_5                     639
+#define TRAINER_TRENT_2                     636 //unused
+#define TRAINER_TRENT_3                     637 //unused
+#define TRAINER_TRENT_4                     638 //unused
+#define TRAINER_TRENT_5                     639 //unused
 #define TRAINER_DEZ_AND_LUKE                640
 #define TRAINER_LEA_AND_JED                 641
 #define TRAINER_KIRA_AND_DAN_1              642
@@ -872,12 +872,14 @@
 #define TRAINER_SAMIR_3                     866
 #define TRAINER_MIRO_FINAL                  867
 #define TRAINER_KRILL_1                     868
+#define TRAINER_SUGI_FINAL                  869
+#define TRAINER_MIRO4UPGRADE                870
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      869
+#define TRAINERS_COUNT                      871
 #define MAX_TRAINERS_COUNT                  900
 #define TRAINER_PARTNER(partner)           (MAX_TRAINERS_COUNT + partner)
 

@@ -17,6 +17,14 @@ LavaridgeTown_HerbShop_Pokemart:
 	.2byte ITEM_ENERGY_ROOT
 	.2byte ITEM_HEAL_POWDER
 	.2byte ITEM_REVIVAL_HERB
+	.2byte ITEM_ADAMANT_MINT
+	.2byte ITEM_MODEST_MINT
+	.2byte ITEM_GENTLE_MINT
+	.2byte ITEM_LAX_MINT
+	.2byte ITEM_JOLLY_MINT
+	.2byte ITEM_TIMID_MINT
+	.2byte ITEM_BRAVE_MINT
+	.2byte ITEM_QUIET_MINT
 	.2byte ITEM_NONE
 	release
 	end
@@ -42,8 +50,8 @@ LavaridgeTown_HerbShop_EventScript_ExplainCharcoal::
 	end
 
 LavaridgeTown_HerbShop_Text_WelcomeToHerbShop:
-	.string "Welcome to the HERB SHOP, home of\n"
-	.string "effective and inexpensive medicine!$"
+	.string "Welcome to the HERB SHOP, home to\n"
+	.string "high quality MINTS and HERBS!$"
 
 LavaridgeTown_HerbShop_Text_YouveComeToLookAtHerbalMedicine:
 	.string "You've come to look at herbal medicine\n"
@@ -62,5 +70,6 @@ LavaridgeTown_HerbShop_Text_ExplainCharcoal:
 LavaridgeTown_HerbShop_Text_HerbalMedicineWorksButMonWillDislike:
 	.string "Herbal medicine works impressively well.\n"
 	.string "But your POKéMON will dislike you for it.\l"
-	.string "It must be horribly bitter!$"
+	.string "It must be horribly bitter!\p"
+	.string "The MINTS on the other hand...$"
 

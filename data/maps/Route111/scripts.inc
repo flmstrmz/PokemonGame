@@ -5,9 +5,10 @@
 .set LOCALID_ROCK_SMASH_MAN, 35
 .set LOCALID_REPORTER, 39
 .set LOCALID_CAMERAMAN, 40
-.set LOCALID_STEVEN, 43
-.set LOCALID_KRILL, 42
-.set LOCALID_SAMIR, 44
+.set LOCALID_STEVEN, 37
+.set LOCALID_KRILL, 36
+.set LOCALID_SAMIR, 38
+.set LOCALID_TOWERMAN, 41
 
 @ Note: LOCALID_ROUTE111_PLAYER_FALLING is a local id for this map used elsewhere. It's defined in event_objects.h
 
@@ -53,9 +54,14 @@ Route111_EventScript_ShowTemporaryMirageTower::
 Route111_OnTransition:
 	setvar VAR_TRAINER_HILL_IS_ACTIVE, 0
 	call_if_eq VAR_ROUTE111_MEGA, 2, Route111_EventScript_SetSteven
+	call_if_eq VAR_ROUTE111_MEGA, 4, Route111_EventScript_BlockTower
 	call Route111_EventScript_CheckSetSandstorm
 	goto_if_not_defeated TRAINER_VICKY, Route111_EventScript_SetWinstratesNotDefeated
 	end
+
+Route111_EventScript_BlockTower::
+	clearflag FLAG_ROUTE111_HIDETOWERMAN
+	return
 
 Route111_EventScript_SetFallingPlayerGfx::
 	checkplayergender
@@ -656,6 +662,7 @@ Route111_EventScript_StevenIntro::
 	end
 
 Route111_EventScript_TowerMan::
+	applymovement LOCALID_TOWERMAN, Common_Movement_FacePlayer
 	msgbox Route111_Text_TowerMan  MSGBOX_AUTOCLOSE
 	end
 
@@ -663,13 +670,15 @@ Route111_EventScript_LostKrill::
 	addvar VAR_ROUTE111_MEGA, 1
 	setflag FLAG_HIDE_ROUTE_111_REPORTERS
 	setflag FLAG_ROUTE111_HIDE_KRILL
-	clearflag FLAG_ROUTE111_HIDETOWERMAN
+	removeobject LOCALID_CAMERAMAN
+	removeobject LOCALID_REPORTER
 	msgbox Route111_Text_KrillComeBack MSGBOX_AUTOCLOSE
 	applymovement LOCALID_STEVEN, Common_Movement_FacePlayer
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
 	msgbox Route111_Text_StevenHelpMe, MSGBOX_AUTOCLOSE
 	playfanfare MUS_HEAL
 	waitfanfare
+	special LoadPlayerParty
 	special HealPlayerParty
 	msgbox Route111_Text_StevenBadFeeling MSGBOX_AUTOCLOSE
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
@@ -685,10 +694,9 @@ Route111_EventScript_LostKrill::
 	end
 
 Route111_EventScript_BeatKrill::
-	addvar VAR_ROUTE111_MEGA, 1
+	addvar VAR_ROUTE111_MEGA, 2
 	setflag FLAG_HIDE_ROUTE_111_REPORTERS
 	setflag FLAG_ROUTE111_HIDE_KRILL
-	clearflag FLAG_ROUTE111_HIDETOWERMAN
 	removeobject LOCALID_REPORTER
 	removeobject LOCALID_CAMERAMAN
 	msgbox Route111_Text_KrillInterested MSGBOX_AUTOCLOSE
@@ -697,6 +705,7 @@ Route111_EventScript_BeatKrill::
 	msgbox Route111_Text_StevenHelpMe, MSGBOX_AUTOCLOSE
 	playfanfare MUS_HEAL
 	waitfanfare
+	special LoadPlayerParty
 	special HealPlayerParty
 	msgbox Route111_Text_StevenBadFeeling MSGBOX_AUTOCLOSE
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
@@ -712,6 +721,7 @@ Route111_EventScript_BeatKrill::
 	end
 
 Route111_EventScript_NotReady::
+	applymovement LOCALID_STEVEN, Common_Movement_FacePlayer 
 	msgbox Route111_Text_StevenBeHere, MSGBOX_AUTOCLOSE
 	setobjectxyperm LOCALID_STEVEN, 31, 115
 	return
@@ -960,7 +970,7 @@ Route111_Text_StevenBeHere:
 
 Route111_Text_KrillRunt:
 	.string "Krillar: HA!\p"
-	.string "Lo, a fledgling takes to the trail\n"
+	.string "A fledgling takes to the trail\n"
 	.string "steel unblooded, heart untested.\p"
 	.string "I'll show you a glimpse into\n"
 	.string "real power!$."
@@ -1106,9 +1116,10 @@ Route111_Text_ToughToKeepWinningUpTheRanks:
 	.string "If you don't raise your POKéMON some\n"
 	.string "more, it could be tough to keep winning\l"
 	.string "up through the ranks.\p"
-	.string "I've heard the POKéMON LEAGUE's\n"
-	.string "ELITE FOUR are far stronger than\l"
-	.string "any GYM LEADER.$"
+	.string "I've heard rumour of monster trainers\n"
+	.string "far stronger than any GYM LEADER\p"
+	.string "Unlike those self proclaimed 'Ace\n"
+	.string "Trainers'$"
 
 Route111_Text_WinstrateFamilyDestroyedMe:
 	.string "I challenged the WINSTRATE family,\n"

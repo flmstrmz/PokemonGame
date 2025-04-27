@@ -34,12 +34,12 @@ MauvilleCity_Mart_EventScript_Man::
 	end
 
 MauvilleCity_Mart_Text_ItemsToTemporarilyElevateStats:
-	.string "There are items that temporarily\n"
-	.string "elevate the stats of POKéMON.\p"
-	.string "The ones I know you use in battle\n"
-	.string "are X ATTACK and X DEFEND…\p"
-	.string "I do believe that there are others\n"
-	.string "like them.$"
+	.string "There used to be items that\n"
+	.string "temporarily elevated stats of POKéMON.\p"
+	.string "They were removed since trainers\n"
+	.string "realised they were roiding their\l"
+	.string "POKéMON!\p"
+	.string "Nobody tolerates cheaters here.$"
 
 MauvilleCity_Mart_Text_DecisionsDetermineBattle:
 	.string "Use a certain move, or use an item\n"

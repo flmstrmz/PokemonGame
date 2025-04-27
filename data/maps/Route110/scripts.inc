@@ -166,28 +166,35 @@ Route110_EventScript_PlayerRidingAcroBike::
 	end
 
 Route110_EventScript_Edward::
-	trainerbattle_single TRAINER_EDWARD, Route110_Text_EdwardIntro, Route110_Text_EdwardDefeated
+	trainerbattle_single TRAINER_EDWARD, Route110_Text_EdwardIntro, Route110_Text_EdwardDefeated, Route110_EventScript_WinCountUp
 	msgbox Route110_Text_EdwardPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route110_EventScript_Jaclyn::
-	goto_if_eq VAR_ROUTE110_ACE, 8, Route110_EventScript_AceFight
+	goto_if_eq VAR_ROUTE110_ACE, 6, Route110_EventScript_AceFight
+	call Route110_Script_AceNotReady
+	end
+
+Route110_Script_AceNotReady::
+	msgbox Route110_Text_AceNotReady MSGBOX_AUTOCLOSE
 	end
 
 Route110_EventScript_AceFight::
-	trainerbattle_single TRAINER_JACLYN, Route110_Text_JaclynIntro, Route110_Text_JaclynDefeated
+	trainerbattle_single TRAINER_JACLYN, Route110_Text_JaclynIntro, Route110_Text_JaclynDefeated, Route110_EventScript_AceReward
 	msgbox Route110_Text_JaclynPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route110_Text_AceNotReady:
-	.string "Hey, you know the rules dont you?\p"
-	.string "If you wanna challenge me, you have\n"
-	.string "to beat all them first! Hehe.$"
+Route110_EventScript_AceReward::
+	msgbox Route110_Text_AceReward MSGBOX_AUTOCLOSE
+	giveitem ITEM_EJECT_BUTTON
+	end
+
+Route110_EventScript_WinCountUp::
+	addvar VAR_ROUTE110_ACE, 1
+	end
 
 Route110_EventScript_Edwin::
-	trainerbattle_single TRAINER_EDWIN_1, Route110_Text_EdwinIntro, Route110_Text_EdwinDefeated
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route110_EventScript_EdwinRematch
+	trainerbattle_single TRAINER_EDWIN_1, Route110_Text_EdwinIntro, Route110_Text_EdwinDefeated, Route110_EventScript_WinCountUp
 	msgbox Route110_Text_EdwinPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -200,13 +207,9 @@ Route110_EventScript_EdwinRegisterMatchCallAfterBattle::
 	release
 	end
 
-Route110_EventScript_EdwinRematch::
-	trainerbattle_rematch TRAINER_EDWIN_1, Route110_Text_EdwinRematchIntro, Route110_Text_EdwinRematchDefeated
-	msgbox Route110_Text_EdwinRematchPostBattle, MSGBOX_AUTOCLOSE
-	end
 
 Route110_EventScript_Dale::
-	trainerbattle_single TRAINER_DALE, Route110_Text_DaleIntro, Route110_Text_DaleDefeated
+	trainerbattle_single TRAINER_DALE, Route110_Text_DaleIntro, Route110_Text_DaleDefeated, Route110_EventScript_WinCountUp
 	msgbox Route110_Text_DalePostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -222,8 +225,6 @@ Route110_EventScript_Anthony::
 
 Route110_EventScript_Benjamin::
 	trainerbattle_single TRAINER_BENJAMIN_1, Route110_Text_BenjaminIntro, Route110_Text_BenjaminDefeated
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route110_EventScript_BenjaminRematch
 	msgbox Route110_Text_BenjaminPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -236,11 +237,6 @@ Route110_EventScript_BenjaminRegisterMatchCallAfterBattle::
 	release
 	end
 
-Route110_EventScript_BenjaminRematch::
-	trainerbattle_rematch TRAINER_BENJAMIN_1, Route110_Text_BenjaminRematchIntro, Route110_Text_BenjaminRematchDefeated
-	msgbox Route110_Text_BenjaminRematchPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route110_EventScript_Jasmine::
 	trainerbattle_single TRAINER_JASMINE, Route110_Text_JasmineIntro, Route110_Text_JasmineDefeated
 	msgbox Route110_Text_JasminePostBattle, MSGBOX_AUTOCLOSE
@@ -248,8 +244,6 @@ Route110_EventScript_Jasmine::
 
 Route110_EventScript_Abigail::
 	trainerbattle_single TRAINER_ABIGAIL_1, Route110_Text_AbigailIntro, Route110_Text_AbigailDefeated
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route110_EventScript_AbigailRematch
 	msgbox Route110_Text_AbigailPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -262,15 +256,8 @@ Route110_EventScript_AbigailRegisterMatchCallAfterBattle::
 	release
 	end
 
-Route110_EventScript_AbigailRematch::
-	trainerbattle_rematch TRAINER_ABIGAIL_1, Route110_Text_AbigailRematchIntro, Route110_Text_AbigailRematchDefeated
-	msgbox Route110_Text_AbigailRematchPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route110_EventScript_Isabel::
 	trainerbattle_single TRAINER_ISABEL_1, Route110_Text_IsabelIntro, Route110_Text_IsabelDefeated
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route110_EventScript_IsabelRematch
 	msgbox Route110_Text_IsabelPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -283,13 +270,8 @@ Route110_EventScript_IsabelRegisterMatchCallAfterBattle::
 	release
 	end
 
-Route110_EventScript_IsabelRematch::
-	trainerbattle_rematch TRAINER_ISABEL_1, Route110_Text_IsabelRematchIntro, Route110_Text_IsabelRematchDefeated
-	msgbox Route110_Text_IsabelRematchPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route110_EventScript_Timmy::
-	trainerbattle_single TRAINER_TIMMY, Route110_Text_TimmyIntro, Route110_Text_TimmyDefeated
+	trainerbattle_single TRAINER_TIMMY, Route110_Text_TimmyIntro, Route110_Text_TimmyDefeated, Route110_EventScript_WinCountUp
 	msgbox Route110_Text_TimmyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -297,17 +279,17 @@ Route110_EventScript_Unused::
 	end
 
 Route110_EventScript_Kaleb::
-	trainerbattle_single TRAINER_KALEB, Route110_Text_KalebIntro, Route110_Text_KalebDefeated
+	trainerbattle_single TRAINER_KALEB, Route110_Text_KalebIntro, Route110_Text_KalebDefeated, Route110_EventScript_WinCountUp
 	msgbox Route110_Text_KalebPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route110_EventScript_Joseph::
-	trainerbattle_single TRAINER_JOSEPH, Route110_Text_JosephIntro, Route110_Text_JosephDefeated
+	trainerbattle_single TRAINER_JOSEPH, Route110_Text_JosephIntro, Route110_Text_JosephDefeated, Route110_EventScript_WinCountUp
 	msgbox Route110_Text_JosephPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route110_EventScript_Alyssa::
-	trainerbattle_single TRAINER_ALYSSA, Route110_Text_AlyssaIntro, Route110_Text_AlyssaDefeated
+	trainerbattle_single TRAINER_ALYSSA, Route110_Text_AlyssaIntro, Route110_Text_AlyssaDefeated, Route110_EventScript_WinCountUp
 	msgbox Route110_Text_AlyssaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -751,6 +733,18 @@ Route110_Movement_BirchExit4:
 	walk_up
 	walk_up
 	step_end
+
+Route110_Text_AceReward:
+	.string "Wow wow wow!\p"
+	.string "I submit, well played!\p"
+	.string "Guess theres things even psychics\n"
+	.string "cant see coming.\p"
+	.string "Here.$"
+
+Route110_Text_AceNotReady:
+	.string "Hey, you know the rules dont you?\p"
+	.string "If you wanna challenge me, you have\n"
+	.string "to beat all them first! Hehe.$"
 
 Route110_Text_WeCantTalkAboutAquaActivities:
 	.string "TEAM AQUA's activities…\n"
