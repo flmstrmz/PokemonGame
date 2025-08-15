@@ -1075,3 +1075,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/birch_speech.inc"
 	.include "data/scripts/qol_field_move_scripts.inc" @ qol_field_moves 
 	.include "data/maps/LittlerootTown_Poke_school/scripts.inc"
+
+	.include "data/maps/Route111_NoMirageTower/scripts.inc"

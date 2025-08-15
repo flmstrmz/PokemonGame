@@ -420,9 +420,9 @@ AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWIT
 
 Buizel  
 Ability: Water Veil  
-Level: 34  
-EVs: 170 Atk / 12 Def / 170 Spe  
-Adamant Nature  
+Level: 33  
+EVs: 140 Atk / 12 Def / 160 Spe  
+Hasty Nature  
 - Aqua Jet  
 - Double Hit  
 - Bite  
@@ -430,9 +430,9 @@ Adamant Nature
 
 Cloyster  
 Ability: Shell Armor 
-Level: 35  
-EVs: 90 HP / 170 Atk / 92 SpD  
-Careful Nature  
+Level: 34  
+EVs: 80 HP / 170 Atk / 80 SpD  
+Sassy Nature  
 - Icicle Spear  
 - Razor Shell  
 - Ice Shard  
@@ -1123,16 +1123,11 @@ Class: Cooltrainer
 Pic: Cooltrainer M
 Gender: Male
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Swellow
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Quick Attack
-- Agility
-- Wing Attack
+Level: 45
 
 === TRAINER_PARKER ===
 Name: PARKER
@@ -1140,13 +1135,11 @@ Class: Cooltrainer
 Pic: Cooltrainer M
 Gender: Male
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Spinda
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Level: 43
 - Teeter Dance
 - Dizzy Punch
 - Focus Punch
@@ -1162,8 +1155,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Slakoth @ Sitrus Berry
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Level: 44
 - Slack Off
 - Counter
 - Shadow Ball
@@ -1174,12 +1166,11 @@ Class: Cooltrainer
 Pic: Cooltrainer M
 Gender: Male
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Vigoroth
-Level: 26
+Level: 45
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Focus Energy
 - Slash
@@ -1513,13 +1504,11 @@ Class: Cooltrainer
 Pic: Cooltrainer F
 Gender: Female
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Delcatty
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Level: 44
 - Feint Attack
 - Shock Wave
 
@@ -1529,14 +1518,11 @@ Class: Cooltrainer
 Pic: Cooltrainer F
 Gender: Female
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Wigglytuff
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Defense Curl
+Level: 45
 - Double Edge
 - Shadow Ball
 
@@ -1546,14 +1532,11 @@ Class: Cooltrainer
 Pic: Cooltrainer F
 Gender: Female
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Setup First Turn
 
 Zangoose
-Level: 26
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Swords Dance
+Level: 45
 - Slash
 
 === TRAINER_WENDY ===
@@ -1985,19 +1968,13 @@ AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT
 
 Taillow  
 Ability: Scrappy  
-Level: 13   
-Adamant Nature  
-IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe  
-
-Sawk  
-Ability: Inner Focus  
-Level: 14  
+Level: 12   
 Adamant Nature  
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe  
 
 Throh  
 Ability: Guts  
-Level: 14   
+Level: 13   
 Adamant Nature  
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe  
 
@@ -4817,40 +4794,40 @@ AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWIT
 Coalossal (M) @ Assault Vest  
 Ability: Steam Engine  
 Level: 42  
-EVs: 225 HP / 225 Atk / 8 SpD  
-Adamant Nature  
+EVs: 225 HP / 125 Atk / 100 Def / 8 SpD  
+Impish Nature  
 - Body Press  
 - Heat Crash  
 - Heavy Slam  
 - Rock Slide  
 
-Rotom-Heat @ Light Clay  
+Rotom-Heat @ Magnet  
 Ability: Levitate  
 Level: 42  
 EVs: 225 SpA / 8 SpD / 225 Spe  
 Timid Nature  
-- Thunderbolt  
-- Hyper Voice  
-- Dark Pulse  
-- Light Screen  
+- Thunder  
+- Volt Switch  
+- Night Shade  
+- Overheat  
 
 Centiskorch (M) @ Aguav Berry  
 Ability: Flame Body  
 Level: 43  
-EVs: 225 HP / 8 SpA / 225 SpD  
-Sassy Nature  
-- Burn Up  
+EVs: 225 HP / 115 Def / 110 SpD  
+Careful Nature  
+- Fire Lash  
 - Leech Life  
 - Power Whip  
 - Crunch  
 
-Skeledirge (M) @ Chesto Berry  
+Skeledirge (M) @ Iapapa Berry 
 Ability: Blaze  
 Level: 43  
 EVs: 225 HP / 8 Atk / 225 SpA  
 Quiet Nature  
-- Scorching Sands  
-- Poltergeist  
+- Earth Power  
+- Belch  
 - Heat Wave  
 - Rest  
 
@@ -4863,7 +4840,7 @@ Timid Nature
 - Giga Drain  
 - Bug Buzz  
 - Fiery Dance  
-- Psychic  
+- Psychic 
 
 === TRAINER_NORMAN_1 ===
 Name: NORMAN
@@ -4871,41 +4848,58 @@ Class: Leader
 Pic: Leader Norman
 Gender: Male
 Music: Male
-Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
 
-Spinda
-Level: 27
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Teeter Dance
-- Psybeam
-- Facade
-- Encore
+Dudunsparce @ Rocky Helmet  
+Ability: Rattled  
+Level: 45  
+EVs: 200 HP / 100 Atk / 150 Def  
+Relaxed Nature  
+- Yawn  
+- Lunge  
+- Body Press  
+- Hyper Drill  
 
-Vigoroth
-Level: 27
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Slash
-- Facade
-- Encore
-- Feint Attack
+Wyrdeer  
+Ability: Intimidate  
+Level: 45  
+EVs: 225 HP / 45 Atk / 45 SpA / 145 SpD  
+Sassy Nature  
+- Psyshield Bash  
+- Thunderbolt  
+- Reflect  
+- Psychic  
 
-Linoone
-Level: 29
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Slash
-- Belly Drum
-- Facade
-- Headbutt
+Zoroark-Hisui @ Throat Spray 
+Ability: Illusion  
+Level: 46  
+EVs: 225 SpA / 225 Spe  
+Timid Nature  
+- Bitter Malice  
+- Dark Pulse  
+- Grass Knot  
+- Hyper Voice 
 
-Slaking @ Sitrus Berry
-Level: 31
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Counter
-- Yawn
-- Facade
-- Feint Attack
+Stoutland @ Salac Berry  
+Ability: Intimidate  
+Level: 46  
+EVs: 225 HP / 125 Atk / 100 Spe  
+Jolly Nature  
+- Play Rough  
+- Retaliate  
+- Iron Head  
+- Reversal  
+
+Ursaluna @ Flame Orb  
+Ability: Guts  
+Level: 46  
+EVs: 235 HP / 235 Atk  
+Adamant Nature  
+- Earthquake  
+- Thunder Punch  
+- Facade  
+- Drain Punch  
 
 === TRAINER_WINONA_1 ===
 Name: WINONA
@@ -6015,8 +6009,6 @@ Ability: Lightning Rod
 Level: 21  
 Hasty Nature  
 
-
-
 === TRAINER_BEN ===
 Name: BEN
 Class: Youngster
@@ -6356,7 +6348,7 @@ Pic: Fisherman
 Gender: Male
 Music: Hiker
 Double Battle: No
-AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
 
 Krabby @ Razor Claw  
 Ability: Sheer Force  
@@ -6379,7 +6371,7 @@ Adamant Nature
 - Aqua Tail  
 
 Azumarill @ Wise Glasses  
-Ability: Sap Sipper  
+Ability: Thick Fat
 Level: 23  
 Shiny: Yes   
 EVs: 54 HP / 54 SpA  
@@ -11371,13 +11363,13 @@ Hasty Nature
 - Ancient Power  
 - Earthquake  
 
-Magmortar (M) @ Power Herb  
+Magmortar (M) 
 Ability: Flame Body  
 Level: 41  
 EVs: 211 SpA / 4 SpD / 215 Spe  
 Timid Nature  
 - Flamethrower  
-- Focus Blast  
+- Scorching Sands
 - Psychic  
 - Thunderbolt  
 
@@ -11848,8 +11840,7 @@ AI: Check Bad Move
 
 Gloom  
 Ability: Chlorophyll  
-Level: 19   
-EVs: 50 HP / 4 SpA / 50 Spe  
+Level: 19    
 Timid Nature  
 IVs: 0 Atk  
 - Giga Drain  
@@ -11860,7 +11851,6 @@ IVs: 0 Atk
 Vespiquen  
 Ability: Pressure  
 Level: 21  
-EVs: 50 HP / 8 SpA / 50 SpD  
 Calm Nature  
 - Fell Stinger  
 - Roost  
@@ -11869,8 +11859,7 @@ Calm Nature
 
 Breloom  
 Ability: Effect Spore  
-Level: 20   
-EVs: 50 Atk / 4 SpD / 50 Spe  
+Level: 20    
 Jolly Nature  
 - Mach Punch  
 - Headbutt  
@@ -13358,7 +13347,7 @@ AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWIT
 
 Graveler-Alola @ Passho Berry  
 Ability: Galvanize  
-Level: 25   
+Level: 23   
 EVs: 96 HP / 96 Atk  
 Adamant Nature  
 - Thunder Punch  
@@ -13366,11 +13355,11 @@ Adamant Nature
 - Self-Destruct  
 - Rollout  
 
-Throh @ Berry Juice  
+Throh  
 Ability: Inner Focus  
-Level: 26   
+Level: 24   
 EVs: 96 HP / 96 Atk  
-Adamant Nature  
+Sassy Nature  
 - Circle Throw  
 - Revenge  
 - Wide Guard  
@@ -13387,8 +13376,7 @@ AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWIT
 
 Togetic @ Scope Lens  
 Ability: Super Luck  
-Level: 24  
-Shiny: Yes   
+Level: 24    
 EVs: 96 HP / 96 SpD  
 Calm Nature  
 - Fairy Wind  
@@ -13398,8 +13386,7 @@ Calm Nature
 
 Helioptile @ Magnet  
 Ability: Dry Skin  
-Level: 25  
-Shiny: Yes    
+Level: 25     
 EVs: 96 SpA / 96 Spe  
 Timid Nature  
 - Volt Switch  
@@ -13410,6 +13397,7 @@ Timid Nature
 Chatot  
 Ability: Keen Eye  
 Level: 25  
+Shiny: Yes 
 EVs: 96 SpA / 96 Spe  
 Timid Nature  
 - Hyper Voice  
@@ -17933,8 +17921,7 @@ Level: 4
 Shiny: Yes   
 Brave Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe 
-- Low Kick  
-- Headbutt  
+- Low Kick
 - Leer
 - Fake Out
 
@@ -18131,7 +18118,7 @@ Pic: Krill
 Gender: Male
 Music: Suspicious
 Double Battle: No
-AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_OMNISCIENT
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
 
 Aggron (M) @ Aggronite  
 Ability: Sturdy  

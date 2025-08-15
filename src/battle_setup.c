@@ -1448,7 +1448,9 @@ static void CB2_EndTrainerBattle(void)
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
             LoadPlayerParty();
             FlagClear(FLAG_3VS3);
-            VarAdd(VAR_ROUTE111_MEGA, 1);
+            if(FlagGet(FLAG_GRANITE_SAMIR) == TRUE){
+                VarAdd(VAR_ROUTE111_MEGA, 1);
+            }
         }
         if (InBattlePyramid() || InTrainerHillChallenge() || (!NoAliveMonsForPlayer()) || (FlagGet(FLAG_3VS3) == TRUE))
         {

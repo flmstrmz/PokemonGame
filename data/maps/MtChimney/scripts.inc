@@ -83,6 +83,7 @@ MtChimney_EventScript_Maxie::
 	msgbox MtChimney_Text_SamirMeowdy MSGBOX_AUTOCLOSE
 	msgbox MtChimney_Text_SamirStole MSGBOX_AUTOCLOSE
 	setflag FLAG_STOLEN_METEORITE
+	setflag FLAG_3VS3
 	call_if_eq VAR_MTCHIMSAMIR, 1, MtChimney_EventScript_SamirApproachPlayerEast
 	call_if_eq VAR_MTCHIMSAMIR, 2, MtChimney_EventScript_SamirApproachPlayerWest
 	msgbox MtChimney_Text_SamirOwO MSGBOX_AUTOCLOSE
