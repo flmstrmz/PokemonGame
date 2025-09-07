@@ -16,7 +16,6 @@ BattleTower_Entrance_EventScript_AscentionTrial::
 	msgbox BattleTower_Entrance_Text_ExplainRules, MSGBOX_YESNO
 	call_if_eq VAR_RESULT, YES, BattleTower_Entrance_EventScript_AscentionTrialRules
 	msgbox BattleTower_Entrance_Text_AscentionStart, MSGBOX_AUTOCLOSE
-	special ReducePlayerPartyLevelTo50
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
 	releaseall

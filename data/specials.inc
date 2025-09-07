@@ -252,8 +252,6 @@ gSpecials::
 	def_special ValidateEReaderTrainer
 	def_special GetBattleTowerSinglesStreak
 	def_special ReducePlayerPartyToSelectedMons
-	def_special ReducePlayerPartyLevelTo50
-	def_special RestorePlayerPartyFromBackup
 	def_special BedroomPC
 	def_special PlayerPC
 	def_special FieldShowRegionMap
