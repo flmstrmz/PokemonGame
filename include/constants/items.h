@@ -1010,9 +1010,12 @@
 #define ITEM_TELEPORT_TOOL 836
 #define ITEM_SWEETSCENT_TOOL 837
 
+//Additional Story Items
+#define ITEM_OPAL 838
+
 // LEGEND PLATE
 
-#define ITEMS_COUNT 838
+#define ITEMS_COUNT 839
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

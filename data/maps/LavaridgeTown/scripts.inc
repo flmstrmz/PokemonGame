@@ -1,5 +1,6 @@
 .set LOCALID_RIVAL_ON_BIKE, 7
 .set LOCALID_RIVAL, 8
+.set LOCALID_AABHASH, 10
 
 LavaridgeTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, LavaridgeTown_OnTransition
@@ -86,6 +87,7 @@ LavaridgeTown_EventScript_RivalExit::
 	removeobject LOCALID_RIVAL_ON_BIKE
 	setvar VAR_LAVARIDGE_TOWN_STATE, 2
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
+	clearflag FLAG_HIDE_AABHASHLAVARIDGE
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	releaseall
@@ -147,12 +149,118 @@ LavaridgeTown_EventScript_RivalExit1::
 LavaridgeTown_EventScript_RivalExit2::
 	applymovement LOCALID_RIVAL_ON_BIKE, LavaridgeTown_Movement_RivalExit2
 	waitmovement 0
+	applymovement LOCALID_RIVAL_ON_BIKE, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox LavaridgeTown_Text_RivalWaitingForYou, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_RIVAL_ON_BIKE, LavaridgeTown_Movement_RivalExit2_2
+	waitmovement 0
 	return
+
+LavaridgeTown_EventScript_AabhashBattle::
+	lockall
+	playse SE_PIN
+	applymovement LOCALID_AABHASH, Common_Movement_ExclamationMark
+	delay 24
+	applymovement LOCALID_AABHASH, LavaridgeTown_Movement_AabhashApproach1
+	waitmovement 0
+	msgbox LavaridgeTown_Text_AabhashHi MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_AABHASH3, LavaridgeTown_Text_AabhashDefeat
+	msgbox LavaridgeTown_Text_AabhashDefeatLeave MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_AABHASH, LavaridgeTown_Movement_AabhashLeave1
+	waitmovement 0
+	removeobject LOCALID_AABHASH
+	setflag FLAG_HIDE_AABHASHLAVARIDGE
+	setvar VAR_LAVARIDGE_TOWN_STATE, 3
+	releaseall
+	end
+
+LavaridgeTown_EventScript_AabhashBattle2::
+	lockall
+	playse SE_PIN
+	applymovement LOCALID_AABHASH, Common_Movement_ExclamationMark
+	delay 24
+	applymovement LOCALID_AABHASH, LavaridgeTown_Movement_AabhashApproach2
+	waitmovement 0
+	msgbox LavaridgeTown_Text_AabhashHi MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_AABHASH3, LavaridgeTown_Text_AabhashDefeat
+	msgbox LavaridgeTown_Text_AabhashDefeatLeave MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_AABHASH, LavaridgeTown_Movement_AabhashLeave1
+	waitmovement 0
+	removeobject LOCALID_AABHASH
+	setflag FLAG_HIDE_AABHASHLAVARIDGE
+	setvar VAR_LAVARIDGE_TOWN_STATE, 3
+	releaseall
+	end
+
+LavaridgeTown_EventScript_AabhashBattle3::
+	lockall
+	playse SE_PIN
+	applymovement LOCALID_AABHASH, Common_Movement_ExclamationMark
+	delay 24
+	applymovement LOCALID_AABHASH, LavaridgeTown_Movement_AabhashApproach3
+	waitmovement 0
+	msgbox LavaridgeTown_Text_AabhashHi MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_AABHASH3, LavaridgeTown_Text_AabhashDefeat
+	msgbox LavaridgeTown_Text_AabhashDefeatLeave MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_AABHASH, LavaridgeTown_Movement_AabhashLeave1
+	waitmovement 0
+	removeobject LOCALID_AABHASH
+	setflag FLAG_HIDE_AABHASHLAVARIDGE
+	setvar VAR_LAVARIDGE_TOWN_STATE, 3
+	releaseall
+	end
+
+LavaridgeTown_EventScript_AabhashBattle4::
+	lockall
+	playse SE_PIN
+	applymovement LOCALID_AABHASH, Common_Movement_ExclamationMark
+	delay 24
+	applymovement LOCALID_AABHASH, LavaridgeTown_Movement_AabhashApproach4
+	waitmovement 0
+	msgbox LavaridgeTown_Text_AabhashHi MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_AABHASH3, LavaridgeTown_Text_AabhashDefeat
+	msgbox LavaridgeTown_Text_AabhashDefeatLeave MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_AABHASH, LavaridgeTown_Movement_AabhashLeave2
+	waitmovement 0
+	removeobject LOCALID_AABHASH
+	setflag FLAG_HIDE_AABHASHLAVARIDGE
+	setvar VAR_LAVARIDGE_TOWN_STATE, 3
+	releaseall
+	end
+	
+LavaridgeTown_Text_AabhashDefeat:
+	.string "We having fun yet or what?$"
+
+LavaridgeTown_Text_AabhashDefeatLeave:
+	.string "Ok bitch like congrats,\n"
+	.string "I'm still min maxing this shit...\p"
+	.string "I'm going back to my hideout.$"
+
+LavaridgeTown_Text_AabhashHi:
+	.string "Hey loser.\p"
+	.string "Yeah this Dev guy said I'd\n"
+	.string "lose my goth model if I didn't\l"
+	.string "interract more...\p"
+	.string "Booooooooring...\p"
+	.string "So yeah lets fight or whatever.\n"
+	.string "Sigh...$"
 
 LavaridgeTown_Movement_RivalExit2:
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right
+	step_end
+
+LavaridgeTown_Movement_RivalExit2_2:
 	walk_fast_up
 	walk_fast_up
 	walk_fast_up
@@ -197,6 +305,63 @@ LavaridgeTown_Movement_RivalApproachPlayer1:
 
 LavaridgeTown_Movement_RivalExitHerbShop:
 	walk_down
+	step_end
+
+LavaridgeTown_Movement_AabhashApproach1:
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	step_end
+
+LavaridgeTown_Movement_AabhashApproach2:
+	walk_left
+	walk_left
+	walk_down
+	walk_left
+	walk_left
+	step_end
+
+LavaridgeTown_Movement_AabhashApproach3:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+LavaridgeTown_Movement_AabhashApproach4:
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	step_end
+
+LavaridgeTown_Movement_AabhashLeave1:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+LavaridgeTown_Movement_AabhashLeave2:
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	step_end
 
 LavaridgeTown_EventScript_HotSpringsTrigger::
@@ -320,6 +485,13 @@ LavaridgeTown_Text_BrendanExplainGoGogglesChallengeDad:
 	.string "he really is tough.\p"
 	.string "See you around!$"
 
+LavaridgeTown_Text_RivalWaitingForYou:
+	.string "Oh!\p"
+	.string "Also some strangers waiting for you\n"
+	.string "up ahead?\p"
+	.string "Not sure about the company you keep\n"
+	.string "but whatever floats your boat...$"
+
 LavaridgeTown_Text_HaveEggWillYouTakeIt:
 	.string "I have here an EGG.\p"
 	.string "I'd hoped to hatch it by covering it in\n"
@@ -376,9 +548,11 @@ LavaridgeTown_Text_OhYouLikeHotSprings:
 	.string "as you.$"
 
 LavaridgeTown_Text_BatheInHotSpringsEveryDay:
-	.string "I bathe in the hot springs every day.\p"
-	.string "I want to become a beautiful and strong\n"
-	.string "GYM LEADER like FLANNERY.$"
+	.string "Have you been to our Herb Store?.\p"
+	.string "Its just next to me, we take great\n"
+	.string "care and pride in what we grow!\p"
+	.string "Our Herbs will make your POKéMON\n"
+	.string "super strong!$"
 
 LavaridgeTown_Text_IfPokemonInHotSprings:
 	.string "If people put POKéMON in hot springs,\n"

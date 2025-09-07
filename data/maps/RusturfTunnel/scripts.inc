@@ -63,7 +63,7 @@ RusturfTunnel_EventScript_ClearTunnelScene::
 	msgbox RusturfTunnel_Text_YouShatteredBoulderTakeHM, MSGBOX_DEFAULT
 	call_if_eq VAR_TEMP_1, 2, RusturfTunnel_EventScript_WandasBoyfriendApproachPlayer
 	call_if_eq VAR_TEMP_1, 3, RusturfTunnel_EventScript_WandasBoyfriendApproachPlayer
-	giveitem ITEM_HM_STRENGTH
+	giveitem ITEM_STRENGTH_TOOL
 	setflag FLAG_RECEIVED_HM_STRENGTH
 	msgbox RusturfTunnel_Text_ExplainStrength, MSGBOX_DEFAULT
 	closemessage
@@ -314,6 +314,47 @@ RusturfTunnel_EventScript_AquaGruntBackUp::
 	releaseall
 	end
 
+RusturfTunnel_EventScript_AquaGruntBackUp2::
+	lockall
+	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
+	msgbox RusturfTunnel_Text_GruntScared, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_AABHASH, RusturfTunnel_Movement_AabhashStep
+	waitmovement 0
+	msgbox RusturfTunnel_Text_AabhashThinking, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_GRUNT, RusturfTunnel_Movement_GruntAndPeekoBackUp
+	applymovement LOCALID_PEEKO, RusturfTunnel_Movement_GruntAndPeekoBackUp
+	applymovement LOCALID_AABHASH, RusturfTunnel_Movement_AabhashStep
+	waitmovement 0
+	msgbox RusturfTunnel_Text_Grunt1, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_GRUNT, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox RusturfTunnel_Text_Grunt2, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_AABHASH, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox RusturfTunnel_Text_AabhashOh, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_AABHASH, RusturfTunnel_Movement_AabhashFightUp
+	waitmovement 0
+	msgbox RusturfTunnel_Text_Aabhashbattle, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_AABHASH2, RusturfTunnel_Text_Aabhashlost
+	msgbox RusturfTunnel_Text_AabhashFun, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_AABHASH, RusturfTunnel_Movement_AabhashFightLeaveUp
+	waitmovement 0
+	setflag FLAG_HIDE_RUSTURF_TUNNEL_AABHASH
+	playse SE_EXIT
+	removeobject LOCALID_AABHASH
+	copyobjectxytoperm LOCALID_GRUNT
+	copyobjectxytoperm LOCALID_PEEKO
+	setvar VAR_RUSTURF_TUNNEL_STATE, 3
+	releaseall
+	end
+
 RusturfTunnel_Movement_GruntAndPeekoBackUp:
 	lock_facing_direction
 	walk_right
@@ -346,6 +387,21 @@ RusturfTunnel_Movement_AabhashFightLeaveDown:
 	walk_left
 	walk_left
 	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+RusturfTunnel_Movement_AabhashFightLeaveUp:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	walk_down
 	walk_down
 	walk_down
@@ -582,13 +638,14 @@ RusturfTunnel_Text_YouShatteredBoulderTakeHM:
 	.string "Wow! You shattered that boulder\n"
 	.string "blocking the way.\p"
 	.string "To show you how much I appreciate it,\n"
-	.string "I'd like you to have this HM.$"
+	.string "I'd like you to have this Tool.$"
 
 RusturfTunnel_Text_ExplainStrength:
-	.string "That HM contains STRENGTH.\p"
-	.string "If a muscular POKéMON were to learn\n"
-	.string "that, it would be able to move even\l"
-	.string "large boulders.$"
+	.string "That Tool enables STRENGTH.\p"
+	.string "It should allow you to emanate\n"
+	.string "the strength of a jacked Pokemon.\p" 
+	.string " Using that, you can throw even\n"
+	.string "large boulders around.$"
 
 RusturfTunnel_Text_WandaReunion:
 	.string "WANDA!\n"

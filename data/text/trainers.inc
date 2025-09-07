@@ -430,19 +430,6 @@ Route104_Text_DarianPostBattle:
 	.string "Hey, MAGIKARP, you sure don't live up\n"
 	.string "to your name, do you?$"
 
-Route105_Text_FosterIntro:
-	.string "There's supposed to be a mystical\n"
-	.string "rock around here.\l"
-	.string "Do you know anything about it?$"
-
-Route105_Text_FosterDefeated:
-	.string "I was thinking too much about that\n"
-	.string "rock, while my POKéMON remained weak…$"
-
-Route105_Text_FosterPostBattle:
-	.string "I can spend hours and hours staring\n"
-	.string "at a nice rock without growing bored.$"
-
 Route105_Text_LuisIntro:
 	.string "Whew! I was worried that a kid was\n"
 	.string "drowning when I saw you.\p"
@@ -493,49 +480,6 @@ Route105_Text_ImaniDefeated:
 Route105_Text_ImaniPostBattle:
 	.string "I want to be told I'm relaxing to be\n"
 	.string "with. Giggle.$"
-
-Route105_Text_AndresIntro:
-	.string "I'm convinced that the sea keeps\n"
-	.string "secrets from us.$"
-
-Route105_Text_AndresDefeated:
-	.string "Yes…\n"
-	.string "I am no good at battling…$"
-
-Route105_Text_AndresPostBattle:
-	.string "I'm sure there are many secrets to be\n"
-	.string "discovered in the world's seas.\p"
-	.string "I mean to find them all!$"
-
-Route105_Text_AndresRegister:
-	.string "Huh? I'm so weak, but you're willing\n"
-	.string "to register me in your POKéNAV?$"
-
-Route105_Text_AndresRematchIntro:
-	.string "I've told you that I'm weak…\n"
-	.string "Are you sure you want to do this?$"
-
-Route105_Text_AndresRematchDefeated:
-	.string "Yes…\n"
-	.string "I didn't think I could win.$"
-
-Route105_Text_AndresRematchPostBattle:
-	.string "I may be weak at battling, but my\n"
-	.string "drive to explore can't be bested.\p"
-	.string "I will travel the seas all around\n"
-	.string "the world!$"
-
-Route105_Text_JosueIntro:
-	.string "I'm exhausted from swimming.\n"
-	.string "I'm just not used to it.\p"
-	.string "I need a battle for a change of pace!$"
-
-Route105_Text_JosueDefeated:
-	.string "I lost because I battled at sea.$"
-
-Route105_Text_JosuePostBattle:
-	.string "Yeah, for me, the sky is a much better\n"
-	.string "match than the sea.$"
 
 Route106_Text_ElliotIntro:
 	.string "Which do you prefer, fishing in the\n"
@@ -648,15 +592,16 @@ Route107_Text_TonyRematchPostBattle:
 	.string "The waves taught me that.$"
 
 Route107_Text_DeniseIntro:
-	.string "Do you know a little town called\n"
-	.string "DEWFORD?$"
+	.string "GO GO GO MY ARMY OF\n"
+	.string "PYUKUMUKU!$"
 
 Route107_Text_DeniseDefeated:
-	.string "I hate this!$"
+	.string "But....\p"
+	.string "Muh Army...$"
 
 Route107_Text_DenisePostBattle:
-	.string "A weird saying is getting really\n"
-	.string "trendy at DEWFORD HALL.$"
+	.string "I was missing my 6th Pyukumuku...\p"
+	.string "I'll catch one more soon!$"
 
 Route107_Text_BethIntro:
 	.string "Did you want to battle me?\n"
@@ -668,41 +613,6 @@ Route107_Text_BethDefeated:
 Route107_Text_BethPostBattle:
 	.string "I think you're going to keep getting\n"
 	.string "better. I'll go for it, too!$"
-
-Route107_Text_LisaIntro:
-	.string "LISA: We challenge you as a sister\n"
-	.string "and brother!$"
-
-Route107_Text_LisaDefeated:
-	.string "LISA: Awesome.\n"
-	.string "You're in a different class of tough.$"
-
-Route107_Text_LisaPostBattle:
-	.string "LISA: Do you have any friends who\n"
-	.string "would go to the beach with you?$"
-
-Route107_Text_LisaNotEnoughPokemon:
-	.string "LISA: If you want to battle with us,\n"
-	.string "bring more POKéMON.$"
-
-Route107_Text_RayIntro:
-	.string "RAY: We always battle POKéMON,\n"
-	.string "me and my sister.\p"
-	.string "I always lose, but we can beat you\n"
-	.string "2-on-2!$"
-
-Route107_Text_RayDefeated:
-	.string "RAY: Wowee, you're at a higher level\n"
-	.string "than us!$"
-
-Route107_Text_RayPostBattle:
-	.string "RAY: My sister gave me my POKéMON.\n"
-	.string "I raised it, and now it's my important\l"
-	.string "partner!$"
-
-Route107_Text_RayNotEnoughPokemon:
-	.string "RAY: If you want to battle us,\n"
-	.string "go bring some more POKéMON!$"
 
 Route107_Text_CamronIntro:
 	.string "I'm in the middle of a triathlon,\n"
@@ -751,18 +661,6 @@ Route108_Text_TaraPostBattle:
 	.string "Even if it's a lie, I love being told\n"
 	.string "I look great…\l"
 	.string "We girls are so complex…$"
-
-Route108_Text_MissyIntro:
-	.string "I love the sea!\n"
-	.string "I forget all my worries when I swim!$"
-
-Route108_Text_MissyDefeated:
-	.string "When I lose a battle, I get all\n"
-	.string "stressed out!$"
-
-Route108_Text_MissyPostBattle:
-	.string "Work off your stress by swimming!\n"
-	.string "It's so healthy!$"
 
 Route108_Text_CoryIntro:
 	.string "I love WATER-type POKéMON.\n"
@@ -902,27 +800,12 @@ Route109_Text_LolaRematchPostBattle:
 	.string "If I have an inner tube, me and my\n"
 	.string "POKéMON's cuteness goes way up!$"
 
-Route109_Text_AustinaIntro:
-	.string "I can't swim without my inner tube,\n"
-	.string "but I won't lose at POKéMON!$"
-
-Route109_Text_AustinaDefeated:
-	.string "Did I lose because I have an inner\n"
-	.string "tube?$"
-
 Route109_Text_AustinaPostBattle:
 	.string "My inner tube is a fashion item.\n"
 	.string "I can't be seen without it.$"
 
-Route109_Text_GwenIntro:
-	.string "Hi, big TRAINER.\n"
-	.string "Will you battle with me?$"
-
-Route109_Text_GwenDefeated:
-	.string "Oh, you're strong.$"
-
 Route109_Text_GwenPostBattle:
-	.string "How did you get to be so strong?$"
+	.string "Isn't the sand pretty?$"
 
 Route109_Text_CarterIntro:
 	.string "Wahahah! This dude's going to catch\n"
@@ -4790,3 +4673,9 @@ VSSeeker_Text_TrainersNotReady::
 	.string "The other Trainers don't appear\n"
 	.string "to be ready for battle.\p"
 	.string "Let's wait till later.{PAUSE_UNTIL_PRESS}$"
+
+
+MegaTrainer_No_Fight:
+	.string "I can sense you aren't ready.\p"
+	.string "You haven't the strength or spirit\n"
+	.string "to give me a good fight.$"

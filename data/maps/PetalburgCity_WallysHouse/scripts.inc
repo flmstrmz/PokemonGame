@@ -21,7 +21,7 @@ PetalburgCity_WallysHouse_OnFrame:
 PetalburgCity_WallysHouse_EventScript_GiveHMSurf::
 	lockall
 	msgbox PetalburgCity_WallysHouse_Text_PleaseExcuseUs, MSGBOX_DEFAULT
-	giveitem ITEM_HM_SURF
+	giveitem ITEM_SURF_TOOL
 	setflag FLAG_RECEIVED_HM_SURF
 	msgbox PetalburgCity_WallysHouse_Text_SurfGoAllSortsOfPlaces, MSGBOX_DEFAULT
 	setvar VAR_PETALBURG_CITY_STATE, 5
@@ -104,8 +104,12 @@ PetalburgCity_WallysHouse_Text_PleaseExcuseUs:
 	.string "I'd really like you to have this.$"
 
 PetalburgCity_WallysHouse_Text_SurfGoAllSortsOfPlaces:
-	.string "If your POKéMON can SURF, you'll be\n"
-	.string "able to go to all sorts of places.$"
+	.string "You can use that tool to SURF,\n"
+	.string "to go to all sorts of places.\p"
+	.string "Wally already had one from someone\n"
+	.string "hes running with, so we had the spare!\p"
+	.string "It makes me so happy hes making new\n"
+	.string "friends.$" 
 
 PetalburgCity_WallysHouse_Text_WallyIsComingHomeSoon:
 	.string "WALLY's coming home soon.\n"
@@ -126,10 +130,6 @@ PetalburgCity_WallysHouse_Text_WallyWasReallyHappy:
 	.string "smile like that.$"
 
 PetalburgCity_WallysHouse_Text_WallyLeftWithoutTelling:
-	.string "I want you to keep this a secret\n"
-	.string "from my husband…\p"
-	.string "But our WALLY left VERDANTURF TOWN\n"
-	.string "without telling anyone.\p"
 	.string "You know, WALLY is frail, but\n"
 	.string "he's surprisingly strong-willed.\p"
 	.string "I'm sure that he'll come back safe\n"

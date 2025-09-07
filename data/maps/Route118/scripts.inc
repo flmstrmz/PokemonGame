@@ -1,4 +1,4 @@
-.set LOCALID_STEVEN, 19
+.set LOCALID_STEVEN, 10
 
 Route118_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route118_OnTransition
@@ -10,6 +10,7 @@ Route118_OnTransition:
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_118_EAST, AbnormalWeather_StartGroudonWeather
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_118_WEST, AbnormalWeather_StartGroudonWeather
+	call_if_eq VAR_ROUTE118_STATE, 1, Route118_SetSteven
 	end
 
 Route118_OnLoad:
@@ -20,6 +21,10 @@ Route118_OnLoad:
 Route118_OnFrame:
 	map_script_2 VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_EndEventAndCleanup_1
 	.2byte 0
+
+Route118_SetSteven::
+	setobjectxyperm LOCALID_STEVEN, 43, 10
+	return
 
 Route118_EventScript_GoodRodFisherman::
 	lock
@@ -63,64 +68,191 @@ Route118_EventScript_RouteSign119::
 
 Route118_EventScript_StevenTrigger0::
 	lockall
-	setvar VAR_0x8008, 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	waitmovement 0
 	applymovement LOCALID_STEVEN, Route118_Movement_StevenApproachLedge0
 	waitmovement 0
-	goto Route118_EventScript_StevenTrigger
-	end
-
-Route118_EventScript_StevenTrigger1::
-	lockall
-	setvar VAR_0x8008, 1
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
-	waitmovement 0
-	goto Route118_EventScript_StevenTrigger
-	end
-
-Route118_EventScript_StevenTrigger2::
-	lockall
-	setvar VAR_0x8008, 2
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
-	waitmovement 0
-	applymovement LOCALID_STEVEN, Route118_Movement_StevenApproachLedge2
-	waitmovement 0
-	goto Route118_EventScript_StevenTrigger
-	end
-
-Route118_EventScript_StevenTrigger::
 	playse SE_LEDGE
 	applymovement LOCALID_STEVEN, Route118_Movement_StevenJumpLedge
 	waitmovement 0
 	delay 30
 	msgbox Route118_Text_StevenQuestions, MSGBOX_DEFAULT
 	closemessage
-	call_if_eq VAR_0x8008, 0, Route118_EventScript_StevenExit0
-	call_if_eq VAR_0x8008, 1, Route118_EventScript_StevenExit1
-	call_if_eq VAR_0x8008, 2, Route118_EventScript_StevenExit2
+	goto_if_eq VAR_WALLY_SHIP, 2, Route118_EventScript_EarlyOpal0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	waitmovement 0
 	setvar VAR_ROUTE118_STATE, 1
+	releaseall
+	end
+
+Route118_EventScript_EarlyOpal0::
+	setvar VAR_ROUTE118_STATE, 2
+	setvar VAR_ROUTE111_MEGA, 5
+	msgbox Route118_Text_EarlyOpal MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Route118_Movement_PlayerWatchStevenExit
+	applymovement LOCALID_STEVEN, Route118_Movement_StevenExit0
+	waitmovement 0
+	clearflag FLAG_ROUTE111_HIDETOWERMAN
+	clearflag FLAG_ROUTE111_HIDE_STEVEN
+	setflag FLAG_HIDE_ROUTE_118_STEVEN
 	removeobject LOCALID_STEVEN
 	releaseall
 	end
 
-Route118_EventScript_StevenExit0::
-	applymovement OBJ_EVENT_ID_PLAYER, Route118_Movement_PlayerWatchStevenExit
-	applymovement LOCALID_STEVEN, Route118_Movement_StevenExit0
+Route118_EventScript_StevenTrigger1::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	waitmovement 0
-	return
+	playse SE_LEDGE
+	applymovement LOCALID_STEVEN, Route118_Movement_StevenJumpLedge
+	waitmovement 0
+	delay 30
+	msgbox Route118_Text_StevenQuestions, MSGBOX_DEFAULT
+	closemessage
+	goto_if_eq VAR_WALLY_SHIP, 2, Route118_EventScript_EarlyOpal1
+	applymovement LOCALID_STEVEN, Common_Movement_WalkLeft
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	waitmovement 0
+	setvar VAR_ROUTE118_STATE, 1
+	releaseall
+	end
 
-Route118_EventScript_StevenExit1::
+Route118_EventScript_EarlyOpal1::
+	msgbox Route118_Text_EarlyOpal MSGBOX_DEFAULT
+	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Route118_Movement_PlayerWatchStevenExit
 	applymovement LOCALID_STEVEN, Route118_Movement_StevenExit1
 	waitmovement 0
-	return
+	clearflag FLAG_ROUTE111_HIDETOWERMAN
+	clearflag FLAG_ROUTE111_HIDE_STEVEN
+	setflag FLAG_HIDE_ROUTE_118_STEVEN
+	setvar VAR_ROUTE118_STATE, 2
+	setvar VAR_ROUTE111_MEGA, 5
+	removeobject LOCALID_STEVEN
+	releaseall
+	end
 
-Route118_EventScript_StevenExit2::
+Route118_EventScript_StevenTrigger2::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	waitmovement 0
+	applymovement LOCALID_STEVEN, Route118_Movement_StevenApproachLedge2
+	waitmovement 0
+	playse SE_LEDGE
+	applymovement LOCALID_STEVEN, Route118_Movement_StevenJumpLedge
+	waitmovement 0
+	delay 30
+	msgbox Route118_Text_StevenQuestions, MSGBOX_DEFAULT
+	closemessage
+	goto_if_eq VAR_WALLY_SHIP, 2, Route118_EventScript_EarlyOpal2
+	applymovement LOCALID_STEVEN, Route118_Movement_StevenWalkLeft
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	waitmovement 0
+	setvar VAR_ROUTE118_STATE, 1
+	releaseall
+	end
+
+Route118_EventScript_EarlyOpal2::
+	msgbox Route118_Text_EarlyOpal MSGBOX_DEFAULT
+	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Route118_Movement_PlayerWatchStevenExit
 	applymovement LOCALID_STEVEN, Route118_Movement_StevenExit2
 	waitmovement 0
-	return
+	clearflag FLAG_ROUTE111_HIDETOWERMAN
+	clearflag FLAG_ROUTE111_HIDE_STEVEN
+	setflag FLAG_HIDE_ROUTE_118_STEVEN
+	setvar VAR_ROUTE118_STATE, 2
+	setvar VAR_ROUTE111_MEGA, 5
+	removeobject LOCALID_STEVEN
+	releaseall
+	end
+
+Route118_EventScript_StevenCheck0::
+	lockall
+	applymovement LOCALID_STEVEN, Common_Movement_FaceDown
+	waitmovement 0
+	goto_if_eq VAR_WALLY_SHIP, 2,  Route118_EventScript_HaveOpal0
+	msgbox Route118_Text_StevenCheck, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	waitmovement 0
+	releaseall
+	end
+
+
+Route118_EventScript_StevenCheck1::
+	lockall
+	applymovement LOCALID_STEVEN, Route118_Movement_StevenAprroach0
+	waitmovement 0
+	goto_if_eq VAR_WALLY_SHIP, 2,  Route118_EventScript_HaveOpal1
+	msgbox Route118_Text_StevenCheck, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	waitmovement 0
+	applymovement LOCALID_STEVEN, Common_Movement_WalkLeft
+	waitmovement 0
+	releaseall
+	end
+
+Route118_EventScript_StevenCheck2::
+	lockall
+	applymovement LOCALID_STEVEN, Route118_Movement_StevenApproach1
+	waitmovement 0
+	goto_if_eq VAR_WALLY_SHIP, 2,  Route118_EventScript_HaveOpal2
+	msgbox Route118_Text_StevenCheck, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	waitmovement 0
+	applymovement LOCALID_STEVEN, Route118_Movement_StevenWalkLeft
+	waitmovement 0
+	releaseall
+	end
+
+Route118_EventScript_HaveOpal0::
+	msgbox Route118_Text_HaveOpal, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Route118_Movement_PlayerWatchStevenExit
+	applymovement LOCALID_STEVEN, Route118_Movement_StevenExit0
+	clearflag FLAG_ROUTE111_HIDETOWERMAN
+	clearflag FLAG_ROUTE111_HIDE_STEVEN
+	setvar VAR_ROUTE118_STATE, 2
+	setvar VAR_ROUTE111_MEGA, 5
+	waitmovement 0
+	removeobject LOCALID_STEVEN
+	releaseall
+	end
+
+Route118_EventScript_HaveOpal1::
+	msgbox Route118_Text_HaveOpal, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Route118_Movement_PlayerWatchStevenExit
+	applymovement LOCALID_STEVEN, Route118_Movement_StevenExit1
+	waitmovement 0
+	clearflag FLAG_ROUTE111_HIDETOWERMAN
+	clearflag FLAG_ROUTE111_HIDE_STEVEN
+	setvar VAR_ROUTE118_STATE, 2
+	setvar VAR_ROUTE111_MEGA, 5
+	removeobject LOCALID_STEVEN
+	releaseall
+	end
+
+Route118_EventScript_HaveOpal2::
+	msgbox Route118_Text_HaveOpal, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Route118_Movement_PlayerWatchStevenExit
+	applymovement LOCALID_STEVEN, Route118_Movement_StevenExit2
+	waitmovement 0
+	clearflag FLAG_ROUTE111_HIDETOWERMAN
+	clearflag FLAG_ROUTE111_HIDE_STEVEN
+	setflag FLAG_HIDE_ROUTE_118_STEVEN
+	setvar VAR_ROUTE118_STATE, 2
+	setvar VAR_ROUTE111_MEGA, 5
+	removeobject LOCALID_STEVEN
+	releaseall
+	end
 
 Route118_Movement_PlayerWatchStevenExit:
 	delay_16
@@ -141,40 +273,62 @@ Route118_Movement_StevenJumpLedge:
 	walk_down
 	step_end
 
+Route118_Movement_StevenWalkLeft:
+	walk_left
+	walk_left
+	step_end
+
+Route118_Movement_StevenAprroach0:
+	walk_right
+	walk_in_place_down
+	step_end
+
+Route118_Movement_StevenApproach1:
+	walk_right
+	walk_right
+	walk_in_place_down
+	step_end
+
 Route118_Movement_StevenExit0:
 	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	step_end
 
 Route118_Movement_StevenExit1:
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	step_end
 
 Route118_Movement_StevenExit2:
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	step_end
 
 Route118_EventScript_Barny::
@@ -197,23 +351,54 @@ Route118_EventScript_Chester::
 	msgbox Route118_Text_ChesterPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route118_Text_EarlyOpal:
+	.string "Huh? whats that glow in your\n"
+	.string "pocket!?\p"
+	.string "... ... ... ... ...\p"
+	.string "Wait, you already have the\n"
+	.string "Opal we need!?\p"
+	.string "You my friend are efficient!\p"
+	.string "Well we now have all we need so,\n"
+	.string "please join me by Krillers battle\l"
+	.string "tower when you can.\p"
+	.string "I'll be waiting!$"
+
+
+Route118_Text_HaveOpal:
+	.string "Hey {PLAYER}, did you manage\n"
+	.string "to get it?\p"
+	.string "Oh! I can tell just by that glow,\n"
+	.string "I trust no issues?\p"
+	.string "... ... ...\p"
+	.string "Ah a fair run in with WALLY? Glad\n"
+	.string "to hear hes running strong!\p"
+	.string "Well we now have all we need so,\n"
+	.string "please join me by Krillers battle\l"
+	.string "tower when you can.\p"
+	.string "I'll be waiting!$"
+
+Route118_Text_StevenCheck:
+	.string "Have you checked the ABANDONED SHIP\n"
+	.string "yet?\p"
+	.string "It should be Between DEWFORD Town\n"
+	.string "and SLATEPORT.$"
+
 Route118_Text_StevenQuestions:
 	.string "STEVEN: Hi, {PLAYER}{KUN}!\p"
-	.string "It's me, STEVEN!\n"
-	.string "We met in the cave near DEWFORD.\p"
-	.string "Have you met many kinds of POKéMON\n"
-	.string "since I last saw you?\p"
-	.string "There are many, many kinds of POKéMON\n"
-	.string "in this wide world of ours.\p"
-	.string "If you wanted to raise only your\n"
-	.string "favorites, that's fine.\p"
-	.string "Perhaps you find it more fun to raise\n"
-	.string "all sorts of POKéMON.\p"
-	.string "As a TRAINER of POKéMON,\n"
-	.string "what do you think?\p"
-	.string "Of course, it's not any of my business.\p"
-	.string "It would be nice if we were to meet\n"
-	.string "again somewhere.$"
+	.string "How has the adventure been?\p"
+	.string "... ... ... ...\p"
+	.string "Considering you're here means\n"
+	.string "you bested your father?\p"
+	.string "Meaning you've grown considerably\p"
+	.string "I'm glad I ran into you here,\n"
+	.string "I think we've made a breakthrough\l"
+	.string "on Mega Evolution!\p"
+	.string "I've asked one of the Devon\n"
+	.string "researchers for assistance but\l"
+	.string "they're taking quite a while...\p"
+	.string "Could I ask you check on them for me?\p"
+	.string "He should be on the ABANDONED SHIP,\n"
+	.string "Between DEWFORD Town and SLATEPORT.$"
 
 Route118_Text_YouAgreeGoodRodIsGood:
 	.string "Hmm!\n"

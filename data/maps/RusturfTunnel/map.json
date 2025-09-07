@@ -185,7 +185,7 @@
       "elevation": 3,
       "var": "VAR_RUSTURF_TUNNEL_STATE",
       "var_value": "2",
-      "script": "RusturfTunnel_EventScript_AquaGruntBackUp"
+      "script": "RusturfTunnel_EventScript_AquaGruntBackUp2"
     },
     {
       "type": "trigger",

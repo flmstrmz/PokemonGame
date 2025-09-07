@@ -59,6 +59,8 @@ Route111_OnTransition:
 	call_if_eq VAR_MIRAGE_TOWER_STATE, 2, Route111_EventScript_SetMirageTowerGone
 	call_if_eq VAR_ROUTE111_MEGA, 2, Route111_EventScript_SetSteven
 	call_if_eq VAR_ROUTE111_MEGA, 4, Route111_EventScript_BlockTower
+	call_if_eq VAR_ROUTE111_MEGA, 5, Route111_EventScript_SetSteven
+	call_if_eq VAR_ROUTE111_MEGA, 6, Route111_EventScript_SetSteven
 	call Route111_EventScript_CheckSetSandstorm
 	goto_if_not_defeated TRAINER_VICKY, Route111_EventScript_SetWinstratesNotDefeated
 	end
@@ -122,6 +124,7 @@ Route111_EventScript_HidePlayerForMirageTower::
 Route111_OnFrame:
 	map_script_2 VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_MirageTowerDisappear
 	map_script_2 VAR_ROUTE111_MEGA, 3, Route111_EventScript_LostKrill
+	map_script_2 VAR_ROUTE111_MEGA, 7, Route111_EventScript_DoorManLost
 	.2byte 0
 
 Route111_EventScript_MirageTowerDisappear::
@@ -667,7 +670,9 @@ Route111_EventScript_StevenIntro::
 
 Route111_EventScript_TowerMan::
 	applymovement LOCALID_TOWERMAN, Common_Movement_FacePlayer
+	goto_if_eq VAR_ROUTE111_MEGA, 6, Route111_EventScript_DoorManCheckFight
 	msgbox Route111_Text_TowerMan  MSGBOX_AUTOCLOSE
+	applymovement LOCALID_TOWERMAN, Common_Movement_FaceDown
 	end
 
 Route111_EventScript_LostKrill::
@@ -735,7 +740,13 @@ Route111_EventScript_SetSteven::
 	setobjectmovementtype LOCALID_STEVEN, MOVEMENT_TYPE_FACE_UP
 	return
 
-Route111_EventScript_StevenReady::
+Route111_EventScript_SetMegaQuest::
+	setobjectxyperm LOCALID_STEVEN, 31, 115
+	return
+
+Route111_EventScript_StevenScript::
+	goto_if_eq VAR_ROUTE111_MEGA, 5, Route111_EventScript_DoorMan
+	goto_if_eq VAR_ROUTE111_MEGA, 6, Route111_EventScript_TalkToHim
 	applymovement LOCALID_STEVEN, Common_Movement_FacePlayer
 	msgbox Route111_Text_StevenReady MSGBOX_YESNO
 	switch VAR_RESULT
@@ -743,6 +754,145 @@ Route111_EventScript_StevenReady::
 	case NO, Route111_EventScript_NotReady
 	case MULTI_B_PRESSED, Route111_EventScript_NotReady
 	end
+
+Route111_EventScript_DoorMan::
+	setvar VAR_ROUTE111_MEGA, 6
+	applymovement LOCALID_TOWERMAN, Common_Movement_FaceDown
+	msgbox Route111_Text_BeatMeFirst, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_STEVEN, Common_Movement_WalkInPlaceUp
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	waitmovement 0
+	msgbox Route111_Text_StevenBadges, MSGBOX_DEFAULT
+	closemessage
+	msgbox Route111_Text_DoorManHellNo, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_TOWERMAN, Common_Movement_WalkInPlaceUp
+	waitmovement 0
+	delay 24
+	applymovement LOCALID_TOWERMAN, Common_Movement_WalkInPlaceDown
+	waitmovement 0
+	msgbox Route111_Text_DoorManLook MSGBOX_YESNO
+	switch VAR_RESULT
+	case YES, Route111_EventScript_DoorManFight
+	case NO, Route111_EventScript_DoorManNR
+	case MULTI_B_PRESSED, Route111_EventScript_DoorManNR
+	end
+
+Route111_EventScript_DoorManFight::
+	msgbox Route111_Text_DoorManHeatedUp, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_DOOR_MAN, Route111_Text_BeatDoorMan
+	setvar VAR_ROUTE111_MEGA, 7
+	setvar VAR_BATTLETOWER, 1
+	end
+
+Route111_EventScript_DoorManLost::
+	setvar VAR_ROUTE111_MEGA, 8
+	msgbox Route111_Text_DoorManLost, MSGBOX_DEFAULT
+	applymovement LOCALID_TOWERMAN, Common_Movement_WalkUp
+	waitmovement 0
+	playse SE_EXIT
+	setflag FLAG_ROUTE111_HIDETOWERMAN
+	removeobject LOCALID_TOWERMAN
+	delay 32
+	delay 32
+	delay 32
+	applymovement LOCALID_STEVEN, Common_Movement_WalkLeft
+	waitmovement 0
+	applymovement LOCALID_STEVEN, Common_Movement_FacePlayer
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	waitmovement 0
+	msgbox Route111_Text_StevenFinally, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_STEVEN, Route111_FollowStevenLeave
+	waitmovement 0
+	setflag FLAG_ROUTE111_HIDE_STEVEN
+	removeobject LOCALID_STEVEN
+	end
+
+Route111_Text_StevenFinally:
+	.string "Steven: That was truely a masterful\n"
+	.string "display!\p"
+	.string "Now you can finally finish this up.\p"
+	.string "I have an errand to run so I'll find\n"
+	.string "you later, hopefully with a MEGA\l"
+	.string "Bracelet to boot!\p"
+	.string "Catch you later, {PLAYER}.$"
+
+Route111_Text_DoorManLost:
+	.string "DoorMan: Crap...\p"
+	.string "Fine, you wanna get burned so bad\n"
+	.string "be my guest!\p"
+	.string "... ... ...\p"
+	.string "Follow me...$" 
+
+Route111_EventScript_DoorManNR::
+	msgbox Route111_Text_DoorManNR, MSGBOX_AUTOCLOSE
+	setobjectxyperm LOCALID_STEVEN, 31, 115
+	end
+
+Route111_EventScript_DoorManCheckFight::
+	msgbox Route111_Text_DoorManReadyYet, MSGBOX_YESNO
+	switch VAR_RESULT
+	case YES, Route111_EventScript_DoorManFight
+	case NO, Route111_EventScript_DoorManNR
+	case MULTI_B_PRESSED, Route111_EventScript_DoorManNR
+	end
+
+Route111_EventScript_TalkToHim::
+	applymovement LOCALID_STEVEN, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox Route111_Text_StevenTalkToHim, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_STEVEN, Common_Movement_FaceUp
+	waitmovement 0
+	end
+
+Route111_Text_StevenTalkToHim:
+	.string "I know hes making this difficult but,\n"
+	.string "talk to him when you're ready.$"
+
+Route111_Text_DoorManReadyYet:
+	.string "You stepping up to the challenge now?$"
+
+Route111_Text_DoorManNR:
+	.string "Then why you here for fool?\p"
+	.string "Go play with the other small timers,\n"
+	.string "this is the big leagues!$"
+	
+Route111_Text_BeatMeFirst:
+	.string "DoorMan: Sorry, boss says no weaklings\p"
+	.string "STEVEN, you're cleared but your friend...\n"
+	.string "I cant just let you in bud$" 
+
+Route111_Text_StevenBadges:
+	.string "Steven: Surely the collection of five\n"
+	.string "badges makes the cut?$"
+
+Route111_Text_DoorManHellNo:
+	.string "DoorMan: Badges? Ha, you're joking right?\p"
+	.string "You think those mean anything before the\n"
+	.string "Battle Tower??$"
+
+Route111_Text_DoorManLook:
+	.string "Look I'll tell you what hotshot, you beat\n"
+	.string "me in a MEGA battle and I'll let you in.\p"
+	.string "Rules is simple see- as challenger you hit\n"
+	.string "me with all you got.\p"
+	.string "As Mega Successor I'm allowed 5 POKéMON\n"
+	.string "with no held items...\p"
+	.string "Matter of fact, I'll go down to 4 so\n"
+	.string "I can enjoy the fight, hows that?$"
+
+Route111_Text_DoorManHeatedUp:
+	.string "Hahahaha, thats some spirit!\p"
+	.string "Time to heat things up!$"
+
+Route111_Text_BeatDoorMan:
+	.string "Woah, woah, woah, alright chill\n"
+	.string "you put out my flame...$"
 
 Route111_EventScript_Krill::
 	applymovement LOCALID_KRILL, Common_Movement_FacePlayer
@@ -1207,7 +1357,7 @@ Route111_Text_MauvilleUncleToldMeToTakeRockSmash:
 	.string "Though he is a little... loud...$"
 
 Route111_Text_TrainerHillSign:
-	.string "{RIGHT_ARROW} TRAINER HILL ENTRANCE\p"
-	.string "“Scale the heights, you hot-blooded\n"
-	.string "TRAINERS!”$"
+	.string "{RIGHT_ARROW} Krillars BATTLE TOWER\p"
+	.string "“Show your true skill and resolve,\n"
+	.string "Only the strong will ascend!”$"
 

@@ -12937,6 +12937,21 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_Meteorite,
     },
 
+    [ITEM_OPAL] =
+    {
+        .name = _("Opal"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A Rare ore with\n"
+            "Mysterious Power."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Pearl,
+        .iconPalette = gItemIconPalette_Pearl,
+    },
+
     [ITEM_MAGMA_EMBLEM] =
     {
         .name = _("Magma Emblem"),

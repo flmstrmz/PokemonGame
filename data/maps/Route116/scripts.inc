@@ -244,39 +244,9 @@ Route116_EventScript_Jose::
 	end
 
 Route116_EventScript_Jerry::
-	trainerbattle_single TRAINER_JERRY_1, Route116_Text_JerryIntro, Route116_Text_JerryDefeat, Route116_Script_WinCount
+	trainerbattle_single TRAINER_JERRY_1, Route116_Text_JerryIntro, Route116_Text_JerryDefeat
 	msgbox Route116_Text_JerryPostBattle, MSGBOX_DEFAULT
 	release
-	end
-
-Route116_EventScript_TryRegisterJerryAfterBattle::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route116_EventScript_RegisterJerryAfterBattle
-	release
-	end
-
-Route116_EventScript_RegisterJerryAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route116_Text_JerryRegister2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_JERRY_1
-	release
-	end
-
-Route116_EventScript_TryRegisterJerry::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route116_EventScript_RegisterJerry
-	msgbox Route116_Text_JerryPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route116_EventScript_RegisterJerry::
-	msgbox Route116_Text_JerryRegister1, MSGBOX_DEFAULT
-	register_matchcall TRAINER_JERRY_1
-	release
-	end
-
-Route116_EventScript_RematchJerry::
-	trainerbattle_rematch TRAINER_JERRY_1, Route116_Text_JerryRematchIntro, Route116_Text_JerryRematchDefeat
-	msgbox Route116_Text_JerryPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route116_EventScript_Clark::
@@ -295,34 +265,9 @@ Route116_EventScript_Karen::
 	release
 	end
 
-Route116_EventScript_TryRegisterKarenAfterBattle::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route116_EventScript_RegisterKarenAfterBattle
-	release
-	end
-
-Route116_EventScript_RegisterKarenAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route116_Text_KarenRegister2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_KAREN_1
-	release
-	end
-
-Route116_EventScript_TryRegisterKaren::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route116_EventScript_RegisterKaren
-	msgbox Route116_Text_KarenPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route116_EventScript_RegisterKaren::
-	msgbox Route116_Text_KarenRegister1, MSGBOX_DEFAULT
-	register_matchcall TRAINER_KAREN_1
-	release
-	end
-
-Route116_EventScript_RematchKaren::
-	trainerbattle_rematch TRAINER_KAREN_1, Route116_Text_KarenRematchIntro, Route116_Text_KarenRematchDefeat
-	msgbox Route116_Text_KarenPostRematch, MSGBOX_AUTOCLOSE
+Route116_EventScript_Johnson::
+	trainerbattle_single TRAINER_JOHNSON, Route116_Text_JohnsonIntro, Route116_Text_JohnsonDefeat, Route116_Script_WinCount
+	msgbox Route116_Text_JohnsonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
@@ -445,26 +390,6 @@ SarahMoveBack::
 walk_down
 face_up
 step_end
-
-Route116_EventScript_Sarah::
-	trainerbattle_single TRAINER_SARAH, Route116_Text_SarahIntro, Route116_Text_SarahDefeat
-	msgbox Route116_Text_SarahPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route116_EventScript_Dawson::
-	trainerbattle_single TRAINER_DAWSON, Route116_Text_DawsonIntro, Route116_Text_DawsonDefeat
-	msgbox Route116_Text_DawsonPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route116_EventScript_Devan::
-	trainerbattle_single TRAINER_DEVAN, Route116_Text_DevanIntro, Route116_Text_DevanDefeat
-	msgbox Route116_Text_DevanPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route116_EventScript_Johnson::
-	trainerbattle_single TRAINER_JOHNSON, Route116_Text_JohnsonIntro, Route116_Text_JohnsonDefeat, Route116_Script_WinCount
-	msgbox Route116_Text_JohnsonPostBattle, MSGBOX_AUTOCLOSE
-	end
 
 Route116_Text_ScoundrelMadeOffWithPeeko:
 	.string "Ohhh, what am I to do?\p"

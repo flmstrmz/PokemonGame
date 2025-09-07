@@ -386,6 +386,7 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     TRAINER_CLASS(MIRO, "The Tussler", 20),
     TRAINER_CLASS(KRILL, "The Great Dane", 30),
     TRAINER_CLASS(ACE, "Ace Trainer", 20),
+    TRAINER_CLASS(MEGA, "MEGA Trainer", 25),
 };
 
 static void (* const sTurnActionsFuncsTable[])(void) =

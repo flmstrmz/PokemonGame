@@ -1077,3 +1077,9 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/LittlerootTown_Poke_school/scripts.inc"
 
 	.include "data/maps/Route111_NoMirageTower/scripts.inc"
+
+	.include "data/maps/BattleTower_1F/scripts.inc"
+
+	.include "data/maps/BattleTower_Roof/scripts.inc"
+
+	.include "data/maps/BattleTower_Entrance/scripts.inc"

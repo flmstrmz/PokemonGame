@@ -516,9 +516,9 @@
 #define FLAG_DEFEATED_HO_OH                  0x1DC
 #define FLAG_DEFEATED_LUGIA                  0x1DD
 
-#define FLAG_UNUSED_0x1DE                    0x1DE // Unused Flag
-#define FLAG_UNUSED_0x1DF                    0x1DF // Unused Flag
-#define FLAG_UNUSED_0x1E0                    0x1E0 // Unused Flag
+#define FLAG_ROUTE_105_STARDUST              0x1DE
+#define FLAG_BEAT_WALLY_SHIP                 0x1DF
+#define FLAG_HIDE_WALLY_SHIP                 0x1E0
 #define FLAG_UNUSED_0x1E1                    0x1E1 // Unused Flag
 #define FLAG_UNUSED_0x1E2                    0x1E2 // Unused Flag
 #define FLAG_UNUSED_0x1E3                    0x1E3 // Unused Flag
@@ -846,7 +846,7 @@
 #define FLAG_HIDE_LITTLEROOT_TOWN_BIRCH                             0x31B
 #define FLAG_HIDE_ROUTE_111_REPORTERS                               0x31C
 #define FLAG_ROUTE111_HIDETOWERMAN                                  0x31D 
-#define FLAG_HIDE_ROUTE_120_GABBY_AND_TY_1                          0x31E //unused
+#define FLAG_HIDE_AABHASHLAVARIDGE                                  0x31E
 #define FLAG_ROUTE111_HIDE_KRILL                                    0x31F
 #define FLAG_HIDE_LUGIA                                             0x320
 #define FLAG_HIDE_HO_OH                                             0x321

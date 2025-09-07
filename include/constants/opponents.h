@@ -199,7 +199,7 @@
 #define TRAINER_GRUNT_AQUA_HIDEOUT_8        193
 #define TRAINER_SHAWN                       194
 #define TRAINER_FERNANDO_1                  195
-#define TRAINER_DALTON_1                    196 //unused
+#define TRAINER_DOOR_MAN                    196 
 #define TRAINER_DALTON_2                    197 //unused
 #define TRAINER_DALTON_3                    198 //unused
 #define TRAINER_DALTON_4                    199 //unused
@@ -450,7 +450,7 @@
 #define TRAINER_DENISE                      444
 #define TRAINER_BETH                        445
 #define TRAINER_TARA                        446
-#define TRAINER_MISSY                       447
+#define TRAINER_MISSY                       447 //unused
 #define TRAINER_ALICE                       448
 #define TRAINER_JENNY_1                     449
 #define TRAINER_GRACE                       450
@@ -642,7 +642,7 @@
 #define TRAINER_TRENT_2                     636 //unused
 #define TRAINER_TRENT_3                     637 //unused
 #define TRAINER_TRENT_4                     638 //unused
-#define TRAINER_TRENT_5                     639 //unused
+#define TRAINER_WALLY_SHIP                  639
 #define TRAINER_DEZ_AND_LUKE                640
 #define TRAINER_LEA_AND_JED                 641
 #define TRAINER_KIRA_AND_DAN_1              642
@@ -740,8 +740,8 @@
 #define TRAINER_MAXIE_MOSSDEEP              734
 #define TRAINER_PETE                        735
 #define TRAINER_ISABELLE                    736
-#define TRAINER_ANDRES_1                    737
-#define TRAINER_JOSUE                       738
+#define TRAINER_ANDRES_1                    737 //unused
+#define TRAINER_JOSUE                       738 //unused
 #define TRAINER_CAMRON                      739
 #define TRAINER_CORY_1                      740
 #define TRAINER_CAROLINA                    741
@@ -756,10 +756,10 @@
 #define TRAINER_ALIX                        750
 #define TRAINER_HELENE                      751
 #define TRAINER_MARLENE                     752
-#define TRAINER_DEVAN                       753  //UNUSED
+#define TRAINER_AABHASH3                    753  
 #define TRAINER_JOHNSON                     754
 #define TRAINER_MELINA                      755
-#define TRAINER_BRANDI                      756 //UNUSED
+#define TRAINER_AABHASH_FINAL               756
 #define TRAINER_AISHA                       757
 #define TRAINER_MAKAYLA                     758
 #define TRAINER_FABIAN                      759
@@ -815,10 +815,10 @@
 #define TRAINER_NOLAND                      809
 #define TRAINER_LUCY                        810
 #define TRAINER_BRANDON                     811
-#define TRAINER_ANDRES_2                    812
-#define TRAINER_ANDRES_3                    813
-#define TRAINER_ANDRES_4                    814
-#define TRAINER_ANDRES_5                    815
+#define TRAINER_ANDRES_2                    812 //unused
+#define TRAINER_ANDRES_3                    813 //unused
+#define TRAINER_ANDRES_4                    814 //unused
+#define TRAINER_ANDRES_5                    815 //unused
 #define TRAINER_CORY_2                      816
 #define TRAINER_CORY_3                      817
 #define TRAINER_CORY_4                      818

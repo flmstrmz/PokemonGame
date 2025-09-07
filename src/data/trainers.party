@@ -269,7 +269,6 @@ Class: Cooltrainer
 Pic: Cooltrainer M
 Gender: Male
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -597,7 +596,6 @@ Class: Aqua Admin
 Pic: Aqua Admin M
 Gender: Male
 Music: Aqua
-Items: Super Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -662,7 +660,6 @@ Class: Aqua Leader
 Pic: Aqua Leader Archie
 Gender: Male
 Music: Aqua
-Items: Super Potion / Super Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -913,32 +910,6 @@ Ability: Technician
 Level: 34  
 Serious Nature  
 
-=== TRAINER_AUSTINA ===
-Name: AUSTINA
-Class: Tuber F
-Pic: Tuber F
-Gender: Female
-Music: Girl
-Double Battle: No
-AI: Check Bad Move
-
-Marill
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_GWEN ===
-Name: GWEN
-Class: Tuber F
-Pic: Tuber F
-Gender: Female
-Music: Girl
-Double Battle: No
-AI: Check Bad Move
-
-Marill
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 === TRAINER_LOLA_2 ===
 Name: LOLA
 Class: Tuber F
@@ -1045,9 +1016,8 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Marill
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Haunter
+Level: 47
 
 === TRAINER_RICKY_2 ===
 Name: RICKY
@@ -1150,7 +1120,6 @@ Class: Cooltrainer
 Pic: Cooltrainer M
 Gender: Male
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -1181,7 +1150,6 @@ Class: Cooltrainer
 Pic: Cooltrainer M
 Gender: Male
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -1398,7 +1366,6 @@ Class: Cooltrainer
 Pic: Cooltrainer M
 Gender: Male
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -1420,7 +1387,6 @@ Class: Cooltrainer
 Pic: Cooltrainer M
 Gender: Male
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -1726,7 +1692,6 @@ Class: Cooltrainer
 Pic: Cooltrainer F
 Gender: Female
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -1748,7 +1713,6 @@ Class: Cooltrainer
 Pic: Cooltrainer F
 Gender: Female
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -2512,13 +2476,11 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Wailmer
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Banette
+Level: 46
 
-Horsea
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Seadra
+Level: 47
 
 === TRAINER_MARK ===
 Name: MARK
@@ -2618,9 +2580,9 @@ Music: Swimmer
 Double Battle: No
 AI: Check Bad Move
 
-Carvanha
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Sharpedo
+Level: 47
+
 
 === TRAINER_DOMINIK ===
 Name: DOMINIK
@@ -2631,9 +2593,11 @@ Music: Swimmer
 Double Battle: No
 AI: Check Bad Move
 
-Tentacool
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Starmie
+Level: 45
+
+Swanna
+Level: 46
 
 === TRAINER_DOUGLAS ===
 Name: DOUGLAS
@@ -2644,13 +2608,8 @@ Music: Swimmer
 Double Battle: No
 AI: Check Bad Move
 
-Tentacool
-Level: 24
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-Tentacool
-Level: 24
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Tentacruel
+Level: 47
 
 === TRAINER_DARRIN ===
 Name: DARRIN
@@ -2661,17 +2620,8 @@ Music: Swimmer
 Double Battle: No
 AI: Check Bad Move
 
-Tentacool
-Level: 24
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-Wingull
-Level: 24
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-Tentacool
-Level: 24
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Barbaracle
+Level: 48
 
 === TRAINER_TONY_1 ===
 Name: TONY
@@ -2682,9 +2632,11 @@ Music: Swimmer
 Double Battle: No
 AI: Check Bad Move
 
-Carvanha
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Araquanid
+Level: 47
+
+Basculegion
+Level: 48
 
 === TRAINER_JEROME ===
 Name: JEROME
@@ -2695,9 +2647,8 @@ Music: Swimmer
 Double Battle: No
 AI: Check Bad Move
 
-Tentacruel
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Crawdaunt
+Level: 48
 
 === TRAINER_MATTHEW ===
 Name: MATTHEW
@@ -2708,9 +2659,8 @@ Music: Swimmer
 Double Battle: No
 AI: Check Bad Move
 
-Carvanha
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Overqwil
+Level: 47
 
 === TRAINER_DAVID ===
 Name: DAVID
@@ -2721,13 +2671,8 @@ Music: Swimmer
 Double Battle: No
 AI: Check Bad Move
 
-Tentacool
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Carvanha
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Gorebyss
+Level: 46
 
 === TRAINER_SPENCER ===
 Name: SPENCER
@@ -2968,66 +2913,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Wailmer
 Level: 33
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_TONY_2 ===
-Name: TONY
-Class: Swimmer M
-Pic: Swimmer M
-Gender: Male
-Music: Swimmer
-Double Battle: No
-AI: Check Bad Move
-
-Sharpedo
-Level: 30
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-=== TRAINER_TONY_3 ===
-Name: TONY
-Class: Swimmer M
-Pic: Swimmer M
-Gender: Male
-Music: Swimmer
-Double Battle: No
-AI: Check Bad Move
-
-Sharpedo
-Level: 33
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-=== TRAINER_TONY_4 ===
-Name: TONY
-Class: Swimmer M
-Pic: Swimmer M
-Gender: Male
-Music: Swimmer
-Double Battle: No
-AI: Check Bad Move
-
-Staryu
-Level: 34
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Sharpedo
-Level: 36
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-=== TRAINER_TONY_5 ===
-Name: TONY
-Class: Swimmer M
-Pic: Swimmer M
-Gender: Male
-Music: Swimmer
-Double Battle: No
-AI: Check Bad Move
-
-Starmie
-Level: 37
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
-Sharpedo
-Level: 39
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
 === TRAINER_TAKAO ===
 Name: TAKAO
@@ -3976,77 +3861,8 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Solrock
-Level: 31
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_CAMERON_2 ===
-Name: CAMERON
-Class: Psychic
-Pic: Psychic M
-Gender: Male
-Music: Intense
-Double Battle: No
-AI: Check Bad Move
-
-Kadabra
-Level: 33
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-Solrock
-Level: 33
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-=== TRAINER_CAMERON_3 ===
-Name: CAMERON
-Class: Psychic
-Pic: Psychic M
-Gender: Male
-Music: Intense
-Double Battle: No
-AI: Check Bad Move
-
-Kadabra
-Level: 38
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-Solrock
-Level: 38
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-=== TRAINER_CAMERON_4 ===
-Name: CAMERON
-Class: Psychic
-Pic: Psychic M
-Gender: Male
-Music: Intense
-Double Battle: No
-AI: Check Bad Move
-
-Kadabra
-Level: 41
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Solrock
-Level: 41
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-=== TRAINER_CAMERON_5 ===
-Name: CAMERON
-Class: Psychic
-Pic: Psychic M
-Gender: Male
-Music: Intense
-Double Battle: No
-AI: Check Bad Move
-
-Solrock
-Level: 45
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
-Alakazam
-Level: 45
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+Slowbro
+Level: 48
 
 === TRAINER_JACLYN ===
 Name: JACLYN
@@ -4854,22 +4670,32 @@ AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWIT
 Dudunsparce @ Rocky Helmet  
 Ability: Rattled  
 Level: 45  
-EVs: 200 HP / 100 Atk / 150 Def  
+EVs: 175 HP / 75 Atk / 125 Def  
 Relaxed Nature  
 - Yawn  
 - Lunge  
 - Body Press  
-- Hyper Drill  
+- Hyper Drill 
 
-Wyrdeer  
+Stoutland @ Salac Berry  
 Ability: Intimidate  
 Level: 45  
-EVs: 225 HP / 45 Atk / 45 SpA / 145 SpD  
-Sassy Nature  
-- Psyshield Bash  
-- Thunderbolt  
-- Reflect  
+EVs: 200 HP / 150 Atk / 100 Spe  
+Jolly Nature  
+- Play Rough  
+- Retaliate  
+- Fire Fang 
+- Reversal 
+
+Wyrdeer @ Colbur Berry  
+Ability: Sap Sipper  
+Level: 45  
+EVs: 185 HP / 195 SpA / 75 Spe  
+Timid Nature  
 - Psychic  
+- Hyper Voice  
+- Energy Ball  
+- Shadow Ball  
 
 Zoroark-Hisui @ Throat Spray 
 Ability: Illusion  
@@ -4880,16 +4706,6 @@ Timid Nature
 - Dark Pulse  
 - Grass Knot  
 - Hyper Voice 
-
-Stoutland @ Salac Berry  
-Ability: Intimidate  
-Level: 46  
-EVs: 225 HP / 125 Atk / 100 Spe  
-Jolly Nature  
-- Play Rough  
-- Retaliate  
-- Iron Head  
-- Reversal  
 
 Ursaluna @ Flame Orb  
 Ability: Guts  
@@ -4907,7 +4723,6 @@ Class: Leader
 Pic: Leader Winona
 Gender: Female
 Music: Female
-Items: Hyper Potion / Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Risky
 
@@ -4957,7 +4772,6 @@ Class: Leader
 Pic: Leader Tate And Liza
 Gender: Male
 Music: Female
-Items: Hyper Potion / Hyper Potion / Hyper Potion / Hyper Potion
 Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -4999,7 +4813,6 @@ Class: Leader
 Pic: Leader Juan
 Gender: Male
 Music: Male
-Items: Hyper Potion / Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -6513,13 +6326,8 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Wailmer
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-Tentacruel
-Level: 25
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Gyarados
+Level: 48
 
 === TRAINER_ELLIOT_2 ===
 Name: ELLIOT
@@ -6996,13 +6804,11 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Zigzagoon
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Poliwrath
+Level: 48
 
-Electrike
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Raticate
+Level: 49
 
 === TRAINER_ISAIAH_1 ===
 Name: ISAIAH
@@ -7674,8 +7480,8 @@ Gender: Female
 Music: Girl
 Double Battle: No
 
-Marill
-Level: 26
+Azumarill
+Level: 48
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_LAO_1 ===
@@ -8157,13 +7963,12 @@ Music: Swimmer
 Double Battle: No
 AI: Check Bad Move
 
-Wingull
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Slowking
+Level: 50
 
-Wailmer
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Mantine
+Level: 50
+
 
 === TRAINER_IMANI ===
 Name: IMANI
@@ -8174,9 +7979,8 @@ Music: Swimmer
 Double Battle: No
 AI: Check Bad Move
 
-Marill
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Poliwrath
+Level: 46
 
 === TRAINER_KYLA ===
 Name: KYLA
@@ -8187,9 +7991,12 @@ Music: Swimmer
 Double Battle: No
 AI: Check Bad Move
 
-Wailmer
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Golduck
+Level: 46
+
+Gyarados
+Level: 47
+
 
 === TRAINER_DENISE ===
 Name: DENISE
@@ -8200,13 +8007,20 @@ Music: Swimmer
 Double Battle: No
 AI: Check Bad Move
 
-Wingull
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Pyukumuku
+Level: 46
 
-Goldeen
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Pyukumuku
+Level: 47
+
+Pyukumuku
+Level: 49
+
+Pyukumuku
+Level: 50
+
+Pyukumuku
+Level: 50
 
 === TRAINER_BETH ===
 Name: BETH
@@ -8217,9 +8031,8 @@ Music: Swimmer
 Double Battle: No
 AI: Check Bad Move
 
-Goldeen
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Whiscash
+Level: 47
 
 === TRAINER_TARA ===
 Name: TARA
@@ -8230,26 +8043,11 @@ Music: Swimmer
 Double Battle: No
 AI: Check Bad Move
 
-Horsea
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Seadra
+Level: 47
 
-Marill
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_MISSY ===
-Name: MISSY
-Class: Swimmer F
-Pic: Swimmer F
-Gender: Female
-Music: Swimmer
-Double Battle: No
-AI: Check Bad Move
-
-Goldeen
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Seismitoad
+Level: 49
 
 === TRAINER_ALICE ===
 Name: ALICE
@@ -8260,17 +8058,8 @@ Music: Swimmer
 Double Battle: No
 AI: Check Bad Move
 
-Goldeen
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Wingull
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Goldeen
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Huntail
+Level: 47
 
 === TRAINER_JENNY_1 ===
 Name: JENNY
@@ -9142,13 +8931,11 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Spheal
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 Machoke
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 48
+
+Conkeldurr
+Level: 49
 
 === TRAINER_ERNEST_2 ===
 Name: ERNEST
@@ -9278,7 +9065,6 @@ Class: Cooltrainer 2
 Pic: Cooltrainer F
 Gender: Female
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -9360,7 +9146,6 @@ Class: Cooltrainer
 Pic: Cooltrainer F
 Gender: Female
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -10401,9 +10186,8 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Sandslash
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Drifblim
+Level: 49
 
 === TRAINER_LYDIA_2 ===
 Name: LYDIA
@@ -10983,7 +10767,6 @@ Class: Cooltrainer
 Pic: Cooltrainer F
 Gender: Female
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -11379,7 +11162,6 @@ Class: Cooltrainer
 Pic: Cooltrainer M
 Gender: Male
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Setup First Turn
 
@@ -11499,7 +11281,6 @@ Class: Magma Leader
 Pic: Magma Leader Maxie
 Gender: Male
 Music: Magma
-Items: Super Potion / Super Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -12204,13 +11985,11 @@ Music: Girl
 Double Battle: Yes
 AI: Check Bad Move
 
-Volbeat
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Basculegion
+Level: 49
 
-Illumise
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Houndstone
+Level: 48
 
 === TRAINER_KIRA_AND_DAN_2 ===
 Name: KIRA & DAN
@@ -12286,7 +12065,6 @@ Class: Cooltrainer
 Pic: Cooltrainer M
 Gender: Male
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -12450,8 +12228,61 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Kirlia
-Level: 25 
+Kirlia (M)
+Shiny: Yes
+Level: 25
+
+=== TRAINER_WALLY_SHIP ===
+Name: WALLY
+Class: Rival
+Pic: Wally
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_ACE_POKEMON
+
+Gloom 
+Ability: Effect Spore  
+Level: 47  
+EVs: 200 HP / 200 SpA / 4 Spe  
+Modest Nature  
+- Leech Seed  
+- Dazzling Gleam  
+- Sludge Bomb  
+- Giga Drain  
+
+Barbaracle  
+Ability: Tough Claws  
+Level: 48  
+EVs: 200 HP / 200 Atk  
+Adamant Nature  
+- Razor Shell  
+- Brick Break  
+- Stealth Rock  
+- Low Kick  
+
+Fraxure 
+Ability: Rivalry  
+Level: 47  
+Shiny: Yes  
+EVs: 200 Atk / 200 Spe  
+Jolly Nature  
+- Rock Slide  
+- Dragon Claw  
+- Iron Head  
+- Taunt  
+
+Gallade @ Expert Belt  
+Ability: Steadfast  
+Level: 49  
+Shiny: Yes  
+EVs: 200 Atk / 200 Spe  
+Jolly Nature  
+- Close Combat  
+- Psycho Cut  
+- Throat Chop  
+- Earthquake  
+
 
 === TRAINER_WALLY_VR_2 ===
 Name: WALLY
@@ -12886,7 +12717,6 @@ Class: Cooltrainer
 Pic: Cooltrainer M
 Gender: Male
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -13052,18 +12882,16 @@ Double Battle: Yes
 AI: Check Bad Move
 
 Dustox
-Level: 27
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Gust
-- Psybeam
+Level: 47
+- Leech Life
+- Venoshock
 - Toxic
 - Protect
 
 Beautifly
-Level: 27
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Gust
-- Mega Drain
+Level: 46
+- Air Cutter
+- Bug Buzz
 - Attract
 - Stun Spore
 
@@ -13292,23 +13120,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Sharpedo
 Level: 49
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_LISA_AND_RAY ===
-Name: LISA & RAY
-Class: Sis And Bro
-Pic: Sis And Bro
-Gender: Male
-Music: Swimmer
-Double Battle: Yes
-AI: Check Bad Move
-
-Goldeen
-Level: 27
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Tentacool
-Level: 25
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_CHRIS ===
@@ -13957,7 +13768,6 @@ Class: Cooltrainer
 Pic: Cooltrainer F
 Gender: Female
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -14016,40 +13826,6 @@ Marill
 Level: 15
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_ANDRES_1 ===
-Name: ANDRES
-Class: Ruin Maniac
-Pic: Ruin Maniac
-Gender: Male
-Music: Hiker
-Double Battle: No
-AI: Check Bad Move
-
-Sandshrew
-Level: 25
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Sandshrew
-Level: 25
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-=== TRAINER_JOSUE ===
-Name: JOSUE
-Class: Bird Keeper
-Pic: Bird Keeper
-Gender: Male
-Music: Cool
-Double Battle: No
-AI: Check Bad Move
-
-Taillow
-Level: 25
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Wingull
-Level: 25
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
 === TRAINER_CAMRON ===
 Name: CAMRON
 Class: Triathlete
@@ -14059,9 +13835,8 @@ Music: Swimmer
 Double Battle: No
 AI: Check Bad Move
 
-Staryu
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Slowbro
+Level: 48
 
 === TRAINER_CORY_1 ===
 Name: CORY
@@ -14072,17 +13847,11 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Wingull
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Pelipper 
+Level: 48
 
-Machop
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Tentacool
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Primarina 
+Level: 49
 
 === TRAINER_CAROLINA ===
 Name: CAROLINA
@@ -14090,21 +13859,11 @@ Class: Cooltrainer
 Pic: Cooltrainer F
 Gender: Female
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Manectric
-Level: 24
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Swellow
-Level: 24
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Manectric
-Level: 24
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Clawitzer 
+Level: 48
 
 === TRAINER_ELIJAH ===
 Name: ELIJAH
@@ -14115,13 +13874,8 @@ Music: Cool
 Double Battle: No
 AI: Check Bad Move
 
-Skarmory
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Skarmory
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Blastoise
+Level: 47
 
 === TRAINER_CELIA ===
 Name: CELIA
@@ -14313,23 +14067,6 @@ Fearow (M)
 Ability: Sniper  
 Level: 41  
 
-=== TRAINER_DEVAN ===
-Name: DEVAN
-Class: Hiker
-Pic: Hiker
-Gender: Male
-Music: Hiker
-Double Battle: No
-AI: Check Bad Move
-
-Geodude
-Level: 8
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Geodude
-Level: 8
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 === TRAINER_JOHNSON ===
 Name: JOHNSON
 Class: Youngster
@@ -14399,7 +14136,6 @@ Class: Expert
 Pic: Expert F
 Gender: Female
 Music: Intense
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -14460,7 +14196,6 @@ Class: Cooltrainer
 Pic: Cooltrainer M
 Gender: Male
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -14577,7 +14312,6 @@ Class: Cooltrainer
 Pic: Cooltrainer F
 Gender: Female
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -16534,170 +16268,6 @@ Beldum
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_ANDRES_2 ===
-Name: ANDRES
-Class: Ruin Maniac
-Pic: Ruin Maniac
-Gender: Male
-Music: Hiker
-Double Battle: No
-AI: Check Bad Move
-
-Sandshrew
-Level: 31
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-Sandshrew
-Level: 31
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-=== TRAINER_ANDRES_3 ===
-Name: ANDRES
-Class: Ruin Maniac
-Pic: Ruin Maniac
-Gender: Male
-Music: Hiker
-Double Battle: No
-AI: Check Bad Move
-
-Nosepass
-Level: 33
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-Sandshrew
-Level: 33
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-Sandshrew
-Level: 33
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-=== TRAINER_ANDRES_4 ===
-Name: ANDRES
-Class: Ruin Maniac
-Pic: Ruin Maniac
-Gender: Male
-Music: Hiker
-Double Battle: No
-AI: Check Bad Move
-
-Nosepass
-Level: 35
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Sandshrew
-Level: 35
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Sandshrew
-Level: 35
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-=== TRAINER_ANDRES_5 ===
-Name: ANDRES
-Class: Ruin Maniac
-Pic: Ruin Maniac
-Gender: Male
-Music: Hiker
-Double Battle: No
-AI: Check Bad Move
-
-Nosepass
-Level: 37
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
-Sandslash
-Level: 37
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
-Sandslash
-Level: 37
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
-=== TRAINER_CORY_2 ===
-Name: CORY
-Class: Sailor
-Pic: Sailor
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Wingull
-Level: 30
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-Machop
-Level: 30
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-Tentacool
-Level: 30
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-=== TRAINER_CORY_3 ===
-Name: CORY
-Class: Sailor
-Pic: Sailor
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Pelipper
-Level: 32
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-Machop
-Level: 32
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-Tentacool
-Level: 32
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-=== TRAINER_CORY_4 ===
-Name: CORY
-Class: Sailor
-Pic: Sailor
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Pelipper
-Level: 34
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Machop
-Level: 34
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Tentacruel
-Level: 34
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-=== TRAINER_CORY_5 ===
-Name: CORY
-Class: Sailor
-Pic: Sailor
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move
-
-Pelipper
-Level: 36
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
-Machoke
-Level: 36
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
-Tentacruel
-Level: 36
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
 === TRAINER_PABLO_2 ===
 Name: PABLO
 Class: Triathlete
@@ -16864,7 +16434,6 @@ Class: Cooltrainer
 Pic: Cooltrainer F
 Gender: Female
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -16882,7 +16451,6 @@ Class: Cooltrainer
 Pic: Cooltrainer F
 Gender: Female
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -16904,7 +16472,6 @@ Class: Cooltrainer
 Pic: Cooltrainer F
 Gender: Female
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -16926,7 +16493,6 @@ Class: Cooltrainer
 Pic: Cooltrainer F
 Gender: Female
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -17236,86 +16802,6 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
 Swellow
 Level: 37
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
-=== TRAINER_THALIA_2 ===
-Name: THALIA
-Class: Beauty
-Pic: Beauty
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-
-Wailmer
-Level: 34
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-Horsea
-Level: 34
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-
-=== TRAINER_THALIA_3 ===
-Name: THALIA
-Class: Beauty
-Pic: Beauty
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-
-Luvdisc
-Level: 36
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-Wailmer
-Level: 36
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-Seadra
-Level: 36
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
-
-=== TRAINER_THALIA_4 ===
-Name: THALIA
-Class: Beauty
-Pic: Beauty
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-
-Luvdisc
-Level: 38
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Wailmer
-Level: 38
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Seadra
-Level: 38
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-=== TRAINER_THALIA_5 ===
-Name: THALIA
-Class: Beauty
-Pic: Beauty
-Gender: Female
-Music: Female
-Double Battle: No
-AI: Check Bad Move
-
-Luvdisc
-Level: 40
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
-Wailord
-Level: 40
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
-
-Kingdra
-Level: 40
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
 === TRAINER_MARIELA ===
@@ -17864,47 +17350,134 @@ Music: Cool
 Double Battle: No
 AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
 
-Pawniard @ Rocky Helmet  
-Ability: Inner Focus  
-Level: 23
-Shiny: Yes
-EVs: 96 HP / 96 Atk / 4 SpD  
-Adamant Nature  
+Pawniard (M) @ Rocky Helmet  
+Ability: Defiant  
+Level: 23  
+Shiny: Yes  
+EVs: 105 HP / 105 Atk / 5 Spe  
+Impish Nature  
+- Sucker Punch  
 - Metal Claw  
 - Torment  
-- Sucker Punch  
-- Fury Cutter 
+- Fury Cutter  
 
-Meditite (F) @ Expert Belt  
-Ability: Pure Power  
-Level: 23  
-EVs: 48 Atk / 48 SpA / 96 Spe  
-Naive Nature  
-- Force Palm  
-- Psybeam  
-- Fake Out  
+Snubbull (M)  
+Ability: Intimidate  
+Level: 23   
+EVs: 55 HP / 55 Atk / 105 SpD  
+Adamant Nature  
+- Retaliate  
+- Thunder Fang  
+- Fire Fang  
+- Ice Fang  
+
+Whirlipede (M) @ Misty Seed  
+Ability: Poison Point  
+Level: 24  
+EVs: 105 HP / 50 Atk / 50 SpA  
+Brave Nature  
+- Poison Tail  
+- Bug Bite  
+- Venoshock  
+
+Munchlax (M) @ Aguav Berry  
+Ability: Pickup  
+Level: 24  
+Shiny: Yes  
+EVs: 105 HP / 105 Atk / 5 Def  
+Relaxed Nature  
+- Covet  
+- Bite  
+- Lick  
 - Rock Tomb  
 
-Snubbull (M) @ Misty Seed  
-Ability: Intimidate  
-Level: 24  
-EVs: 96 HP / 96 Atk / 4 SpD
-Adamant Nature  
-- Bite  
-- Psychic Fangs  
-- Retaliate  
-- Ice Fang
+=== TRAINER_AABHASH3 ===
+Name: AABHASH
+Class: AABHASH
+Pic: AABHASH
+Gender: Female
+Music: Cool
+Double Battle: No
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
 
-Munchlax @ Aguav Berry  
-Ability: Gluttony  
-Level: 25  
-Shiny: Yes   
-EVs: 96 HP / 96 Atk / 4 SpD  
+Pawniard (M) @ Rocky Helmet  
+Ability: Defiant  
+Level: 44  
+Shiny: Yes  
+EVs: 225 HP / 225 Def / 8 SpD  
+Relaxed Nature  
+- Assurance  
+- Iron Head  
+- Torment  
+- Brick Break  
+
+Granbull (M)  
+Ability: Intimidate  
+Level: 44   
+EVs: 78 HP / 155 Atk / 225 SpD  
 Adamant Nature  
-- Snore
+- Play Rough  
+- Thunder Fang  
+- Psychic Fangs  
 - Crunch  
-- Covet  
-- Lick
+
+Snorlax (M) @ Aguav Berry  
+Ability: Thick Fat  
+Level: 45  
+Shiny: Yes  
+EVs: 225 HP / 225 Atk / 8 SpD  
+- Body Slam  
+- Heavy Slam  
+- Hammer Arm  
+- Rock Slide  
+
+Scolipede (M) @ Silver Powder  
+Ability: Poison Point  
+Level: 45  
+EVs: 225 HP / 225 Atk / 8 Spe  
+Jolly Nature  
+- Pin Missile  
+- Bug Bite  
+- Cross Poison  
+- Earthquake  
+
+Swampert  
+Ability: Torrent  
+Level: 45    
+EVs: 225 HP / 225 SpA / 8 SpD  
+Modest Nature  
+- Scald  
+- Mud Bomb  
+- Icy Wind  
+- Uproar  
+
+=== TRAINER_AABHASH_FINAL ===
+Name: AABHASH
+Class: AABHASH
+Pic: AABHASH
+Gender: Female
+Music: Cool
+Double Battle: No
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES / AI_FLAG_ACE_POKEMON
+
+Scolipede  
+Ability: Poison Point  
+
+Granbull  
+Ability: Intimidate  
+
+Wobbuffet  
+Ability: Shadow Tag   
+
+Snorlax  
+Ability: Immunity  
+
+Swampert  
+Ability: Torrent  
+
+Kingambit  
+Ability: Defiant  
+
 
 === TRAINER_MIRO ===
 Name: MIRO
@@ -18169,3 +17742,50 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Work Up  
 - Mud-Slap
 
+=== TRAINER_DOOR_MAN ===
+Name: Door Man
+Class: MEGA
+Pic: Kindler
+Gender: Male
+Music: Suspicious
+Double Battle: No
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
+
+Carbink  
+Ability: Clear Body  
+Level: 50
+EVs: 248 HP / 252 SpA / 8 SpD  
+Modest Nature  
+- Stealth Rock  
+- Moonblast  
+- Sandstorm
+- Power Gem  
+
+Malamar (M)  
+Ability: Contrary  
+Level: 50  
+EVs: 248 HP / 252 Atk / 8 SpD  
+Brave Nature  
+- Trick Room  
+- Lunge  
+- Psycho Cut  
+- Throat Chop
+
+Eelektross (M)  
+Ability: Levitate  
+Level: 50
+EVs: 252 HP / 252 Atk / 4 SpD  
+Adamant Nature  
+- Acrobatics  
+- Liquidation  
+- U-turn  
+- Volt Switch  
+
+Steelix (M) @ Steelixite  
+Ability: Sheer Force  
+Level: 50
+Shiny: Yes  
+- Iron Tail  
+- Payback  
+- Earthquake  
+- Sandstorm  

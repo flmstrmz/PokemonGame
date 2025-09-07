@@ -26,8 +26,8 @@ Route105_OnFrame:
 	.2byte 0
 
 Route105_EventScript_Foster::
-	trainerbattle_single TRAINER_FOSTER, Route105_Text_FosterIntro, Route105_Text_FosterDefeated
-	msgbox Route105_Text_FosterPostBattle, MSGBOX_AUTOCLOSE
+	msgbox MegaTrainer_No_Fight MSGBOX_DEFAULT
+	closemessage
 	end
 
 Route105_EventScript_Luis::
@@ -48,32 +48,6 @@ Route105_EventScript_Beverly::
 Route105_EventScript_Imani::
 	trainerbattle_single TRAINER_IMANI, Route105_Text_ImaniIntro, Route105_Text_ImaniDefeated
 	msgbox Route105_Text_ImaniPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route105_EventScript_Josue::
-	trainerbattle_single TRAINER_JOSUE, Route105_Text_JosueIntro, Route105_Text_JosueDefeated
-	msgbox Route105_Text_JosuePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route105_EventScript_Andres::
-	trainerbattle_single TRAINER_ANDRES_1, Route105_Text_AndresIntro, Route105_Text_AndresDefeated, Route105_EventScript_AndresRegisterMatchCallAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route105_EventScript_AndresRematch
-	msgbox Route105_Text_AndresPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route105_EventScript_AndresRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route105_Text_AndresRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ANDRES_1
-	release
-	end
-
-Route105_EventScript_AndresRematch::
-	trainerbattle_rematch TRAINER_ANDRES_1, Route105_Text_AndresRematchIntro, Route105_Text_AndresRematchDefeated
-	msgbox Route105_Text_AndresRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route104_Text_DadPokenavCall:

@@ -508,7 +508,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route111_EventScript_StevenReady",
+      "script": "Route111_EventScript_StevenScript",
       "flag": "FLAG_ROUTE111_HIDE_STEVEN"
     },
     {
@@ -597,7 +597,7 @@
       "x": 31,
       "y": 113,
       "elevation": 0,
-      "dest_map": "MAP_TRAINER_HILL_ENTRANCE",
+      "dest_map": "MAP_BATTLE_TOWER_ENTRANCE",
       "dest_warp_id": "0"
     }
   ],

@@ -115,7 +115,10 @@ VerdanturfTown_WandasHouse_Text_WallysNextDoor:
 
 VerdanturfTown_WandasHouse_Text_WallySlippedOff:
 	.string "WALLY's gone away…\n"
-	.string "He slipped off on his own…$"
+	.string "He slipped off on his own…\p"
+	.string "Please look out for Wally if\n"
+	.string "you run into him, he really\l"
+	.string "looks up to you!$"
 
 VerdanturfTown_WandasHouse_Text_WallyGoneThatFar:
 	.string "UNCLE: Is that right?\n"

@@ -4131,7 +4131,7 @@
       "border_filepath": "data/layouts/MarineCave_End/border.bin",
       "blockdata_filepath": "data/layouts/MarineCave_End/map.bin"
     },
-    {
+        {
       "id": "LAYOUT_TRAINER_HILL_ENTRANCE",
       "name": "TrainerHill_Entrance_Layout",
       "width": 19,
@@ -4420,6 +4420,36 @@
       "secondary_tileset": "gTileset_PokemonSchool",
       "border_filepath": "data/layouts/LittlerootTown_Poke_school/border.bin",
       "blockdata_filepath": "data/layouts/LittlerootTown_Poke_school/map.bin"
+    },
+    {
+      "id": "LAYOUT_BATTLE_TOWER_1F",
+      "name": "BattleTower_1F_Layout",
+      "width": 16,
+      "height": 16,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_TrainerHill",
+      "border_filepath": "data/layouts/BattleTower_1F/border.bin",
+      "blockdata_filepath": "data/layouts/BattleTower_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_BATTLE_TOWER_ROOF",
+      "name": "BattleTower_Roof_Layout",
+      "width": 25,
+      "height": 16,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_TrainerHill",
+      "border_filepath": "data/layouts/BattleTower_Roof/border.bin",
+      "blockdata_filepath": "data/layouts/BattleTower_Roof/map.bin"
+    },
+    {
+      "id": "LAYOUT_BATTLE_TOWER_ENTRANCE",
+      "name": "BattleTower_Entrance_Layout",
+      "width": 19,
+      "height": 17,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_TrainerHill",
+      "border_filepath": "data/layouts/BattleTower_Entrance/border.bin",
+      "blockdata_filepath": "data/layouts/BattleTower_Entrance/map.bin"
     }
   ]
 }

@@ -365,7 +365,8 @@
 #define TRAINER_CLASS_MIRO           0x46
 #define TRAINER_CLASS_KRILL          0x47
 #define TRAINER_CLASS_ACE            0x48
-#define TRAINER_CLASS_COUNT          0x49
+#define TRAINER_CLASS_MEGA           0x49
+#define TRAINER_CLASS_COUNT          0x4a
 
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // standard male encounter music
 #define TRAINER_ENCOUNTER_MUSIC_FEMALE       1 // standard female encounter music
