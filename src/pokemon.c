@@ -75,6 +75,7 @@ static void DecryptBoxMon(struct BoxPokemon *boxMon);
 static void Task_PlayMapChosenOrBattleBGM(u8 taskId);
 static bool8 ShouldSkipFriendshipChange(void);
 static void RemoveIVIndexFromList(u8 *ivs, u8 selectedIv);
+static bool8 sPartyBackedUp = FALSE;
 void TrySpecialOverworldEvo();
 
 EWRAM_DATA static u8 sLearningMoveTableID = 0;
@@ -86,6 +87,7 @@ EWRAM_DATA struct SpriteTemplate gMultiuseSpriteTemplate = {0};
 EWRAM_DATA static struct MonSpritesGfxManager *sMonSpritesGfxManagers[MON_SPR_GFX_MANAGERS_COUNT] = {NULL};
 EWRAM_DATA static u8 sTriedEvolving = 0;
 EWRAM_DATA u16 gFollowerSteps = 0;
+EWRAM_DATA static struct Pokemon sPartyBackup[PARTY_SIZE];
 
 #include "data/moves_info.h"
 #include "data/abilities.h"
@@ -6963,4 +6965,58 @@ void UpdateDaysPassedSinceFormChange(u16 days)
             }
         }
     }
+}
+
+void BackupPlayerParty(void)
+{
+    int i;
+    if (sPartyBackedUp)
+        return;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+        sPartyBackup[i] = gPlayerParty[i];
+
+    sPartyBackedUp = TRUE;
+}
+
+void RestorePlayerPartyFromBackup(void)
+{
+    int i;
+    if (!sPartyBackedUp)
+        return;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+        gPlayerParty[i] = sPartyBackup[i];
+
+    sPartyBackedUp = FALSE;
+    CalculatePlayerPartyCount();
+}
+
+void ReducePlayerPartyLevelTo50(void)
+{
+    const u8 targetLevel = 50;
+
+    // Keep originals so you can restore after the special battle
+    BackupPlayerParty();
+
+    for (int i = 0; i < PARTY_SIZE; i++)
+    {
+        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+        if (species == SPECIES_NONE)
+            continue;
+        if (GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG, NULL))
+            continue;
+
+        // Level → EXP using existing tables (no new helper function)
+        u8 growth = gSpeciesInfo[species].growthRate;
+        u32 exp   = gExperienceTables[growth][targetLevel];
+
+        // Order matters on some forks: EXP first, then LEVEL, then stats
+        SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
+        SetMonData(&gPlayerParty[i], MON_DATA_LEVEL, &targetLevel);
+        CalculateMonStats(&gPlayerParty[i]);
+    }
+
+    // Count unchanged, but fine to refresh
+    CalculatePlayerPartyCount();
 }

@@ -254,6 +254,9 @@ gSpecials::
 	def_special ReducePlayerPartyToSelectedMons
 	def_special BedroomPC
 	def_special PlayerPC
+	def_special ReducePlayerPartyLevelTo50
+	def_special RestorePlayerPartyFromBackup
+	def_special BackupPlayerParty
 	def_special FieldShowRegionMap
 	def_special GetInGameTradeSpeciesInfo
 	def_special CreateInGameTradePokemon
