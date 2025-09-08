@@ -4,7 +4,7 @@ BattleTower_Entrance_MapScripts::
 BattleTower_Entrance_EventScript_EntryTrigger::
 	lockall
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
-	msgbox TrainerHill_Entrance_Text_WelcomeToTrainerHill, MSGBOX_YESNO
+	msgbox BattleTower_Entrance_Text_WelcomeToBattleTower, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, BattleTower_Entrance_EventScript_AscentionTrial
 	msgbox BattleTower_Entrance_Text_NotReady, MSGBOX_AUTOCLOSE
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
@@ -16,21 +16,53 @@ BattleTower_Entrance_EventScript_AscentionTrial::
 	msgbox BattleTower_Entrance_Text_ExplainRules, MSGBOX_YESNO
 	call_if_eq VAR_RESULT, YES, BattleTower_Entrance_EventScript_AscentionTrialRules
 	msgbox BattleTower_Entrance_Text_AscentionStart, MSGBOX_AUTOCLOSE
+	setvar VAR_BATTLETOWER, 2
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
 	releaseall
 	end
+
+BattleTower_Entrance_EventScript_QuitChallenge::
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	msgbox BattleTower_Entrance_Text_QuitChallenge MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, BattleTower_Entrance_EventScript_Disappointing
+	msgbox BattleTower_Entrance_Text_OtherWay, MSGBOX_AUTOCLOSE
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
+	waitmovement 0
+	end
+
+BattleTower_Entrance_EventScript_Disappointing::
+	msgbox BattleTower_Entrance_Text_Disappointing, MSGBOX_AUTOCLOSE
+	setvar VAR_BATTLETOWER, 1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	waitmovement 0
+	end
+
+
+BattleTower_Entrance_Text_Disappointing:
+	.string "Oh... thats disappointing\p"
+	.string "I would've expected more from one\n"
+	.string "on our VIP list...\p"
+	.string "Well, can you make way for other\n"
+	.string "real challengers then?...$"
+
+BattleTower_Entrance_Text_OtherWay:
+	.string "Then the entrance is the other way,\n"
+	.string "silly!$"
+
+BattleTower_Entrance_Text_QuitChallenge:
+	.string "Uhmm, are you trying to quit?$"
 
 BattleTower_Entrance_EventScript_AscentionTrialRules::
 	msgbox BattleTower_Entrance_Text_RulesExplanation, MSGBOX_AUTOCLOSE
 	return
 
 BattleTower_Entrance_EventScript_Man::
-	msgbox TrainerHill_Entrance_Text_WhatSortOfTrainersAreAhead, MSGBOX_NPC
+	msgbox BattleTower_Entrance_Text_WhatSortOfTrainersAreAhead, MSGBOX_NPC
 	end
 
 BattleTower_Entrance_EventScript_Girl::
-	msgbox TrainerHill_Entrance_Text_FriendsTryingToReachTimeBoardTop, MSGBOX_NPC
+	msgbox BattleTower_Entrance_Text_FriendsTryingToReachTimeBoardTop, MSGBOX_NPC
 	end
 
 BattleTower_Entrance_EventScript_Nurse::
@@ -46,7 +78,7 @@ BattleTower_Entrance_EventScript_Clerk::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemart TrainerHill_Entrance_Pokemart_Basic
+	pokemart BattleTower_Entrance_Pokemart_Basic
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -56,7 +88,6 @@ BattleTower_Entrance_Pokemart_Basic:
 	.2byte ITEM_HYPER_POTION
 	.2byte ITEM_ANTIDOTE
 	.2byte ITEM_BURN_HEAL
-	.2byte ITEM_REVIVE
 	.2byte ITEM_AWAKENING
 	.2byte ITEM_ETHER
 	.2byte ITEM_NONE
@@ -91,7 +122,7 @@ BattleTower_Entrance_Text_AscentionStart:
 	.string "Good Luck! Though im sure you won't need\n"
 	.string "it, haha.$"
 
-BattleTower_Entrance_Text_WelcomeToTrainerHill:
+BattleTower_Entrance_Text_BattleTower:
 	.string "Welcome to the Battle Tower\p"
 	.string "This is a place in which only the\n"
 	.string "strong will prevail.\p"

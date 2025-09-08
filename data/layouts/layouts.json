@@ -4131,7 +4131,7 @@
       "border_filepath": "data/layouts/MarineCave_End/border.bin",
       "blockdata_filepath": "data/layouts/MarineCave_End/map.bin"
     },
-        {
+    {
       "id": "LAYOUT_TRAINER_HILL_ENTRANCE",
       "name": "TrainerHill_Entrance_Layout",
       "width": 19,
