@@ -179,13 +179,14 @@ static const u8 sRegionMapSectionId_To_PopUpThemeIdMapping[] =
     [MAPSEC_MARINE_CAVE - KANTO_MAPSEC_COUNT] = MAPPOPUP_THEME_STONE,
     [MAPSEC_UNDERWATER_MARINE_CAVE - KANTO_MAPSEC_COUNT] = MAPPOPUP_THEME_STONE2,
     [MAPSEC_TERRA_CAVE - KANTO_MAPSEC_COUNT] = MAPPOPUP_THEME_STONE,
+    [MAPSEC_BATTLE_TOWER - KANTO_MAPSEC_COUNT] = MAPPOPUP_THEME_STONE,
     [MAPSEC_UNDERWATER_105 - KANTO_MAPSEC_COUNT] = MAPPOPUP_THEME_STONE2,
     [MAPSEC_UNDERWATER_125 - KANTO_MAPSEC_COUNT] = MAPPOPUP_THEME_STONE2,
     [MAPSEC_UNDERWATER_129 - KANTO_MAPSEC_COUNT] = MAPPOPUP_THEME_STONE2,
     [MAPSEC_DESERT_UNDERPASS - KANTO_MAPSEC_COUNT] = MAPPOPUP_THEME_STONE,
     [MAPSEC_ALTERING_CAVE - KANTO_MAPSEC_COUNT] = MAPPOPUP_THEME_STONE,
     [MAPSEC_NAVEL_ROCK - KANTO_MAPSEC_COUNT] = MAPPOPUP_THEME_STONE,
-    [MAPSEC_TRAINER_HILL - KANTO_MAPSEC_COUNT] = MAPPOPUP_THEME_MARBLE
+    [MAPSEC_TRAINER_HILL - KANTO_MAPSEC_COUNT] = MAPPOPUP_THEME_MARBLE,
 };
 
 #if OW_POPUP_GENERATION == GEN_5
@@ -307,6 +308,8 @@ static const u8 sRegionMapSectionId_To_PopUpThemeIdMapping_BW[] =
     [MAPSEC_ALTERING_CAVE - KANTO_MAPSEC_COUNT] = MAPPOPUP_THEME_BW_DEFAULT,
     [MAPSEC_NAVEL_ROCK - KANTO_MAPSEC_COUNT] = MAPPOPUP_THEME_BW_DEFAULT,
     [MAPSEC_TRAINER_HILL - KANTO_MAPSEC_COUNT] = MAPPOPUP_THEME_BW_DEFAULT,
+    [MAPSEC_BATTLE_TOWER - KANTO_MAPSEC_COUNT] = MAPPOPUP_THEME_BW_DEFAULT,
+    
 };
 
 static const u8 sText_PyramidFloor1[] = _("PYRAMID FLOOR 1");
@@ -500,32 +503,62 @@ void HideMapNamePopUpWindow(void)
     }
 }
 
+// custom names (≤ 20 visible chars each)
+static const u8 sText_BattleTower1F[]    = _("BATTLE TOWER 1F");
+static const u8 sText_BattleTower2F[]    = _("BATTLE TOWER 2F");
+static const u8 sText_BattleTower3F[]    = _("BATTLE TOWER 3F");
+static const u8 sText_BattleTowerRF[]    = _("BAT. TOWER ROOF");
+static const u8 sText_BattleTowerLobby[] = _("BAT. TOWER LOBBY");
+
+struct CustomMapName { u8 group, num; const u8 *name; };
+
+static const struct CustomMapName sCustomMapNames[] = {
+    { MAP_GROUP(BATTLE_TOWER_ENTRANCE), MAP_NUM(BATTLE_TOWER_ENTRANCE), sText_BattleTowerLobby },
+    { MAP_GROUP(BATTLE_TOWER_1F), MAP_NUM(BATTLE_TOWER_1F), sText_BattleTower1F },
+    { MAP_GROUP(BATTLE_TOWER_2F), MAP_NUM(BATTLE_TOWER_2F), sText_BattleTower2F },
+    { MAP_GROUP(BATTLE_TOWER_3F), MAP_NUM(BATTLE_TOWER_3F), sText_BattleTower3F },
+    { MAP_GROUP(BATTLE_TOWER_ROOF), MAP_NUM(BATTLE_TOWER_ROOF), sText_BattleTowerRF },
+    // add your floors here:
+    // { MAP_GROUP(MAP_BATTLE_TOWER_F1), MAP_NUM(MAP_BATTLE_TOWER_F1), sText_BattleTowerF1 },
+    // ...
+};
+
+static const u8 *TryGetCustomMapName(u8 group, u8 num)
+{
+    for (u32 i = 0; i < ARRAY_COUNT(sCustomMapNames); i++)
+        if (sCustomMapNames[i].group == group && sCustomMapNames[i].num == num)
+            return sCustomMapNames[i].name;
+    return NULL;
+}
+
 static void ShowMapNamePopUpWindow(void)
 {
     u8 mapDisplayHeader[24];
-    u8 *withoutPrefixPtr;
-    u8 x;
+    u8 *withoutPrefixPtr = &mapDisplayHeader[3];
+    u8 x; // needed for the GEN_3 path
     const u8 *mapDisplayHeaderSource;
     u8 mapNamePopUpWindowId, secondaryPopUpWindowId;
 
     if (InBattlePyramid())
     {
         if (gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_PYRAMID_TOP)
-        {
-            withoutPrefixPtr = &(mapDisplayHeader[3]);
             mapDisplayHeaderSource = sBattlePyramid_MapHeaderStrings[FRONTIER_STAGES_PER_CHALLENGE];
-        }
         else
-        {
-            withoutPrefixPtr = &(mapDisplayHeader[3]);
             mapDisplayHeaderSource = sBattlePyramid_MapHeaderStrings[gSaveBlock2Ptr->frontier.curChallengeBattleNum];
-        }
+
         StringCopy(withoutPrefixPtr, mapDisplayHeaderSource);
     }
     else
     {
-        withoutPrefixPtr = &(mapDisplayHeader[3]);
-        GetMapName(withoutPrefixPtr, gMapHeader.regionMapSectionId, 0);
+        // Try our per-map override first; otherwise fall back to normal map name
+        const u8 *override = TryGetCustomMapName(
+            gSaveBlock1Ptr->location.mapGroup,
+            gSaveBlock1Ptr->location.mapNum
+        );
+        if (override != NULL)
+            StringCopy(withoutPrefixPtr, override);
+        else
+            GetMapName(withoutPrefixPtr, gMapHeader.regionMapSectionId, 0);
     }
 
     if (OW_POPUP_GENERATION == GEN_5)
@@ -554,8 +587,11 @@ static void ShowMapNamePopUpWindow(void)
         if (OW_POPUP_BW_TIME_MODE != OW_POPUP_BW_TIME_NONE)
         {
             RtcCalcLocalTime();
-            FormatDecimalTimeWithoutSeconds(withoutPrefixPtr, gLocalTime.hours, gLocalTime.minutes, OW_POPUP_BW_TIME_MODE == OW_POPUP_BW_TIME_24_HR);
-            AddTextPrinterParameterized(secondaryPopUpWindowId, FONT_SMALL, mapDisplayHeader, GetStringRightAlignXOffset(FONT_SMALL, mapDisplayHeader, DISPLAY_WIDTH) - 5, 8, TEXT_SKIP_DRAW, NULL);
+            FormatDecimalTimeWithoutSeconds(withoutPrefixPtr, gLocalTime.hours, gLocalTime.minutes,
+                                            OW_POPUP_BW_TIME_24_HR);
+            AddTextPrinterParameterized(secondaryPopUpWindowId, FONT_SMALL, mapDisplayHeader,
+                GetStringRightAlignXOffset(FONT_SMALL, mapDisplayHeader, DISPLAY_WIDTH) - 5,
+                8, TEXT_SKIP_DRAW, NULL);
         }
 
         CopyWindowToVram(mapNamePopUpWindowId, COPYWIN_FULL);

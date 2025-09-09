@@ -17789,3 +17789,181 @@ Shiny: Yes
 - Payback  
 - Earthquake  
 - Sandstorm  
+
+=== TRAINER_TEST_MEGA ===
+Name: TEST
+Class: Hex Maniac
+Pic: Hex Maniac
+Gender: Female
+Music: Suspicious
+Double Battle: No
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
+
+Vikavolt  
+Ability: Levitate  
+Level: 50 
+- Thunder Wave  
+- Sticky Web  
+- Signal Beam  
+- Volt Switch  
+
+Cacturne  
+Ability: Water Absorb  
+Calm Nature  
+Level: 50
+- Dark Pulse  
+- Energy Ball  
+- Shadow Ball  
+- Toxic  
+
+Talonflame  
+Ability: Flame Body  
+Level: 50 
+Adamant Nature  
+- Steel Wing  
+- Flame Charge  
+- Return  
+- Brave Bird  
+
+Pidgeot @ Pidgeotite  
+Ability: Big Pecks  
+Level: 50
+- Air Slash  
+- Heat Wave  
+- Ominous Wind 
+- Roost  
+
+=== TRAINER_BTOWER_1F ===
+Name: Serena
+Class: MEGA
+Pic: Battle Girl
+Gender: Male
+Music: Suspicious
+Double Battle: No
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
+
+Vikavolt  
+Ability: Levitate  
+Level: 50 
+- Thunder Wave  
+- Sticky Web  
+- Signal Beam  
+- Volt Switch  
+
+Cacturne  
+Ability: Water Absorb
+Level: 50  
+Calm Nature  
+- Dark Pulse  
+- Energy Ball  
+- Shadow Ball  
+- Toxic  
+
+Talonflame  
+Ability: Flame Body  
+Level: 50 
+Adamant Nature  
+- Steel Wing  
+- Flame Charge  
+- Return  
+- Brave Bird  
+
+Pidgeot @ Pidgeotite  
+Ability: Big Pecks  
+Level: 50
+- Air Slash  
+- Heat Wave  
+- Ominous Wind 
+- Roost  
+
+=== TRAINER_BTOWER_2F ===
+Name: Draven
+Class: MEGA
+Pic: Black Belt
+Gender: Male
+Music: Suspicious
+Double Battle: No
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
+
+Bouffalant  
+Ability: Sap Sipper  
+Level: 50
+Impish Nature  
+- Body Slam  
+- Lash Out  
+- Facade  
+- Wild Charge  
+
+Pangoro  
+Ability: Scrappy  
+Level: 50
+Careful Nature  
+- Brick Break  
+- Bullet Punch  
+- Darkest Lariat  
+- Rock Slide  
+
+Lunatone  
+Ability: Levitate  
+Level: 50 
+Calm Nature  
+- Grass Knot  
+- Moonblast  
+- Psychic  
+- Psyshock  
+
+Slowbro @ Slowbronite  
+Ability: Regenerator  
+Level: 50
+Shiny: Yes  
+Serious Nature  
+- Flamethrower  
+- Ice Beam  
+- Scald  
+- Yawn  
+
+=== TRAINER_BTOWER_3F ===
+Name: Doltsz
+Class: MEGA
+Pic: Psychic M
+Gender: Male
+Music: Suspicious
+Double Battle: No
+AI: Check Bad Move / Check Viability / AI_FLAG_TRY_TO_FAINT / AI_FLAG_SMART_SWITCHING / AI_FLAG_HP_AWARE / AI_FLAG_SMART_MON_CHOICES
+
+Roserade  (M)
+Ability: Natural Cure  
+Level: 50
+Calm Nature  
+- Shadow Ball  
+- Giga Drain  
+- Dazzling Gleam  
+- Leech Seed  
+
+Crawdaunt  (M)
+Ability: Adaptability  
+Level: 50 
+Impish Nature  
+- Aqua Jet  
+- Crabhammer  
+- Rock Slide  
+- Knock Off  
+
+Emolga  (F)
+Ability: Motor Drive  
+Level: 50  
+Adamant Nature  
+- Acrobatics  
+- Roost  
+- U-turn  
+- Tailwind  
+
+Beedrill  (F) @ Beedrillite
+Ability: Swarm  
+Level: 50
+Shiny: Yes
+Jolly Nature  
+- Drill Run  
+- X-Scissor  
+- Poison Jab  
+- Brick Break  

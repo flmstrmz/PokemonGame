@@ -1704,9 +1704,9 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_TRAINER_HILL",
-      "name": "TRAINER HILL",
-      "x": 8,
+      "map_section": "MAPSEC_BATTLE_TOWER",
+      "name": "BATTLE TOWER",
+      "x": 9,
       "y": 4,
       "width": 1,
       "height": 1

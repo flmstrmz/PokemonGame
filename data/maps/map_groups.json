@@ -588,7 +588,9 @@
     "TrainerHill_Elevator",
     "BattleTower_1F",
     "BattleTower_Roof",
-    "BattleTower_Entrance"
+    "BattleTower_Entrance",
+    "BattleTower_2F",
+    "BattleTower_3F"
   ],
   "gMapGroup_IndoorRoute104Prototype": [
     "Route104_Prototype",

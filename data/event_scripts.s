@@ -1083,3 +1083,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/BattleTower_Roof/scripts.inc"
 
 	.include "data/maps/BattleTower_Entrance/scripts.inc"
+
+	.include "data/maps/BattleTower_2F/scripts.inc"
+
+	.include "data/maps/BattleTower_3F/scripts.inc"

@@ -200,10 +200,10 @@
 #define TRAINER_SHAWN                       194
 #define TRAINER_FERNANDO_1                  195
 #define TRAINER_DOOR_MAN                    196 
-#define TRAINER_DALTON_2                    197 //unused
-#define TRAINER_DALTON_3                    198 //unused
-#define TRAINER_DALTON_4                    199 //unused
-#define TRAINER_DALTON_5                    200 //unused
+#define TRAINER_TEST_MEGA                   197 
+#define TRAINER_BTOWER_1F                   198 //unused
+#define TRAINER_BTOWER_2F                    199 //unused
+#define TRAINER_BTOWER_3F                   200 //unused
 #define TRAINER_COLE                        201
 #define TRAINER_JEFF                        202
 #define TRAINER_AXLE                        203

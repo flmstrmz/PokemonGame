@@ -30,7 +30,6 @@ BattleTower_Entrance_EventScript_QuitChallenge::
 	msgbox BattleTower_Entrance_Text_QuitChallenge MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, BattleTower_Entrance_EventScript_Disappointing
 	msgbox BattleTower_Entrance_Text_OtherWay, MSGBOX_AUTOCLOSE
-	special RestorePlayerPartyFromBackup
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
 	end
@@ -38,6 +37,7 @@ BattleTower_Entrance_EventScript_QuitChallenge::
 BattleTower_Entrance_EventScript_Disappointing::
 	msgbox BattleTower_Entrance_Text_Disappointing, MSGBOX_AUTOCLOSE
 	setvar VAR_BATTLETOWER, 1
+	special RestorePlayerPartyFromBackup
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
 	end
