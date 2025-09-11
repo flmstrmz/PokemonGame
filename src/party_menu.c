@@ -4591,13 +4591,23 @@ bool32 IsItemFlute(u16 item)
 void ItemUseCB_BattleScript(u8 taskId, TaskFunc task)
 {
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    u16 hp = (mon != NULL) ? GetMonData(mon, MON_DATA_HP) : gBattleMons[gBattlerInMenuId].hp;
     if (CannotUseItemsInBattle(gSpecialVar_ItemId, mon))
     {
         gPartyMenuUseExitCallback = FALSE;
         PlaySE(SE_SELECT);
-        DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
-        ScheduleBgCopyTilemapToVram(2);
-        gTasks[taskId].func = task;
+        if ((gSpecialVar_ItemId == ITEM_REVIVE || gSpecialVar_ItemId == ITEM_MAX_REVIVE) && (VarGet(VAR_BT_REVIVEUSE) == 5) && (hp == 0))
+        {
+            DisplayPartyMenuMessage(gText_RevivesDisabled, TRUE);
+            ScheduleBgCopyTilemapToVram(2);
+            gTasks[taskId].func = task;
+        }
+        else
+        {
+            DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
+            ScheduleBgCopyTilemapToVram(2);
+            gTasks[taskId].func = task;
+        }
     }
     else
     {
@@ -4606,6 +4616,10 @@ void ItemUseCB_BattleScript(u8 taskId, TaskFunc task)
         PlaySE(SE_SELECT);
         if (!IsItemFlute(gSpecialVar_ItemId))
             RemoveBagItem(gSpecialVar_ItemId, 1);
+        if ((gSpecialVar_ItemId == ITEM_REVIVE || gSpecialVar_ItemId == ITEM_MAX_REVIVE) && FlagGet(FLAG_INBATTLETOWER) && (VarGet(VAR_BT_REVIVEUSE) < 5))
+            {
+                VarAdd(VAR_BT_REVIVEUSE, 1);
+            }
         ScheduleBgCopyTilemapToVram(2);
         gTasks[taskId].func = task;
     }
@@ -4631,6 +4645,10 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
     {
         cannotUse = TRUE;
     }
+    if ((gSpecialVar_ItemId == ITEM_REVIVE || gSpecialVar_ItemId == ITEM_MAX_REVIVE) && FlagGet(FLAG_INBATTLETOWER) && (VarGet(VAR_BT_REVIVEUSE) == 5))
+    {
+        cannotUse = TRUE;
+    }
     else
     {
         canHeal = IsHPRecoveryItem(item);
@@ -4647,13 +4665,25 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
     {
         gPartyMenuUseExitCallback = FALSE;
         PlaySE(SE_SELECT);
+        if ((gSpecialVar_ItemId == ITEM_REVIVE || gSpecialVar_ItemId == ITEM_MAX_REVIVE) && FlagGet(FLAG_INBATTLETOWER) && (VarGet(VAR_BT_REVIVEUSE) == 5))
+        {
+        DisplayPartyMenuMessage(gText_RevivesDisabled, TRUE);
+        ScheduleBgCopyTilemapToVram(2);
+            if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD)
+                gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+            else
+                gTasks[taskId].func = task;
+        return;
+        }
         DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
         ScheduleBgCopyTilemapToVram(2);
-        if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD)
-            gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
-        else
-            gTasks[taskId].func = task;
+        {
+            if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD)
+                gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+            else
+                gTasks[taskId].func = task;
         return;
+        }
     }
     else
     {
@@ -4663,6 +4693,10 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
             PlaySE(SE_USE_ITEM);
             if (gPartyMenu.action != PARTY_ACTION_REUSABLE_ITEM)
                 RemoveBagItem(item, 1);
+            if ((gSpecialVar_ItemId == ITEM_REVIVE || gSpecialVar_ItemId == ITEM_MAX_REVIVE) && FlagGet(FLAG_INBATTLETOWER) && (VarGet(VAR_BT_REVIVEUSE) < 5))
+            {
+                VarAdd(VAR_BT_REVIVEUSE, 1);
+            }
         }
         else
         {

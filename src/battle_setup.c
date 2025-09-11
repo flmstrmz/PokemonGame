@@ -86,6 +86,7 @@ static void CB2_StartFirstBattle(void);
 static void CB2_EndFirstBattle(void);
 static void SaveChangesToPlayerParty(void);
 static void HandleBattleVariantEndParty(void);
+static void HandleBattleTowerLoss(void);
 static void CB2_EndTrainerBattle(void);
 static bool32 IsPlayerDefeated(u32 battleOutcome);
 #if FREE_MATCH_CALL == FALSE
@@ -1418,6 +1419,17 @@ static void HandleBattleVariantEndParty(void)
     FlagClear(B_FLAG_SKY_BATTLE);
 }
 
+static void HandleBattleTowerLoss(void)
+{
+    if ((FlagGet(FLAG_INBATTLETOWER) == TRUE)){
+        VarSet(VAR_BT_FLOOR1, 0);
+        VarSet(VAR_BT_FLOOR2, 0);
+        VarSet(VAR_BT_FLOOR3, 0);
+        VarSet(VAR_BT_REVIVEUSE, 0);
+        VarSet(VAR_BATTLETOWER, 1);
+    }        
+}
+
 static void CB2_EndTrainerBattle(void)
 {
     HandleBattleVariantEndParty();
@@ -1429,6 +1441,7 @@ static void CB2_EndTrainerBattle(void)
     }
     else if (IsPlayerDefeated(gBattleOutcome) == TRUE)
     {
+        HandleBattleTowerLoss();
         if ((FlagGet(FLAG_3VS3) == TRUE)){
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
             LoadPlayerParty();
@@ -1443,6 +1456,13 @@ static void CB2_EndTrainerBattle(void)
             LoadPlayerParty();
             FlagClear(FLAG_3VS3);
         }
+        else if ((FlagGet(FLAG_INBATTLETOWER) == TRUE))
+        {
+            SetMainCallback2(CB2_WhiteOut);
+            FlagClear(FLAG_INBATTLETOWER);
+            RestorePlayerPartyFromBackup();
+        }
+        
         else
             SetMainCallback2(CB2_WhiteOut);
     }

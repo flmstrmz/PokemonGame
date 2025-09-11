@@ -20,6 +20,7 @@ BattleTower_Entrance_EventScript_AscentionTrial::
 	msgbox BattleTower_Entrance_Text_AscentionStart, MSGBOX_AUTOCLOSE
 	setvar VAR_BATTLETOWER, 2
 	special ReducePlayerPartyLevelTo50
+	setflag FLAG_INBATTLETOWER
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
 	releaseall
@@ -37,6 +38,9 @@ BattleTower_Entrance_EventScript_QuitChallenge::
 BattleTower_Entrance_EventScript_Disappointing::
 	msgbox BattleTower_Entrance_Text_Disappointing, MSGBOX_AUTOCLOSE
 	setvar VAR_BATTLETOWER, 1
+	setvar VAR_BT_FLOOR1, 0
+	setvar VAR_BT_FLOOR2, 0
+	setvar VAR_BT_FLOOR3, 0
 	special RestorePlayerPartyFromBackup
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
@@ -59,6 +63,7 @@ BattleTower_Entrance_EventScript_Nurse::
 	call Common_EventScript_PkmnCenterNurse
 	waitmessage
 	waitbuttonpress
+	setrespawn HEAL_LOCATION_BATTLE_TOWER
 	release
 	end
 
@@ -75,6 +80,7 @@ BattleTower_Entrance_EventScript_Clerk::
 	.align 2
 BattleTower_Entrance_Pokemart_Basic:
 	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_REVIVE
 	.2byte ITEM_ANTIDOTE
 	.2byte ITEM_BURN_HEAL
 	.2byte ITEM_AWAKENING

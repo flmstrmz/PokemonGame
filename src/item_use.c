@@ -1177,20 +1177,28 @@ void ItemUseInBattle_PartyMenuChooseMove(u8 taskId)
     ItemUseInBattle_ShowPartyMenu(taskId);
 }
 
+extern const u8 gText_RevivesDisabled[];
+
 // Returns whether an item can be used in battle and sets the fail text.
 bool32 CannotUseItemsInBattle(u16 itemId, struct Pokemon *mon)
 {
     u16 battleUsage = ItemId_GetBattleUsage(itemId);
     bool8 cannotUse = FALSE;
-    const u8* failStr = NULL;
+    const u8* failStr = gText_RevivesDisabled;
     u32 i;
-    u16 hp = GetMonData(mon, MON_DATA_HP);
+    //u16 hp = GetMonData(mon, MON_DATA_HP); 
+    u16 hp = (mon != NULL) ? GetMonData(mon, MON_DATA_HP) : gBattleMons[gBattlerInMenuId].hp;
 
     // Embargo Check
     if ((gPartyMenu.slotId == 0 && gStatuses3[B_POSITION_PLAYER_LEFT] & STATUS3_EMBARGO)
         || (gPartyMenu.slotId == 1 && gStatuses3[B_POSITION_PLAYER_RIGHT] & STATUS3_EMBARGO))
     {
         return TRUE;
+    }
+
+    if ((itemId == ITEM_REVIVE || itemId == ITEM_MAX_REVIVE) && (VarGet(VAR_BT_REVIVEUSE) == 5))
+    {
+        return TRUE;     
     }
 
     // battleUsage checks
@@ -1279,7 +1287,6 @@ bool32 CannotUseItemsInBattle(u16 itemId, struct Pokemon *mon)
         }
         break;
     }
-
     if (failStr != NULL)
         StringExpandPlaceholders(gStringVar4, failStr);
     else

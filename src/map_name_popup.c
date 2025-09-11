@@ -509,6 +509,8 @@ static const u8 sText_BattleTower2F[]    = _("BATTLE TOWER 2F");
 static const u8 sText_BattleTower3F[]    = _("BATTLE TOWER 3F");
 static const u8 sText_BattleTowerRF[]    = _("BAT. TOWER ROOF");
 static const u8 sText_BattleTowerLobby[] = _("BAT. TOWER LOBBY");
+static const u8 sText_LRPS[]             = _("Pokèschool");
+
 
 struct CustomMapName { u8 group, num; const u8 *name; };
 
@@ -518,6 +520,7 @@ static const struct CustomMapName sCustomMapNames[] = {
     { MAP_GROUP(BATTLE_TOWER_2F), MAP_NUM(BATTLE_TOWER_2F), sText_BattleTower2F },
     { MAP_GROUP(BATTLE_TOWER_3F), MAP_NUM(BATTLE_TOWER_3F), sText_BattleTower3F },
     { MAP_GROUP(BATTLE_TOWER_ROOF), MAP_NUM(BATTLE_TOWER_ROOF), sText_BattleTowerRF },
+    { MAP_GROUP(LITTLEROOT_TOWN_POKE_SCHOOL), MAP_NUM(LITTLEROOT_TOWN_POKE_SCHOOL), sText_LRPS },
     // add your floors here:
     // { MAP_GROUP(MAP_BATTLE_TOWER_F1), MAP_NUM(MAP_BATTLE_TOWER_F1), sText_BattleTowerF1 },
     // ...

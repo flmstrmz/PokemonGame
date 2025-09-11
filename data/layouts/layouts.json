@@ -4456,7 +4456,7 @@
       "name": "BattleTower_2F_Layout",
       "width": 16,
       "height": 16,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_TrainerHill",
       "border_filepath": "data/layouts/BattleTower_2F/border.bin",
       "blockdata_filepath": "data/layouts/BattleTower_2F/map.bin"
@@ -4466,7 +4466,7 @@
       "name": "BattleTower_3F_Layout",
       "width": 16,
       "height": 16,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_TrainerHill",
       "border_filepath": "data/layouts/BattleTower_3F/border.bin",
       "blockdata_filepath": "data/layouts/BattleTower_3F/map.bin"
