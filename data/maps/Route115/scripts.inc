@@ -1,3 +1,6 @@
+.set LOCALID_HELENE, 19
+.set LOCALID_ALIX, 20
+
 Route115_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, Route115_OnLoad
 	map_script MAP_SCRIPT_ON_TRANSITION, Route115_OnTransition
@@ -32,102 +35,145 @@ Route115_EventScript_MeteorFallsSign::
 	end
 
 Route115_EventScript_Timothy::
-	trainerbattle_single TRAINER_TIMOTHY_1, Route115_Text_TimothyIntro, Route115_Text_TimothyDefeat, Route115_EventScript_RegisterTimothy
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route115_EventScript_RematchTimothy
+	trainerbattle_single TRAINER_TIMOTHY_1, Route115_Text_TimothyIntro, Route115_Text_TimothyDefeat, Route115_EventScript_AceFight
 	msgbox Route115_Text_TimothyPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
-Route115_EventScript_RegisterTimothy::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route115_Text_TimothyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_TIMOTHY_1
-	release
-	end
-
-Route115_EventScript_RematchTimothy::
-	trainerbattle_rematch TRAINER_TIMOTHY_1, Route115_Text_TimothyRematchIntro, Route115_Text_TimothyRematchDefeat
-	msgbox Route115_Text_TimothyPostRematch, MSGBOX_AUTOCLOSE
-	end
-
 Route115_EventScript_Koichi::
-	trainerbattle_single TRAINER_KOICHI, Route115_Text_KoichiIntro, Route115_Text_KoichiDefeat
+	trainerbattle_single TRAINER_KOICHI, Route115_Text_KoichiIntro, Route115_EventScript_AceFight
 	msgbox Route115_Text_KoichiPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route115_EventScript_Nob::
-	trainerbattle_single TRAINER_NOB_1, Route115_Text_NobIntro, Route115_Text_NobDefeat, Route115_EventScript_RegisterNob
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route115_EventScript_RematchNob
+	trainerbattle_single TRAINER_NOB_1, Route115_Text_NobIntro, Route115_Text_NobDefeat, Route115_EventScript_AceFight
 	msgbox Route115_Text_NobPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
-Route115_EventScript_RegisterNob::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route115_Text_NobRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NOB_1
-	release
-	end
-
-Route115_EventScript_RematchNob::
-	trainerbattle_rematch TRAINER_NOB_1, Route115_Text_NobRematchIntro, Route115_Text_NobRematchDefeat
-	msgbox Route115_Text_NobPostRematch, MSGBOX_AUTOCLOSE
-	end
-
 Route115_EventScript_Cyndy::
-	trainerbattle_single TRAINER_CYNDY_1, Route115_Text_CyndyIntro, Route115_Text_CyndyDefeat, Route115_EventScript_RegisterCyndy
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route115_EventScript_RematchCyndy
+	trainerbattle_single TRAINER_CYNDY_1, Route115_Text_CyndyIntro, Route115_Text_CyndyDefeat, Route115_EventScript_AceFight
 	msgbox Route115_Text_CyndyPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
-Route115_EventScript_RegisterCyndy::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route115_Text_CyndyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_CYNDY_1
-	release
-	end
-
-Route115_EventScript_RematchCyndy::
-	trainerbattle_rematch TRAINER_CYNDY_1, Route115_Text_CyndyRematchIntro, Route115_Text_CyndyRematchDefeat
-	msgbox Route115_Text_CyndyPostRematch, MSGBOX_AUTOCLOSE
-	end
-
 Route115_EventScript_Hector::
-	trainerbattle_single TRAINER_HECTOR, Route115_Text_HectorIntro, Route115_Text_HectorDefeat
+	trainerbattle_single TRAINER_HECTOR, Route115_Text_HectorIntro, Route115_Text_HectorDefeat, Route115_EventScript_AceFight
 	msgbox Route115_Text_HectorPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route115_EventScript_Kyra::
-	trainerbattle_single TRAINER_KYRA, Route115_Text_KyraIntro, Route115_Text_KyraDefeat
+	trainerbattle_single TRAINER_KYRA, Route115_Text_KyraIntro, Route115_Text_KyraDefeat, Route115_EventScript_AceFight
 	msgbox Route115_Text_KyraPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route115_EventScript_Jaiden::
-	trainerbattle_single TRAINER_JAIDEN, Route115_Text_JaidenIntro, Route115_Text_JaidenDefeat
+	trainerbattle_single TRAINER_JAIDEN, Route115_Text_JaidenIntro, Route115_Text_JaidenDefeat, Route115_EventScript_AceFight
 	msgbox Route115_Text_JaidenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route115_EventScript_Alix::
-	trainerbattle_single TRAINER_ALIX, Route115_Text_AlixIntro, Route115_Text_AlixDefeat
-	msgbox Route115_Text_AlixPostBattle, MSGBOX_AUTOCLOSE
+	goto_if_eq VAR_ROUTE115_ACE, 8, Route115_EventScript_AlixDefeated
+	msgbox Route115_Text_AceAlixWontFight, MSGBOX_AUTOCLOSE
 	end
 
 Route115_EventScript_Helene::
-	trainerbattle_single TRAINER_HELENE, Route115_Text_HeleneIntro, Route115_Text_HeleneDefeat
-	msgbox Route115_Text_HelenePostBattle, MSGBOX_AUTOCLOSE
+	goto_if_eq VAR_ROUTE115_ACE, 8, Route115_EventScript_HeleneDefeated
+	msgbox Route115_Text_AceHeleneWontFight, MSGBOX_AUTOCLOSE
 	end
 
+Route115_EventScript_HeleneDefeated::
+	msgbox Route115_Text_AceHeleneDefeated, MSGBOX_AUTOCLOSE
+	end
+
+Route115_EventScript_AlixDefeated::
+	msgbox Route115_Text_AceAlixDefeated, MSGBOX_AUTOCLOSE
+	end
+
+Route115_EventScript_Ace::
+	playse SE_PIN
+	applymovement LOCALID_ALIX, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 32
+	applymovement LOCALID_ALIX Route115_Movement_AceAlix
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox Route115_Text_AceAlixFight, MSGBOX_AUTOCLOSE
+	playse SE_PIN
+	applymovement LOCALID_HELENE, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_HELENE, Route115_Movement_AceHelene
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	waitmovement 0
+	msgbox Route115_Text_AceHeleneFight, MSGBOX_AUTOCLOSE
+	trainerbattle_two_trainers TRAINER_ALIX, Route115_Text_AceAlixLost, TRAINER_HELENE, Route115_Text_AceHeleneLost
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	msgbox Route115_Text_AceHeleneAfter, MSGBOX_AUTOCLOSE
+	giveitem ITEM_LEFTOVERS
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	msgbox Route115_Text_AceAlixAfter, MSGBOX_AUTOCLOSE
+	giveitem ITEM_MUSCLE_BAND
+	end 
+
+
 Route115_EventScript_Marlene::
-	trainerbattle_single TRAINER_MARLENE, Route115_Text_MarleneIntro, Route115_Text_MarleneDefeat
+	trainerbattle_single TRAINER_MARLENE, Route115_Text_MarleneIntro, Route115_Text_MarleneDefeat, Route115_EventScript_AceFight
 	msgbox Route115_Text_MarlenePostBattle, MSGBOX_AUTOCLOSE
 	end
+
+Route115_EventScript_AceFight::
+	addvar VAR_ROUTE115_ACE, 1
+	end
+
+Route115_Movement_AceAlix:
+	walk_right
+	walk_right
+	step_end
+
+Route115_Movement_AceHelene:
+	walk_left
+	walk_left
+	step_end
+
+Route115_Text_AceHeleneDefeated:
+	.string "You're insanely strong!$"
+
+Route115_Text_AceAlixDefeated:
+	.string "Whatever...$"
+
+Route115_Text_AceHeleneWontFight:
+	.string "Sorry we dont fight Rookies\p"
+	.string "Maybe try the other trainers?$"
+
+Route115_Text_AceAlixWontFight:
+	.string "Eww, you're not worth our time\n"
+	.string "Go fight the others first...$" 
+
+Route115_Text_AceHeleneFight:
+	.string "We. Are. UNDEFEATABLE!$"
+
+Route115_Text_AceAlixFight:
+	.string "You dare challenge your superiors!?$"
+
+Route115_Text_AceAlixLost:
+	.string "I guess you was the superior\n"
+	.string "afterall...$"
+
+Route115_Text_AceHeleneLost:
+	.string "We. Are. Defeatable...$"
+
+Route115_Text_AceHeleneAfter:
+	.string "Wow, to beat us you must be\n"
+	.string "insanely strong!$"
+	.string "I hope you make better use of\n"
+	.string "this than I did.$"
+
+Route115_Text_AceAlixAfter:
+	.string "Whatever...\p"
+	.string "I didnt want this anyways.$"
+
 
 Route115_Text_NeverKnowWhenCavePokemonWillAppear:
 	.string "Caves have been much more eventful\n"

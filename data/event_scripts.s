@@ -1087,3 +1087,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/BattleTower_2F/scripts.inc"
 
 	.include "data/maps/BattleTower_3F/scripts.inc"
+
+	.include "data/maps/Winstrates_Tunnel/scripts.inc"
+
+	.include "data/maps/Drake_Grotto/scripts.inc"

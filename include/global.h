@@ -1087,6 +1087,9 @@ struct SaveBlock1
 #endif //FREE_TRAINER_HILL
     /*0x3???*/ struct WaldaPhrase waldaPhrase;
     // sizeof: 0x3???
+    struct Pokemon partyBackup[PARTY_SIZE]; // persistent party backup
+    u8 hasPartyBackup;                      // 0 = none, 1 = present
+    u8 _pad_partyBackup[3];                 // keep 32-bit alignment
 };
 
 extern struct SaveBlock1* gSaveBlock1Ptr;

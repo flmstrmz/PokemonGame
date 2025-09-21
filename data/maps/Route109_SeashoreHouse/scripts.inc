@@ -72,6 +72,7 @@ PartnerText:
 	.string "Who is your Partner?$"
 
 TestBPartner::
+	special BackupPlayerParty
 	msgbox PartnerText, MSGBOX_DEFAULT
 	waitmessage
 	multichoicegrid 3, 1, MULTI_BATTLE_PARTNER, 1, FALSE
@@ -83,7 +84,6 @@ TestBPartner::
 	end
 
 TestBattleSugiPartner::
-	special SavePlayerParty
 	fadescreen FADE_TO_BLACK
 	special ChooseHalfPartyForBattle
 	waitstate
@@ -95,7 +95,6 @@ TestBattleSugiPartner::
 	end
 
 TestBattleTyPartner::
-	special SavePlayerParty
 	fadescreen FADE_TO_BLACK
 	special ChooseHalfPartyForBattle
 	waitstate
@@ -107,7 +106,6 @@ TestBattleTyPartner::
 	end
 
 TestBattleMiroPartner::
-	special SavePlayerParty
 	fadescreen FADE_TO_BLACK
 	special ChooseHalfPartyForBattle
 	waitstate
@@ -142,6 +140,7 @@ Route109_Script_WonWithSugi::
 	setflag FLAG_HIDEMIRO_SEAHOUSE
 	setflag FLAG_SUGIWON
 	addvar VAR_ROUTE109_CLEARED, 1
+	special RestorePlayerPartyFromBackup
 	releaseall
 	end
 
@@ -169,6 +168,7 @@ Route109_Script_WonWithTy::
 	setflag FLAG_HIDEMIRO_SEAHOUSE
 	setflag FLAG_TYWON
 	addvar VAR_ROUTE109_CLEARED, 1
+	special RestorePlayerPartyFromBackup
 	releaseall
 	end
 
@@ -196,6 +196,7 @@ Route109_Script_WonWithMiro::
 	setflag FLAG_HIDEMIRO_SEAHOUSE
 	setflag FLAG_MIROWON
 	addvar VAR_ROUTE109_CLEARED, 1
+	special RestorePlayerPartyFromBackup
 	releaseall
 	end
 
@@ -238,6 +239,7 @@ Route109_Script_LostToTyMiro::
 	setflag FLAG_MIROWON
 	setflag FLAG_TYWON
 	addvar VAR_ROUTE109_CLEARED, 2
+	special RestorePlayerPartyFromBackup
 	releaseall
 	end
 
@@ -280,6 +282,7 @@ Route109_Script_LostToMiroSugi::
 	setflag FLAG_MIROWON
 	setflag FLAG_SUGIWON
 	addvar VAR_ROUTE109_CLEARED, 2
+	special RestorePlayerPartyFromBackup
 	releaseall
 	end
 
@@ -322,6 +325,7 @@ Route109_Script_LostToSugiTy::
 	setflag FLAG_TYWON
 	setflag FLAG_SUGIWON
 	addvar VAR_ROUTE109_CLEARED, 2
+	special RestorePlayerPartyFromBackup
 	releaseall
 	end
 

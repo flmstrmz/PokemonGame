@@ -689,13 +689,13 @@
 #define FLAG_SAMIR_MTCHIMNEY    0x282
 #define FLAG_COSMO_MTCHIMNEY    0x283
 #define FLAG_STOLEN_METEORITE   0x284
-#define FLAG_MTCHIM_MAGMARIZER  0x285 // Unused Flag
-#define FLAG_UNUSED_0x286       0x286 // Unused Flag
-#define FLAG_UNUSED_0x287       0x287 // Unused Flag
-#define FLAG_UNUSED_0x288       0x288 // Unused Flag
-#define FLAG_UNUSED_0x289       0x289 // Unused Flag
-#define FLAG_UNUSED_0x28A       0x28A // Unused Flag
-#define FLAG_UNUSED_0x28B       0x28B // Unused Flag
+#define FLAG_MTCHIM_MAGMARIZER  0x285 
+#define FLAG_HIDESUGI_WSTUNNEL  0x286 
+#define FLAG_DG_TARTAPPLE       0x287 
+#define FLAG_DG_SWEETAPPLE      0x288
+#define FLAG_DG_DRAGONFANG      0x289 
+#define FLAG_DG_DRAGONSCALE      0x28A 
+#define FLAG_DG_ULTRABALL       0x28B 
 #define FLAG_UNUSED_0x28C       0x28C // Unused Flag
 #define FLAG_UNUSED_0x28D       0x28D // Unused Flag
 #define FLAG_UNUSED_0x28E       0x28E // Unused Flag
@@ -1223,11 +1223,11 @@
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
 #define FLAG_INBATTLETOWER                                          0x493 
-#define FLAG_UNUSED_0x494                                           0x494 
-#define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
-#define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
-#define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
+#define FLAG_HIDE_KRILLINBT                                         0x494 
+#define FLAG_STEELIXITE                                             0x495
+#define FLAG_MEGA_TRAINER                                           0x496
+#define FLAG_MEGA_FIGHT                                             0x497
+#define FLAG_HIDE_COSMONMAUVILLE                                    0x498
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
 #define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
 #define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag

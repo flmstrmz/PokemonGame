@@ -281,7 +281,6 @@ static const struct TrainerBattleParameter sTrainerTwoTrainerBattleParams[] =
 
 const struct RematchTrainer gRematchTable[REMATCH_TABLE_ENTRIES] =
 {
-    [REMATCH_DUSTY] = REMATCH(TRAINER_DUSTY_1, TRAINER_DUSTY_2, TRAINER_DUSTY_3, TRAINER_DUSTY_4, TRAINER_DUSTY_5, ROUTE111),
     [REMATCH_LOLA] = REMATCH(TRAINER_LOLA_1, TRAINER_LOLA_2, TRAINER_LOLA_3, TRAINER_LOLA_4, TRAINER_LOLA_5, ROUTE109),
     [REMATCH_RICKY] = REMATCH(TRAINER_RICKY_1, TRAINER_RICKY_2, TRAINER_RICKY_3, TRAINER_RICKY_4, TRAINER_RICKY_5, ROUTE109),
     [REMATCH_LILA_AND_ROY] = REMATCH(TRAINER_LILA_AND_ROY_1, TRAINER_LILA_AND_ROY_2, TRAINER_LILA_AND_ROY_3, TRAINER_LILA_AND_ROY_4, TRAINER_LILA_AND_ROY_5, ROUTE124),
@@ -1444,17 +1443,16 @@ static void CB2_EndTrainerBattle(void)
         HandleBattleTowerLoss();
         if ((FlagGet(FLAG_3VS3) == TRUE)){
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-            LoadPlayerParty();
+            RestorePlayerPartyFromBackup();
             FlagClear(FLAG_3VS3);
             if(FlagGet(FLAG_GRANITE_SAMIR) == TRUE){
                 VarAdd(VAR_ROUTE111_MEGA, 1);
             }
         }
-        if (InBattlePyramid() || InTrainerHillChallenge() || (!NoAliveMonsForPlayer()) || (FlagGet(FLAG_3VS3) == TRUE))
+        if (InBattlePyramid() || InTrainerHillChallenge() || (!NoAliveMonsForPlayer()))
         {
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
             LoadPlayerParty();
-            FlagClear(FLAG_3VS3);
         }
         else if ((FlagGet(FLAG_INBATTLETOWER) == TRUE))
         {

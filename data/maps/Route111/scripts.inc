@@ -472,90 +472,50 @@ Route111_EventScript_Becky::
 	end
 
 Route111_EventScript_Dusty::
-	trainerbattle_single TRAINER_DUSTY_1, Route111_Text_DustyIntro, Route111_Text_DustyDefeat, Route111_EventScript_RegisterDusty
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route111_EventScript_RematchDusty
+	trainerbattle_single TRAINER_DUSTY_1, Route111_Text_DustyIntro, Route111_Text_DustyDefeat, Route111_EventScript_AceFight
 	msgbox Route111_Text_DustyPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
-Route111_EventScript_RegisterDusty::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route111_Text_DustyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_DUSTY_1
-	release
-	end
-
-Route111_EventScript_RematchDusty::
-	trainerbattle_rematch TRAINER_DUSTY_1, Route111_Text_DustyRematchIntro, Route111_Text_DustyRematchDefeat
-	msgbox Route111_Text_DustyPostRematch, MSGBOX_AUTOCLOSE
-	end
-
 Route111_EventScript_Travis::
-	trainerbattle_single TRAINER_TRAVIS, Route111_Text_TravisIntro, Route111_Text_TravisDefeat
+	trainerbattle_single TRAINER_TRAVIS, Route111_Text_TravisIntro, Route111_Text_TravisDefeat, Route111_EventScript_AceFight
 	msgbox Route111_Text_TravisPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Irene::
-	trainerbattle_single TRAINER_IRENE, Route111_Text_IreneIntro, Route111_Text_IreneDefeat
+	trainerbattle_single TRAINER_IRENE, Route111_Text_IreneIntro, Route111_Text_IreneDefeat, Route111_EventScript_AceFight
 	msgbox Route111_Text_IrenePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Daisuke::
-	trainerbattle_single TRAINER_DAISUKE, Route111_Text_DaisukeIntro, Route111_Text_DaisukeDefeat
+	trainerbattle_single TRAINER_DAISUKE, Route111_Text_DaisukeIntro, Route111_Text_DaisukeDefeat, Route111_EventScript_AceFight
 	msgbox Route111_Text_DaisukePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Wilton::
-	trainerbattle_single TRAINER_WILTON_1, Route111_Text_WiltonIntro, Route111_Text_WiltonDefeat, Route111_EventScript_RegisterWilton
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route111_EventScript_RematchWilton
+	trainerbattle_single TRAINER_WILTON_1, Route111_Text_WiltonIntro, Route111_Text_WiltonDefeat, Route111_EventScript_AceFight
 	msgbox Route111_Text_WiltonPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
-Route111_EventScript_RegisterWilton::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route111_Text_WiltonRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_WILTON_1
-	release
-	end
-
-Route111_EventScript_RematchWilton::
-	trainerbattle_rematch TRAINER_WILTON_1, Route111_Text_WiltonRematchIntro, Route111_Text_WiltonRematchDefeat
-	msgbox Route111_Text_WiltonPostRematch, MSGBOX_AUTOCLOSE
-	end
-
 Route111_EventScript_Brooke::
-	trainerbattle_single TRAINER_BROOKE_1, Route111_Text_BrookeIntro, Route111_Text_BrookeDefeat, Route111_EventScript_RegisterBrooke
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route111_EventScript_RematchBrooke
+	trainerbattle_single TRAINER_BROOKE_1, Route111_Text_BrookeIntro, Route111_Text_BrookeDefeat, Route111_EventScript_AceFight
 	msgbox Route111_Text_BrookePostBattle, MSGBOX_DEFAULT
 	release
 	end
 
-Route111_EventScript_RegisterBrooke::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route111_Text_BrookeRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_BROOKE_1
-	release
-	end
-
-Route111_EventScript_RematchBrooke::
-	trainerbattle_rematch TRAINER_BROOKE_1, Route111_Text_BrookeRematchIntro, Route111_Text_BrookeRematchDefeat
-	msgbox Route111_Text_BrookePostRematch, MSGBOX_AUTOCLOSE
-	end
-
 Route111_EventScript_Bryan::
+	goto_if_ne VAR_ROUTE111_ACE, 8, Route111_EventScript_BryanNotReady
 	trainerbattle_single TRAINER_BRYAN, Route111_Text_BryanIntro, Route111_Text_BryanDefeat
 	msgbox Route111_Text_BryanPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route111_EventScript_BryanNotReady::
+	msgbox Route111_Text_BryanNotReady, MSGBOX_AUTOCLOSE
+	end
+
 Route111_EventScript_Branden::
-	trainerbattle_single TRAINER_BRANDEN, Route111_Text_BrandenIntro, Route111_Text_BrandenDefeat
+	trainerbattle_single TRAINER_BRANDEN, Route111_Text_BrandenIntro, Route111_Text_BrandenDefeat, Route111_EventScript_AceFight
 	msgbox Route111_Text_BrandenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -563,12 +523,16 @@ Route111_EventScript_TrainerHillSign::
 	msgbox Route111_Text_TrainerHillSign, MSGBOX_SIGN
 	end
 
+Route111_EventScript_AceFight::
+	addvar VAR_ROUTE111_ACE, 1
+	end
+
 Route111_EventScript_KrillarFight::
 	lockall
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	applymovement LOCALID_STEVEN, Common_Movement_FaceUp
 	waitmovement 0
-	special SavePlayerParty
+	special BackupPlayerParty
 	fadescreen FADE_TO_BLACK
 	special ChooseHalfPartyForBattle
 	waitstate
@@ -687,8 +651,7 @@ Route111_EventScript_LostKrill::
 	msgbox Route111_Text_StevenHelpMe, MSGBOX_AUTOCLOSE
 	playfanfare MUS_HEAL
 	waitfanfare
-	special LoadPlayerParty
-	special HealPlayerParty
+	special RestorePlayerPartyFromBackup
 	msgbox Route111_Text_StevenBadFeeling MSGBOX_AUTOCLOSE
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
@@ -714,8 +677,7 @@ Route111_EventScript_BeatKrill::
 	msgbox Route111_Text_StevenHelpMe, MSGBOX_AUTOCLOSE
 	playfanfare MUS_HEAL
 	waitfanfare
-	special LoadPlayerParty
-	special HealPlayerParty
+	special RestorePlayerPartyFromBackup
 	msgbox Route111_Text_StevenBadFeeling MSGBOX_AUTOCLOSE
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
@@ -1123,11 +1085,9 @@ Route111_Text_StevenBeHere:
 	.string "right here.$"
 
 Route111_Text_KrillRunt:
-	.string "Krillar: HA!\p"
-	.string "A fledgling takes to the trail\n"
-	.string "steel unblooded, heart untested.\p"
+	.string "Krillar: HA!\p" 
 	.string "I'll show you a glimpse into\n"
-	.string "real power!$."
+	.string "real power.$"
 
 Route111_Text_StevenMyFriend:
 	.string "Steven: Not today unfortunately.\p"
@@ -1161,7 +1121,7 @@ Route111_Text_KrillHi:
 	.string "Krillar: Bro is a FREAK\n"
 	.string "but no joke of a trainer.\p"
 	.string "Looks can be deceiving huh.\p"
-	.string "What are you here for Steven?$"
+	.string "What you here for Steven?$"
 
 Route111_Text_StevenISee:
 	.string "Steven: I see you're also\n"
@@ -1200,10 +1160,6 @@ Route111_Text_LiveIn:
 Route111_Text_BreakingNews:
 	.string "Reporting live outside Krillars battle\n"
 	.string "tower...$"
-
-Route111_Text_FightKrill:
-	.string "I'll Take you on\n"
-	.string "prove your worth!$"
 
 Route111_Text_BattleOurFamily:
 	.string "Hello! I take it you're a traveler.\p"
@@ -1263,8 +1219,10 @@ Route111_Text_VickyDefeat:
 	.string "My granddaughter was right…$"
 
 Route111_Text_VickyPostBattle:
-	.string "If you're not in any hurry,\n"
-	.string "visit with us awhile.$"
+	.string "We WINSTRATES been doing this for\n"
+	.string "years. Quite a while since we lost!\p"
+	.string "By all means come in, we welcome\n"
+	.string "one so strong in our humble abode!$"
 
 Route111_Text_ToughToKeepWinningUpTheRanks:
 	.string "If you don't raise your POKéMON some\n"
@@ -1276,17 +1234,21 @@ Route111_Text_ToughToKeepWinningUpTheRanks:
 	.string "Trainers'$"
 
 Route111_Text_WinstrateFamilyDestroyedMe:
-	.string "I challenged the WINSTRATE family,\n"
-	.string "but four matches in a row is tough\l"
-	.string "going… They destroyed me.$"
+	.string "I know that Winstrate family,\n"
+	.string "is hiding something...\p"
+	.string "They said they'd answer my\n"
+	.string "questions if I beat them...\p"
+	.string "But four matches in a row is\n"
+	.string "Rough... They destroyed me.$"
 
 Route111_Text_RouteSignMauville:
 	.string "ROUTE 111\n"
 	.string "{DOWN_ARROW} MAUVILLE CITY$"
 
 Route111_Text_WinstrateHouseSign:
-	.string "“Our family's hearts beat as one!”\n"
-	.string "THE WINSTRATE'S HOUSE$"
+	.string "“Our family's hearts beat to the”\n"
+	.string "“roar of Dragons vitality!”\p"
+	.string "“The WINSTRATE ESTATE”" 
 
 Route111_Text_RouteSign112:
 	.string "ROUTE 111\n"
@@ -1357,7 +1319,12 @@ Route111_Text_MauvilleUncleToldMeToTakeRockSmash:
 	.string "Though he is a little... loud...$"
 
 Route111_Text_TrainerHillSign:
-	.string "{RIGHT_ARROW} Krillars BATTLE TOWER\p"
+	.string "{RIGHT_ARROW} Krillers BATTLE TOWER\p"
 	.string "“Show your true skill and resolve,\n"
 	.string "Only the strong will ascend!”$"
+
+Route111_Text_BryanNotReady:
+	.string "Heyoo, I'm the ace round 'ese parts\p"
+	.string "You beat the rest before you try\n"
+	.string "the best?$"
 

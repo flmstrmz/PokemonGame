@@ -75,7 +75,6 @@ static void DecryptBoxMon(struct BoxPokemon *boxMon);
 static void Task_PlayMapChosenOrBattleBGM(u8 taskId);
 static bool8 ShouldSkipFriendshipChange(void);
 static void RemoveIVIndexFromList(u8 *ivs, u8 selectedIv);
-static bool8 sPartyBackedUp = FALSE;
 void TrySpecialOverworldEvo();
 
 EWRAM_DATA static u8 sLearningMoveTableID = 0;
@@ -87,7 +86,6 @@ EWRAM_DATA struct SpriteTemplate gMultiuseSpriteTemplate = {0};
 EWRAM_DATA static struct MonSpritesGfxManager *sMonSpritesGfxManagers[MON_SPR_GFX_MANAGERS_COUNT] = {NULL};
 EWRAM_DATA static u8 sTriedEvolving = 0;
 EWRAM_DATA u16 gFollowerSteps = 0;
-EWRAM_DATA static struct Pokemon sPartyBackup[PARTY_SIZE];
 
 #include "data/moves_info.h"
 #include "data/abilities.h"
@@ -6969,26 +6967,28 @@ void UpdateDaysPassedSinceFormChange(u16 days)
 
 void BackupPlayerParty(void)
 {
-    int i;
-    if (sPartyBackedUp)
+    if (gSaveBlock1Ptr->hasPartyBackup)   // already backed up? do nothing
         return;
 
-    for (i = 0; i < PARTY_SIZE; i++)
-        sPartyBackup[i] = gPlayerParty[i];
+    for (int i = 0; i < PARTY_SIZE; i++)
+        gSaveBlock1Ptr->partyBackup[i] = gPlayerParty[i];
 
-    sPartyBackedUp = TRUE;
+    gSaveBlock1Ptr->hasPartyBackup = TRUE;
 }
 
 void RestorePlayerPartyFromBackup(void)
 {
-    int i;
-    if (!sPartyBackedUp)
+    // If you still want to set a flag here, keep it; it's unrelated to backup.
+    if (!FlagGet(FLAG_INBATTLETOWER))
+        FlagSet(FLAG_INBATTLETOWER);
+
+    if (!gSaveBlock1Ptr->hasPartyBackup)
         return;
 
-    for (i = 0; i < PARTY_SIZE; i++)
-        gPlayerParty[i] = sPartyBackup[i];
+    for (int i = 0; i < PARTY_SIZE; i++)
+        gPlayerParty[i] = gSaveBlock1Ptr->partyBackup[i];
 
-    sPartyBackedUp = FALSE;
+    gSaveBlock1Ptr->hasPartyBackup = FALSE;     // consume the backup once restored
     CalculatePlayerPartyCount();
 }
 
@@ -6998,6 +6998,10 @@ void ReducePlayerPartyLevelTo50(void)
 
     // Keep originals so you can restore after the special battle
     BackupPlayerParty();
+
+    if (!FlagGet(FLAG_INBATTLETOWER)){
+        FlagSet(FLAG_INBATTLETOWER);
+    }
 
     for (int i = 0; i < PARTY_SIZE; i++)
     {

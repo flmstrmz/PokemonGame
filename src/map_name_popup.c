@@ -504,6 +504,8 @@ void HideMapNamePopUpWindow(void)
 }
 
 // custom names (≤ 20 visible chars each)
+static const u8 sText_WSTunnel     []    = _("Winstrates Tunnel");
+static const u8 sText_DrakeGrotto  []    = _("Drake Grotto");
 static const u8 sText_BattleTower1F[]    = _("BATTLE TOWER 1F");
 static const u8 sText_BattleTower2F[]    = _("BATTLE TOWER 2F");
 static const u8 sText_BattleTower3F[]    = _("BATTLE TOWER 3F");
@@ -521,6 +523,8 @@ static const struct CustomMapName sCustomMapNames[] = {
     { MAP_GROUP(BATTLE_TOWER_3F), MAP_NUM(BATTLE_TOWER_3F), sText_BattleTower3F },
     { MAP_GROUP(BATTLE_TOWER_ROOF), MAP_NUM(BATTLE_TOWER_ROOF), sText_BattleTowerRF },
     { MAP_GROUP(LITTLEROOT_TOWN_POKE_SCHOOL), MAP_NUM(LITTLEROOT_TOWN_POKE_SCHOOL), sText_LRPS },
+    { MAP_GROUP(WINSTRATES_TUNNEL), MAP_NUM(WINSTRATES_TUNNEL), sText_WSTunnel },
+    { MAP_GROUP(DRAKE_GROTTO), MAP_NUM(DRAKE_GROTTO), sText_DrakeGrotto },
     // add your floors here:
     // { MAP_GROUP(MAP_BATTLE_TOWER_F1), MAP_NUM(MAP_BATTLE_TOWER_F1), sText_BattleTowerF1 },
     // ...

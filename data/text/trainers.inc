@@ -1332,8 +1332,8 @@ Route111_Text_BryanDefeat:
 	.string "It is shrouded in mystery!$"
 
 Route111_Text_BryanPostBattle:
-	.string "This desert hoards mysteries in\n"
-	.string "its shifting sands!$"
+	.string "I guess I'm not the best\n"
+	.string "no more…$"
 
 Route111_Text_BrandenIntro:
 	.string "I'll give you some of my sandwich\n"

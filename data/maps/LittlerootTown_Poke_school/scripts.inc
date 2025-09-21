@@ -153,7 +153,7 @@ LittlerootSchool_Text_Thanks:
 LittlerootSchool_Text_Rod:
 	.string "Back in my youth I used that\n"
 	.string "to catch a rare few myself!\p"
-	.string "if you don't want to fall behind\p"
+	.string "if you don't want to fall behind\n"
 	.string "the other students, I suggest you get\l"
 	.string "Fishin'!$"
 
@@ -163,18 +163,20 @@ LittlerootSchool_Text_Heal:
 
 LittlerootSchool_Text_GoFight:
 	.string "Well don't just stand there\n"
-	.string "GET THEM OUT!$"
+	.string "get them OUT!$"
 
 LittlerootSchool_Text_BeatAllTrainers:
 	.string "Oh thank god someone normal!\n"
 	.string "Can you get these freaks out please?\p"
 	.string "They beat all the regular kids and\n"
-	.string "wont leave...$"
+	.string "wont leave...\p"
+	.string "Ill heal your POKéMON if you need\n"
+	.string "just get them OUT!$"
 
 LittlerootSchool_Text_DontLeave:
 	.string "Oh no you don't!\n"
 	.string "You are NOT leaving me with them.\p"
-	.string "GET THEM OUT!$"
+	.string "get them OUT!$"
 
 LittlerootSchool_Text_Ty_Opening_Chat:
 	.string "lil bro im literally an orange\n"
@@ -216,7 +218,7 @@ LittlerootSchool_Text_Sugi_Leave:
 	.string "On my life bro, watch next time..$"
 
 LittlerootSchool_Text_Aabhash_Opening_Chat:
-	.string "Bro Im kinda hot as a goth girl huh?$"
+	.string "Yo, Im kinda hot as a goth girl huh?$"
 
 LittlerootSchool_Text_Aabhash_Losing_Chat:
 	.string "Bro I wasn't even playing, I've got\n"

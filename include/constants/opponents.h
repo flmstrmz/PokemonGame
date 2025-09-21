@@ -43,17 +43,17 @@
 #define TRAINER_SAMIR_4                      37 
 #define TRAINER_FELIX                        38
 #define TRAINER_VIOLET                       39
-#define TRAINER_ROSE_2                       40 //unused
-#define TRAINER_ROSE_3                       41 //unused
+#define TRAINER_DOOR_MAN_SERIOUS             40 
+#define TRAINER_SUGI_DRAKEGROTTO             41
 #define TRAINER_ROSE_4                       42 //unused
 #define TRAINER_ROSE_5                       43 //unused
 #define TRAINER_DUSTY_1                      44
 #define TRAINER_CHIP                         45
 #define TRAINER_FOSTER                       46
-#define TRAINER_DUSTY_2                      47
-#define TRAINER_DUSTY_3                      48
-#define TRAINER_DUSTY_4                      49
-#define TRAINER_DUSTY_5                      50
+#define TRAINER_DUSTY_2                      47 //unused
+#define TRAINER_DUSTY_3                      48 //unused
+#define TRAINER_DUSTY_4                      49 //unused
+#define TRAINER_DUSTY_5                      50 //unused
 #define TRAINER_GABBY_AND_TY_1               51 //unused
 #define TRAINER_GABBY_AND_TY_2               52 //unused
 #define TRAINER_GABBY_AND_TY_3               53 //unused
@@ -307,14 +307,14 @@
 #define TRAINER_BETHANY                     301
 #define TRAINER_ISABEL_1                    302
 #define TRAINER_ISABEL_2                    303 //unused
-#define TRAINER_ISABEL_3                    304
-#define TRAINER_ISABEL_4                    305
-#define TRAINER_ISABEL_5                    306
+#define TRAINER_ISABEL_3                    304 //unused
+#define TRAINER_ISABEL_4                    305 //unused
+#define TRAINER_ISABEL_5                    306 //unused
 #define TRAINER_TIMOTHY_1                   307
-#define TRAINER_TIMOTHY_2                   308
-#define TRAINER_TIMOTHY_3                   309
-#define TRAINER_TIMOTHY_4                   310
-#define TRAINER_TIMOTHY_5                   311
+#define TRAINER_TIMOTHY_2                   308 //unused
+#define TRAINER_TIMOTHY_3                   309 //unused
+#define TRAINER_TIMOTHY_4                   310 //unused
+#define TRAINER_TIMOTHY_5                   311 //unused
 #define TRAINER_VICKY                       312
 #define TRAINER_SHELBY_1                    313
 #define TRAINER_SHELBY_2                    314

@@ -1,3 +1,5 @@
+.set LOCALID_COSMO, 9
+
 NewMauville_Inside_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, NewMauville_Inside_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, NewMauville_Inside_OnTransition
@@ -37,7 +39,7 @@ NewMauville_Inside_EventScript_ShowVoltorb3::
 	return
 
 NewMauville_Inside_OnLoad:
-	call_if_eq VAR_NEW_MAUVILLE_STATE, 2, NewMauville_Inside_EventScript_SetGeneratorOffMetatiles
+	call_if_eq VAR_NEW_MAUVILLE_STATE, 5, NewMauville_Inside_EventScript_SetGeneratorOffMetatiles
 	end
 
 NewMauville_Inside_EventScript_BlueButton::
@@ -144,7 +146,18 @@ NewMauville_Inside_EventScript_RedButton::
 	lockall
 	msgbox NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped, MSGBOX_DEFAULT
 	call NewMauville_Inside_EventScript_SetGeneratorOffMetatiles
-	setvar VAR_NEW_MAUVILLE_STATE, 2
+	setvar VAR_NEW_MAUVILLE_STATE, 5
+	msgbox NewMauville_Inside_Text_CosmoStayThere, MSGBOX_AUTOCLOSE
+	playse SE_BANG
+	fadescreen FADE_TO_BLACK
+	delay 32
+	removeobject LOCALID_COSMO
+	setflag FLAG_HIDE_COSMONMAUVILLE
+	msgbox NewMauville_Inside_Text_CosmoThanks, MSGBOX_AUTOCLOSE
+	delay 16
+	playse SE_EXIT
+	delay 64
+	fadescreen FADE_FROM_BLACK
 	releaseall
 	end
 
@@ -163,10 +176,25 @@ NewMauville_Inside_EventScript_SetGeneratorOffMetatiles::
 
 NewMauville_Inside_EventScript_Generator::
 	lockall
-	goto_if_eq VAR_NEW_MAUVILLE_STATE, 2, NewMauville_Inside_EventScript_GeneratorOff
+	goto_if_eq VAR_NEW_MAUVILLE_STATE, 5, NewMauville_Inside_EventScript_GeneratorOff
 	msgbox NewMauville_Inside_Text_GeneratorRadiatingHeat, MSGBOX_DEFAULT
 	releaseall
 	end
+
+NewMauville_Inside_Text_CosmoThanks:
+	.string "Appreciate the help friend,\n"
+	.string "Thanks to you it's fully charged!\p"
+	.string "Now just to find the facility to\n"
+	.string "use it...$"
+
+
+NewMauville_Inside_Text_CosmoStayThere:
+	.string "Prof.Cosmo: Perfect! Just stay\n"
+	.string "there a moment.\p"
+	.string "... ... ... ... ...\p"
+	.string "Just need to reroute the power...\p"
+	.string "... ... ... ... ...\n"
+	.string "... ... ... ... ...$"
 
 NewMauville_Inside_EventScript_GeneratorOff::
 	msgbox NewMauville_Inside_Text_GeneratorQuietedDown, MSGBOX_DEFAULT
@@ -240,6 +268,34 @@ NewMauville_Inside_EventScript_Voltorb3::
 	release
 	end
 
+NewMauville_Inside_EventScript_Camera::
+	msgbox NewMauville_Inside_Text_Watched, MSGBOX_AUTOCLOSE
+	setvar VAR_NEW_MAUVILLE_STATE, 3
+	end
+
+NewMauville_Inside_EventScript_ProfCozmo::
+	applymovement LOCALID_COSMO, Common_Movement_FacePlayer
+	waitmovement 0
+	playse SE_PIN
+	applymovement LOCALID_COSMO Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox NewMauville_Inside_Text_CosmoHelp, MSGBOX_AUTOCLOSE
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
+	waitmovement 0
+	setvar VAR_MAUVILLE_GYM_STATE 3
+	end
+
+NewMauville_Inside_EventScript_Switch::
+	applymovement LOCALID_COSMO, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox NewMauville_Inside_Text_CosmoSwitch, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_COSMO, Common_Movement_FaceUp
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
+	waitmovement 0
+	end
+
+
 NewMauville_Inside_EventScript_DefeatedVoltorb3::
 	setflag FLAG_DEFEATED_VOLTORB_3_NEW_MAUVILLE
 	goto Common_EventScript_RemoveStaticPokemon
@@ -261,3 +317,16 @@ NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped:
 	.string "… … … … … … … …\p"
 	.string "The generator appears to have\n"
 	.string "stopped…$"
+
+NewMauville_Inside_Text_Watched:
+	.string "you feel like youre being watched...$"
+
+NewMauville_Inside_Text_CosmoHelp:
+	.string "Prof.Cosmo: Ah! You again!\p"
+	.string "You must help quickly!\p"
+	.string "Please you must step on the switch,\n"
+	.string "the machine is going haywire!$"
+
+NewMauville_Inside_Text_CosmoSwitch:
+	.string "Please you must step on the switch,\n"
+	.string "the machine is going haywire!$"

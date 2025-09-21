@@ -128,8 +128,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WATTSON",
-      "x": 29,
-      "y": 9,
+      "x": 34,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -231,7 +231,231 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "1",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "1",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "1",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "1",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "1",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "2",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "2",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "2",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "2",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "2",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "3",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "3",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "3",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "3",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "3",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "4",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "4",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "4",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "4",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "4",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "5",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "5",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "5",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "5",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "5",
+      "script": "MauvilleCity_EventScript_WattsonHey"
+    }
   ],
   "bg_events": [
     {

@@ -42,6 +42,7 @@ MtChimney_EventScript_ArchieBusyFighting::
 
 MtChimney_EventScript_Maxie::
 	lockall
+	special BackupPlayerParty
 	playbgm MUS_ENCOUNTER_MAGMA, FALSE
 	msgbox MtChimney_Text_MeteoriteWillActivateVolcano, MSGBOX_DEFAULT
 	applymovement LOCALID_MAXIE, Common_Movement_FacePlayer
@@ -160,7 +161,7 @@ MtChimney_Text_CosmoStudies:
 	.string "retrieve the METEOR!$"
 
 MtChimney_Text_CosmoMeteor:
-	.string "Hello, Hello!\p"
+	.string "Prof.Cosmo: Hello, Hello!\p"
 	.string "I saw you back at the cave right?\p"
 	.string "Please, tell me you got the\n"
 	.string "METEOR back!?\p"

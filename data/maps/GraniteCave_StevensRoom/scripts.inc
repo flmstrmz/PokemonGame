@@ -52,6 +52,7 @@ GraniteCave_Samir_Stephen::
 	delay 16
 	applymovement LOCALID_SAMIR, Common_Movement_WalkInPlaceLeft
 	waitmovement 0
+	delay 32
 	msgbox GraniteCave_SamirIDTYR, MSGBOX_DEFAULT
 	closemessage
 	delay 16

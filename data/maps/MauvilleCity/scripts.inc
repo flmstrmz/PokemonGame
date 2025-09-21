@@ -1,5 +1,6 @@
 .set LOCALID_WALLY, 6
 .set LOCALID_WALLYS_UNCLE, 7
+.set LOCALID_WATTSON, 8
 .set LOCALID_SCOTT, 11
 
 MauvilleCity_MapScripts::
@@ -419,10 +420,11 @@ MauvilleCity_EventScript_Wattson::
 	lock
 	faceplayer
 	goto_if_set FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON, MauvilleCity_EventScript_ReceivedThunderbolt
-	goto_if_eq VAR_NEW_MAUVILLE_STATE, 2, MauvilleCity_EventScript_CompletedNewMauville
+	goto_if_eq VAR_NEW_MAUVILLE_STATE, 5, MauvilleCity_EventScript_CompletedNewMauville
 	goto_if_set FLAG_GOT_BASEMENT_KEY_FROM_WATTSON, MauvilleCity_EventScript_BegunNewMauville
 	msgbox MauvilleCity_Text_WattsonNeedFavorTakeKey, MSGBOX_DEFAULT
 	giveitem ITEM_BASEMENT_KEY
+	setvar VAR_NEW_MAUVILLE_STATE, 1
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_GOT_BASEMENT_KEY_FROM_WATTSON
 	msgbox MauvilleCity_Text_WattsonWontBeChallenge, MSGBOX_DEFAULT
@@ -439,7 +441,7 @@ MauvilleCity_EventScript_CompletedNewMauville::
 	giveitem ITEM_TM_THUNDERBOLT
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON
-	msgbox MauvilleCity_Text_WattsonYoungTakeCharge, MSGBOX_DEFAULT
+	msgbox MauvilleCity_Text_WattsonCosmo, MSGBOX_DEFAULT
 	release
 	end
 
@@ -447,6 +449,19 @@ MauvilleCity_EventScript_ReceivedThunderbolt::
 	msgbox MauvilleCity_Text_WattsonYoungTakeCharge, MSGBOX_DEFAULT
 	release
 	end
+
+MauvilleCity_EventScript_WattsonHey::
+	applymovement LOCALID_WATTSON, Common_Movement_FaceRight
+	waitmovement 0
+	msgbox MauvilleCity_Text_WattsonHey, MSGBOX_AUTOCLOSE
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
+	end
+
+
+MauvilleCity_Text_WattsonHey:
+	.string "Wattson: hey {PLAYER}!\p"
+	.string "New Mauville is down south!\n"
+	.string "It wont take long I promise!$"
 
 MauvilleCity_EventScript_RegisterWallyCall::
 	lockall
@@ -615,9 +630,17 @@ MauvilleCity_Text_WattsonThanksTakeTM:
 	.string "Go on, you've earned it!$"
 
 MauvilleCity_Text_WattsonYoungTakeCharge:
-	.string "WATTSON: Wahahahaha!\p"
-	.string "It pleases me to no end to see\n"
-	.string "the young step up and take charge!$"
+	.string "Wahahahah!\p"
+	.string "I appreciate you taking care of that\n"
+	.string "for me!$"
+
+MauvilleCity_Text_WattsonCosmo:
+	.string "WATTSON: You manage to get it done?\p"
+	.string "hmmm... you saw Professor Cosmo down\n"
+	.string "there?\p"
+	.string "Place has been locked up for weeks...\p"
+	.string "I wonder how he got down without\n"
+	.string "my key...$"
 
 MauvilleCity_Text_NurseHurtMonBackToHealth:
 	.string "You know, it's cool to have POKéMON\n"

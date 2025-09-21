@@ -177,7 +177,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_IRON",
+      "trainer_sight_or_berry_tree_id": "ITEM_BLACK_AUGURITE",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_115_IRON"
     },
@@ -349,7 +349,15 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_ROUTE115_ACE",
+      "var_value": "7",
+      "script": "Route115_EventScript_Ace"
+    }
   ],
   "bg_events": [
     {

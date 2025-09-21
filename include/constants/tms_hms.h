@@ -58,7 +58,31 @@
     F(HEART_STAMP) \
     F(RAZOR_SHELL) \
     F(MIRROR_SHOT) \
-    F(KNOCK_OFF)
+    F(KNOCK_OFF) \
+    F(LUNGE) \
+    F(SIGNAL_BEAM) \
+    F(DARK_PULSE) \
+    F(DRAGON_TAIL) \
+    F(SECRET_SWORD) \
+    F(KARATE_CHOP) \
+    F(DRAINING_KISS) \
+    F(WILD_CHARGE) \
+    F(VOLT_SWITCH) \
+    F(DRAGON_BREATH) \
+    F(LIQUIDATION) \
+    F(SCALD) \
+    F(ANCIENT_POWER) \
+    F(STONE_EDGE) \
+    F(MYSTICAL_POWER) \
+    F(PSYCHIC_FANGS) \
+    F(SLUDGE_WAVE) \
+    F(POISON_FANG) \
+    F(POISON_JAB) \
+    F(HYPER_VOICE) \
+    F(SWAGGER) \
+    F(TRI_ATTACK) \
+    F(ENERGY_BALL) \
+    F(HEAT_WAVE)
 
 #define FOREACH_HM(F) \
     F(CUT) \

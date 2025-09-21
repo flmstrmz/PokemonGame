@@ -4,7 +4,7 @@ NewMauville_Entrance_MapScripts::
 	.byte 0
 
 NewMauville_Entrance_OnLoad:
-	call_if_eq VAR_NEW_MAUVILLE_STATE, 0, NewMauville_Entrance_EventScript_CloseDoor
+	call_if_lt VAR_NEW_MAUVILLE_STATE, 2, NewMauville_Entrance_EventScript_CloseDoor
 	end
 
 NewMauville_Entrance_EventScript_CloseDoor::
@@ -38,7 +38,7 @@ NewMauville_Entrance_EventScript_Door::
 	setmetatile 5, 1, METATILE_Facility_NewMauvilleDoor_Open_Tile5, TRUE
 	special DrawWholeMapView
 	playse SE_BANG
-	setvar VAR_NEW_MAUVILLE_STATE, 1
+	setvar VAR_NEW_MAUVILLE_STATE, 2
 	releaseall
 	end
 

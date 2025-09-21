@@ -53,7 +53,7 @@ BattleTower_3F_EventScript_FightMe::
 
 BattleTower_3F_Text_Congrats:
 	.string "Announcer: {PLAYER} has completed\n"
-	.string "all trials and thus successfully\l"
+	.string "all floors and thus successfully\l"
 	.string "overcome their trial!\p"
 	.string "Please ascend to the roof where\n"
 	.string "GREAT DANE awaits!$"

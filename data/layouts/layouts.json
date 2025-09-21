@@ -4470,6 +4470,26 @@
       "secondary_tileset": "gTileset_TrainerHill",
       "border_filepath": "data/layouts/BattleTower_3F/border.bin",
       "blockdata_filepath": "data/layouts/BattleTower_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_WINSTRATES_TUNNEL",
+      "name": "Winstrates_Tunnel_Layout",
+      "width": 30,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Winstrates_Tunnel/border.bin",
+      "blockdata_filepath": "data/layouts/Winstrates_Tunnel/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRAKE_GROTTO",
+      "name": "Drake_Grotto_Layout",
+      "width": 23,
+      "height": 26,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Drake_Grotto/border.bin",
+      "blockdata_filepath": "data/layouts/Drake_Grotto/map.bin"
     }
   ]
 }

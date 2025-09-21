@@ -1206,7 +1206,7 @@ Route104_Text_BrendanPostBattle:
 Route104_Text_AceWontFight:
 	.string "I don't have time for a small time\n"
 	.string "TRAINER.\p"
-	.string "I'm the ace around here, go beat\p"
+	.string "I'm the ace around here, go beat\n"
 	.string "the others first!$"
 
 Route104_Text_NotEnoughPoke:

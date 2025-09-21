@@ -4,7 +4,12 @@
 .set LOCALID_VICKY, 4
 
 Route111_WinstrateFamilysHouse_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Winstrates_OnFrame
 	.byte 0
+
+Winstrates_OnFrame:
+	map_script_2 VAR_WINSTRATE_STAIRS, 4, Route111_WinstrateFamilysHouse_EventScript_ShowStairs
+	.2byte 0
 
 Route111_WinstrateFamilysHouse_EventScript_Victor::
 	lock
@@ -60,6 +65,100 @@ Route111_WinstrateFamilysHouse_EventScript_FaceOriginalDirection::
 	waitmovement 0
 	release
 	end
+
+Route111_WinstrateFamilysHouse_Sign_Window::
+	goto_if_ne VAR_WINSTRATE_STAIRS, 0, Route111_WinstrateFamilysHouse_EventScript_ResetLock
+	msgbox Route111_WinstrateFamilysHouse_Text_Click, MSGBOX_AUTOCLOSE
+	addvar VAR_WINSTRATE_STAIRS, 1
+	end
+
+Route111_WinstrateFamilysHouse_Sign_Drawers::
+	goto_if_eq VAR_WINSTRATE_STAIRS, 0, Route111_WinstrateFamilysHouse_EventScript_Nothing
+	goto_if_ne VAR_WINSTRATE_STAIRS, 3, Route111_WinstrateFamilysHouse_EventScript_ResetLock
+	msgbox Route111_WinstrateFamilysHouse_Text_Click, MSGBOX_AUTOCLOSE
+	addvar VAR_WINSTRATE_STAIRS, 1
+	end
+
+Route111_WinstrateFamilysHouse_Sign_Sink::
+	msgbox Route111_WinstrateFamilysHouse_Text_Sink, MSGBOX_AUTOCLOSE
+	end
+
+Route111_WinstrateFamilysHouse_Sign_Fridge::
+	msgbox Route111_WinstrateFamilysHouse_Text_Fridge, MSGBOX_AUTOCLOSE
+	end
+
+Route111_WinstrateFamilysHouse_Sign_Counter::
+	goto_if_eq VAR_WINSTRATE_STAIRS, 0, Route111_WinstrateFamilysHouse_EventScript_Nothing
+	goto_if_ne VAR_WINSTRATE_STAIRS, 1, Route111_WinstrateFamilysHouse_EventScript_ResetLock
+	msgbox Route111_WinstrateFamilysHouse_Text_Mechanism, MSGBOX_AUTOCLOSE
+	addvar VAR_WINSTRATE_STAIRS, 1
+	end
+
+Route111_WinstrateFamilysHouse_Sign_PlantRight::
+	msgbox Route111_WinstrateFamilysHouse_Text_PlantRight, MSGBOX_AUTOCLOSE
+	end
+
+Route111_WinstrateFamilysHouse_Sign_PlantLeft::
+	goto_if_eq VAR_WINSTRATE_STAIRS, 0, Route111_WinstrateFamilysHouse_EventScript_Nothing
+	goto_if_ne VAR_WINSTRATE_STAIRS, 2, Route111_WinstrateFamilysHouse_EventScript_ResetLock
+	msgbox Route111_WinstrateFamilysHouse_Text_Rumble, MSGBOX_AUTOCLOSE
+	addvar VAR_WINSTRATE_STAIRS, 1
+	end
+
+Route111_WinstrateFamilysHouse_Sign_DisplayCase::
+	msgbox Route111_WinstrateFamilysHouse_Text_DisplayCase, MSGBOX_AUTOCLOSE
+	end
+
+Route111_WinstrateFamilysHouse_EventScript_ResetLock::
+	setvar VAR_WINSTRATE_STAIRS, 0
+	msgbox Route111_WinstrateFamilysHouse_Text_Locked, MSGBOX_AUTOCLOSE
+	end
+
+Route111_WinstrateFamilysHouse_EventScript_Addlock::
+	addvar VAR_WINSTRATE_STAIRS, 1
+	end
+
+Route111_WinstrateFamilysHouse_EventScript_Nothing::
+	msgbox Route111_WinstrateFamilysHouse_Text_Nothing, MSGBOX_AUTOCLOSE
+	end
+
+Route111_WinstrateFamilysHouse_EventScript_ShowStairs::
+	setmetatile 0, 4, METATILE_GenericBuilding_TrickHouse_Stairs_Down, FALSE
+	special DrawWholeMapView
+	playse SE_TRUCK_DOOR
+	msgbox Route111_WinstrateFamilysHouse_Text_Hatch, MSGBOX_AUTOCLOSE
+	setvar VAR_WINSTRATE_STAIRS, 0
+	end
+
+Route111_WinstrateFamilysHouse_Text_Sink:
+	.string "Its just a sink...$"
+
+Route111_WinstrateFamilysHouse_Text_PlantRight:
+	.string "Its just a Plant...$"
+
+Route111_WinstrateFamilysHouse_Text_DisplayCase:
+	.string "It's littered with dragon statues...$"
+
+Route111_WinstrateFamilysHouse_Text_Fridge:
+	.string "The fridge has a child lock on it...$"
+
+Route111_WinstrateFamilysHouse_Text_Click:
+	.string "You hear a faint click...$"
+
+Route111_WinstrateFamilysHouse_Text_Mechanism:
+	.string "You hear a mechanism rotate below...$"
+
+Route111_WinstrateFamilysHouse_Text_Rumble:
+	.string "You feel the floor shift beneath...$"
+
+Route111_WinstrateFamilysHouse_Text_Locked:
+	.string "You hear the lock reset!$" 
+
+Route111_WinstrateFamilysHouse_Text_Nothing:
+	.string "Nothing happens!$"
+
+Route111_WinstrateFamilysHouse_Text_Hatch:
+	.string "You hear a hatch crash open!$"
 
 Route111_WinstrateFamilysHouse_Text_MySonIsStrongerThanYou:
 	.string "You're the first TRAINER I've seen who\n"

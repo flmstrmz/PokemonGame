@@ -866,11 +866,6 @@ PetalburgCity_Text_WellMaybeNot:
 	.string "Smells demoralizing...\p"
 	.string "You're either a rookie TRAINER,\n"
 	.string "or maybe you're just an ordinary kid.\p"
-	.string "Some advice if I may, but if\n"
-	.string "you look around, there's a bunch of\l"
-	.string "Battle Items rookie trainers leave\p"
-	.string "If you're gonna take L's at least\n"
-	.string "give yourself a fighting chance...$"
 
 PetalburgCity_Text_ImLookingForTalentedTrainers:
 	.string "I'm roaming the land in search of\n"
