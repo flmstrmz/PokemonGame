@@ -82,11 +82,6 @@ MauvilleCity_Gym_EventScript_Wattson::
 	end
 
 MauvilleCity_Gym_EventScript_WattsonDefeated::
-	addvar VAR_ROUTE111_MEGA, 1
-	clearflag FLAG_ROUTE111_HIDE_SAMIR
-	clearflag FLAG_ROUTE111_HIDE_STEVEN
-	clearflag FLAG_ROUTE111_HIDE_KRILL
-	setflag FLAG_ROUTE111_HIDETOWERMAN
 	message MauvilleCity_Gym_Text_ReceivedDynamoBadge
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare

@@ -22,6 +22,11 @@ GraniteCave_StevensRoom_EventScript_Steven::
 	call Common_EventScript_PlayerHandedOverTheItem
 	setflag FLAG_DELIVERED_STEVEN_LETTER
 	setflag FLAG_GRANITE_SAMIR
+	clearflag FLAG_ROUTE111_HIDE_SAMIR
+	clearflag FLAG_ROUTE111_HIDE_STEVEN
+	clearflag FLAG_ROUTE111_HIDE_KRILL
+	setvar VAR_ROUTE111_MEGA, 1
+	setflag FLAG_ROUTE111_HIDETOWERMAN
 	msgbox GraniteCave_StevensRoom_Text_ThankYouTakeThis, MSGBOX_DEFAULT
 	giveitem ITEM_TM_STEEL_WING
 	call_if_eq VAR_RESULT, FALSE, GraniteCave_StevensRoom_EventScript_BagFull
